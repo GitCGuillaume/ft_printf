@@ -20,6 +20,7 @@
 
 typedef struct	s_flags
 {
+	int	init;
 	int	minus;
 	int	zero;
 	int	point;

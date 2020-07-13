@@ -26,7 +26,7 @@ int	is_specification(t_flags *l_flags, va_list ap, char const *fmt, size_t *i)
 			else if (fmt[*i] == '*' && l_flags->width_specification == 0)
 			{
 				asterisk_precision_specification(l_flags, ap);
-				*i = *i + 1;
+				//*i = *i + 1;
 			}
 			else
 				*i = *i - 1;

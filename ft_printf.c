@@ -44,20 +44,23 @@ int				ft_printf(const char *fmt, ...)
 	i = 0;
 	result = 0;
 	va_start(ap, fmt);
-	while (fmt[i] != '\0')
-	{
+	//while (fmt[i] != '\0')
+	//{
 		if (find_percentage(fmt, &i, &l_flags) == 1)
 		{
-			if (is_indicator(fmt, &i, &l_flags) == 1)
-				find_indicators(fmt, &i, &l_flags);
-			is_digit(&l_flags, &i, fmt);
-			is_specification(&l_flags, ap, fmt, &i);
-			//if (is_convertor(fmt[i]))
-			//	find_convertor(fmt, &l_flags, ap, &i);
+			while (fmt[i])
+			{
+				if (is_indicator(fmt, &i, &l_flags) == 1)
+					find_indicators(fmt, &i, &l_flags);
+				is_digit(&l_flags, &i, fmt);
+				is_specification(&l_flags, ap, fmt, &i);
+				//if (is_convertor(fmt[i]))
+				//	find_convertor(fmt, &l_flags, ap, &i);
+				i++;
+			}
 		}
-		i++;
-	}
-	printf("widthA == %s\n", l_flags.width);
+	//}
+	printf("\nwidthA == %s\n", l_flags.width);
 	printf("width_specificationA == %s\n", l_flags.width_specification);
 	va_end(ap);
 	return (result);
