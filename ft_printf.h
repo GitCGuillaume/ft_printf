@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include "libft/libft.h"
 
-typedef struct	s_list_flags
+typedef struct	s_flags
 {
 	int	minus;
 	int	zero;
@@ -27,23 +27,23 @@ typedef struct	s_list_flags
 	int	percentage;
 	char	*width;
 	char	*width_specification;
-}				t_list_flags;
+}				t_flags;
 
-void				init_list_flags(t_list_flags *lst_flags);
-int				find_indicators(const char *fmt, size_t *i, t_list_flags *l_flags);
-int				is_indicator(char const *fmt, size_t *i,t_list_flags *l_flags);
-int				find_convertor(char *fmt, t_list_flags *l_flags, va_list ap, size_t *i);
+void				init_list_flags(t_flags *lst_flags);
+int				find_indicators(const char *fmt, size_t *i, t_flags *l_flags);
+int				is_indicator(char const *fmt, size_t *i,t_flags *l_flags);
+int				find_convertor(char *fmt, t_flags *l_flags, va_list ap, size_t *i);
 int				is_convertor(char c);
-int				is_digit(t_list_flags *l_flags, size_t *i, char const *fmt);
-int				is_specification(t_list_flags *l_flags, char const *fmt, size_t *i);
-int				print_d(char const *fmt, t_list_flags *l_flags, size_t start, va_list ap);
+int				is_digit(t_flags *l_flags, size_t *i, char const *fmt);
+int				is_specification(t_flags *l_flags, va_list ap, char const *fmt, size_t *i);
+int				print_d(char const *fmt, t_flags *l_flags, size_t start, va_list ap);
 int				print_space_d(size_t atoi, int d);
 int				print_zero_d(size_t atoi, int d);
-int				print_s(char const *fmt, t_list_flags *l_flags, size_t start, va_list ap);
-int				print_s_zero(t_list_flags *l_flags, char *s, size_t atoi);
-int				print_s_space(t_list_flags *l_flags, char *s, size_t atoi);
+int				print_s(char const *fmt, t_flags *l_flags, size_t start, va_list ap);
+int				print_s_zero(t_flags *l_flags, char *s, size_t atoi);
+int				print_s_space(t_flags *l_flags, char *s, size_t atoi);
 int				print_space_s(size_t atoi, char *s);
-int				print_p(char const *fmt, t_list_flags *l_flags, size_t start, void *addr);
+int				print_p(char const *fmt, t_flags *l_flags, size_t start, void *addr);
 int				print_zero_p(size_t atoi, char *p);
 char				*ft_putnbr_base(void *nbr, char *base);
 int				ft_lensize(int n);

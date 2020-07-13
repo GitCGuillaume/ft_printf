@@ -12,7 +12,7 @@
 
 #include "../../ft_printf.h"
 
-int	print_p_space(t_list_flags *l_flags, void *addr, size_t atoi)
+int	print_p_space(t_flags *l_flags, void *addr, size_t atoi)
 {
 	char *nbr_hex;
 
@@ -40,7 +40,7 @@ int	print_p_space(t_list_flags *l_flags, void *addr, size_t atoi)
 	return (1);
 }
 
-int	print_p_zero(t_list_flags *l_flags, void *addr, size_t atoi)
+int	print_p_zero(t_flags *l_flags, void *addr, size_t atoi)
 {
 	char *nbr_hex;
 
@@ -62,7 +62,7 @@ int	print_p_zero(t_list_flags *l_flags, void *addr, size_t atoi)
 	return (0);
 }
 
-int print_p(char const *fmt, t_list_flags *l_flags, size_t start, void *addr)
+int print_p(char const *fmt, t_flags *l_flags, size_t start, void *addr)
 {
 	char	*width_str;
 	size_t atoi;

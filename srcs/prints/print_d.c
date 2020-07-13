@@ -12,7 +12,7 @@
 
 #include "../../ft_printf.h"
 
-int		check_flags_one_d(t_list_flags *l_flags, va_list ap, int d)
+int		check_flags_one_d(t_flags *l_flags, va_list ap, int d)
 {
 	va_list	ap2;
 	int	d_copy;
@@ -39,7 +39,7 @@ int		check_flags_one_d(t_list_flags *l_flags, va_list ap, int d)
 	return (0);
 }
 
-int		check_flags_two_d(t_list_flags *l_flags, int d, size_t atoi)
+int		check_flags_two_d(t_flags *l_flags, int d, size_t atoi)
 {
 	size_t	result;
 
@@ -65,7 +65,7 @@ int		check_flags_two_d(t_list_flags *l_flags, int d, size_t atoi)
 	return (0);
 }
 
-int		print_d(char const *fmt, t_list_flags *l_flags, size_t start, va_list ap)
+int		print_d(char const *fmt, t_flags *l_flags, size_t start, va_list ap)
 {
 	char	*width_str;
 	size_t	atoi;

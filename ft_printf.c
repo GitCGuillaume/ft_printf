@@ -15,7 +15,7 @@
 #include "libft/libft.h"
 #include "ft_printf.h"
 
-int			find_percentage(const char *fmt, size_t *i, t_list_flags *lst_flags)
+int			find_percentage(const char *fmt, size_t *i, t_flags *lst_flags)
 {
 	while (fmt[*i])
 	{
@@ -37,27 +37,28 @@ int			find_percentage(const char *fmt, size_t *i, t_list_flags *lst_flags)
 int				ft_printf(const char *fmt, ...)
 {
 	va_list		ap;
-	t_list_flags	l_flags;
+	t_flags	l_flags;
 	size_t		i;
 	size_t		result;
 
 	i = 0;
 	result = 0;
-	//(void)l_flags;
 	va_start(ap, fmt);
 	while (fmt[i] != '\0')
 	{
 		if (find_percentage(fmt, &i, &l_flags) == 1)
 		{
-			//if (is_indicator(fmt, &i, &l_flags) == 1)
-			//	find_indicators(fmt, &i, &l_flags);
-			//is_digit(&l_flags, &i, fmt);
-			//is_specification(&l_flags, fmt, &i);
+			if (is_indicator(fmt, &i, &l_flags) == 1)
+				find_indicators(fmt, &i, &l_flags);
+			is_digit(&l_flags, &i, fmt);
+			is_specification(&l_flags, ap, fmt, &i);
 			//if (is_convertor(fmt[i]))
 			//	find_convertor(fmt, &l_flags, ap, &i);
 		}
 		i++;
 	}
+	printf("widthA == %s\n", l_flags.width);
+	printf("width_specificationA == %s\n", l_flags.width_specification);
 	va_end(ap);
 	return (result);
 }

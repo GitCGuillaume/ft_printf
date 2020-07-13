@@ -21,7 +21,7 @@ int	is_convertor(char c)
 	return (0);
 }
 
-int	find_convertor(char *fmt, t_list_flags *l_flags, va_list ap, size_t *i)
+int	find_convertor(char *fmt, t_flags *l_flags, va_list ap, size_t *i)
 {
 	size_t	start;
 	size_t	result;

@@ -37,6 +37,7 @@ void	test(char	*fmt, ...)
 
 int		main(void)
 {
-	ft_printf("%.*d", 267);
+	ft_printf("%0-01-013.*d", 4, 267);
+	printf("%0-01-013.*d", 4, 267);
 	return (0);
 }

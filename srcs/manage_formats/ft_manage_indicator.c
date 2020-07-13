@@ -13,18 +13,18 @@
 #include "../../libft/libft.h"
 #include "../../ft_printf.h"
 
-void		init_list_flags(t_list_flags *lst_flags)
+void		init_list_flags(t_flags *lst_flags)
 {
 	lst_flags->minus = 0;
 	lst_flags->zero = 0;
 	lst_flags->point = 0;
 	lst_flags->asterisk = 0;
 	lst_flags->percentage = 0;
-	//lst_flags->width = NULL;
-	//lst_flags->width_specification = NULL;
+	lst_flags->width = NULL;
+	lst_flags->width_specification = NULL;
 }
 
-int	check_value_indicator_one(t_list_flags *l_flags, char c)
+int	check_value_indicator_one(t_flags *l_flags, char c)
 {
 	if (c == '-')
 	{
@@ -42,7 +42,7 @@ int	check_value_indicator_one(t_list_flags *l_flags, char c)
 	return (0);
 }
 
-int	check_value_indicator_two(t_list_flags *l_flags, char c)
+int	check_value_indicator_two(t_flags *l_flags, char c)
 {
 	if (c == '*')
 	{
@@ -63,7 +63,7 @@ int	check_value_indicator_two(t_list_flags *l_flags, char c)
 	return (0);
 }
 
-int		find_indicators(const char *fmt, size_t *i, t_list_flags *l_flags)
+int		find_indicators(const char *fmt, size_t *i, t_flags *l_flags)
 {
 	*i = *i + 1;
 	while (fmt[*i])
@@ -81,7 +81,7 @@ int		find_indicators(const char *fmt, size_t *i, t_list_flags *l_flags)
 	return (0);
 }
 
-int	is_indicator(char const *fmt, size_t *i,t_list_flags *l_flags)
+int	is_indicator(char const *fmt, size_t *i,t_flags *l_flags)
 {
 	int	result;
 

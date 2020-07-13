@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static void	recursive_itoa(int n, int i, char *ptr)
+static void	recursive_itoa(ssize_t n, ssize_t i, char *ptr)
 {
 	if (n >= 0 && n <= 9)
 		ptr[i] = (n % 10) + '0';
@@ -24,7 +24,7 @@ static void	recursive_itoa(int n, int i, char *ptr)
 	}
 }
 
-static void	recursive_itoa_negative(int n, int i, char *ptr)
+static void	recursive_itoa_negative(ssize_t n, ssize_t i, char *ptr)
 {
 	if (n < 0)
 	{
@@ -43,7 +43,7 @@ static void	recursive_itoa_negative(int n, int i, char *ptr)
 	}
 }
 
-static int	ft_lensize(int n)
+static int	ft_lensize(ssize_t n)
 {
 	int	i;
 
@@ -58,16 +58,14 @@ static int	ft_lensize(int n)
 	return (i);
 }
 
-char		*ft_itoa(int n)
+char		*ft_itoa(ssize_t n)
 {
 	char	*ptr;
-	int		size;
+	ssize_t		size;
 
 	size = ft_lensize(n);
 	if (n == 0)
 		return (ft_strdup("0"));
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
 	if (!(ptr = malloc(((sizeof(char) * size + 1) + 1))))
 		return (NULL);
 	if (n > 0)

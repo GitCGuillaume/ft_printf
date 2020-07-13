@@ -1,7 +1,17 @@
 #include "../../ft_printf.h"
 
-#include <stdio.h>
-int	is_specification(t_list_flags *l_flags, char const *fmt, size_t *i)
+int	asterisk_precision_specification(t_flags *l_flags, va_list ap)
+{
+	va_list	ap2;
+	size_t	d_copy;
+
+	va_copy(ap2, ap);
+	d_copy = va_arg(ap2, int);
+	l_flags->width_specification = ft_itoa(d_copy);
+	return (0);
+}
+
+int	is_specification(t_flags *l_flags, va_list ap, char const *fmt, size_t *i)
 {
 	if (fmt[*i] == '.')
 	{
@@ -9,13 +19,17 @@ int	is_specification(t_list_flags *l_flags, char const *fmt, size_t *i)
 			l_flags->point = 2;
 		else
 		{
+			*i = *i + 1;
 			l_flags->point = 1;
-			//*i = *i + 1;
-			if (fmt[*i] >= '0' && fmt[*i] <= 9)
-			{
+			if (fmt[*i] >= '0' && fmt[*i] <= '9')
 				l_flags->width_specification = width_string(fmt, i);
-				//printf("width_specification == %s\n", l_flags->width_specification);
+			else if (fmt[*i] == '*' && l_flags->width_specification == 0)
+			{
+				asterisk_precision_specification(l_flags, ap);
+				*i = *i + 1;
 			}
+			else
+				*i = *i - 1;
 		}
 	}
 	return (0);

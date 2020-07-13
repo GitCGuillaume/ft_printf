@@ -46,13 +46,13 @@ int	ft_lensize(int n)
 	}
 	return (i);
 }
-#include <stdio.h>
-int	is_digit(t_list_flags *l_flags, size_t *i, char const *fmt)
+
+int	is_digit(t_flags *l_flags, size_t *i, char const *fmt)
 {
 	if (fmt[*i] >= '1' && fmt[*i] <= '9')
 	{
-		l_flags->width = width_string(fmt, i);
-		//printf("width == %s\n", l_flags->width);
+		if (l_flags->width == 0)
+			l_flags->width = width_string(fmt, i);
 		return (1);
 	}
 	return (0);

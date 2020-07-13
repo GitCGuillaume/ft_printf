@@ -30,7 +30,7 @@ char	*ft_strlimit(char *s, size_t atoi)
 	return (ptr);
 }
 
-int	check_flags_one_s(t_list_flags *l_flags, char *s, size_t atoi)
+int	check_flags_one_s(t_flags *l_flags, char *s, size_t atoi)
 {
 	char	*str;
 
@@ -51,7 +51,7 @@ int	check_flags_one_s(t_list_flags *l_flags, char *s, size_t atoi)
 	}
 	return (0);
 }
-int	check_flags_two_s(t_list_flags *l_flags, char *s, size_t atoi)
+int	check_flags_two_s(t_flags *l_flags, char *s, size_t atoi)
 {
 	if (l_flags->minus == 1)
 	{
@@ -62,7 +62,7 @@ int	check_flags_two_s(t_list_flags *l_flags, char *s, size_t atoi)
 	return (0);
 }
 
-int print_s(char const *fmt, t_list_flags *l_flags, size_t start, va_list ap)
+int print_s(char const *fmt, t_flags *l_flags, size_t start, va_list ap)
 {
 	size_t atoi;
 	char	*s;
