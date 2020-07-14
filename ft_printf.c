@@ -54,8 +54,8 @@ int				ft_printf(const char *fmt, ...)
 					find_indicators(fmt, &i, &l_flags);
 				is_digit(&l_flags, &i, fmt);
 				is_specification(&l_flags, ap, fmt, &i);
-				//if (is_convertor(fmt[i]))
-				//	find_convertor(fmt, &l_flags, ap, &i);
+				if (is_convertor(fmt[i]))
+					find_convertor(fmt, &l_flags, ap, &i);
 				i++;
 			}
 		}

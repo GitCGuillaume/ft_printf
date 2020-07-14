@@ -15,7 +15,6 @@
 
 void		init_list_flags(t_flags *lst_flags)
 {
-	lst_flags->init = 1;
 	lst_flags->minus = 0;
 	lst_flags->zero = 0;
 	lst_flags->point = 0;

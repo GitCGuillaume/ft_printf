@@ -1,7 +1,9 @@
 #include "../../ft_printf.h"
 
+#include <stdio.h>
 int	is_convertor(char c)
 {
+	printf("c == %c\n", c);
 	if (c == 'c')
 		return (1);
 	else if (c == 's')
@@ -21,23 +23,23 @@ int	is_convertor(char c)
 	return (0);
 }
 
-int	find_convertor(char *fmt, t_flags *l_flags, va_list ap, size_t *i)
+int	find_convertor(char const *fmt, t_flags *l_flags, va_list ap, size_t *i)
 {
-	size_t	start;
+	//size_t	start;
 	size_t	result;
 
 	result = 0;
-	start = 0;
-	if (fmt[*i] >= '0' && fmt[*i] <= '9')
-		start = *i;
-	while (fmt[*i] && fmt[*i] >= '0' && fmt[*i] <= '9')
-		*i = *i + 1;
+	//start = 0;
+	//if (fmt[*i] >= '0' && fmt[*i] <= '9')
+	//	start = *i;
+	//while (fmt[*i] && fmt[*i] >= '0' && fmt[*i] <= '9')
+	//	*i = *i + 1;
 	if (fmt[*i] == 's')
-		result = print_s(fmt, l_flags, start, ap);
+		result = print_s(fmt, l_flags, ap);
 	else if (fmt[*i] == 'd')
-		result = print_d(fmt, l_flags, start, ap);
+		result = print_d(l_flags, ap);
 	else if (fmt[*i] == 'p')
-		result = print_p(fmt, l_flags, start, va_arg(ap, void *));
+		result = print_p(fmt, l_flags, va_arg(ap, void *));
 	//(*i)++;
 	return (result);
 }
