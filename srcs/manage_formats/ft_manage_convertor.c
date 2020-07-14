@@ -3,7 +3,6 @@
 #include <stdio.h>
 int	is_convertor(char c)
 {
-	printf("c == %c\n", c);
 	if (c == 'c')
 		return (1);
 	else if (c == 's')
@@ -34,12 +33,14 @@ int	find_convertor(char const *fmt, t_flags *l_flags, va_list ap, size_t *i)
 	//	start = *i;
 	//while (fmt[*i] && fmt[*i] >= '0' && fmt[*i] <= '9')
 	//	*i = *i + 1;
-	if (fmt[*i] == 's')
-		result = print_s(fmt, l_flags, ap);
-	else if (fmt[*i] == 'd')
+	if (fmt[*i] == 'd')
+		result = print_d(l_flags, ap);
+		//result = print_s(l_flags, ap);
+	/*else if (fmt[*i] == 'd')
 		result = print_d(l_flags, ap);
 	else if (fmt[*i] == 'p')
-		result = print_p(fmt, l_flags, va_arg(ap, void *));
+		//result = print_p(l_flags, va_arg(ap, void *));
+	*/
 	//(*i)++;
 	return (result);
 }

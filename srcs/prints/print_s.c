@@ -62,22 +62,22 @@ int	check_flags_two_s(t_flags *l_flags, char *s, size_t atoi)
 	return (0);
 }
 
-int print_s(char const *fmt, t_flags *l_flags, size_t start, va_list ap)
+int print_s(t_flags *l_flags, va_list ap)
 {
 	size_t atoi;
 	char	*s;
-	char	*width_str;
+	//char	*width_str;
 
-	width_str = 0;
+	//width_str = 0;
 	atoi = 0;
 	s = va_arg(ap, char *);
-	if (fmt[start] >= '0' && fmt[start] <= '9')
+	/*if (fmt[start] >= '0' && fmt[start] <= '9')
 	{
 		if (!(width_str = width_string(fmt, &start)))
 			return (0);
 		atoi = ft_atoi(width_str);
 		free(width_str);
-	}
+	}*/
 	if (check_flags_one_s(l_flags, s, atoi) == 0)
 	{
 		check_flags_two_s(l_flags, s, atoi);

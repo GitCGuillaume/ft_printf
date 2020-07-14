@@ -62,20 +62,20 @@ int	print_p_zero(t_flags *l_flags, void *addr, size_t atoi)
 	return (0);
 }
 
-int print_p(char const *fmt, t_flags *l_flags, size_t start, void *addr)
+int print_p(t_flags *l_flags, void *addr)
 {
-	char	*width_str;
+	//char	*width_str;
 	size_t atoi;
 
-	width_str = 0;
+	//width_str = 0;
 	atoi = 0;
-	if (fmt[start] >= '0' && fmt[start] <= '9')
+	/*if (fmt[start] >= '0' && fmt[start] <= '9')
 	{
 		if (!(width_str = width_string(fmt, &start)))
 			return (0);
 		atoi = ft_atoi(width_str);
 		free(width_str);
-	}
+	}*/
 	print_p_space(l_flags, addr, atoi);
 	print_p_zero(l_flags, addr, atoi);
 	return (0);

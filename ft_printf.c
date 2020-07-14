@@ -15,7 +15,7 @@
 #include "libft/libft.h"
 #include "ft_printf.h"
 
-int			find_percentage(const char *fmt, size_t *i, t_flags *lst_flags)
+int			find_percentage(t_flags *lst_flags, size_t *i, size_t *nb_print, const char *fmt)
 {
 	while (fmt[*i])
 	{
@@ -27,6 +27,7 @@ int			find_percentage(const char *fmt, size_t *i, t_flags *lst_flags)
 		}
 		else
 		{
+			*nb_print = *nb_print + 1;
 			write(1, &fmt[*i], 1);
 			*i = *i + 1;
 		}
@@ -34,34 +35,67 @@ int			find_percentage(const char *fmt, size_t *i, t_flags *lst_flags)
 	return (0);
 }
 #include <stdio.h>
+
+int	browse_fmt(t_flags *l_flags, va_list ap, size_t *i, char const *fmt)
+{
+	size_t	nb_print;
+
+	nb_print = 0;
+	while (fmt[*i])
+	{
+		if (is_indicator(fmt, i, l_flags) == 1)
+			find_indicators(fmt, i, l_flags);
+		is_digit(l_flags, i, fmt);
+		is_specification(l_flags, ap, fmt, i);
+		if (is_convertor(fmt[*i]))
+			nb_print += find_convertor(fmt, l_flags, ap, i);
+		else
+			return (nb_print);
+		(*i)++;
+	}
+	return (nb_print);
+}
+
 int				ft_printf(const char *fmt, ...)
 {
 	va_list		ap;
 	t_flags	l_flags;
 	size_t		i;
 	size_t		result;
+	size_t		nb_print;
 
 	i = 0;
 	result = 0;
+	nb_print = 0;
 	va_start(ap, fmt);
-	//while (fmt[i] != '\0')
-	//{
-		if (find_percentage(fmt, &i, &l_flags) == 1)
+	if (find_percentage(&l_flags, &i, &nb_print, fmt) == 1)
+	{
+		printf("nb_print == %zu\n", nb_print);
+		nb_print += browse_fmt(&l_flags, ap, &i, fmt);
+		printf("nb_print == %zu\n", nb_print);
+		while (fmt[i])
 		{
-			while (fmt[i])
-			{
-				if (is_indicator(fmt, &i, &l_flags) == 1)
-					find_indicators(fmt, &i, &l_flags);
-				is_digit(&l_flags, &i, fmt);
-				is_specification(&l_flags, ap, fmt, &i);
-				if (is_convertor(fmt[i]))
-					find_convertor(fmt, &l_flags, ap, &i);
-				i++;
-			}
+			write(1, &fmt[i], 1);
+			nb_print++;
+			i++;
 		}
-	//}
-	printf("\nwidthA == %s\n", l_flags.width);
-	printf("width_specificationA == %s\n", l_flags.width_specification);
+		/*while (fmt[i])
+		{
+			if (is_indicator(fmt, &i, &l_flags) == 1)
+				find_indicators(fmt, &i, &l_flags);
+			is_digit(&l_flags, &i, fmt);
+			is_specification(&l_flags, ap, fmt, &i);
+			if (is_convertor(fmt[i]))
+				nb_print += find_convertor(fmt, &l_flags, ap, &i);
+			else
+			{
+				nb_print++;
+				write(1, &fmt[i], 1);
+			}
+			i++;
+		}*/
+	}
+	printf("nb_print == %zu\n", nb_print);
 	va_end(ap);
 	return (result);
 }

@@ -37,7 +37,13 @@ void	test(char	*fmt, ...)
 
 int		main(void)
 {
-	ft_printf("%4d", 123);
+	ft_printf("azer0%5dqaz", 123);
+	printf("\n%4d\n", 123);
+	printf("%05.08d", 34);
+	printf("\n");
+	printf("%.5da", -216);
+	printf("\n%6d", -532);
+	printf("\n");
 	//ft_printf("%0-014-013.*d", 44, 267);
 	//printf("%0-01-013.*d", 4, 267);
 	return (0);

@@ -11,8 +11,31 @@
 /* ************************************************************************** */
 
 #include "../../ft_printf.h"
+#include <stdio.h>
+int	print_width_d(char *width, int d, char c)
+{
+	size_t	i;
+	size_t	atoi;
+	size_t	nb_value;
 
-int	print_space_d(size_t atoi, int d)
+	i = 0;
+	atoi = 0;
+	nb_value = 0;
+	if (width != NULL)
+	{
+		atoi = ft_atoi(width);
+		i = ft_lensize(d);
+		while (atoi > i)
+		{
+			ft_putchar_fd(c, 1);
+			nb_value++;
+			i++;
+		}
+	}
+	return (nb_value);
+}
+
+/*int	print_space_d(size_t atoi, int d)
 {
 	size_t	i;
 
@@ -36,7 +59,7 @@ int	print_zero_d(size_t atoi, int d)
 		i++;
 	}
 	return (i);
-}
+}*/
 
 int	print_space_s(size_t atoi, char *s)
 {

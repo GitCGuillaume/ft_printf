@@ -18,19 +18,24 @@ int		check_flags_one_d(t_flags *l_flags, va_list ap, int d)
 	//va_list	ap2;
 	//int	d_copy;
 	//size_t	result;
-
+	size_t	nb_print;
 	//result = 0;
 	//d_copy = 0;
+	nb_print = 0;
 	(void)ap;
-	printf("l_flags %d\n", l_flags->zero);
+	/*printf("l_flags %d\n", l_flags->zero);
 	printf("l_flags %d\n", l_flags->minus);
 	printf("l_flags %d\n", l_flags->point);
 	printf("l_flags %d\n", l_flags->asterisk);
-	if (l_flags->zero == 0 && l_flags->minus == 0
+	*/if (l_flags->zero == 0 && l_flags->minus == 0
 			&& l_flags->point == 0 && l_flags->asterisk == 0)
 	{
-		ft_putnbr_fd(d, 1);
-		return (ft_lensize(d));
+		printf("nb_print1=%zu", nb_print);
+		nb_print += print_width_d(l_flags->width, d, ' ');
+		printf("nb_print2=%zu", nb_print);
+		ft_putnbr_fd(d, &nb_print, 1);
+		printf("nb_print3=%zu", nb_print);
+		return (nb_print);
 	}
 	/*else if (l_flags->point == 1 && l_flags->asterisk == 1)
 	{
@@ -43,7 +48,7 @@ int		check_flags_one_d(t_flags *l_flags, va_list ap, int d)
 		va_end(ap2);
 		return (result);
 	}*/
-	return (0);
+	return (nb_print);
 }
 /*
 int		check_flags_two_d(t_flags *l_flags, int d, size_t atoi)

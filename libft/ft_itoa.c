@@ -61,7 +61,7 @@ static int	ft_lensize(ssize_t n)
 char		*ft_itoa(ssize_t n)
 {
 	char	*ptr;
-	ssize_t		size;
+	ssize_t	size;
 
 	size = ft_lensize(n);
 	if (n == 0)
