@@ -38,7 +38,10 @@ int	ft_lensize(int n)
 
 	i = 0;
 	if (n < 0)
+	{
 		n = -n;
+		i++;
+	}
 	while (n > 0)
 	{
 		n = n / 10;

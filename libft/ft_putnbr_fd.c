@@ -17,6 +17,7 @@ void	ft_putnbr_fd(ssize_t n, size_t *nb_print, int fd)
 	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
+		(*nb_print)++;
 		n = -n;
 		ft_putnbr_fd(n, nb_print, fd);
 	}

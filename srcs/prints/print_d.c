@@ -30,11 +30,8 @@ int		check_flags_one_d(t_flags *l_flags, va_list ap, int d)
 	*/if (l_flags->zero == 0 && l_flags->minus == 0
 			&& l_flags->point == 0 && l_flags->asterisk == 0)
 	{
-		printf("nb_print1=%zu", nb_print);
 		nb_print += print_width_d(l_flags->width, d, ' ');
-		printf("nb_print2=%zu", nb_print);
 		ft_putnbr_fd(d, &nb_print, 1);
-		printf("nb_print3=%zu", nb_print);
 		return (nb_print);
 	}
 	/*else if (l_flags->point == 1 && l_flags->asterisk == 1)

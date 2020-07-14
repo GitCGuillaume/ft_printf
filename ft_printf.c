@@ -61,18 +61,14 @@ int				ft_printf(const char *fmt, ...)
 	va_list		ap;
 	t_flags	l_flags;
 	size_t		i;
-	size_t		result;
 	size_t		nb_print;
 
 	i = 0;
-	result = 0;
 	nb_print = 0;
 	va_start(ap, fmt);
 	if (find_percentage(&l_flags, &i, &nb_print, fmt) == 1)
 	{
-		printf("nb_print == %zu\n", nb_print);
 		nb_print += browse_fmt(&l_flags, ap, &i, fmt);
-		printf("nb_print == %zu\n", nb_print);
 		while (fmt[i])
 		{
 			write(1, &fmt[i], 1);
@@ -95,7 +91,6 @@ int				ft_printf(const char *fmt, ...)
 			i++;
 		}*/
 	}
-	printf("nb_print == %zu\n", nb_print);
 	va_end(ap);
-	return (result);
+	return (nb_print);
 }
