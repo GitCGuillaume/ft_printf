@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "../../ft_printf.h"
-#include <stdio.h>
+
 int	print_width_d(char *width, int d, char c)
 {
 	size_t	i;
@@ -25,6 +25,8 @@ int	print_width_d(char *width, int d, char c)
 	{
 		atoi = ft_atoi(width);
 		i = ft_lensize(d);
+		if (i == 0)
+			atoi--;
 		while (atoi > i)
 		{
 			ft_putchar_fd(c, 1);

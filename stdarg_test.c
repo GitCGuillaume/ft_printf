@@ -39,7 +39,7 @@ int		main(void)
 {
 	//ft_printf("azer0%5dqaz", -123);
 	//printf("printf=%d\n", printf("azer0%5dqaz", 123));
-	ft_printf("%.d\n", -1);
+	ft_printf("%3d\n", 0);
 	printf("\n%3d\n", -1);
 	printf("%05.08d", 34);
 	printf("\n");
