@@ -12,22 +12,38 @@
 
 #include "../../ft_printf.h"
 
-int	print_width_d(char *width, int d, char c)
+#include <stdio.h>
+int	print_width_specification(ssize_t width, ssize_t sum, char c)
 {
-	size_t	i;
-	size_t	atoi;
+	size_t	nb_value;
+
+	nb_value = 0;
+	if (width != 0)
+	{
+		while (width > sum)
+		{
+			ft_putchar_fd(c, 1);
+			nb_value++;
+			sum++;
+		}
+	}
+	return (nb_value);
+}
+
+int	print_width_d(ssize_t width, int d, char c)
+{
+	ssize_t	i;
 	size_t	nb_value;
 
 	i = 0;
-	atoi = 0;
 	nb_value = 0;
-	if (width != NULL)
+	if (width != 0)
 	{
-		atoi = ft_atoi(width);
+		//atoi = width;
 		i = ft_lensize(d);
-		if (i == 0)
-			atoi--;
-		while (atoi > i)
+		//if (i == 0 && atoi >= 1)
+		//	atoi--;
+		while (width > i)
 		{
 			ft_putchar_fd(c, 1);
 			nb_value++;

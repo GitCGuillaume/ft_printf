@@ -13,6 +13,7 @@
 #include "../../ft_printf.h"
 
 #include <stdio.h>
+
 int		check_flags_one_d(t_flags *l_flags, va_list ap, int d)
 {
 	//va_list	ap2;
@@ -23,16 +24,44 @@ int		check_flags_one_d(t_flags *l_flags, va_list ap, int d)
 	//d_copy = 0;
 	nb_print = 0;
 	(void)ap;
-	/*printf("l_flags %d\n", l_flags->zero);
-	printf("l_flags %d\n", l_flags->minus);
-	printf("l_flags %d\n", l_flags->point);
-	printf("l_flags %d\n", l_flags->asterisk);
-	*/if (l_flags->zero == 0 && l_flags->minus == 0
+	ssize_t	test1;
+	ssize_t	test2;
+
+	test1 = ft_atoi(l_flags->width);
+	test2 = 0;
+	if (l_flags->zero == 0 && l_flags->minus == 0
 			&& l_flags->point == 0 && l_flags->asterisk == 0)
 	{
-		nb_print += print_width_d(l_flags->width, d, ' ');
+		if (d == 0)
+			test1--;
+		nb_print += print_width_d(test1, d, ' ');
 		ft_putnbr_fd(d, &nb_print, 1);
 		return (nb_print);
+	}
+	else if (l_flags->minus == 1)
+	{
+		if (l_flags->point == 0)
+		{
+			if (d == 0)
+				test1--;
+			ft_putnbr_fd(d, &nb_print, 1);
+			nb_print += print_width_d(test1, d, ' ');
+		}
+		else
+		{
+			if (d < 0)
+			{
+				nb_print++;
+				ft_putchar_fd('-', 1);
+				d = -d;
+			}
+			nb_print += print_width_d(ft_atoi(l_flags->width_specification), d, '0');
+			if (d != 0)
+				ft_putnbr_fd(d, &nb_print, 1);
+			//test1 = ft_atoi(l_flags->width);
+			if (test1 > test2)
+				nb_print += print_width_specification(test1, nb_print, ' ');
+		}
 	}
 	/*else if (l_flags->point == 1 && l_flags->asterisk == 1)
 	{

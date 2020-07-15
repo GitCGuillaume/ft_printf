@@ -36,27 +36,30 @@ static int		is_other(char c)
 		return (0);
 }
 
-int				ft_atoi(const char *str)
+ssize_t				ft_atoi(const char *str)
 {
-	int	i;
-	int result;
-	int symbol;
+	size_t	i;
+	ssize_t result;
+	ssize_t symbol;
 
 	i = 0;
 	result = 0;
 	symbol = 1;
-	while (is_tab(str[i]) || is_jump(str[i]) || is_other(str[i]))
-		i++;
-	if (str[i] == '-')
+	if (str != NULL)
 	{
-		symbol = -symbol;
-	}
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result = result * 10 + str[i] - '0';
-		i++;
+		while (is_tab(str[i]) || is_jump(str[i]) || is_other(str[i]))
+			i++;
+		if (str[i] == '-')
+		{
+			symbol = -symbol;
+		}
+		if (str[i] == '-' || str[i] == '+')
+			i++;
+		while (str[i] >= '0' && str[i] <= '9')
+		{
+			result = result * 10 + str[i] - '0';
+			i++;
+		}
 	}
 	return (symbol * result);
 }
