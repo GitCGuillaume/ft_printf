@@ -12,7 +12,6 @@
 
 #include "../../ft_printf.h"
 
-#include <stdio.h>
 int	print_width_specification(ssize_t width, ssize_t sum, char c)
 {
 	size_t	nb_value;

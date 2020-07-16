@@ -39,6 +39,7 @@ int				is_specification(t_flags *l_flags, va_list ap, char const *fmt, size_t *i
 int				print_d(t_flags *l_flags, va_list ap);
 int				print_width_d(ssize_t width, int d, char c);
 int				print_width_specification(ssize_t width, ssize_t sum, char c);
+void				specification_minus_d(t_flags *l_flags, size_t *nb_print, int d);
 int				print_s(t_flags *l_flags, va_list ap);
 int				print_s_zero(t_flags *l_flags, char *s, size_t atoi);
 int				print_s_space(t_flags *l_flags, char *s, size_t atoi);

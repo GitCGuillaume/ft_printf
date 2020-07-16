@@ -19,50 +19,29 @@ int		check_flags_one_d(t_flags *l_flags, va_list ap, int d)
 	//va_list	ap2;
 	//int	d_copy;
 	//size_t	result;
+	ssize_t	width;
 	size_t	nb_print;
 	//result = 0;
 	//d_copy = 0;
 	nb_print = 0;
 	(void)ap;
-	ssize_t	test1;
-	ssize_t	test2;
 
-	test1 = ft_atoi(l_flags->width);
-	test2 = 0;
+	width = ft_atoi(l_flags->width);
 	if (l_flags->zero == 0 && l_flags->minus == 0
 			&& l_flags->point == 0 && l_flags->asterisk == 0)
 	{
 		if (d == 0)
-			test1--;
-		nb_print += print_width_d(test1, d, ' ');
+			width--;
+		nb_print += print_width_d(width, d, ' ');
 		ft_putnbr_fd(d, &nb_print, 1);
 		return (nb_print);
 	}
 	else if (l_flags->minus == 1)
 	{
-		if (l_flags->point == 0)
-		{
-			if (d == 0)
-				test1--;
-			ft_putnbr_fd(d, &nb_print, 1);
-			nb_print += print_width_d(test1, d, ' ');
-		}
-		else
-		{
-			if (d < 0)
-			{
-				nb_print++;
-				ft_putchar_fd('-', 1);
-				d = -d;
-			}
-			nb_print += print_width_d(ft_atoi(l_flags->width_specification), d, '0');
-			if (d != 0)
-				ft_putnbr_fd(d, &nb_print, 1);
-			//test1 = ft_atoi(l_flags->width);
-			if (test1 > test2)
-				nb_print += print_width_specification(test1, nb_print, ' ');
-		}
+		specification_minus_d(l_flags, &nb_print, d);
+		return (nb_print);
 	}
+	else if ()
 	/*else if (l_flags->point == 1 && l_flags->asterisk == 1)
 	{
 		va_copy(ap2, ap);
