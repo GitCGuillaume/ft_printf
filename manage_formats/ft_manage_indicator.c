@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft/libft.h"
-#include "../../ft_printf.h"
+#include "../ft_printf.h"
 
 void		init_list_flags(t_flags *lst_flags)
 {

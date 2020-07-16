@@ -47,7 +47,7 @@ int				print_space_s(size_t atoi, char *s);
 int				print_p(t_flags *l_flags, void *addr);
 int				print_zero_p(size_t atoi, char *p);
 char				*ft_putnbr_base(void *nbr, char *base);
-int				ft_lensize(int n);
+ssize_t				ft_lensize(ssize_t n);
 char				*width_string(char const *fmt, size_t *i);
 void				ft_putnbr_precision_fd(int n, int fd, int max);
 

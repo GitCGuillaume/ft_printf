@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../ft_printf.h"
+#include "../ft_printf.h"
 #include <stdio.h>
 
 char	*ft_strlimit(char *s, size_t atoi)

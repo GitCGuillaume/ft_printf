@@ -35,10 +35,10 @@ static int		is_other(char c)
 	else
 		return (0);
 }
-
+#include <stdio.h>
 ssize_t				ft_atoi(const char *str)
 {
-	size_t	i;
+	ssize_t	i;
 	ssize_t result;
 	ssize_t symbol;
 

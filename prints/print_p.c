@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../ft_printf.h"
+#include "../ft_printf.h"
 
 int	print_p_space(t_flags *l_flags, void *addr, size_t atoi)
 {

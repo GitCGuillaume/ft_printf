@@ -1,4 +1,4 @@
-#include "../../ft_printf.h"
+#include "../ft_printf.h"
 
 void	specification_minus_d(t_flags *l_flags, size_t *nb_print, int d)
 {

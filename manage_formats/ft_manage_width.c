@@ -10,9 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft/libft.h"
-#include "../../ft_printf.h"
-#include <stdio.h>
+#include "../ft_printf.h"
 
 char	*width_string(char const *fmt, size_t *i)
 {
@@ -32,9 +30,9 @@ char	*width_string(char const *fmt, size_t *i)
 	return (width);
 }
 
-int	ft_lensize(int n)
+ssize_t	ft_lensize(ssize_t n)
 {
-	int	i;
+	ssize_t	i;
 
 	i = 0;
 	if (n < 0)

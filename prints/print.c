@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../ft_printf.h"
-
+#include "../ft_printf.h"
+#include <stdio.h>
 int	print_width_specification(ssize_t width, ssize_t sum, char c)
 {
 	size_t	nb_value;
@@ -19,6 +19,8 @@ int	print_width_specification(ssize_t width, ssize_t sum, char c)
 	nb_value = 0;
 	if (width != 0)
 	{
+		//if(0 > width)
+		//	width = -width;
 		while (width > sum)
 		{
 			ft_putchar_fd(c, 1);
