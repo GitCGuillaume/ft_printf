@@ -28,7 +28,53 @@ ssize_t	calc(ssize_t width, ssize_t width_specification, ssize_t lensize, int d)
 	return (size);
 }
 
-int		check_flags_one_d(t_flags *l_flags, va_list ap, int d)
+int		check_flags_spec_d(t_flags *l_flags, va_list ap, int d)
+{
+	size_t	nb_print;
+
+	nb_print = 0;
+	if (l_flags->point == 1)
+	{
+		if (l_flags->asterisk == 0)
+		{
+			spec_pnt_no_ast_d(l_flags, &nb_print, d);
+			return (nb_print);
+		}
+		else
+		{
+			spec_point_astrsk_d(l_flags, ap, &nb_print, d);
+			return (nb_print);
+		}
+	}
+	return (nb_print);
+}
+
+size_t		check_flags_two_d(t_flags *l_flags, int d)
+{
+	size_t	nb_print;
+	ssize_t	width;
+
+	nb_print = 0;
+	width = ft_atoi(l_flags->width);
+	if (l_flags->zero == 1)
+	{
+		if (d < 0)
+		{
+			nb_print++;
+			ft_putchar_fd('-', 1);
+			d = -d;
+			width--;
+		}
+		if (d == 0)
+			width--;
+		nb_print += print_width_d(width, d, '0');
+		ft_putnbr_fd(d, &nb_print, 1);
+		return (nb_print);
+	}
+	return (nb_print);
+}
+
+size_t		check_flags_one_d(t_flags *l_flags, va_list ap, int d)
 {
 	ssize_t	width;
 	size_t	nb_print;
@@ -49,64 +95,12 @@ int		check_flags_one_d(t_flags *l_flags, va_list ap, int d)
 		spec_minus_d(l_flags, &nb_print, d);
 		return (nb_print);
 	}
-	else if (l_flags->point == 1)
-	{
-		if (l_flags->asterisk == 0)
-		{
-			/*if (width > ft_atoi(l_flags->width_specification))
-			{
-				nb_print += print_w_spec(calc(width,
-							ft_atoi(l_flags->width_specification), ft_lensize(d), d), nb_print, ' ');
-			}
-			if (d < 0)
-			{
-				nb_print++;
-				ft_putchar_fd('-', 1);
-				d = -d;
-			}
-			nb_print += print_w_spec(ft_atoi(l_flags->width_specification) - ft_lensize(d), 0, '0');
-			if (d != 0)
-				ft_putnbr_fd(d, &nb_print, 1);
-			*/
-			spec_pnt_no_ast_d(l_flags, &nb_print, d);
-			return (nb_print);
-		}
-		else
-		{
-			spec_point_astrsk_d(l_flags, ap, &nb_print, d);
-			return (nb_print);
-		}
-	}
+	else if(l_flags->point == 1)
+		nb_print = check_flags_spec_d(l_flags, ap, d);
 	return (nb_print);
 }
-/*
-int		check_flags_two_d(t_flags *l_flags, int d, size_t atoi)
-{
-	size_t	result;
 
-	result = 0;
-	if (l_flags->point == 1)
-	{
-		result = print_zero_d(atoi, d);
-		ft_putnbr_fd(d, 1);
-		return (result);
-	}
-	else if (l_flags->minus == 1)
-	{
-		ft_putnbr_fd(d, 1);
-		result = print_space_d(atoi, d);
-		return (result);
-	}
-	else if (l_flags->minus == 0 && l_flags->zero == 1)
-	{
-		result = print_zero_d(atoi, d);
-		ft_putnbr_fd(d, 1);
-		return (result);
-	}
-	return (0);
-}*/
-
-int		print_d(/*char const *fmt,*/ t_flags *l_flags, va_list ap)
+size_t		print_d(/*char const *fmt,*/ t_flags *l_flags, va_list ap)
 {
 	int	d;
 	size_t	result;
@@ -115,7 +109,7 @@ int		print_d(/*char const *fmt,*/ t_flags *l_flags, va_list ap)
 	result = 0;
 	if ((result = check_flags_one_d(l_flags, ap, d)) == 0)
 	{
-	//	result = check_flags_two_d(l_flags, d, atoi);
+		result = check_flags_two_d(l_flags, d);
 	}
 	return (result);
 }

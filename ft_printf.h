@@ -36,7 +36,7 @@ int				find_convertor(char const *fmt, t_flags *l_flags, va_list ap, size_t *i);
 int				is_convertor(char c);
 int				is_digit(t_flags *l_flags, size_t *i, char const *fmt);
 int				is_specification(t_flags *l_flags, va_list ap, char const *fmt, size_t *i);
-int				print_d(t_flags *l_flags, va_list ap);
+size_t				print_d(t_flags *l_flags, va_list ap);
 int				print_width_d(ssize_t width, int d, char c);
 ssize_t				calc(ssize_t width, ssize_t width_specification, ssize_t lensize, int d);
 int				print_w_spec(ssize_t width, ssize_t sum, char c);
