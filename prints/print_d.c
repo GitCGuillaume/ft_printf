@@ -12,7 +12,7 @@
 
 #include "../ft_printf.h"
 #include <stdio.h>
-ssize_t	width_calculator(ssize_t width, ssize_t width_specification, ssize_t lensize, int d)
+ssize_t	calc(ssize_t width, ssize_t width_specification, ssize_t lensize, int d)
 {
 	ssize_t	size;
 
@@ -30,21 +30,11 @@ ssize_t	width_calculator(ssize_t width, ssize_t width_specification, ssize_t len
 
 int		check_flags_one_d(t_flags *l_flags, va_list ap, int d)
 {
-	va_list	ap2;
-	int	d_copy;
-	//size_t	result;
 	ssize_t	width;
-	ssize_t	width_specification;
-
 	size_t	nb_print;
-	ssize_t	lensize;
 
-	//result = 0;
-	d_copy = 0;
 	nb_print = 0;
-	lensize = 0;
 	width = ft_atoi(l_flags->width);
-	width_specification = 0;
 	if (l_flags->zero == 0 && l_flags->minus == 0
 			&& l_flags->point == 0 && l_flags->asterisk == 0)
 	{
@@ -56,16 +46,16 @@ int		check_flags_one_d(t_flags *l_flags, va_list ap, int d)
 	}
 	else if (l_flags->minus == 1)
 	{
-		specification_minus_d(l_flags, &nb_print, d);
+		spec_minus_d(l_flags, &nb_print, d);
 		return (nb_print);
 	}
 	else if (l_flags->point == 1)
 	{
 		if (l_flags->asterisk == 0)
 		{
-			if (width > ft_atoi(l_flags->width_specification))
+			/*if (width > ft_atoi(l_flags->width_specification))
 			{
-				nb_print += print_width_specification(width_calculator(width,
+				nb_print += print_w_spec(calc(width,
 							ft_atoi(l_flags->width_specification), ft_lensize(d), d), nb_print, ' ');
 			}
 			if (d < 0)
@@ -74,54 +64,19 @@ int		check_flags_one_d(t_flags *l_flags, va_list ap, int d)
 				ft_putchar_fd('-', 1);
 				d = -d;
 			}
-			nb_print += print_width_specification(ft_atoi(l_flags->width_specification) - ft_lensize(d), 0, '0');
+			nb_print += print_w_spec(ft_atoi(l_flags->width_specification) - ft_lensize(d), 0, '0');
 			if (d != 0)
 				ft_putnbr_fd(d, &nb_print, 1);
+			*/
+			spec_pnt_no_ast_d(l_flags, &nb_print, d);
 			return (nb_print);
 		}
 		else
 		{
-			va_copy(ap2, ap);
-			d_copy = va_arg(ap2, int);
-			width_specification = ft_atoi(l_flags->width_specification);
-			if (width > ft_atoi(l_flags->width_specification))
-			{
-				nb_print += print_width_specification(width_calculator(width,
-							ft_atoi(l_flags->width_specification), ft_lensize(d_copy), d_copy), nb_print, ' ');
-			}
-			if (d_copy < 0)
-			{
-				nb_print++;
-				ft_putchar_fd('-', 1);
-				d_copy = -d_copy;
-			}
-			lensize = ft_lensize(d_copy);
-			if (l_flags->width_specification[0] == '-')
-			{
-				width_specification = -width_specification;
-				if (width != 0 && 0 > d)
-					lensize = 0;
-				//nb_print += print_width_specification(-width_specification, 0, '0');
-			}
-			//else
-				nb_print += print_width_specification(width_specification - lensize, 0, '0');
-			if (d_copy != 0)
-				ft_putnbr_fd(d_copy, &nb_print, 1);
+			spec_point_astrsk_d(l_flags, ap, &nb_print, d);
 			return (nb_print);
-
 		}
 	}
-	/*else if (l_flags->point == 1 && l_flags->asterisk == 1)
-	{
-		va_copy(ap2, ap);
-		d_copy = va_arg(ap2, int);
-		if (d > 0)
-			result = print_zero_d(d, d_copy);
-		d = va_arg(ap, int);
-		ft_putnbr_fd(d, 1);
-		va_end(ap2);
-		return (result);
-	}*/
 	return (nb_print);
 }
 /*
