@@ -111,5 +111,7 @@ size_t		print_d(/*char const *fmt,*/ t_flags *l_flags, va_list ap)
 	{
 		result = check_flags_two_d(l_flags, d);
 	}
+	del(l_flags->width);
+	del(l_flags->width_specification);
 	return (result);
 }

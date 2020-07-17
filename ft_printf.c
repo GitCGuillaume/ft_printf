@@ -10,9 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <unistd.h>
-#include "libft/libft.h"
 #include "ft_printf.h"
 
 int			find_percentage(t_flags *lst_flags, size_t *i, size_t *nb_print, const char *fmt)
@@ -34,7 +31,6 @@ int			find_percentage(t_flags *lst_flags, size_t *i, size_t *nb_print, const cha
 	}
 	return (0);
 }
-#include <stdio.h>
 
 int	browse_fmt(t_flags *l_flags, va_list ap, size_t *i, char const *fmt)
 {
@@ -56,6 +52,12 @@ int	browse_fmt(t_flags *l_flags, va_list ap, size_t *i, char const *fmt)
 	return (nb_print);
 }
 
+void del(void *lst)
+{
+	if (lst)
+		free(lst);
+}
+
 int				ft_printf(const char *fmt, ...)
 {
 	va_list		ap;
@@ -66,31 +68,20 @@ int				ft_printf(const char *fmt, ...)
 	i = 0;
 	nb_print = 0;
 	va_start(ap, fmt);
-	if (find_percentage(&l_flags, &i, &nb_print, fmt) == 1)
+	while (fmt[i])
 	{
-		nb_print += browse_fmt(&l_flags, ap, &i, fmt);
-		while (fmt[i])
+		if (find_percentage(&l_flags, &i, &nb_print, fmt) == 1)
 		{
-			write(1, &fmt[i], 1);
-			nb_print++;
-			i++;
+			nb_print += browse_fmt(&l_flags, ap, &i, fmt);
 		}
-		/*while (fmt[i])
-		{
-			if (is_indicator(fmt, &i, &l_flags) == 1)
-				find_indicators(fmt, &i, &l_flags);
-			is_digit(&l_flags, &i, fmt);
-			is_specification(&l_flags, ap, fmt, &i);
-			if (is_convertor(fmt[i]))
-				nb_print += find_convertor(fmt, &l_flags, ap, &i);
-			else
-			{
-				nb_print++;
-				write(1, &fmt[i], 1);
-			}
-			i++;
-		}*/
+		//i++;
 	}
+	/*while (fmt[i])
+	{
+		write(1, &fmt[i], 1);
+		nb_print++;
+		i++;
+	}*/
 	va_end(ap);
 	return (nb_print);
 }

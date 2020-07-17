@@ -53,5 +53,7 @@ char				*ft_putnbr_base(void *nbr, char *base);
 ssize_t				ft_lensize(ssize_t n);
 char				*width_string(char const *fmt, size_t *i);
 void				ft_putnbr_precision_fd(int n, int fd, int max);
+void			del(void *lst);
+
 
 #endif
