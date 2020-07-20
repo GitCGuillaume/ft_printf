@@ -33,7 +33,7 @@ void	spec_minus_s(t_flags *l_flags, size_t *nb_print, char *s)
 	}
 	else
 	{
-		if (w_spec >= 6 && s == NULL)
+		if (w_spec >=  1 && s == NULL)
 		{
 			s = ft_strdup("(null)");
 			ft_putstr_limit_fd(s, w_spec, nb_print, 1);
