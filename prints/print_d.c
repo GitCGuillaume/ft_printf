@@ -100,16 +100,19 @@ size_t		check_flags_one_d(t_flags *l_flags, va_list ap, int d)
 	return (nb_print);
 }
 
-size_t		print_d(/*char const *fmt,*/ t_flags *l_flags, va_list ap)
+size_t		print_d(t_flags *l_flags, va_list ap)
 {
 	int	d;
 	size_t	result;
 
 	d = va_arg(ap, int);
 	result = 0;
-	if ((result = check_flags_one_d(l_flags, ap, d)) == 0)
+	if (l_flags->percentage == 0)
 	{
-		result = check_flags_two_d(l_flags, d);
+		if ((result = check_flags_one_d(l_flags, ap, d)) == 0)
+		{
+			result = check_flags_two_d(l_flags, d);
+		}
 	}
 	del(l_flags->width);
 	del(l_flags->width_specification);

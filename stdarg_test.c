@@ -97,7 +97,7 @@ int		main(void)
 	//ft_printf("%0-014-013.*d", 44, 267);
 	//printf("%0-01-013.*d", 4, 267);
 	ft_printf("\n");
-	//ft_printf("%3s%4s", "abc", "def");
+	ft_printf("%%d 0000042 == |%d|", 0000042);
 	ft_printf("\n");
 	return (0);
 }

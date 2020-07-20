@@ -39,8 +39,8 @@ int	browse_fmt(t_flags *l_flags, va_list ap, size_t *i, char const *fmt)
 	nb_print = 0;
 	while (fmt[*i])
 	{
-		if (is_indicator(fmt, i, l_flags) == 1)
-			find_indicators(fmt, i, l_flags);
+		if (is_indicator(fmt, i, &nb_print, l_flags) == 1)
+			find_indicators(fmt, i, &nb_print, l_flags);
 		is_digit(l_flags, i, fmt);
 		is_specification(l_flags, ap, fmt, i);
 		if (is_convertor(fmt[*i]))
@@ -57,7 +57,7 @@ void del(void *lst)
 	if (lst)
 		free(lst);
 }
-
+#include <stdio.h>
 int				ft_printf(const char *fmt, ...)
 {
 	va_list		ap;
@@ -76,12 +76,12 @@ int				ft_printf(const char *fmt, ...)
 		}
 		//i++;
 	}
-	/*while (fmt[i])
+	while (fmt[i])
 	{
 		write(1, &fmt[i], 1);
 		nb_print++;
 		i++;
-	}*/
+	}
 	va_end(ap);
 	return (nb_print);
 }
