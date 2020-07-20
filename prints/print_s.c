@@ -12,8 +12,8 @@
 
 #include "../ft_printf.h"
 #include <stdio.h>
-
-char	*ft_strlimit(char *s, size_t atoi)
+/*
+char	*ft_strlimit(char *s, size_t width)
 {
 	size_t	i;
 	char	*ptr;
@@ -21,36 +21,48 @@ char	*ft_strlimit(char *s, size_t atoi)
 	i = 0;
 	if (!(ptr = malloc(atoi + 1)))
 		return (NULL);
-	while (atoi > i)
+	while (width > i)
 	{
 		ptr[i] = s[i];
 		i++;
 	}
 	ptr[i] = '\0';
 	return (ptr);
-}
+}*/
 
-int	check_flags_one_s(t_flags *l_flags, char *s, size_t atoi)
+int	check_flags_one_s(t_flags *l_flags, char *s)
 {
+	ssize_t	width;
+	size_t	nb_print;
 	char	*str;
 
+	width = ft_atoi(l_flags->width);
+	nb_print = 0;
 	str = NULL;
+	(void)str;
 	if (l_flags->zero == 0 && l_flags->minus == 0
 			&& l_flags->point == 0 && l_flags->asterisk == 0)
 	{
-		print_space_s(atoi, s);
-		ft_putstr_fd(s, 1);
-		return (1);
+		if (s == NULL)
+			s = ft_strdup("(null)");
+		nb_print += print_width_s(width, s, ' ');
+		ft_putstr_fd(s, &nb_print, 1);
+		return (nb_print);
 	}
-	else if (l_flags->point == 1 && atoi > 0)
+	else if (l_flags->minus == 1)
+	{
+		spec_minus_s(l_flags, &nb_print, s);
+		return (nb_print);
+	}
+	/*else if (l_flags->point == 1)
 	{
 		str = ft_strlimit(s, atoi);
 		ft_putstr_fd(str, 1);
 		free(str);
 		return (1);
-	}
-	return (0);
-}
+	}*/
+	return (nb_print);
+}/*
 int	check_flags_two_s(t_flags *l_flags, char *s, size_t atoi)
 {
 	if (l_flags->minus == 1)
@@ -60,27 +72,23 @@ int	check_flags_two_s(t_flags *l_flags, char *s, size_t atoi)
 		return (1);
 	}
 	return (0);
-}
+}*/
 
 int print_s(t_flags *l_flags, va_list ap)
 {
-	size_t atoi;
+	size_t	result;
 	char	*s;
-	//char	*width_str;
 
-	//width_str = 0;
-	atoi = 0;
+	result = 0;
 	s = va_arg(ap, char *);
-	/*if (fmt[start] >= '0' && fmt[start] <= '9')
+	if (l_flags->percentage == 0)
 	{
-		if (!(width_str = width_string(fmt, &start)))
-			return (0);
-		atoi = ft_atoi(width_str);
-		free(width_str);
-	}*/
-	if (check_flags_one_s(l_flags, s, atoi) == 0)
-	{
-		check_flags_two_s(l_flags, s, atoi);
+		if ((result = check_flags_one_s(l_flags, s)) == 0)
+		{
+			//result = check_flags_two_s(l_flags, s);
+		}
 	}
-	return (0);
+	del(l_flags->width);
+	del(l_flags->width_specification);
+	return (result);
 }

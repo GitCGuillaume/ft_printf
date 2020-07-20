@@ -12,9 +12,9 @@
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *s, size_t *nb_print, int fd)
 {
-	int i;
+	size_t i;
 
 	i = 0;
 	if (!s)
@@ -22,6 +22,7 @@ void	ft_putstr_fd(char *s, int fd)
 	while (s[i])
 	{
 		write(fd, &s[i], 1);
+		(*nb_print)++;
 		i++;
 	}
 }

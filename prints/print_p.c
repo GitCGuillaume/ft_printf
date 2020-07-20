@@ -12,6 +12,7 @@
 
 #include "../ft_printf.h"
 
+
 int	print_p_space(t_flags *l_flags, void *addr, size_t atoi)
 {
 	char *nbr_hex;
@@ -23,18 +24,18 @@ int	print_p_space(t_flags *l_flags, void *addr, size_t atoi)
 	if (l_flags->zero == 0 && l_flags->minus == 0
 			&& l_flags->point == 0 && l_flags->asterisk == 0)
 	{
-		print_space_s(atoi, nbr_hex);
+		print_width_s(atoi, nbr_hex, ' ');
 		ft_putchar_fd('0', 1);
 		ft_putchar_fd('x', 1);
-		ft_putstr_fd(nbr_hex, 1);
+		//ft_putstr_fd(nbr_hex, 1);
 	}
 	else if (l_flags->zero == 0 && l_flags->minus == 1
 			&& l_flags->point == 0 && l_flags->asterisk == 0)
 	{
 		ft_putchar_fd('0', 1);
 		ft_putchar_fd('x', 1);
-		ft_putstr_fd(nbr_hex, 1);
-		print_space_s(atoi, nbr_hex);
+		//ft_putstr_fd(nbr_hex, 1);
+		print_width_s(atoi, nbr_hex, ' ');
 	}
 	free(nbr_hex);
 	return (1);
@@ -54,7 +55,7 @@ int	print_p_zero(t_flags *l_flags, void *addr, size_t atoi)
 		ft_putchar_fd('0', 1);
 		ft_putchar_fd('x', 1);
 		print_zero_p(atoi, nbr_hex);
-		ft_putstr_fd(nbr_hex, 1);
+		//ft_putstr_fd(nbr_hex, 1);
 		free(nbr_hex);
 		return (1);
 	}

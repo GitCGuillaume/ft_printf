@@ -38,10 +38,7 @@ int	print_width_d(ssize_t width, int d, char c)
 	nb_value = 0;
 	if (width != 0)
 	{
-		//atoi = width;
 		i = ft_lensize(d);
-		//if (i == 0 && atoi >= 1)
-		//	atoi--;
 		while (width > i)
 		{
 			ft_putchar_fd(c, 1);
@@ -52,43 +49,24 @@ int	print_width_d(ssize_t width, int d, char c)
 	return (nb_value);
 }
 
-/*int	print_space_d(size_t atoi, int d)
+int	print_width_s(ssize_t width, char *s, char c)
 {
-	size_t	i;
+	ssize_t	i;
+	size_t	nb_value;
 
-	i = ft_lensize(d);
-	while (atoi > i)
+	i = 0;
+	nb_value = 0;
+	if (width != 0 && s != NULL)
 	{
-		ft_putchar_fd(' ', 1);
-		i++;
+		i = ft_strlen(s);
+		while (width > i)
+		{
+			ft_putchar_fd(c, 1);
+			nb_value++;
+			i++;
+		}
 	}
-	return (i);
-}
-
-int	print_zero_d(size_t atoi, int d)
-{
-	size_t	i;
-
-	i = ft_lensize(d);
-	while (atoi > i)
-	{
-		ft_putchar_fd('0', 1);
-		i++;
-	}
-	return (i);
-}*/
-
-int	print_space_s(size_t atoi, char *s)
-{
-	size_t	i;
-
-	i = ft_strlen(s);
-	while (atoi > i)
-	{
-		ft_putchar_fd(' ', 1);
-		i++;
-	}
-	return (i);
+	return (nb_value);
 }
 
 int	print_zero_p(size_t atoi, char *p)

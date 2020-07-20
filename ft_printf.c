@@ -44,7 +44,11 @@ int	browse_fmt(t_flags *l_flags, va_list ap, size_t *i, char const *fmt)
 		is_digit(l_flags, i, fmt);
 		is_specification(l_flags, ap, fmt, i);
 		if (is_convertor(fmt[*i]))
+		{
 			nb_print += find_convertor(fmt, l_flags, ap, i);
+			(*i)++;
+			return (nb_print);
+		}
 		else
 			return (nb_print);
 		(*i)++;
@@ -76,12 +80,12 @@ int				ft_printf(const char *fmt, ...)
 		}
 		//i++;
 	}
-	while (fmt[i])
+	/*while (fmt[i])
 	{
 		write(1, &fmt[i], 1);
 		nb_print++;
 		i++;
-	}
+	}*/
 	va_end(ap);
 	return (nb_print);
 }

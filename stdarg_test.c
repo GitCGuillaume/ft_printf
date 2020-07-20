@@ -1,6 +1,6 @@
 #include <stdarg.h>
 #include <stdio.h>
-
+#include "ft_printf.h"
 int		ft_printf(const char *, ...);
 
 void	test(char	*fmt, ...)
@@ -98,6 +98,26 @@ int		main(void)
 	//printf("%0-01-013.*d", 4, 267);
 	ft_printf("\n");
 	ft_printf("%%d 0000042 == |%d|", 0000042);
+	ft_printf("\n");
+	/*printf("str_nb == %d\n", ft_printf("str == %4s", "abc"));
+	ft_printf("ft_str_nb == %d\n", ft_printf("str == %4s", "abc"));
+	ft_printf("str == %d%4d\n", NULL, 456);
+	ft_printf("str == %3ss\n", "abc");
+	ft_printf("str == %3ss\n", NULL);
+	ft_printf("str == %-1.5s\n", "abc");
+	ft_printf("str == %-7.5s", "yolo");
+	ft_strlen(NULL);
+	printf("str == %-8.s", "hi low\0don't print me lol\0");
+	ft_printf("\n");
+	ft_printf("str == %-8.s", "hi low\0don't print me lol\0");
+	ft_printf("\n");*/
+	/*printf("%-9.1s", NULL);
+	ft_printf("\n");
+	ft_printf("%-9.1s", NULL);
+	ft_printf("\n");*/
+	ft_printf("ah!%-20.6s", NULL);
+	ft_printf("\n");
+	printf("ah%-3.1s", NULL);
 	ft_printf("\n");
 	return (0);
 }
