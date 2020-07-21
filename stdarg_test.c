@@ -117,7 +117,13 @@ int		main(void)
 	ft_printf("\n");*/
 	ft_printf("ah!%-20.6s", NULL);
 	ft_printf("\n");
-	printf("ah%-3.1s", NULL);
+	//printf("ah%-3.1s", NULL);
 	ft_printf("\n");
+	ft_printf("%7.5s\n", "bombastic");
+	printf("%7.5s\n", "bombastic");
+	ft_printf("%3.6s\n", "hi low\0don't print me lol\0");
+	printf("%3.6s\n", "hi low\0don't print me lol\0");
+	ft_printf("%20.6s\n", "hi low\0don't print me lol\0");
+	printf("%20.6s\n", "hi low\0don't print me lol\0");
 	return (0);
 }

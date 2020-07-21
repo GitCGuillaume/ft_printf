@@ -1,4 +1,17 @@
 #include "../ft_printf.h"
+#include <stdio.h>
+ssize_t	calc_s(ssize_t width, ssize_t width_specification, ssize_t lensize)
+{
+	ssize_t size;
+
+	size = 0;
+	size = width - lensize;
+	if (width > width_specification && 0 > size)
+		size = -size;
+	if (width > width_specification)
+		size = size - width_specification;
+	return (size);
+}
 
 void	ft_putstr_limit_fd(char *s, size_t limit, size_t *nb_print, int fd)
 {
@@ -17,6 +30,18 @@ void	ft_putstr_limit_fd(char *s, size_t limit, size_t *nb_print, int fd)
 	}
 }
 
+void	spec_pnt_no_ast_s(t_flags *l_flags, size_t *nb_prt, char *s)
+{
+	ssize_t	width;
+	ssize_t	w_spec;
+
+	width = ft_atoi(l_flags->width);
+	w_spec = ft_atoi(l_flags->width_specification);
+	(*nb_prt) += print_w_spec(calc_s(width, w_spec, ft_strlen(s)), 0, ' ');
+
+	//(*nb_prt) += print_width_s(calc_s(width, w_spec, ft_strlen(s)), s, ' ');
+	ft_putstr_limit_fd(s, w_spec, nb_prt, 1);
+}
 void	spec_minus_s(t_flags *l_flags, size_t *nb_print, char *s)
 {
 	ssize_t	width;
