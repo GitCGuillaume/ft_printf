@@ -29,6 +29,7 @@ typedef struct	s_flags
 	char	*width_specification;
 }				t_flags;
 
+int				ft_printf(const char *, ...);
 void				init_list_flags(t_flags *lst_flags);
 int				find_indicators(const char *fmt, size_t *i, size_t *nb_print, t_flags *l_flags);
 int				is_indicator(char const *fmt, size_t *i, size_t *nb_print, t_flags *l_flags);
@@ -45,7 +46,7 @@ void				spec_pnt_no_ast_d(t_flags *l_flags, size_t *nb_prt, int d);
 void				spec_point_astrsk_d(t_flags *l_flags, va_list ap, size_t *nb_prt, int d);
 size_t				print_s(t_flags *l_flags, va_list ap);
 int				print_width_s(ssize_t width, char *s, char c);
-char				*ft_strlimit(char *s, size_t width);
+char				*ft_strlimit(char *s, ssize_t width);
 void				spec_minus_s(t_flags *l_flags, size_t *nb_print, char *s);
 void				spec_pnt_no_ast_s(t_flags *l_flags, size_t *nb_prt, char *s);
 int				print_p(t_flags *l_flags, void *addr);

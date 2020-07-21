@@ -12,23 +12,28 @@
 
 #include "../ft_printf.h"
 #include <stdio.h>
-/*
-char	*ft_strlimit(char *s, size_t width)
+
+char	*ft_strlimit(char *s, ssize_t width)
 {
-	size_t	i;
+	ssize_t	i;
 	char	*ptr;
 
 	i = 0;
-	if (!(ptr = malloc(atoi + 1)))
-		return (NULL);
-	while (width > i)
+	if (s != NULL)
 	{
-		ptr[i] = s[i];
-		i++;
+		if (!(ptr = malloc(width + 1)))
+			return (NULL);
+		while (s[i] != '\0' && width > i)
+		{
+			ptr[i] = s[i];
+			i++;
+		}
+		ptr[i] = '\0';
 	}
-	ptr[i] = '\0';
+	else
+		ptr = NULL;
 	return (ptr);
-}*/
+}
 
 size_t	check_flags_spec_s(t_flags *l_flags, va_list ap, char *s)
 {
@@ -40,23 +45,24 @@ size_t	check_flags_spec_s(t_flags *l_flags, va_list ap, char *s)
 	{
 		if (l_flags->asterisk == 0)
 		{
+			if (s == NULL)
+				s = ft_strdup("(null)");
 			spec_pnt_no_ast_s(l_flags, &nb_print, s);
+			if (ft_strstr(s, "(null)"))
+				free(s);
 			return (nb_print);
 		}
 	}
 	return (nb_print);
 }
 
-size_t	check_flags_one_s(t_flags *l_flags, va_list ap, char *s)
+size_t	check_flags_one_s(t_flags *l_flags, char *s)
 {
 	ssize_t	width;
 	size_t	nb_print;
-	char	*str;
 
 	width = ft_atoi(l_flags->width);
 	nb_print = 0;
-	str = NULL;
-	(void)str;
 	if (l_flags->zero == 0 && l_flags->minus == 0
 			&& l_flags->point == 0 && l_flags->asterisk == 0)
 	{
@@ -64,36 +70,44 @@ size_t	check_flags_one_s(t_flags *l_flags, va_list ap, char *s)
 			s = ft_strdup("(null)");
 		nb_print += print_width_s(width, s, ' ');
 		ft_putstr_fd(s, &nb_print, 1);
+		if (ft_strstr(s, "(null)"))
+			free(s);
 		return (nb_print);
 	}
 	else if (l_flags->minus == 1)
 	{
 		spec_minus_s(l_flags, &nb_print, s);
+		if (s && ft_strstr(s, "(null)"))
+			free(s);
 		return (nb_print);
 	}
-	else if (l_flags->point == 1)
-	{
-		nb_print += check_flags_spec_s(l_flags, ap, s);
-	}
-	/*else if (l_flags->point == 1)
-	{
-		str = ft_strlimit(s, atoi);
-		ft_putstr_fd(str, 1);
-		free(str);
-		return (1);
-	}*/
 	return (nb_print);
-}/*
-int	check_flags_two_s(t_flags *l_flags, char *s, size_t atoi)
+}
+
+size_t	check_flags_two_s(t_flags *l_flags, va_list ap, char *s)
 {
-	if (l_flags->minus == 1)
+	size_t	nb_print;
+	ssize_t	width;
+
+	nb_print = 0;
+	width = ft_atoi(l_flags->width);
+	/*if (l_flags->point == 1 && l_flags->zero == 1)
+		nb_print += check_flags_spec_s(l_flags, ap, s);
+	else*/
+       	if (l_flags->point == 1 && l_flags->zero == 0)
+		nb_print += check_flags_spec_s(l_flags, ap, s);
+	else if (l_flags->zero == 1)
 	{
-		ft_putstr_fd(s, 1);
-		print_space_s(atoi, s);
-		return (1);
+		if (s == NULL)
+			s = ft_strdup("(null)");
+		nb_print += print_width_s(width, s, ' ');
+		ft_putstr_fd(s, &nb_print, 1);
+		if (ft_strstr(s, "(null)"))
+			free(s);
+		return (nb_print);
 	}
-	return (0);
-}*/
+	return (nb_print);
+}
 
 size_t print_s(t_flags *l_flags, va_list ap)
 {
@@ -104,9 +118,9 @@ size_t print_s(t_flags *l_flags, va_list ap)
 	s = va_arg(ap, char *);
 	if (l_flags->percentage == 0)
 	{
-		if ((result = check_flags_one_s(l_flags, ap, s)) == 0)
+		if ((result = check_flags_one_s(l_flags, s)) == 0)
 		{
-			//result = check_flags_two_s(l_flags, s);
+			result = check_flags_two_s(l_flags, ap, s);
 		}
 	}
 	del(l_flags->width);

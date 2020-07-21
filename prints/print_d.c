@@ -28,7 +28,7 @@ ssize_t	calc(ssize_t width, ssize_t width_specification, ssize_t lensize, int d)
 	return (size);
 }
 
-int		check_flags_spec_d(t_flags *l_flags, va_list ap, int d)
+size_t		check_flags_spec_d(t_flags *l_flags, va_list ap, int d)
 {
 	size_t	nb_print;
 

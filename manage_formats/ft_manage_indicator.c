@@ -32,10 +32,7 @@ int	check_value_indicator_one(t_flags *l_flags, char c)
 	}
 	else if (c == '0')
 	{
-		if (l_flags->zero >= 1)
-			l_flags->zero = 2;
-		else
-			l_flags->zero = 1;
+		l_flags->zero = 1;
 		return (1);
 	}
 	return (0);

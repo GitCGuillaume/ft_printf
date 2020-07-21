@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/02 17:06:11 by gchopin           #+#    #+#             */
-/*   Updated: 2020/05/02 17:06:53 by gchopin          ###   ########.fr       */
+/*   Created: 2020/05/02 17:04:26 by gchopin           #+#    #+#             */
+/*   Updated: 2020/05/08 17:36:31 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strstr(const char *string, const char *needle)
 {
 	size_t	i;
+	size_t	j;
 
 	i = 0;
-	if (s != NULL)
+	j = 0;
+	if (needle[0] == '\0')
+		return ((char *)string);
+	while (string[i] != '\0')
 	{
-		while (s[i] != '\0')
+		j = 0;
+		if (string[i] == needle[j])
 		{
-			i++;
+			while (needle[j] == string[i + j]
+					&& needle[j] != '\0')
+			{
+				if (needle[j + 1] == '\0')
+					return ((char *)&string[i]);
+				j++;
+			}
 		}
+		i++;
 	}
-	return (i);
+	return (0);
 }

@@ -39,7 +39,7 @@ int		main(void)
 {
 	//ft_printf("azer0%5dqaz", -123);
 	//printf("printf=%d\n", printf("azer0%5dqaz", 123));
-	/*ft_printf("%3d\n", 0);
+	ft_printf("%3d\n", 0);
 	printf("\n%3d\n", -1);
 	printf("%05.08d", 34);
 	printf("\n");
@@ -49,7 +49,7 @@ int		main(void)
 	ft_printf("%0-8.5da", 34);
 	printf("\n");
 	printf("%0-8.5da", 34);
-	*///ft_printf("\n");
+	//ft_printf("\n");
 	//ft_printf("%-5.0da", 0);
 	ft_printf("%0-8.5da", 34);
 	ft_printf("\n");
@@ -99,7 +99,7 @@ int		main(void)
 	ft_printf("\n");
 	ft_printf("%%d 0000042 == |%d|", 0000042);
 	ft_printf("\n");
-	/*printf("str_nb == %d\n", ft_printf("str == %4s", "abc"));
+	printf("str_nb == %d\n", ft_printf("str == %4s", "abc"));
 	ft_printf("ft_str_nb == %d\n", ft_printf("str == %4s", "abc"));
 	ft_printf("str == %d%4d\n", NULL, 456);
 	ft_printf("str == %3ss\n", "abc");
@@ -110,14 +110,14 @@ int		main(void)
 	printf("str == %-8.s", "hi low\0don't print me lol\0");
 	ft_printf("\n");
 	ft_printf("str == %-8.s", "hi low\0don't print me lol\0");
-	ft_printf("\n");*/
-	/*printf("%-9.1s", NULL);
+	ft_printf("\n");
+	printf("%-9.1s", NULL);
 	ft_printf("\n");
 	ft_printf("%-9.1s", NULL);
-	ft_printf("\n");*/
+	ft_printf("\n");
 	ft_printf("ah!%-20.6s", NULL);
 	ft_printf("\n");
-	//printf("ah%-3.1s", NULL);
+	printf("ah%-3.1s", NULL);
 	ft_printf("\n");
 	ft_printf("%7.5s\n", "bombastic");
 	printf("%7.5s\n", "bombastic");
@@ -125,5 +125,12 @@ int		main(void)
 	printf("%3.6s\n", "hi low\0don't print me lol\0");
 	ft_printf("%20.6s\n", "hi low\0don't print me lol\0");
 	printf("%20.6s\n", "hi low\0don't print me lol\0");
+	
+	ft_printf("%-32s\n", "abc");
+	ft_printf("%-3.s\n", NULL);
+	ft_printf("----------------------\n");
+	ft_printf("a%.9s\n", NULL);
+	printf("b%.9s\n", NULL);
+	ft_printf("a%09s\n", NULL);
 	return (0);
 }
