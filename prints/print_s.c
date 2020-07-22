@@ -48,7 +48,7 @@ size_t	check_flags_spec_s(t_flags *l_flags, va_list ap, char *s)
 			if (s == NULL)
 				s = ft_strdup("(null)");
 			spec_pnt_no_ast_s(l_flags, &nb_print, s);
-			if (ft_strstr(s, "(null)"))
+			if (ft_strnstr(s, "(null)", 6))
 				free(s);
 			return (nb_print);
 		}
@@ -70,15 +70,13 @@ size_t	check_flags_one_s(t_flags *l_flags, char *s)
 			s = ft_strdup("(null)");
 		nb_print += print_width_s(width, s, ' ');
 		ft_putstr_fd(s, &nb_print, 1);
-		if (ft_strstr(s, "(null)"))
+		if (ft_strnstr(s, "(null)", 6))
 			free(s);
 		return (nb_print);
 	}
 	else if (l_flags->minus == 1)
 	{
 		spec_minus_s(l_flags, &nb_print, s);
-		if (s && ft_strstr(s, "(null)"))
-			free(s);
 		return (nb_print);
 	}
 	return (nb_print);
@@ -91,9 +89,6 @@ size_t	check_flags_two_s(t_flags *l_flags, va_list ap, char *s)
 
 	nb_print = 0;
 	width = ft_atoi(l_flags->width);
-	/*if (l_flags->point == 1 && l_flags->zero == 1)
-		nb_print += check_flags_spec_s(l_flags, ap, s);
-	else*/
        	if (l_flags->point == 1 && l_flags->zero == 0)
 		nb_print += check_flags_spec_s(l_flags, ap, s);
 	else if (l_flags->zero == 1)
@@ -102,7 +97,7 @@ size_t	check_flags_two_s(t_flags *l_flags, va_list ap, char *s)
 			s = ft_strdup("(null)");
 		nb_print += print_width_s(width, s, ' ');
 		ft_putstr_fd(s, &nb_print, 1);
-		if (ft_strstr(s, "(null)"))
+		if (ft_strnstr(s, "(null)", 6))
 			free(s);
 		return (nb_print);
 	}

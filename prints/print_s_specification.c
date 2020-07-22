@@ -49,23 +49,21 @@ void	spec_minus_s(t_flags *l_flags, size_t *nb_print, char *s)
 
 	width = ft_atoi(l_flags->width);
 	w_spec = ft_atoi(l_flags->width_specification);
+	if (s == NULL)
+		s = ft_strdup("(null)");
 	if (l_flags->point == 0)
 	{
-		if (s == NULL)
-			s = ft_strdup("(null)");
 		ft_putstr_fd(s, nb_print, 1);
 		(*nb_print) += print_width_s(width, s, ' ');
 	}
 	else
 	{
 		if (/*w_spec >= 1 &&*/ s == NULL)
-		{
-			s = ft_strdup("(null)");
 			ft_putstr_limit_fd(s, w_spec, nb_print, 1);
-			free(s);
-		}
 		else if (s != NULL && w_spec > 0)
 			ft_putstr_limit_fd(s, w_spec, nb_print, 1);
 		(*nb_print) += print_w_spec(width, *nb_print, ' ');
 	}
+	if (ft_strnstr(s, "(null)", 6))
+		free(s);
 }

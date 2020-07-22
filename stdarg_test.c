@@ -39,7 +39,7 @@ int		main(void)
 {
 	//ft_printf("azer0%5dqaz", -123);
 	//printf("printf=%d\n", printf("azer0%5dqaz", 123));
-	ft_printf("%3d\n", 0);
+	/*ft_printf("%3d\n", 0);
 	printf("\n%3d\n", -1);
 	printf("%05.08d", 34);
 	printf("\n");
@@ -131,6 +131,8 @@ int		main(void)
 	ft_printf("----------------------\n");
 	ft_printf("a%.9s\n", NULL);
 	printf("b%.9s\n", NULL);
-	ft_printf("a%09s\n", NULL);
+	ft_printf("a%09s\n", NULL);*/
+	printf("%%-*.3s LYDI == |%-*.3d|\n", 5, 1234);
+	ft_printf("%%-*.3s LYDI == |%-*.3d|\n", 5, 1234);
 	return (0);
 }
