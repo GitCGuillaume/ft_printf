@@ -49,15 +49,35 @@ size_t		check_flags_spec_d(t_flags *l_flags, va_list ap, int d)
 	return (nb_print);
 }
 
-size_t		check_flags_two_d(t_flags *l_flags, int d)
+size_t		astrsk_d(va_list ap, int d, ssize_t *width)
+{
+	va_list	ap2;
+	size_t	nb_print;
+	int	d_copy;
+
+	nb_print = 0;
+	va_copy(ap2, ap);
+	d_copy = va_arg(ap2, int);
+	nb_print += print_width_d(d, d_copy, ' ');
+	ft_putnbr_fd(d_copy, &nb_print, 1);
+	*width = d;
+	printf("width == %li\n", *width);
+	return (nb_print);
+}
+
+size_t		check_flags_two_d(t_flags *l_flags, va_list ap, int d)
 {
 	size_t	nb_print;
 	ssize_t	width;
 
 	nb_print = 0;
 	width = ft_atoi(l_flags->width);
+	if (l_flags->asterisk == 1)
+		nb_print += astrsk_d(ap, d, &width);
 	if (l_flags->zero == 1)
 	{
+		if (l_flags->asterisk == 1)
+			d = va_arg(ap, int);
 		if (d < 0)
 		{
 			nb_print++;
@@ -92,7 +112,7 @@ size_t		check_flags_one_d(t_flags *l_flags, va_list ap, int d)
 	}
 	else if (l_flags->minus == 1)
 	{
-		spec_minus_d(l_flags, &nb_print, d);
+		spec_minus_d(l_flags, ap,&nb_print, d);
 		return (nb_print);
 	}
 	else if(l_flags->point == 1)
@@ -111,7 +131,7 @@ size_t		print_d(t_flags *l_flags, va_list ap)
 	{
 		if ((result = check_flags_one_d(l_flags, ap, d)) == 0)
 		{
-			result = check_flags_two_d(l_flags, d);
+			result = check_flags_two_d(l_flags, ap, d);
 		}
 	}
 	del(l_flags->width);

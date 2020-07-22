@@ -132,7 +132,11 @@ int		main(void)
 	ft_printf("a%.9s\n", NULL);
 	printf("b%.9s\n", NULL);
 	ft_printf("a%09s\n", NULL);*/
-	printf("%%-*.3s LYDI == |%-*.3d|\n", 5, 1234);
-	ft_printf("%%-*.3s LYDI == |%-*.3d|\n", 5, 1234);
+	printf("d1=%d", printf("%%-*.3s LYDI == |%-*.3d|\n", 5, 1234));
+	printf("d2=%d", ft_printf("%%-*.3s LYDI == |%-*.3d|\n", 5, 1234));
+	printf("d3=%d", printf("%%-*.3s LYDI == |%-3.*d|\n", 5, 1234));
+	printf("d4=%d", ft_printf("%%-*.3s LYDI == |%-3.*d|\n", 5, 1234));
+	printf("d=%d\n", printf("\n%0*d\n", 6, 123));
+	ft_printf("d=%d\n", ft_printf("\n%0*d\n", 6, 123));
 	return (0);
 }

@@ -41,7 +41,7 @@ size_t				print_d(t_flags *l_flags, va_list ap);
 int				print_width_d(ssize_t width, int d, char c);
 ssize_t				calc(ssize_t width, ssize_t width_specification, ssize_t lensize, int d);
 int				print_w_spec(ssize_t width, ssize_t sum, char c);
-void				spec_minus_d(t_flags *l_flags, size_t *nb_print, int d);
+void				spec_minus_d(t_flags *l_flags, va_list ap,size_t *nb_print, int d);
 void				spec_pnt_no_ast_d(t_flags *l_flags, size_t *nb_prt, int d);
 void				spec_point_astrsk_d(t_flags *l_flags, va_list ap, size_t *nb_prt, int d);
 size_t				print_s(t_flags *l_flags, va_list ap);
