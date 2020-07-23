@@ -39,7 +39,7 @@ int		main(void)
 {
 	//ft_printf("azer0%5dqaz", -123);
 	//printf("printf=%d\n", printf("azer0%5dqaz", 123));
-	/*ft_printf("%3d\n", 0);
+	ft_printf("%3s\n", "abc");
 	printf("\n%3d\n", -1);
 	printf("%05.08d", 34);
 	printf("\n");
@@ -119,8 +119,7 @@ int		main(void)
 	ft_printf("\n");
 	printf("ah%-3.1s", NULL);
 	ft_printf("\n");
-	ft_printf("%7.5s\n", "bombastic");
-	printf("%7.5s\n", "bombastic");
+	ft_printf("%7.5s\n", "s");
 	ft_printf("%3.6s\n", "hi low\0don't print me lol\0");
 	printf("%3.6s\n", "hi low\0don't print me lol\0");
 	ft_printf("%20.6s\n", "hi low\0don't print me lol\0");
@@ -131,29 +130,28 @@ int		main(void)
 	ft_printf("----------------------\n");
 	ft_printf("a%.9s\n", NULL);
 	printf("b%.9s\n", NULL);
-	ft_printf("a%09s\n", NULL);*/
-	printf("d1=%d", printf("d1=%%-*.3s LYDI == |%-*.3d|\n", -10, 1234));
-	ft_printf("d2=%d", ft_printf("d2=%%-*.3s LYDI == |%-*.3d|\n", -10, 1234));
-	printf("d3=%d", printf("%%-*.3s LYDI == |%-3.*d|\n", 5, 1234));
-	ft_printf("d4=%d", ft_printf("%%-*.3s LYDI == |%-3.*d|\n", 5, 1234));
-	printf("d=%d\n", printf("\n%0*d\n", 6, 123));
+	printf("d1=%d", printf("d1=%%-*.3s LYDI == |%-*.3s|\n", -10, "zbcd"));
+	ft_printf("d2=%d", ft_printf("d2=%%-.*3s LYDI == |%-*.3s|\n", -10, "zbcd"));
+	/*printf("d3=%d", printf("%%-*.3s LYDI == |%-3.*s|\n", 5, "abcd"));
+	ft_printf("d4=%d", ft_printf("%%-*.3s LYDI == |%-3.*s|\n", 5, "abcd"));
+	printf("d=%d\n", printf("\n%0*s\n", 6, "abc"));
 	printf("\n");
-	ft_printf("d=%d", ft_printf("\n%0*d\n", 6, 123));
+	ft_printf("d=%d", ft_printf("\n%0*s\n", 6, "abc"));
 	printf("\n");
-	printf("d1=%d",printf("%*d", -10, NULL));
+	printf("d1=%d",printf("%*s", 10, NULL));
 	printf("\n");
-	ft_printf("d2=%d", ft_printf("%*d", -10, NULL));
+	ft_printf("d2=%d", ft_printf("%*s", 10, NULL));
 	printf("\n");
 	
 	
 	printf("\n");
-	printf("d3=%d",printf("%*d", -10, NULL));
+	printf("d3=%d",printf("%*s", -10, NULL));
 	printf("\n");
-	ft_printf("d4=%d", ft_printf("%*d", -10, NULL));
+	ft_printf("d4=%d", ft_printf("%*s", -10, NULL));
 	printf("\n");
-	printf("d5=%d",printf("%*d", NULL, NULL));
+	printf("d5=%d",printf("%*s", NULL, NULL));
 	printf("\n");
-	ft_printf("d6=%d", ft_printf("%*d", NULL, NULL));
+	ft_printf("d6=%d", ft_printf("%*s", NULL, NULL));*/
 	printf("\n");
 
 	return (0);

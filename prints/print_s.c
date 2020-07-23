@@ -52,11 +52,13 @@ size_t	check_flags_spec_s(t_flags *l_flags, va_list ap, char *s)
 				free(s);
 			return (nb_print);
 		}
+		//else
+		//	spec_point_astrsk_s(l_flags, ap, &nb_print, s);
 	}
 	return (nb_print);
 }
 
-size_t	check_flags_one_s(t_flags *l_flags, char *s)
+size_t	check_flags_one_s(va_list ap, t_flags *l_flags, char *s)
 {
 	ssize_t	width;
 	size_t	nb_print;
@@ -76,7 +78,10 @@ size_t	check_flags_one_s(t_flags *l_flags, char *s)
 	}
 	else if (l_flags->minus == 1)
 	{
-		spec_minus_s(l_flags, &nb_print, s);
+		if (l_flags->asterisk == 0)
+			spec_minus_no_ast_s(l_flags, &nb_print, s);
+		else
+			spec_minus_ast_s(ap, l_flags, &nb_print, s);
 		return (nb_print);
 	}
 	return (nb_print);
@@ -95,7 +100,7 @@ size_t	check_flags_two_s(t_flags *l_flags, va_list ap, char *s)
 	{
 		if (s == NULL)
 			s = ft_strdup("(null)");
-		nb_print += print_width_s(width, s, ' ');
+		nb_print += print_width_s(width, s, '0');
 		ft_putstr_fd(s, &nb_print, 1);
 		if (ft_strnstr(s, "(null)", 6))
 			free(s);
@@ -113,7 +118,7 @@ size_t print_s(t_flags *l_flags, va_list ap)
 	s = va_arg(ap, char *);
 	if (l_flags->percentage == 0)
 	{
-		if ((result = check_flags_one_s(l_flags, s)) == 0)
+		if ((result = check_flags_one_s(ap, l_flags, s)) == 0)
 		{
 			result = check_flags_two_s(l_flags, ap, s);
 		}

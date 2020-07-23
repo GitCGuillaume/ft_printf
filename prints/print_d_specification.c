@@ -72,8 +72,7 @@ void	spec_point_astrsk_d(t_flags *l_flags, va_list ap, size_t *nb_prt, int d)
 	width = ft_atoi(l_flags->width);
 	w_spec = ft_atoi(l_flags->width_specification);
 	if (width > w_spec)
-		(*nb_prt) += print_w_spec(calc(width, w_spec,
-					lsize, d_copy), *nb_prt, ' ');
+		(*nb_prt) += print_w_spec(calc(width, w_spec, lsize, d_copy), *nb_prt, ' ');
 	if (d_copy < 0)
 		negative_d(nb_prt, &d_copy);
 	if (l_flags->width_specification[0] == '-')
@@ -85,6 +84,7 @@ void	spec_point_astrsk_d(t_flags *l_flags, va_list ap, size_t *nb_prt, int d)
 	(*nb_prt) += print_w_spec(w_spec - lsize, 0, '0');
 	if (d_copy != 0)
 		ft_putnbr_fd(d_copy, nb_prt, 1);
+	va_end(ap2);
 }
 
 size_t		check_flags_spec_d(t_flags *l_flags, va_list ap, int d)

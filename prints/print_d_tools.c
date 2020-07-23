@@ -47,6 +47,7 @@ size_t		astrsk_d_lr(va_list ap, t_flags *l_flags, int d, ssize_t *width)
 		ft_putnbr_fd(d_copy, &nb_print, 1);
 	}
 	*width = d;
+	va_end(ap2);
 	return (nb_print);
 }
 
@@ -75,6 +76,7 @@ size_t		astrsk_d_rl(va_list ap, t_flags *l_flags, int d, ssize_t *width)
 	else
 		spec_point_astrsk_d(l_flags, ap, &nb_print, d);
 	*width = d;
+	va_end(ap2);
 	return (nb_print);
 }
 

@@ -51,7 +51,8 @@ void				spec_point_astrsk_d(t_flags *l_flags, va_list ap, size_t *nb_prt, int d)
 size_t				print_s(t_flags *l_flags, va_list ap);
 int				print_width_s(ssize_t width, char *s, char c);
 char				*ft_strlimit(char *s, ssize_t width);
-void				spec_minus_s(t_flags *l_flags, size_t *nb_print, char *s);
+void				spec_minus_no_ast_s(t_flags *l_flags, size_t *nb_print, char *s);
+void	spec_minus_ast_s(va_list ap, t_flags *l_flags, size_t *nb_print, int s);
 void				spec_pnt_no_ast_s(t_flags *l_flags, size_t *nb_prt, char *s);
 int				print_p(t_flags *l_flags, void *addr);
 int				print_zero_p(size_t atoi, char *p);
