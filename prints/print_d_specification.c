@@ -1,10 +1,14 @@
 #include "../ft_printf.h"
 
-void	negative_d(size_t *nb_print, int *d)
+void	spec_minus_no_ast_d(t_flags *l_flags, size_t *nb_print, ssize_t *width, int d)
 {
-	(*nb_print)++;
-	ft_putchar_fd('-', 1);
-	(*d) = -(*d);
+	if (d < 0)
+		negative_d(nb_print, &d);
+	(*nb_print) += print_width_d(ft_atoi(l_flags->width_specification),
+			d, '0');
+	if (d != 0)
+		ft_putnbr_fd(d, nb_print, 1);
+	(*nb_print) += print_w_spec(*width, *nb_print, ' ');
 }
 
 void	spec_minus_d(t_flags *l_flags, va_list ap, size_t *nb_print, int d)
@@ -22,17 +26,12 @@ void	spec_minus_d(t_flags *l_flags, va_list ap, size_t *nb_print, int d)
 	else
 	{
 		if (l_flags->asterisk == 0)
-		{
-			if (d < 0)
-				negative_d(nb_print, &d);
-			(*nb_print) += print_width_d(ft_atoi(l_flags->width_specification),
-					d, '0');
-			if (d != 0)
-				ft_putnbr_fd(d, nb_print, 1);
-			(*nb_print) += print_w_spec(width, *nb_print, ' ');
-		}
+			spec_minus_no_ast_d(l_flags, nb_print, &width, d);
+		else if (width == 0)
+			(*nb_print) += astrsk_d_rl(ap, l_flags, d, &width);
 		else
 			spec_point_astrsk_d(l_flags, ap, nb_print, d);
+		d--;
 	}
 }
 
@@ -58,7 +57,7 @@ void	spec_pnt_no_ast_d(t_flags *l_flags, size_t *nb_prt, int d)
 	if (d != 0)
 		ft_putnbr_fd(d, nb_prt, 1);
 }
-#include <stdio.h>
+
 void	spec_point_astrsk_d(t_flags *l_flags, va_list ap, size_t *nb_prt, int d)
 {
 	va_list	ap2;
@@ -86,4 +85,25 @@ void	spec_point_astrsk_d(t_flags *l_flags, va_list ap, size_t *nb_prt, int d)
 	(*nb_prt) += print_w_spec(w_spec - lsize, 0, '0');
 	if (d_copy != 0)
 		ft_putnbr_fd(d_copy, nb_prt, 1);
+}
+
+size_t		check_flags_spec_d(t_flags *l_flags, va_list ap, int d)
+{
+	size_t	nb_print;
+
+	nb_print = 0;
+	if (l_flags->point == 1)
+	{
+		if (l_flags->asterisk == 0)
+		{
+			spec_pnt_no_ast_d(l_flags, &nb_print, d);
+			return (nb_print);
+		}
+		else
+		{
+			spec_point_astrsk_d(l_flags, ap, &nb_print, d);
+			return (nb_print);
+		}
+	}
+	return (nb_print);
 }

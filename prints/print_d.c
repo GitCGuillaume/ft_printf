@@ -12,58 +12,7 @@
 
 #include "../ft_printf.h"
 #include <stdio.h>
-ssize_t	calc(ssize_t width, ssize_t width_specification, ssize_t lensize, int d)
-{
-	ssize_t	size;
 
-	size = 0;
-	if (width_specification >= 0)
-	{
-		size = width - lensize;
-		if (width_specification - lensize > 0)
-			size = size - (width_specification - lensize);
-		if (d < 0 && width_specification > lensize)
-			size--;
-	}
-	return (size);
-}
-
-size_t		check_flags_spec_d(t_flags *l_flags, va_list ap, int d)
-{
-	size_t	nb_print;
-
-	nb_print = 0;
-	if (l_flags->point == 1)
-	{
-		if (l_flags->asterisk == 0)
-		{
-			spec_pnt_no_ast_d(l_flags, &nb_print, d);
-			return (nb_print);
-		}
-		else
-		{
-			spec_point_astrsk_d(l_flags, ap, &nb_print, d);
-			return (nb_print);
-		}
-	}
-	return (nb_print);
-}
-
-size_t		astrsk_d(va_list ap, int d, ssize_t *width)
-{
-	va_list	ap2;
-	size_t	nb_print;
-	int	d_copy;
-
-	nb_print = 0;
-	va_copy(ap2, ap);
-	d_copy = va_arg(ap2, int);
-	nb_print += print_width_d(d, d_copy, ' ');
-	ft_putnbr_fd(d_copy, &nb_print, 1);
-	*width = d;
-	printf("width == %li\n", *width);
-	return (nb_print);
-}
 
 size_t		check_flags_two_d(t_flags *l_flags, va_list ap, int d)
 {
@@ -73,7 +22,7 @@ size_t		check_flags_two_d(t_flags *l_flags, va_list ap, int d)
 	nb_print = 0;
 	width = ft_atoi(l_flags->width);
 	if (l_flags->asterisk == 1)
-		nb_print += astrsk_d(ap, d, &width);
+		nb_print += astrsk_d_lr(ap, l_flags, d, &width);
 	if (l_flags->zero == 1)
 	{
 		if (l_flags->asterisk == 1)
