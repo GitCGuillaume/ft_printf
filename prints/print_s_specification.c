@@ -43,7 +43,7 @@ void	spec_pnt_no_ast_s(t_flags *l_flags, size_t *nb_prt, char *s)
 	free(width_to_str);
 }
 #include <stdio.h>
-void	spec_minus_ast_s(va_list ap, t_flags *l_flags, size_t *nb_print, int s)
+void	spec_minus_ast_s(va_list ap, t_flags *l_flags, size_t *nb_print, ssize_t s)
 {
 	va_list	ap2;
 	ssize_t	width;
@@ -54,7 +54,7 @@ void	spec_minus_ast_s(va_list ap, t_flags *l_flags, size_t *nb_print, int s)
 	width = ft_atoi(l_flags->width);
 	w_spec = ft_atoi(l_flags->width_specification);
 	s_copy = va_arg(ap2, char *);
-	printf("\ns == %d\n", s);
+	printf("\ns == %li\n", s);
 	printf("s_copy == %s\n", s_copy);
 	/*printf("width == %li", width);
 	printf("width_specification == %li", w_spec);*/

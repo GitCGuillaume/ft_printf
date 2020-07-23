@@ -58,13 +58,19 @@ size_t	check_flags_spec_s(t_flags *l_flags, va_list ap, char *s)
 	return (nb_print);
 }
 
-size_t	check_flags_one_s(va_list ap, t_flags *l_flags, char *s)
+size_t	check_flags_one_s(va_list ap, t_flags *l_flags)
 {
+	va_list	ap2;
 	ssize_t	width;
 	size_t	nb_print;
+	char	*s;
+	int	s2;
 
+	va_copy(ap2, ap);
 	width = ft_atoi(l_flags->width);
 	nb_print = 0;
+	s = va_arg(ap, char *);
+	s2 = 0;
 	if (l_flags->zero == 0 && l_flags->minus == 0
 			&& l_flags->point == 0 && l_flags->asterisk == 0)
 	{
@@ -81,7 +87,10 @@ size_t	check_flags_one_s(va_list ap, t_flags *l_flags, char *s)
 		if (l_flags->asterisk == 0)
 			spec_minus_no_ast_s(l_flags, &nb_print, s);
 		else
-			spec_minus_ast_s(ap, l_flags, &nb_print, s);
+		{
+			s2 = va_arg(ap2, ssize_t);
+			spec_minus_ast_s(ap, l_flags, &nb_print, s2);
+		}
 		return (nb_print);
 	}
 	return (nb_print);
@@ -111,19 +120,22 @@ size_t	check_flags_two_s(t_flags *l_flags, va_list ap, char *s)
 
 size_t print_s(t_flags *l_flags, va_list ap)
 {
+	va_list	ap2;
 	size_t	result;
-	char	*s;
+	char	*s_copy;
 
 	result = 0;
-	s = va_arg(ap, char *);
+	va_copy(ap2, ap);
+	s_copy = va_arg(ap2, char *);
 	if (l_flags->percentage == 0)
 	{
-		if ((result = check_flags_one_s(ap, l_flags, s)) == 0)
+		if ((result = check_flags_one_s(ap, l_flags)) == 0)
 		{
-			result = check_flags_two_s(l_flags, ap, s);
+			result = check_flags_two_s(l_flags, ap, s_copy);
 		}
 	}
 	del(l_flags->width);
 	del(l_flags->width_specification);
+	va_end(ap2);
 	return (result);
 }
