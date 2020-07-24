@@ -63,7 +63,7 @@ void	spec_minus_ast_s(va_list ap, t_flags *l_flags, size_t *nb_print, ssize_t s)
 		s_copy = ft_strdup("(null)");
 	/*if (l_flags->point == 0)
 	{
-		ft_putstr_fd(s_copy, nb_print, 1);
+		ft_putstr_pr_fd(s_copy, nb_print, 1);
 		(*nb_print) += print_width_s(s, s_copy, ' ');
 	}
 	else
@@ -84,7 +84,7 @@ void	spec_minus_no_ast_s(t_flags *l_flags, size_t *nb_print, char *s)
 		s = ft_strdup("(null)");
 	if (l_flags->point == 0)
 	{
-		ft_putstr_fd(s, nb_print, 1);
+		ft_putstr_pr_fd(s, nb_print, 1);
 		(*nb_print) += print_width_s(width, s, ' ');
 	}
 	else

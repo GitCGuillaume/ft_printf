@@ -77,7 +77,7 @@ size_t	check_flags_one_s(va_list ap, t_flags *l_flags)
 		if (s == NULL)
 			s = ft_strdup("(null)");
 		nb_print += print_width_s(width, s, ' ');
-		ft_putstr_fd(s, &nb_print, 1);
+		ft_putstr_pr_fd(s, &nb_print, 1);
 		if (ft_strnstr(s, "(null)", 6))
 			free(s);
 		return (nb_print);
@@ -110,7 +110,7 @@ size_t	check_flags_two_s(t_flags *l_flags, va_list ap, char *s)
 		if (s == NULL)
 			s = ft_strdup("(null)");
 		nb_print += print_width_s(width, s, '0');
-		ft_putstr_fd(s, &nb_print, 1);
+		ft_putstr_pr_fd(s, &nb_print, 1);
 		if (ft_strnstr(s, "(null)", 6))
 			free(s);
 		return (nb_print);
