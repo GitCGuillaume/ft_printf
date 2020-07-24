@@ -143,7 +143,6 @@ int		main(void)
 	ft_printf("d2=%d", ft_printf("%*s", 10, NULL));
 	printf("\n");
 	
-	
 	printf("\n");
 	printf("d3=%d",printf("%*s", -10, NULL));
 	printf("\n");
