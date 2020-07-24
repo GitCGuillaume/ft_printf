@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 15:58:32 by gchopin           #+#    #+#             */
-/*   Updated: 2020/06/25 11:14:26 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/07/24 18:42:34 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,12 +90,12 @@ size_t	check_flags_one_s(va_list ap, t_flags *l_flags)
 			spec_minus_no_ast_s(l_flags, &nb_print, s);
 		else
 		{
-			while (l_flags->asterisk > i)
+			/*while (l_flags->asterisk > i)
 			{
 				s2 = va_arg(ap2, int);
 				i++;
-			}
-			spec_minus_ast_s(ap2, l_flags, &nb_print, s2);
+			}*/
+			spec_minus_ast_s(ap2, l_flags, &nb_print);
 			va_end(ap2);
 		}
 		return (nb_print);
