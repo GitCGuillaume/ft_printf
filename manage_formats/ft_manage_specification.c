@@ -8,7 +8,10 @@ int	asterisk_precision_specification(t_flags *l_flags, va_list ap)
 	va_copy(ap2, ap);
 	d_copy = va_arg(ap2, int);
 	l_flags->width_specification = ft_itoa(d_copy);
-	l_flags->asterisk = 1;
+	if (l_flags->asterisk == 0)
+		l_flags->asterisk = 1;
+	else
+		l_flags->asterisk = 2;
 	return (0);
 }
 

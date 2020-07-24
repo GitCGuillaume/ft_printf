@@ -37,7 +37,7 @@ int	check_value_indicator_one(t_flags *l_flags, char c)
 	}
 	return (0);
 }
-
+#include <stdio.h>
 int	check_value_indicator_two(t_flags *l_flags, size_t *i, size_t *nb_print, char const *fmt)
 {
 	if (fmt[*i] == '*')

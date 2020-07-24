@@ -130,13 +130,15 @@ int		main(void)
 	ft_printf("----------------------\n");
 	ft_printf("a%.9s\n", NULL);
 	printf("b%.9s\n", NULL);
-	printf("d1=%d", printf("d1=%%-*.3s LYDI == |%-*.3s|\n", -10, "zbcd"));
-	ft_printf("d2=%d", ft_printf("d2=%%-.*3s LYDI == |%-*.3s|\n", -10, "zbcd"));
-	/*printf("d3=%d", printf("%%-*.3s LYDI == |%-3.*s|\n", 5, "abcd"));
-	ft_printf("d4=%d", ft_printf("%%-*.3s LYDI == |%-3.*s|\n", 5, "abcd"));
+	printf("d1=%d", printf("d1=%%-*.3s LYDI == |%-*s|\n", -10, "zbcd"));
+	ft_printf("d2=%d", ft_printf("d2=%%-.*3s LYDI == |%-*s|\n", -10, "zbcd"));
+	//printf("d3=%d", printf("%%-*.3s LYDI == |%-3.*s|\n", 10, "abcd"));
+	//ft_printf("d4=%d", ft_printf("%%-*.3s LYDI == |%-3.*s|\n", 10, "abcd"));
+	printf("\ngneeee1%-*.*sa\n", 7, 3, "yolo");
+	ft_printf("\ngneee2%-*.*sb\n", 7, 3, "yolo");
 	printf("d=%d\n", printf("\n%0*s\n", 6, "abc"));
 	printf("\n");
-	ft_printf("d=%d", ft_printf("\n%0*s\n", 6, "abc"));
+	//ft_printf("d=%d", ft_printf("\n%0*.s\n", 6, "abc"));
 	printf("\n");
 	printf("d1=%d",printf("%*s", 10, NULL));
 	printf("\n");
@@ -150,7 +152,7 @@ int		main(void)
 	printf("\n");
 	printf("d5=%d",printf("%*s", NULL, NULL));
 	printf("\n");
-	ft_printf("d6=%d", ft_printf("%*s", NULL, NULL));*/
+	ft_printf("d6=%d", ft_printf("%*s", NULL, NULL));
 	printf("\n");
 
 	return (0);

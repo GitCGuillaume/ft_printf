@@ -57,15 +57,17 @@ size_t	check_flags_spec_s(t_flags *l_flags, va_list ap, char *s)
 	}
 	return (nb_print);
 }
-
+#include <stdio.h>
 size_t	check_flags_one_s(va_list ap, t_flags *l_flags)
 {
 	va_list	ap2;
 	ssize_t	width;
 	size_t	nb_print;
 	char	*s;
-	int	s2;
+	long int	s2;
+	int	i;
 
+	i = 0;
 	va_copy(ap2, ap);
 	width = ft_atoi(l_flags->width);
 	nb_print = 0;
@@ -88,8 +90,13 @@ size_t	check_flags_one_s(va_list ap, t_flags *l_flags)
 			spec_minus_no_ast_s(l_flags, &nb_print, s);
 		else
 		{
-			s2 = va_arg(ap2, ssize_t);
-			spec_minus_ast_s(ap, l_flags, &nb_print, s2);
+			while (l_flags->asterisk > i)
+			{
+				s2 = va_arg(ap2, int);
+				i++;
+			}
+			spec_minus_ast_s(ap2, l_flags, &nb_print, s2);
+			va_end(ap2);
 		}
 		return (nb_print);
 	}

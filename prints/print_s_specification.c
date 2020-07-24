@@ -43,7 +43,7 @@ void	spec_pnt_no_ast_s(t_flags *l_flags, size_t *nb_prt, char *s)
 	free(width_to_str);
 }
 #include <stdio.h>
-void	spec_minus_ast_s(va_list ap, t_flags *l_flags, size_t *nb_print, ssize_t s)
+void	spec_minus_ast_s(va_list ap, t_flags *l_flags, size_t *nb_print, int s)
 {
 	va_list	ap2;
 	ssize_t	width;
@@ -54,23 +54,26 @@ void	spec_minus_ast_s(va_list ap, t_flags *l_flags, size_t *nb_print, ssize_t s)
 	width = ft_atoi(l_flags->width);
 	w_spec = ft_atoi(l_flags->width_specification);
 	s_copy = va_arg(ap2, char *);
-	printf("\ns == %li\n", s);
-	printf("s_copy == %s\n", s_copy);
-	/*printf("width == %li", width);
-	printf("width_specification == %li", w_spec);*/
-	(void)nb_print;(void)ap2, (void)ap; (void)width, (void)w_spec;(void)s_copy;(void)l_flags;
+	ft_printf("lflags->asterisk == %d\n", l_flags->asterisk);
+	printf("\ns == %d\n", s);
+	printf("width == %li", width);
+	printf("width_specification == %li", w_spec);
+	
+	if (0 > s)
+		s = -s;
 	if (s_copy == NULL)
 		s_copy = ft_strdup("(null)");
-	/*if (l_flags->point == 0)
+	if (l_flags->point == 0)
 	{
 		ft_putstr_pr_fd(s_copy, nb_print, 1);
-		(*nb_print) += print_width_s(s, s_copy, ' ');
 	}
-	else
+	else if (width == 0)
 	{
-		if (s == NULL)
-			ft_putstr_limit_fd(s_copy, , nb_print, 1);
-	}*/
+		ft_putstr_limit_fd(s_copy, w_spec, nb_print, 1);
+	}
+	(*nb_print) += print_w_spec(calc_s(s, w_spec, *nb_print), 0, ' ');
+	
+	va_end(ap2);
 }
 
 void	spec_minus_no_ast_s(t_flags *l_flags, size_t *nb_print, char *s)
