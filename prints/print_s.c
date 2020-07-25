@@ -52,8 +52,8 @@ size_t	check_flags_spec_s(t_flags *l_flags, va_list ap, char *s)
 				free(s);
 			return (nb_print);
 		}
-		//else
-		//	spec_point_astrsk_s(l_flags, ap, &nb_print, s);
+		else
+			spec_pnt_ast_s(l_flags, ap, &nb_print);
 	}
 	return (nb_print);
 }
@@ -103,13 +103,15 @@ size_t	check_flags_one_s(va_list ap, t_flags *l_flags)
 	return (nb_print);
 }
 
-size_t	check_flags_two_s(t_flags *l_flags, va_list ap, char *s)
+size_t	check_flags_two_s(t_flags *l_flags, va_list ap)
 {
 	size_t	nb_print;
 	ssize_t	width;
+	char	*s;
 
 	nb_print = 0;
 	width = ft_atoi(l_flags->width);
+	s = va_arg(ap, char *);
        	if (l_flags->point == 1 && l_flags->zero == 0)
 	{
 		nb_print += check_flags_spec_s(l_flags, ap, s);
@@ -132,16 +134,16 @@ size_t print_s(t_flags *l_flags, va_list ap)
 {
 	va_list	ap2;
 	size_t	result;
-	char	*s_copy;
+	//char	*s_copy;
 
 	result = 0;
 	va_copy(ap2, ap);
-	s_copy = va_arg(ap2, char *);
+	//s_copy = va_arg(ap2, char *);
 	if (l_flags->percentage == 0)
 	{
 		if ((result = check_flags_one_s(ap, l_flags)) == 0)
 		{
-			result = check_flags_two_s(l_flags, ap, s_copy);
+			result = check_flags_two_s(l_flags, ap2);
 		}
 	}
 	del(l_flags->width);
