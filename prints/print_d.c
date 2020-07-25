@@ -21,9 +21,14 @@ size_t		check_flags_two_d(t_flags *l_flags, va_list ap, int d)
 
 	nb_print = 0;
 	width = ft_atoi(l_flags->width);
-	if (l_flags->asterisk == 1)
-		nb_print += astrsk_d_lr(ap, l_flags, d, &width);
-	if (l_flags->zero == 1)
+	//if (l_flags->asterisk == 1)
+	//	nb_print += astrsk_d_lr(ap, l_flags, d, &width);
+	if(l_flags->point == 1)
+	{
+		nb_print = check_flags_spec_d(l_flags, ap, d);
+		return (nb_print);
+	}
+	else if (l_flags->zero == 1)
 	{
 		if (l_flags->asterisk == 1)
 			d = va_arg(ap, int);
@@ -64,8 +69,8 @@ size_t		check_flags_one_d(t_flags *l_flags, va_list ap, int d)
 		spec_minus_d(l_flags, ap,&nb_print, d);
 		return (nb_print);
 	}
-	else if(l_flags->point == 1)
-		nb_print = check_flags_spec_d(l_flags, ap, d);
+	else if (l_flags->asterisk == 1)
+		nb_print += astrsk_d_lr(ap, l_flags, d, &width);	
 	return (nb_print);
 }
 

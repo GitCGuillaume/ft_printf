@@ -20,6 +20,8 @@ int	main(void)
 	printf("d7=%-.*sb\n", 6, "abc");
 	ft_printf("d8=%-.*sb\n", 6, "abc");
 	printf("\n");
-	
+	printf("d9=%.*s", 6, "abc");	
+	printf("\n");
+	ft_printf("d10=%.*s", 6, "abc");	
 	return (0);
 }

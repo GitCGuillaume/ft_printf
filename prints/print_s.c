@@ -111,7 +111,10 @@ size_t	check_flags_two_s(t_flags *l_flags, va_list ap, char *s)
 	nb_print = 0;
 	width = ft_atoi(l_flags->width);
        	if (l_flags->point == 1 && l_flags->zero == 0)
+	{
 		nb_print += check_flags_spec_s(l_flags, ap, s);
+		return (nb_print);
+	}
 	else if (l_flags->zero == 1)
 	{
 		if (s == NULL)
