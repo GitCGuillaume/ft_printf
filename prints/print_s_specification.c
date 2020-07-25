@@ -55,7 +55,7 @@ void	spec_minus_ast_s(va_list ap, t_flags *l_flags, size_t *nb_print)
 	i = 0;
 	width = ft_atoi(l_flags->width);
 	w_spec = ft_atoi(l_flags->width_specification);
-	/*while (l_flags->asterisk > i)
+	while (l_flags->asterisk > i)
 	{
 		if (l_flags->asterisk == 2)
 		{
@@ -65,8 +65,11 @@ void	spec_minus_ast_s(va_list ap, t_flags *l_flags, size_t *nb_print)
 				w_spec = va_arg(ap, int);
 		}
 		i++;
-	}*/
-	(void)ap;
+	}
+	if (width == 0 && w_spec == 0)
+		width = va_arg(ap, int);
+	//if (l_flags->asterisk == 1)
+	//	s = va_arg(ap, char *);
 	printf("width == %d", width);
 	printf("width_specification == %d", w_spec);
 	/*va_copy(ap2, ap);

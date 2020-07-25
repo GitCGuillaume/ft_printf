@@ -64,15 +64,15 @@ size_t	check_flags_one_s(va_list ap, t_flags *l_flags)
 	ssize_t	width;
 	size_t	nb_print;
 	char	*s;
-	long int	s2;
-	int	i;
+	//long int	s2;
+	//int	i;
 
-	i = 0;
+	//i = 0;
 	va_copy(ap2, ap);
 	width = ft_atoi(l_flags->width);
 	nb_print = 0;
 	s = va_arg(ap, char *);
-	s2 = 0;
+	//s2 = 0;
 	if (l_flags->zero == 0 && l_flags->minus == 0
 			&& l_flags->point == 0 && l_flags->asterisk == 0)
 	{
