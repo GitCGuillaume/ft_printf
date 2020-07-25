@@ -61,6 +61,8 @@ void	spec_pnt_ast_s(t_flags *l_flags, va_list ap, size_t *nb_prt)
 	//printf("\ns==%s\n", s);
 	//(void)s;(void)nb_prt;(void)w_spec;(void)ap;
 	(*nb_prt) += print_w_spec(calc_s(width, w_spec, ft_strlen(width_to_str)), ft_atoi(width_to_str),' ');
+	if (s == NULL)
+		s = ft_strdup("(null)");
 	if (w_spec > 0)
 		ft_putstr_limit_fd(s, w_spec, nb_prt, 1);
 	free(width_to_str);
