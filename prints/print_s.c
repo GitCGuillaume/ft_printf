@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 15:58:32 by gchopin           #+#    #+#             */
-/*   Updated: 2020/07/24 18:42:34 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/07/27 18:09:20 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ size_t	check_flags_spec_s(t_flags *l_flags, va_list ap, char *s)
 	size_t	nb_print;
 
 	nb_print = 0;
-	(void)ap;
 	if (l_flags->point == 1)
 	{
 		if (l_flags->asterisk == 0)
@@ -124,7 +123,7 @@ size_t	check_flags_two_s(t_flags *l_flags, va_list ap)
 	}
 	else if (l_flags->point == 1 && l_flags->zero == 0)
 	{
-		nb_print += check_flags_spec_s(l_flags, ap, s);
+		nb_print += check_flags_spec_s(l_flags, ap2, s);
 		va_end(ap2);
 		return (nb_print);
 	}
