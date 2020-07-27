@@ -24,9 +24,9 @@ int	main(void)
 	printf("\n");
 	ft_printf("d9=%d", ft_printf("d9=%-*.*sb", 10, 3, "hello"));
 	printf("\n");
-	printf("d10=%d", printf("d10=%*.*sa", -10, 3, "hello"));	
+	printf("d10=%d", printf("d10=%*.*da", -10, -3, 1));	
 	printf("\n");
-	ft_printf("d11=%d", ft_printf("d11=%*.*sb", -10, 3, "hello"));
+	ft_printf("d11=%d", ft_printf("d11=%*.*db", -10, -3, 1));
 	
 	return (0);
 }
