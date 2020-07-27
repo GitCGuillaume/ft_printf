@@ -17,11 +17,11 @@ int	main(void)
 	printf("d5=%d\n", printf("d5=%-*.2sa\n", 6, "abc"));
 	ft_printf("d6=%d\n", ft_printf("d6=%-*.2sa\n", 6, "abc"));
 	printf("\n");
-	printf("d7=%d\n", printf("d7=%-.*sb\n", 6, "abc"));
-	ft_printf("d8=%d\n", ft_printf("d8=%-.*sb\n", 6, "abc"));
+	printf("d7=%d\n", printf("d7=%-.*sb\n", NULL, NULL));
+	ft_printf("d8=%d\n", ft_printf("d8=%-.*sb\n", NULL, NULL));
 	printf("\n");
-	printf("d9=%d", printf("d10=%.6sa", NULL));	
+	printf("d9=%d", printf("d10=%.*sa", -3, "hello"));	
 	printf("\n");
-	ft_printf("d9=%d", ft_printf("d10=%.6sb", NULL));
+	ft_printf("d9=%d", ft_printf("d10=%.*sb", -3, "hello"));
 	return (0);
 }

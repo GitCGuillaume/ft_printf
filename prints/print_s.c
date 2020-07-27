@@ -82,6 +82,7 @@ size_t	check_flags_one_s(va_list ap, t_flags *l_flags)
 		ft_putstr_pr_fd(s, &nb_print, 1);
 		if (ft_strnstr(s, "(null)", 6))
 			free(s);
+		va_end(ap2);
 		return (nb_print);
 	}
 	else if (l_flags->minus == 1)
@@ -96,25 +97,35 @@ size_t	check_flags_one_s(va_list ap, t_flags *l_flags)
 				i++;
 			}*/
 			spec_minus_ast_s(ap2, l_flags, &nb_print);
-			va_end(ap2);
 		}
+		va_end(ap2);
 		return (nb_print);
 	}
+	va_end(ap2);
 	return (nb_print);
 }
 
 size_t	check_flags_two_s(t_flags *l_flags, va_list ap)
 {
+	va_list	ap2;
 	size_t	nb_print;
 	ssize_t	width;
 	char	*s;
 
+	va_copy(ap2, ap);
 	nb_print = 0;
 	width = ft_atoi(l_flags->width);
 	s = va_arg(ap, char *);
-       	if (l_flags->point == 1 && l_flags->zero == 0)
+	if (l_flags->asterisk == 1 && l_flags->point == 0)
+	{
+		nb_print += astrsk_s(ap2);
+		va_end(ap2);
+		return (nb_print);
+	}
+	else if (l_flags->point == 1 && l_flags->zero == 0)
 	{
 		nb_print += check_flags_spec_s(l_flags, ap, s);
+		va_end(ap2);
 		return (nb_print);
 	}
 	else if (l_flags->zero == 1)
@@ -125,6 +136,7 @@ size_t	check_flags_two_s(t_flags *l_flags, va_list ap)
 		ft_putstr_pr_fd(s, &nb_print, 1);
 		if (ft_strnstr(s, "(null)", 6))
 			free(s);
+		va_end(ap2);
 		return (nb_print);
 	}
 	return (nb_print);
