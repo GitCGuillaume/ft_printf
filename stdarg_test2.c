@@ -17,8 +17,8 @@ int	main(void)
 	printf("d5=%d\n", printf("d5=%-*.2sa\n", 6, "abc"));
 	ft_printf("d6=%d\n", ft_printf("d6=%-*.2sa\n", 6, "abc"));
 	printf("\n");
-	printf("d7=%d\n", printf("d7=%-.*sb\n", NULL, NULL));
-	ft_printf("d8=%d\n", ft_printf("d8=%-.*sb\n", NULL, NULL));
+	printf("d7=%d\n", printf("d7=%-*.*sb\n", NULL, NULL, NULL));
+	ft_printf("d8=%d\n", ft_printf("d8=%-*.*sb\n", NULL, NULL, NULL));
 	printf("\n");
 	printf("d9=%d", printf("d9=%-*.*sa", 10, 3, "hello"));	
 	printf("\n");
