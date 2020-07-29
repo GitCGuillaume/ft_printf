@@ -76,13 +76,13 @@ void	spec_pnt_ast_s(t_flags *l_flags, va_list ap, size_t *nb_prt)
 	//width = -width;
 	if (s == NULL)
 		s = ft_strdup("(null)");
-	if (0 > width)
+	if (0 > w_spec)
 	{
 		width = -width;
 		ft_putstr_limit_fd(s, w_spec, nb_prt, 1);
-		(*nb_prt) += print_w_spec(calc_s(width,w_spec, *nb_prt), 0, ' ');
+		(*nb_prt) += print_w_spec(calc_s(width,w_spec, *nb_prt), *nb_prt, ' ');
 	}
-	else
+	else if (w_spec > 0)
 	{
 		(*nb_prt) += print_w_spec(calc_s(width, w_spec, ft_strlen(width_to_str)), ft_atoi(width_to_str),' ');
 		ft_putstr_limit_fd(s, w_spec, nb_prt, 1);
@@ -121,8 +121,10 @@ void	spec_minus_ast_s(va_list ap, t_flags *l_flags, size_t *nb_print)
 		width = -width;
 	if (s == NULL)
 		s = ft_strdup("(null)");
-	ft_putstr_limit_fd(s, w_spec, nb_print, 1);
-	(*nb_print) += print_w_spec(calc_s(width, w_spec, *nb_print), 0, ' ');
+	if (width != 0)
+		ft_putstr_limit_fd(s, w_spec, nb_print, 1);
+	if (width)
+		(*nb_print) += print_w_spec(calc_s(width, w_spec, *nb_print), 0, ' ');
 	
 	/*printf("va arg=%s\n", s);
 	printf("width == %d", width);
