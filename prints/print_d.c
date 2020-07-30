@@ -83,7 +83,9 @@ size_t		print_d(t_flags *l_flags, va_list ap)
 	result = 0;
 	if (l_flags->percentage == 0)
 	{
-		if ((result = check_flags_one_d(l_flags, ap, d)) == 0)
+		if (l_flags->asterisk == 2)
+			result = browse_two_stars(ap, l_flags, d);
+		else if ((result = check_flags_one_d(l_flags, ap, d)) == 0)
 		{
 			result = check_flags_two_d(l_flags, ap, d);
 		}

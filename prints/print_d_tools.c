@@ -80,3 +80,22 @@ size_t		astrsk_d_rl(va_list ap, t_flags *l_flags, int d, ssize_t *width)
 	return (nb_print);
 }
 
+size_t	browse_two_stars(va_list ap, t_flags *l_flags, int d)
+{
+	size_t	nb_print;
+	ssize_t	width;
+	ssize_t	w_spec;
+	int	value;
+
+	width = d;
+	w_spec = va_arg(ap, int);
+	value = va_arg(ap, int);
+	nb_print = 0;
+	if (l_flags->minus == 1)
+		nb_print += print_d_stars_minus(width, w_spec, value);
+	else if (0 > width && l_flags->minus == 0)
+		nb_print += print_d_stars_minus(width, w_spec, value);
+	else
+		nb_print += print_d_stars(width, w_spec, value);
+	return (nb_print);
+}
