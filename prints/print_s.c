@@ -19,7 +19,7 @@ char	*ft_strlimit(char *s, ssize_t width)
 	char	*ptr;
 
 	i = 0;
-	if (s != NULL)
+	if (s != NULL && width != 0)
 	{
 		if (!(ptr = malloc(width + 1)))
 			return (NULL);
@@ -121,7 +121,8 @@ size_t	check_flags_two_s(t_flags *l_flags, va_list ap)
 		va_end(ap2);
 		return (nb_print);
 	}
-	else if (l_flags->point == 1 && l_flags->zero == 0)
+	else if (l_flags->minus == 0 && l_flags->point == 1
+			&& l_flags->zero == 0)
 	{
 		nb_print += check_flags_spec_s(l_flags, ap2, s);
 		va_end(ap2);
@@ -138,6 +139,7 @@ size_t	check_flags_two_s(t_flags *l_flags, va_list ap)
 		va_end(ap2);
 		return (nb_print);
 	}
+	va_end(ap2);
 	return (nb_print);
 }
 
