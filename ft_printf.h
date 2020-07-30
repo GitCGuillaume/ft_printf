@@ -38,6 +38,8 @@ int				is_convertor(char c);
 int				is_digit(t_flags *l_flags, size_t *i, char const *fmt);
 int				is_specification(t_flags *l_flags, va_list ap, char const *fmt, size_t *i);
 size_t				print_d(t_flags *l_flags, va_list ap);
+size_t				browse_two_stars(va_list ap, t_flags *l_flags, int d);
+size_t				print_d_stars_minus(ssize_t width, ssize_t w_spec, int value);
 size_t				check_flags_spec_d(t_flags *l_flags, va_list ap, int d);
 int				print_width_d(ssize_t width, int d, char c);
 ssize_t				calc(ssize_t width, ssize_t width_specification, ssize_t lensize, int d);

@@ -19,14 +19,15 @@ int	main(void)
 	printf("\n");
 	printf("d7=%d\n", printf("d7=%-*.*sb\n", NULL, NULL, NULL));
 	ft_printf("d8=%d\n", ft_printf("d8=%-*.*sb\n", NULL, NULL, NULL));
+	//ft_printf("d8=%d\n", ft_printf("d8=%*.*sb\n", NULL, NULL, NULL));
 	printf("\n");
 	printf("d9=%d", printf("d9=%-*.*sa", 10, 3, "hello"));	
 	printf("\n");
 	ft_printf("d9=%d", ft_printf("d9=%-*.*sb", 10, 3, "hello"));
 	printf("\n");
-	printf("d10=%d", printf("d10=%*.*da", -10, -3, 1));	
+	printf("d10=%d", printf("d10=%-*.*da", 0, 0, 0));	
 	printf("\n");
-	ft_printf("d11=%d", ft_printf("d11=%*.*db", -10, -3, 1));
+	ft_printf("d11=%d", ft_printf("d11=%-*.*db", 0, 0, 0));
 	
 	return (0);
 }
