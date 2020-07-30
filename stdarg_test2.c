@@ -17,21 +17,21 @@ int	main(void)
 	printf("d5=%d\n", printf("d5=%-*.2sa\n", 6, "abc"));
 	ft_printf("d6=%d\n", ft_printf("d6=%-*.2sa\n", 6, "abc"));
 	printf("\n");
-	printf("d7=%d\n", printf("d7=%-*.*sb\n", NULL, NULL, NULL));
-	ft_printf("d8=%d\n", ft_printf("d8=%-*.*sb\n", NULL, NULL, NULL));
+	printf("d7=%d\n", printf("d7=%*.*sb\n", NULL, NULL, NULL));
+	ft_printf("d8=%d\n", ft_printf("d8=%*.*sb\n", NULL, NULL, NULL));
 	//ft_printf("d8=%d\n", ft_printf("d8=%*.*sb\n", NULL, NULL, NULL));
 	printf("\n");
-	printf("d9=%d", printf("d9=%-*.*sa", 0, -8, 0));	
+	printf("d9=%d", printf("d9=%-*.*sa", 0, 8, 0));	
 	printf("\n");
-	ft_printf("d9=%d", ft_printf("d9=%-*.*sb", 0, -8, 0));
+	ft_printf("d9=%d", ft_printf("d9=%-*.*sb", 8, 0, 0));
 	printf("\n");
-	printf("d10=%d", printf("d10=%-*.*da", 10, -8, 0));	
+	printf("d10=%d", printf("d10=%*.*da", 10, 0, -8));	
 	printf("\n");
-	ft_printf("d11=%d", ft_printf("d11=%-*.*db", 10, -8, 0));
+	ft_printf("d11=%d", ft_printf("d11=%-*.*db", 0, 0, -8));
 	printf("\n");
-	printf("d12=%d", printf("d12=%*.*da", 10, -8, 0));	
+	printf("d12=%d", printf("d12=%*.*da", 10, 0, -8));	
 	printf("\n");
-	ft_printf("d13=%d", ft_printf("d13=%*.*db", 10, -8, 0));
+	ft_printf("d13=%d", ft_printf("d13=%*.*db", 10, 0, -8));
 	
 
 	return (0);

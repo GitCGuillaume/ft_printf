@@ -85,8 +85,8 @@ void	spec_pnt_ast_s(t_flags *l_flags, va_list ap, size_t *nb_prt)
 	else if (w_spec > 0)
 	{
 		(*nb_prt) += print_w_spec(calc_s(width, w_spec, ft_strlen(width_to_str)), ft_atoi(width_to_str),' ');
-		ft_putstr_limit_fd(s, w_spec, nb_prt, 1);
 	}
+	ft_putstr_limit_fd(width_to_str, w_spec, nb_prt, 1);
 	free(width_to_str);
 }
 void	spec_minus_ast_s(va_list ap, t_flags *l_flags, size_t *nb_print)
@@ -112,7 +112,7 @@ void	spec_minus_ast_s(va_list ap, t_flags *l_flags, size_t *nb_print)
 		}
 		i++;
 	}
-	if (width == 0 && w_spec == 0)
+	if (width == 0 && w_spec == 0 && l_flags->asterisk != 2)
 		width = va_arg(ap, int);
 	else if (l_flags->asterisk == 1)
 		va_arg(ap, int);
@@ -123,9 +123,8 @@ void	spec_minus_ast_s(va_list ap, t_flags *l_flags, size_t *nb_print)
 		s = ft_strdup("(null)");
 	if (width != 0)
 		ft_putstr_limit_fd(s, w_spec, nb_print, 1);
-	if (width)
-		(*nb_print) += print_w_spec(calc_s(width, w_spec, *nb_print), 0, ' ');
-	
+	//if (width)
+	(*nb_print) += print_w_spec(calc_s(width, w_spec, *nb_print), 0, ' ');
 	/*printf("va arg=%s\n", s);
 	printf("width == %d", width);
 	printf("width_specification == %d", w_spec);*/
