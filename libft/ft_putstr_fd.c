@@ -33,10 +33,13 @@ void	ft_putstr_pr_fd(char *s, size_t *nb_print, int fd)
 	i = 0;
 	if (!s)
 		return ;
-	while (s[i])
+	if (s)
 	{
-		write(fd, &s[i], 1);
-		(*nb_print)++;
-		i++;
+		while (s[i])
+		{
+			write(fd, &s[i], 1);
+			(*nb_print)++;
+			i++;
+		}
 	}
 }

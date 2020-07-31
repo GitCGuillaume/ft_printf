@@ -1,18 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_field_flags.c                                   :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: gchopin </var/mail/gchopin>                +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/17 14:10:38 by gchopin           #+#    #+#             */
-/*   Updated: 2020/06/24 18:22:52 by gchopin          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../ft_printf.h"
 
-void		init_list_flags(t_flags *lst_flags)
+void	init_list_flags(t_flags *lst_flags)
 {
 	lst_flags->minus = 0;
 	lst_flags->zero = 0;
@@ -23,7 +11,7 @@ void		init_list_flags(t_flags *lst_flags)
 	lst_flags->width_specification = NULL;
 }
 
-int	check_value_indicator_one(t_flags *l_flags, char c)
+int		check_value_indicator_one(t_flags *l_flags, char c)
 {
 	if (c == '-')
 	{
@@ -37,12 +25,13 @@ int	check_value_indicator_one(t_flags *l_flags, char c)
 	}
 	return (0);
 }
-#include <stdio.h>
-int	check_value_indicator_two(t_flags *l_flags, size_t *i, size_t *nb_print, char const *fmt)
+
+int		check_value_indicator_two(t_flags *l_flags, size_t *i,
+		size_t *nb_print, char const *fmt)
 {
 	if (fmt[*i] == '*')
 	{
-	       	if(l_flags->asterisk >= 1)
+		if (l_flags->asterisk >= 1)
 			l_flags->asterisk = 2;
 		else
 			l_flags->asterisk = 1;
@@ -67,7 +56,8 @@ int	check_value_indicator_two(t_flags *l_flags, size_t *i, size_t *nb_print, cha
 	return (0);
 }
 
-int		find_indicators(const char *fmt, size_t *i, size_t *nb_print, t_flags *l_flags)
+int		find_indicators(const char *fmt, size_t *i,
+		size_t *nb_print, t_flags *l_flags)
 {
 	*i = *i + 1;
 	while (fmt[*i])
@@ -87,7 +77,8 @@ int		find_indicators(const char *fmt, size_t *i, size_t *nb_print, t_flags *l_fl
 	return (0);
 }
 
-int	is_indicator(char const *fmt, size_t *i, size_t *nb_print, t_flags *l_flags)
+int		is_indicator(char const *fmt, size_t *i,
+		size_t *nb_print, t_flags *l_flags)
 {
 	int	result;
 

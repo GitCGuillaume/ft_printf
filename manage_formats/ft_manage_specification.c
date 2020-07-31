@@ -50,7 +50,6 @@ int	is_specification(t_flags *l_flags, va_list ap, char const *fmt, size_t *i)
 			else
 			{
 				l_flags->width_specification = 0;
-				//*i = *i - 1;
 			}
 		}
 	}

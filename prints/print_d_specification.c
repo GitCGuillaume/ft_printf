@@ -1,14 +1,15 @@
 #include "../ft_printf.h"
 
-void	spec_minus_no_ast_d(t_flags *l_flags, size_t *nb_print, ssize_t *width, int d)
+void	spec_minus_no_ast_d(t_flags *l_flags,
+		size_t *nb_prt, ssize_t *width, int d)
 {
 	if (d < 0)
-		negative_d(nb_print, &d);
-	(*nb_print) += print_width_d(ft_atoi(l_flags->width_specification),
+		negative_d(nb_prt, &d);
+	(*nb_prt) += print_width_d(ft_atoi(l_flags->width_specification),
 			d, '0');
 	if (d != 0)
-		ft_putnbr_fd(d, nb_print, 1);
-	(*nb_print) += print_w_spec(*width, *nb_print, ' ');
+		ft_putnbr_fd(d, nb_prt, 1);
+	(*nb_prt) += print_w_spec(*width, *nb_prt, ' ');
 }
 
 void	spec_minus_d(t_flags *l_flags, va_list ap, size_t *nb_print, int d)
@@ -64,7 +65,7 @@ void	spec_point_astrsk_d(t_flags *l_flags, va_list ap, size_t *nb_prt, int d)
 	ssize_t	lsize;
 	ssize_t	width;
 	ssize_t	w_spec;
-	int	d_copy;
+	int		d_copy;
 
 	va_copy(ap2, ap);
 	d_copy = va_arg(ap2, int);
@@ -72,9 +73,9 @@ void	spec_point_astrsk_d(t_flags *l_flags, va_list ap, size_t *nb_prt, int d)
 	width = ft_atoi(l_flags->width);
 	w_spec = ft_atoi(l_flags->width_specification);
 	if (width > w_spec)
-		(*nb_prt) += print_w_spec(calc(width, w_spec, lsize, d_copy), *nb_prt, ' ');
-	if (d_copy < 0)
-		negative_d(nb_prt, &d_copy);
+		(*nb_prt) += print_w_spec(calc(width, w_spec, lsize, d_copy),
+				*nb_prt, ' ');
+	negative_d(nb_prt, &d_copy);
 	if (l_flags->width_specification[0] == '-')
 	{
 		if (width != 0 && 0 > d)
@@ -87,7 +88,7 @@ void	spec_point_astrsk_d(t_flags *l_flags, va_list ap, size_t *nb_prt, int d)
 	va_end(ap2);
 }
 
-size_t		check_flags_spec_d(t_flags *l_flags, va_list ap, int d)
+size_t	check_flags_spec_d(t_flags *l_flags, va_list ap, int d)
 {
 	size_t	nb_print;
 

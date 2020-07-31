@@ -48,7 +48,7 @@ ssize_t	ft_lensize(ssize_t n)
 	return (i);
 }
 
-int	is_digit(t_flags *l_flags, size_t *i, char const *fmt)
+int		is_digit(t_flags *l_flags, size_t *i, char const *fmt)
 {
 	if (fmt[*i] >= '1' && fmt[*i] <= '9')
 	{

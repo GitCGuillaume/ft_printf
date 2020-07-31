@@ -35,7 +35,6 @@ int	find_convertor(char const *fmt, t_flags *l_flags, va_list ap, size_t *i)
 	else if (fmt[*i] == 'p')
 		//result = print_p(l_flags, va_arg(ap, void *));
 	*/
-	//(*i)++;
 	return (result);
 }
 
