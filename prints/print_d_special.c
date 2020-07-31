@@ -5,7 +5,7 @@ void	handle_sizes(ssize_t *width, ssize_t *w_spec)
 	if (0 > *w_spec)
 	{
 		(*w_spec)++;
-		*w_spec = -(*w_spec);
+		//*w_spec = -(*w_spec);
 	}
 	if (0 > *width)
 	{
@@ -84,7 +84,7 @@ size_t	print_d_stars_minus(ssize_t width, ssize_t w_spec, int value)
 			width = width + 2;
 	}
 	handle_sizes(&width, &w_spec);
-	if (value == 0 && w_spec)
+	if (value == 0 && w_spec < 0 && width == 0)
 		w_spec = 1;
 	if (w_spec > 0)
 		nb_print += print_w_spec(w_spec - ft_lensize(value), 0, '0');
@@ -104,7 +104,7 @@ size_t	print_d_stars(ssize_t width, ssize_t w_spec, int value)
 	handle_sizes(&width, &w_spec);
 	if (0 > value && w_spec > 0)
 		width--;
-	if (value == 0 && w_spec)
+	if (value == 0 && w_spec < 0 && width == 0)
 		w_spec = 1;
 	if (width > w_spec)
 		nb_print += print_w_spec(calc(width, w_spec, ft_lensize(value), value),
