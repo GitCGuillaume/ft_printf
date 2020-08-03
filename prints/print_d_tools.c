@@ -62,18 +62,13 @@ size_t	browse_two_stars_d(va_list ap, t_flags *l_flags, int d)
 	return (nb_print);
 }
 
-#include <stdio.h>
-int	check_min_max_value(va_list ap, t_flags *l_flags, int d)
+int	check_min_max_value(t_flags *l_flags, int d)
 {
 	ssize_t	width;
 	ssize_t	w_spec;
 
-	(void)ap;(void)d;
 	width = ft_atoi(l_flags->width);
 	w_spec = ft_atoi(l_flags->width_specification);
-	printf("width==%li\n", width);
-	printf("w_spec==%li\n", w_spec);
-	printf("d==%d\n", d);
 	if (l_flags->zero == 0 && l_flags->minus == 0
 			&& l_flags->point == 0 && l_flags->asterisk == 0)
 	{

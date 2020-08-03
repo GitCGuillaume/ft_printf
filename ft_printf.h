@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/16 18:48:06 by gchopin           #+#    #+#             */
-/*   Updated: 2020/07/24 18:43:06 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/03 19:40:31 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int				is_convertor(char c);
 int				is_digit(t_flags *l_flags, size_t *i, char const *fmt);
 int				is_specification(t_flags *l_flags, va_list ap, char const *fmt, size_t *i);
 size_t				print_d(t_flags *l_flags, va_list ap);
-int				check_min_max_value(va_list ap, t_flags *l_flags, int d);
+int				check_min_max_value(t_flags *l_flags, int d);
 size_t				browse_two_stars_d(va_list ap, t_flags *l_flags, int d);
 size_t				print_d_stars_minus(ssize_t width, ssize_t w_spec, int value);
 size_t				print_d_stars(ssize_t width, ssize_t w_spec, int value);
@@ -54,6 +54,7 @@ size_t				astrsk_d_rl(va_list ap, t_flags *l_flags, int d, ssize_t *width);
 void				spec_pnt_no_ast_d(t_flags *l_flags, size_t *nb_prt, int d);
 void				spec_point_astrsk_d(t_flags *l_flags, va_list ap, size_t *nb_prt, int d);
 size_t				print_s(t_flags *l_flags, va_list ap);
+int	check_min_max_value_s(t_flags *l_flags);
 char				*ft_strlimit(char *s, ssize_t width);
 void				ft_putstr_limit_fd(char *s, size_t limit, size_t *nb_print, int fd);
 size_t				print_basic_value_s(ssize_t *width, char *s, char c);

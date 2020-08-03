@@ -33,6 +33,8 @@ size_t		check_flags_one_s(va_list ap, t_flags *l_flags)
 	width = ft_atoi(l_flags->width);
 	nb_print = 0;
 	s = va_arg(ap, char *);
+	if (check_min_max_value_s(l_flags) == -1)
+		return (-1);
 	if (l_flags->zero == 0 && l_flags->minus == 0
 			&& l_flags->point == 0 && l_flags->asterisk == 0)
 	{
@@ -83,12 +85,12 @@ size_t		check_flags_three_s(t_flags *l_flags, va_list ap)
 	ssize_t	width;
 	char	*s;
 
+	s = va_arg(ap, char *);
 	nb_print = 0;
 	width = ft_atoi(l_flags->width);
-	s = va_arg(ap, char *);
 	if (l_flags->zero == 1)
 	{
-		nb_print += print_basic_value_s(&width, s, ' ');
+		nb_print += print_basic_value_s(&width, s, '0');
 		return (nb_print);
 	}
 	return (nb_print);

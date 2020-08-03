@@ -6,7 +6,7 @@
 /*   By: gchopin </var/mail/gchopin>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/20 14:49:22 by gchopin           #+#    #+#             */
-/*   Updated: 2020/06/25 11:32:38 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/03 17:31:57 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ size_t		print_d(t_flags *l_flags, va_list ap)
 
 	d = va_arg(ap, int);
 	result = 0;
-	if (check_min_max_value(ap, l_flags, d) != -1)
+	if ((result = check_min_max_value(l_flags, d)) != -1)
 	{
 		if (l_flags->percentage == 0)
 		{

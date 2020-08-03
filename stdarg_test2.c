@@ -37,6 +37,9 @@ int	main(void)
 	printf("\n");
 	ft_printf("d13=%d", ft_printf("d13=%*.*db", 10, 3, 1234));
 	//ft_printf("%hhi%s%lli%s", ch_pos_1, str_3, neg, str_2);	
-
+	printf("\n");
+	printf("%09s", "hi low");
+	printf("\n");
+	ft_printf("%09s", "hi low");
 	return (0);
 }
