@@ -71,13 +71,16 @@ size_t		print_d(t_flags *l_flags, va_list ap)
 
 	d = va_arg(ap, int);
 	result = 0;
-	if (l_flags->percentage == 0)
+	if (check_min_max_value(ap, l_flags, d) != -1)
 	{
-		if (l_flags->asterisk == 2)
-			result = browse_two_stars_d(ap, l_flags, d);
-		else if ((result = check_flags_one_d(l_flags, ap, d)) == 0)
+		if (l_flags->percentage == 0)
 		{
-			result = check_flags_two_d(l_flags, ap, d);
+			if (l_flags->asterisk == 2)
+				result = browse_two_stars_d(ap, l_flags, d);
+			else if ((result = check_flags_one_d(l_flags, ap, d)) == 0)
+			{
+				result = check_flags_two_d(l_flags, ap, d);
+			}
 		}
 	}
 	del(l_flags->width);
