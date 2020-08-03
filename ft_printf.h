@@ -38,6 +38,7 @@ int				is_convertor(char c);
 int				is_digit(t_flags *l_flags, size_t *i, char const *fmt);
 int				is_specification(t_flags *l_flags, va_list ap, char const *fmt, size_t *i);
 size_t				print_d(t_flags *l_flags, va_list ap);
+int				check_min_max_value(va_list ap, t_flags *l_flags, int d);
 size_t				browse_two_stars_d(va_list ap, t_flags *l_flags, int d);
 size_t				print_d_stars_minus(ssize_t width, ssize_t w_spec, int value);
 size_t				print_d_stars(ssize_t width, ssize_t w_spec, int value);
