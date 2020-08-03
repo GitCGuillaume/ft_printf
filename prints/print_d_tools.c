@@ -42,22 +42,22 @@ size_t	browse_two_stars_d(va_list ap, t_flags *l_flags, int d)
 {
 	size_t	nb_print;
 	ssize_t	width;
-	ssize_t	w_spec;
+	ssize_t	width_spec;
 	int		value;
 
 	width = d;
-	w_spec = va_arg(ap, int);
+	width_spec = va_arg(ap, int);
 	value = va_arg(ap, int);
 	nb_print = 0;
 	if (width < -2147483646 || width > 2147483646)
 		return (-1);
-	if (w_spec < -2147483648 || w_spec > 2147483646)
+	if (width_spec < -2147483648 || width_spec > 2147483646)
 		return (-1);
 	if (l_flags->minus == 1)
-		nb_print += print_d_stars_minus(width, w_spec, value);
+		nb_print += print_d_stars_minus(width, width_spec, value);
 	else if (0 > width && l_flags->minus == 0)
-		nb_print += print_d_stars_minus(width, w_spec, value);
+		nb_print += print_d_stars_minus(width, width_spec, value);
 	else
-		nb_print += print_d_stars(width, w_spec, value);
+		nb_print += print_d_stars(width, width_spec, value);
 	return (nb_print);
 }
