@@ -49,8 +49,9 @@ size_t	browse_two_stars_d(va_list ap, t_flags *l_flags, int d)
 	w_spec = va_arg(ap, int);
 	value = va_arg(ap, int);
 	nb_print = 0;
-	if ((width <= -2147483647 || width > 2147483646)
-			|| (w_spec < -2147483648 || w_spec >= 2147483647))
+	if (width < -2147483646 || width > 2147483646)
+		return (-1);
+	if (w_spec < -2147483648 || w_spec > 2147483646)
 		return (-1);
 	if (l_flags->minus == 1)
 		nb_print += print_d_stars_minus(width, w_spec, value);
