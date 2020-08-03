@@ -134,27 +134,68 @@ void	minus_star_point_star_min(void)
 	int	two;
 
 	printf("---------WIDTH MIN---------\n");
-	   one = printf("1%-*.*d", 2147483648, 0, 0);
+	   one = printf("%-*.*d", -2147483647, 0, 0);
 	printf("\n");
-	two = ft_printf("2%-*.*d", 2147483648, 0, 0);
+	two = ft_printf("%-*.*d", -2147483647, 0, 0);
 	printf("\n");
 	if (one == two)
 		ft_putstr_fd("OK", 1);
 	else
 		ft_putstr_fd("KO", 1);
-	/*printf("\n");
-	printf("---------WIDTH MAX---------\n");
-	   one = printf("1%-*.*d", 2147483648, 0, 0);
 	printf("\n");
-	two = ft_printf("2%-*.*d", 2147483648, 0, 0);
+	printf("---------W_SPEC MIN---------\n");
+	   one = printf("%-*.*d", 0, -2147483649, 0);
+	printf("\n");
+ 	two = ft_printf("%-*.*d", 0, -2147483649,  0);
 	printf("\n");
 	if (one == two)
 		ft_putstr_fd("OK", 1);
 	else
-		ft_putstr_fd("KO", 1);*/
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------WIDTH MAX---------\n");
+	   one = printf("%-*.*d", 2147483647, 0, 0);
+	printf("\n");
+	two = ft_printf("%-*.*d", 2147483647, 0, 0);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------W_SPEC MAX---------\n");
+	one = printf("%-*.*d", 0, 2147483647, 0);
+	printf("\n");
+	two = ft_printf("%-*.*d", 0, 2147483647, 0);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
 	printf("\n");
 
 }
+
+void	width_min_max(void)
+{
+	int one;
+	int two;
+
+	one = 0;
+	two = 0;
+	printf("---------WIDTH_MAX---------\n");
+	one = printf("%2147483647d", 0);
+	printf("\n");
+	two = ft_printf("%2147483647d", 123);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+
+}
+
 int	main(void)
 {
 	printf("BASIC INPUTS\n\n");
@@ -164,5 +205,7 @@ int	main(void)
 	printf("MINUS STAR POINT STAR\n\n");
 	minus_star_point_star();
 	minus_star_point_star_min();
+	printf("WIDTH MIN MAX\n\n");
+	width_min_max();
 	return (0);
 }
