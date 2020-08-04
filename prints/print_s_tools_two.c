@@ -42,7 +42,7 @@ int	check_min_max_value_s(t_flags *l_flags)
 	}
 	if (width < -2147483646 ||width > 2147483646)
 		return (-1);
-	if (w_spec < -2147483648 ||w_spec > 2147483646)
+	if (w_spec < -2147483648) /* ||w_spec > 2147483646)*/
 		return (-1);
 	return (0);
 }

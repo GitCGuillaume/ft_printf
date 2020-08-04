@@ -115,9 +115,9 @@ void	spec_minus_no_ast_s(t_flags *l_flags, size_t *nb_print, char *s)
 	}
 	else
 	{
-		if (s == NULL)
-			ft_putstr_limit_fd(s, w_spec, nb_print, 1);
-		else if (s != NULL && w_spec > 0)
+		//if (s == NULL)
+		//	ft_putstr_limit_fd(s, w_spec, nb_print, 1);
+		if (/*s != NULL &&*/ w_spec > 0)
 			ft_putstr_limit_fd(s, w_spec, nb_print, 1);
 		(*nb_print) += print_w_spec(width, *nb_print, ' ');
 	}

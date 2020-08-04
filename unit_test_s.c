@@ -250,17 +250,32 @@ void	width_min_max(void)
 		ft_putstr_fd("KO", 1);
 	printf("\n");
 
-	printf("---------WIDTH_MAX.2147483647 ---------\n");
-	one = printf("%.2147483647s", 0);
+	
+printf("---------WIDTH_MAX 2147483647.* ---------\n");
+	one = printf("%2147483647.*s", 0, 0);
+	printf("one==%d\n", one);
 	printf("\n");
-	two = ft_printf("%.2147483647s", 0);
+	two = ft_printf("%2147483647.*s", 0, 0);
+	printf("two==%d\n", two);
 	printf("\n");
 	if (one == two)
 		ft_putstr_fd("OK", 1);
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
-	printf("---------WIDTH_MAX*d ---------\n");
+	printf("---------WIDTH_MAX-2147483647.* ---------\n");
+	one = printf("%-2147483647.*s", 0, 0);
+	printf("one==%d\n", one);
+	printf("\n");
+	two = ft_printf("%-2147483647.*s", 0, 0);
+	printf("two==%d\n", two);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	/*printf("---------WIDTH_MAX*d ---------\n");
 	one = printf("%*s", 2147483647, 0);
 	printf("\n");
 	two = ft_printf("%*s", 2147483647, 0);
@@ -322,7 +337,64 @@ void	width_min_max(void)
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
+*/
+}
 
+void	width_min_max_special(void)
+{
+	int	one;
+	int	two;
+
+	one = 0;
+	two = 0;
+	printf("---------WIDTH_MAX.2147483647 ---------\n");
+	one = printf("%.2147483647s", 0);
+	printf("one==%d\n", one);
+	printf("\n");
+	two = ft_printf("%.2147483647s", 0);
+	printf("two==%d\n", two);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------WIDTH_MAX-.2147483647 ---------\n");
+	one = printf("%-.2147483647s", 0);
+	printf("one==%d\n", one);
+	printf("\n");
+	two = ft_printf("%-.2147483647s", 0);
+	printf("two==%d\n", two);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------WIDTH_MAX.2147483647 abc---------\n");
+	one = printf("%.2147483647s", "abc");
+	printf("one==%d\n", one);
+	printf("\n");
+	two = ft_printf("%.2147483647s", "abc");
+	printf("two==%d\n", two);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------WIDTH_MAX-.2147483647 abc---------\n");
+	one = printf("%-.2147483647s", "abc");
+	printf("one==%d\n", one);
+	printf("\n");
+	two = ft_printf("%-.2147483647s", "abc");
+	printf("two==%d\n", two);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
 }
 
 int	main(void)
@@ -335,6 +407,7 @@ int	main(void)
 	minus_star_point_star();
 	minus_star_point_star_min();
 	printf("WIDTH MIN MAX\n\n");
-	//width_min_max();
+	width_min_max();
+	width_min_max_special();
 	return (0);
 }
