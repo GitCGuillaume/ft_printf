@@ -1,5 +1,5 @@
 #include "../ft_printf.h"
-
+#include <stdio.h>
 void	spec_pnt_no_ast_s(t_flags *l_flags, size_t *nb_prt, char *s)
 {
 	ssize_t	width;
@@ -24,10 +24,6 @@ void	browse_two_stars_s(va_list ap, t_flags *l_flags,
 	i = 0;
 	*width = ft_atoi(l_flags->width);
 	*w_spec = ft_atoi(l_flags->width_specification);
-	if (*width < -2147483646 || *width > 2147483646)
-		return ;
-	if (*w_spec < -2147483648 || *w_spec > 2147483646)
-		return ;
 	while (l_flags->asterisk > i)
 	{
 		if (l_flags->asterisk == 2)
@@ -44,6 +40,7 @@ void	browse_two_stars_s(va_list ap, t_flags *l_flags,
 	else if (l_flags->asterisk == 1)
 		va_arg(ap, int);
 }
+
 void	spec_pnt_ast_s(t_flags *l_flags, va_list ap, size_t *nb_prt)
 {
 	ssize_t	width;
@@ -53,26 +50,25 @@ void	spec_pnt_ast_s(t_flags *l_flags, va_list ap, size_t *nb_prt)
 
 	browse_two_stars_s(ap, l_flags, &width, &w_spec);
 	s = va_arg(ap, char *);
-	width_to_str = ft_strlimit(s, w_spec);
+	width_to_str = 0;
+	if (w_spec >= 0)
+		width_to_str = ft_strlimit(s, w_spec);
 	if (s == NULL)
 		s = ft_strdup("(null)");
-	
 	if (0 > w_spec)
 	{
 		width = -width;
 		ft_putstr_limit_fd(s, w_spec, nb_prt, 1);
-		(*nb_prt) += print_w_spec(calc_s(width, w_spec, *nb_prt), *nb_prt, ' ');
 	}
-	else /*if (w_spec > 0 ||width > 0)*/
-		(*nb_prt) += print_w_spec(calc_s(width, w_spec,
-					ft_strlen(width_to_str)), ft_atoi(width_to_str), ' ');
+	(*nb_prt) += print_w_spec(calc_s(width, w_spec,
+				ft_strlen(width_to_str)), ft_atoi(width_to_str), ' ');
 	if (w_spec > 0)
 		ft_putstr_limit_fd(s, w_spec, nb_prt, 1);
 	if (ft_strnstr(s, "(null)", 6))
 		free(s);
 	free(width_to_str);
 }
-#include <stdio.h>
+
 void	spec_minus_ast_s(va_list ap, t_flags *l_flags, size_t *nb_print)
 {
 	va_list	ap2;
@@ -83,6 +79,8 @@ void	spec_minus_ast_s(va_list ap, t_flags *l_flags, size_t *nb_print)
 
 	browse_two_stars_s(ap, l_flags, &width, &w_spec);
 	s = va_arg(ap, char *);
+	if (width < -2147483646 ||width > 2147483646)
+		return ;
 	if (0 > width)
 		width = -width;
 	if (s == NULL)

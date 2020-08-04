@@ -1,14 +1,17 @@
 #include "../ft_printf.h"
 
-size_t		check_flags_spec_s(t_flags *l_flags, va_list ap, char *s)
+size_t		check_flags_spec_s(t_flags *l_flags, va_list ap)
 {
 	size_t	nb_print;
+	char	*s;
 
 	nb_print = 0;
+	s = NULL;
 	if (l_flags->point == 1)
 	{
 		if (l_flags->asterisk == 0)
 		{
+			s = va_arg(ap, char *);
 			if (s == NULL)
 				s = ft_strdup("(null)");
 			spec_pnt_no_ast_s(l_flags, &nb_print, s);
@@ -57,11 +60,13 @@ size_t		check_flags_two_s(t_flags *l_flags, va_list ap)
 {
 	va_list	ap2;
 	size_t	nb_print;
-	char	*s;
+	//char	*s;
 
 	va_copy(ap2, ap);
 	nb_print = 0;
-	s = va_arg(ap, char *);
+	//s = va_arg(ap, char *);
+	if (check_min_max_value_s(l_flags) == -1)
+		return (-1);
 	if (l_flags->asterisk == 1 && l_flags->point == 0)
 	{
 		nb_print += astrsk_s(ap2);
@@ -69,9 +74,9 @@ size_t		check_flags_two_s(t_flags *l_flags, va_list ap)
 		return (nb_print);
 	}
 	else if (l_flags->minus == 0 && l_flags->point == 1
-			&& l_flags->zero == 0)
+			/*&& l_flags->zero == 0*/)
 	{
-		nb_print += check_flags_spec_s(l_flags, ap2, s);
+		nb_print += check_flags_spec_s(l_flags, ap2);
 		va_end(ap2);
 		return (nb_print);
 	}
@@ -88,7 +93,9 @@ size_t		check_flags_three_s(t_flags *l_flags, va_list ap)
 	s = va_arg(ap, char *);
 	nb_print = 0;
 	width = ft_atoi(l_flags->width);
-	if (l_flags->zero == 1)
+	if (check_min_max_value_s(l_flags) == -1)
+		return (-1);
+	if (l_flags->zero == 1 && l_flags->point == 0 && l_flags->asterisk == 0)
 	{
 		nb_print += print_basic_value_s(&width, s, '0');
 		return (nb_print);

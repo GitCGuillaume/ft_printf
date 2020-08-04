@@ -18,6 +18,27 @@ void	basic_value(void)
 		ft_putstr_fd("OK", 1);
 	else
 		ft_putstr_fd("KO", 1);
+	printf("---------1---------\n");
+	one = printf("%05s", "123");
+	printf("\n");
+	two = ft_printf("%05s", "123");
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%0-5s", "123");
+	printf("\n");
+	two = ft_printf("%0-5s", "123");
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+
 	printf("\n");
 	printf("---------EMPTY .0d---------\n");
 	one = printf("%.0s", 0);
@@ -275,7 +296,7 @@ printf("---------WIDTH_MAX 2147483647.* ---------\n");
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
-	/*printf("---------WIDTH_MAX*d ---------\n");
+	printf("---------WIDTH_MAX*d ---------\n");
 	one = printf("%*s", 2147483647, 0);
 	printf("\n");
 	two = ft_printf("%*s", 2147483647, 0);
@@ -297,19 +318,60 @@ printf("---------WIDTH_MAX 2147483647.* ---------\n");
 	printf("\n");
 
 	printf("---------WIDTH_MAX.*d ---------\n");
-	  one = printf("%2147483647.*s", 2147483647, 0);
+	  one = printf("%2147483647.*s", 2147483647, "a");
 	printf("\n");
-	two = ft_printf("%2147483647.*s", 2147483647, 0);
+	two = ft_printf("%2147483647.*s", 2147483647, "a");
 	printf("\n");
 	if (one == two)
 		ft_putstr_fd("OK", 1);
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
-	printf("---------WIDTH_MAX.*d ---------\n");
+	printf("---------WIDTH_SPECIFICATION_MAX.(minus)*d ---------\n");
+	  one = printf("%.*s", -2147483647, "a");
+	printf("one==%d\n", one);
+	printf("\n");
+	two = ft_printf("%.*s", -2147483647, "a");
+	printf("two==%d\n", two);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+
+	printf("---------WIDTH_SPECIFICATION_MAX.*d ---------\n");
 	  one = printf("%.*s", 2147483647, 0);
+	printf("one==%d\n", one);
 	printf("\n");
 	two = ft_printf("%.*s", 2147483647, 0);
+	printf("two==%d\n", two);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+
+	printf("---------WIDTH_SPECIFICATION_MAX.(minus)*d ---------\n");
+	  one = printf("%.*s", -2147483647, 0);
+	printf("one==%d\n", one);
+	printf("\n");
+	two = ft_printf("%.*s", -2147483647, 0);
+	printf("two==%d\n", two);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+
+	printf("---------WIDTH_SPECIFICATION_MAX.*d ---------\n");
+	  one = printf("%.*s", 2147483647, 0);
+	printf("one==%d\n", one);
+	printf("\n");
+	two = ft_printf("%.*s", 2147483647, 0);
+	printf("two==%d\n", two);
 	printf("\n");
 	if (one == two)
 		ft_putstr_fd("OK", 1);
@@ -326,8 +388,98 @@ printf("---------WIDTH_MAX 2147483647.* ---------\n");
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
+	printf("---------WIDTH_MAX0.*d ---------\n");
+	  one = printf("%0.*s", 2147483647, "abc");
+	printf("\n");
+	two = ft_printf("%0.*s", 2147483647, "abc");
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------WIDTH_MAX0-.*d ---------\n");
+	  one = printf("%0-.*s", 2147483647, "abc");
+	printf("\n");
+	two = ft_printf("%0-.*s", 2147483647, "abc");
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------WIDTH_MAX0-.*d ---------\n");
+	  one = printf("%0-.*s", 2147483647, 0);
+	printf("\n");
+	two = ft_printf("%0-.*s", 2147483647, 0);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("---------WIDTH_MAX0*d ---------\n");
+	  one = printf("%0*s", 2147483647, 0);
+	printf("\n");
+	two = ft_printf("%0*s", 2147483647, 0);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------WIDTH_MAX0*d ---------\n");
+	  one = printf("%0*s", 2147483647, "abc");
+	printf("\n");
+	two = ft_printf("%0*s", 2147483647, "abc");
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------WIDTH_MAX0-*d ---------\n");
+	  one = printf("%0-*s", 2147483647, 0);
+	printf("\n");
+	two = ft_printf("%0-*s", 2147483647, 0);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------WIDTH_MAX0-*d ---------\n");
+	  one = printf("%0-*s", 2147483647, "abc");
+	printf("\n");
+	two = ft_printf("%0-*s", 2147483647, "abc");
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
 
-	printf("---------WIDTH_MAX0d ---------\n");
+	printf("---------WIDTH_MAX0-.*d ---------\n");
+	  one = printf("%0-.*s", 2147483647, 0);
+	printf("\n");
+	two = ft_printf("%0-.*s", 2147483647, 0);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------WIDTH_MAX0-.*d ---------\n");
+	  one = printf("%0-.*s", 2147483647, "abc");
+	printf("\n");
+	two = ft_printf("%-0.*s", 2147483647, "abc");
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+
+	/*printf("---------WIDTH_MAX0d ---------\n");
 	  one = printf("%02147483647s", 2147483647, 0);
 	printf("\n");
 	two = ft_printf("%02147483647s", 2147483647, 0);
