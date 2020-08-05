@@ -13,6 +13,7 @@ size_t	print_p(t_flags *l_flags, va_list ap)
 			get_two_stars(l_flags, ap);
 		printf("width=%s\n", l_flags->width);
 		printf("w_spec=%s\n", l_flags->width_specification);
+		result = check_min_max_value_all(l_flags);
 	}
 	del(l_flags->width);
 	del(l_flags->width_specification);

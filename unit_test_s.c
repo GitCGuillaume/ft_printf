@@ -79,9 +79,9 @@ void	star_point_star(void)
 		ft_putstr_fd("KO", 1);
 	printf("\n");
 	printf("---------3---------\n");
-	one = printf("%*.*sa", 8, NULL, NULL);
+	one = printf("aa%*.*sa", 8, NULL, NULL);
 	printf("\n");
-	two = ft_printf("%*.*sb", 8, NULL, NULL);
+	two = ft_printf("aa%*.*sb", 8, NULL, NULL);
 	printf("\n");
 	if (one == two)
 		ft_putstr_fd("OK", 1);

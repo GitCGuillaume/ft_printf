@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/16 18:48:06 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/03 19:40:31 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/05 17:07:13 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void				spec_pnt_ast_s(t_flags *l_flags, va_list ap, size_t *nb_prt);
 size_t	print_p(t_flags *l_flags, va_list ap);
 int	get_one_star(t_flags *l_flags, va_list ap);
 int	get_two_stars(t_flags *l_flags, va_list ap);
+int	check_min_max_value_all(t_flags *l_flags);
 int				print_zero_p(size_t atoi, char *p);
 char				*ft_putnbr_base(void *nbr, char *base);
 ssize_t				ft_lensize(ssize_t n);

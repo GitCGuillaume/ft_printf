@@ -349,10 +349,12 @@ printf("---------WIDTH_MAX 2147483647.* ---------\n");
 		ft_putstr_fd("KO", 1);
 	printf("\n");
 	printf("---------WIDTH_SPECIFICATION_MIN.(minus)*p ---------\n");
-	  one = printf("%.*p", -2147483647, "a");
+	one = 1;
+	two = 2;	
+  	//one = printf("%.*p", -2147483650, "a");
 	printf("one==%d\n", one);
 	printf("\n");
-	two = ft_printf("%.*p", -2147483647, "a");
+	//two = ft_printf("%.*p", -2147483647, "a");
 	printf("two==%d\n", two);
 	printf("\n");
 	if (one == two)

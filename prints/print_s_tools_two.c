@@ -26,7 +26,7 @@ ssize_t	calc_s(ssize_t width, ssize_t width_specification, ssize_t lensize)
 		size = -size;
 	return (size);
 }
-#include <stdio.h>
+
 int	check_min_max_value_s(t_flags *l_flags)
 {
 	ssize_t	width;
@@ -37,12 +37,12 @@ int	check_min_max_value_s(t_flags *l_flags)
 	if (l_flags->zero == 0 && l_flags->minus == 0
 			&& l_flags->point == 0 && l_flags->asterisk == 0)
 	{
-		if (width < -2147483646 ||width > 2147483646)
+		if (width < -2147483646 || width > 2147483646)
 			return (-1);
 	}
-	if (width < -2147483646 ||width > 2147483646)
+	if (width < -2147483646 || width > 2147483646)
 		return (-1);
-	if (w_spec < -2147483648) /* ||w_spec > 2147483646)*/
+	if (w_spec < -2147483648)
 		return (-1);
 	return (0);
 }
