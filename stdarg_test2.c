@@ -40,6 +40,16 @@ int	main(void)
 	printf("\n");
 	printf("%09s", "hi low");
 	printf("\n");
-	ft_printf("%09s", "hi low");
+	void	*test;
+	test = malloc(3);
+	//printf("%9p", 123);
+	printf("\n");
+	ft_printf("%9p", "hi low");
+	printf("---------WIDTH MIN-*p---------\n");
+	printf("p=%*p", 5,123);
+	printf("\n");
+	ft_printf("⁼p=%-20p", 1);
+	printf("\n");
+
 	return (0);
 }

@@ -71,7 +71,7 @@ size_t		print_d(t_flags *l_flags, va_list ap)
 
 	d = va_arg(ap, int);
 	result = 0;
-	if ((result = check_min_max_value(l_flags, d)) != -1)
+	if ((result = check_min_max_value(l_flags, d)) == 0)
 	{
 		if (l_flags->percentage == 0)
 		{
