@@ -59,7 +59,7 @@ void	basic_value(void)
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
-	char *test = "NULL";
+	char test[] = "NULL";
 	printf("---------5---------\n");
 	one = printf("%0-30pa", test);
 	printf("\n");
@@ -709,6 +709,42 @@ void	width_min_max_special(void)
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
+	printf("--------(-)9.24p---------\n");
+	one = printf("%-9.24p", 1234);
+	printf("one==%d\n", one);
+	printf("\n");
+	two = ft_printf("%-9.24p", 1234);
+	printf("two==%d\n", two);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+
+	printf("----------9.24p---------\n");
+	one = printf("%9.24p", 1234);
+	printf("one==%d\n", one);
+	printf("\n");
+	two = ft_printf("%9.24p", 1234);
+	printf("two==%d\n", two);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("----------15.12p---------\n");
+	one = printf("%15.12p", "abcd");
+	printf("one==%d\n", one);
+	printf("\n");
+	two = ft_printf("%15.12p", "abcd");
+	printf("two==%d\n", two);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
 	printf("----------9.2p---------\n");
 	one = printf("%9.2p", 1234);
 	printf("one==%d\n", one);
@@ -721,11 +757,11 @@ void	width_min_max_special(void)
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
-	printf("----------9.2p---------\n");
-	one = printf("%15.2p", "abcd");
+	printf("----------10.2p---------\n");
+	one = printf("%10.2p", "abcd");
 	printf("one==%d\n", one);
 	printf("\n");
-	two = ft_printf("%15.2p", "abcd");
+	two = ft_printf("%10.2p", "abcd");
 	printf("two==%d\n", two);
 	printf("\n");
 	if (one == two)
