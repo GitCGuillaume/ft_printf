@@ -52,25 +52,27 @@ size_t	print_p_zero(t_flags *l_flags, char *addr)
 	return (nb_print);
 }
 
+#include <stdio.h>
 size_t	print_p_point_star(t_flags *l_flags, char *addr)
 {
 	size_t	nb_print;
 	ssize_t	width;
 	ssize_t	w_spec;
-
 	nb_print = 0;
 	width = ft_atoi(l_flags->width);
 	w_spec = ft_atoi(l_flags->width_specification);
-	nb_print += print_w_spec(calc_s(width, w_spec, ft_strlen(addr)), ft_strlen(addr), ' ');
+	nb_print += print_w_spec(calc_s(width, w_spec, ft_strlen(addr)), 2, ' ');
 	ft_putstr_fd("0x", 1);
 	if (addr != NULL)
 		nb_print += 2;
-	nb_print += print_w_spec(calc_s(width, w_spec, ft_strlen(addr)), nb_print, '0');
+	if (nb_print != 2)
+		nb_print += print_w_spec(calc_s(width, w_spec, ft_strlen(addr)), nb_print, '0');
+	else if (nb_print == 2)
+		nb_print += print_w_spec(w_spec, ft_strlen(addr), '0');
 	ft_putstr_limit_fd(addr, 0, &nb_print, 1);
 	return (nb_print);
 }
 
-#include <stdio.h>
 size_t	print_p_minus_point_star(t_flags *l_flags, char *addr)
 {
 	size_t	nb_print;
@@ -131,17 +133,32 @@ size_t	print_empty(t_flags *l_flags)
 	if (l_flags->minus == 0 && l_flags->point == 1)
 	{
 		nb_print += print_w_spec(width, w_spec + 2, ' ');
-		ft_putstr_fd("0x", 1);
-		nb_print += 2;
+		if (w_spec >= 0)
+		{
+			ft_putstr_fd("0x", 1);
+			nb_print += 2;
+		}
+		else
+		{
+			ft_putstr_fd("0x0", 1);
+			nb_print += 3;
+		}
 		nb_print += print_w_spec(w_spec, 0, '0');
 	}
 	if (l_flags->minus == 1 && l_flags->point == 1)
 	{
-		ft_putstr_fd("0x", 1);
-		nb_print += 2;
+		if (w_spec >= 0)
+		{
+			ft_putstr_fd("0x", 1);
+			nb_print += 2;
+		}
+		else
+		{
+			ft_putstr_fd("0x0", 1);
+			nb_print += 3;
+		}
 		nb_print += print_w_spec(w_spec, 0, '0');
 		nb_print += print_w_spec(width, w_spec + 2, ' ');
-		//nb_print += print_w_spec(w_spec - width, 0, '0');
 	}
 	return (nb_print);
 }

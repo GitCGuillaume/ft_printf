@@ -50,6 +50,11 @@ int	main(void)
 	printf("\n");
 	ft_printf("⁼p=%-20p", 1);
 	printf("\n");
+printf("---------12---------\n");
+	printf("%2.9sa", "abcd");
+	printf("\n");
+	ft_printf("%2.9sa", "abcd");
+	printf("\n");
 
 	return (0);
 }
