@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/16 18:48:06 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/07 11:23:59 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/09 16:48:37 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,9 @@ char				*ft_putnbr_base(void *nbr, char *base);
 ssize_t				ft_lensize(ssize_t n);
 char				*width_string(char const *fmt, size_t *i);
 //void				ft_putnbr_precision_fd(int n, int fd, int max);
+size_t	print_c(t_flags *l_flags, va_list ap);
+int	print_width_c(ssize_t width, char c);
+int	check_min_max_value_c(t_flags *l_flags);
 void			del(void *lst);
 
 

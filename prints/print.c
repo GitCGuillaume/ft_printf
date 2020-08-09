@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 18:39:51 by gchopin           #+#    #+#             */
-/*   Updated: 2020/06/25 10:09:22 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/09 14:36:51 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,15 +69,22 @@ int	print_width_s(ssize_t width, char *s, char c)
 	return (nb_value);
 }
 
-int	print_zero_p(size_t atoi, char *p)
+int	print_width_c(ssize_t width, char c)
 {
-	size_t	i;
+	ssize_t	i;
+	size_t	nb_value;
 
-	i = ft_strlen(p);
-	while (atoi > i)
+	i = 0;
+	nb_value = 0;
+	if (width != 0 /*&& character != NULL*/)
 	{
-		ft_putchar_fd('0', 1);
-		i++;
+		i = 1;
+		while (width > i)
+		{
+			ft_putchar_fd(c, 1);
+			nb_value++;
+			i++;
+		}
 	}
-	return (i);
+	return (nb_value);
 }
