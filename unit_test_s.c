@@ -38,6 +38,46 @@ void	basic_value(void)
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%-*s", 32, "123");
+	printf("\n");
+	two = ft_printf("%-*s", 32, "123");
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%-*.*s", 32, 0, "123");
+	printf("\n");
+	two = ft_printf("%-*.*s", 32, 0, "123");
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%*s", 32, "123");
+	printf("\n");
+	two = ft_printf("%*s", 32, "123");
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%*.*s", 32, 0, "123");
+	printf("\n");
+	two = ft_printf("%*.*s", 32, 0, "123");
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
 
 	printf("\n");
 	printf("---------EMPTY .0d---------\n");
