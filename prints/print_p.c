@@ -200,11 +200,7 @@ size_t	print_hexa(va_list ap, t_flags *l_flags)
 	if (addr == NULL)
 		return (print_empty(l_flags));
 	else if (!(hexa = ft_putnbr_base(addr, "0123456789abcdef")))
-	{
-		del(l_flags->width);
-		del(l_flags->width_specification);
 		return (-1);
-	}
 	if (addr != NULL)
 		nb_print += check_flags_one_p(l_flags, hexa);
 	free(hexa);
