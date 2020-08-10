@@ -70,7 +70,7 @@ size_t	astrsk_s(va_list ap)
 		s = ft_strdup("(null)");
 	if (ft_strnstr(s, "(null)", 6))
 		free(s);
-	if (d < -2147483646 ||d > 2147483646)
+	if (d < -2147483646 || d > 2147483646)
 		return (-1);
 	if (d >= 0)
 		nb_print += astrsk_s_lr(d, s);

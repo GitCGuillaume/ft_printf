@@ -1,5 +1,5 @@
 #include "../ft_printf.h"
-#include <stdio.h>
+
 int	get_one_star(t_flags *l_flags, va_list ap)
 {
 	if (l_flags->asterisk == 1 && l_flags->point == 0)
@@ -13,7 +13,6 @@ int	get_one_star(t_flags *l_flags, va_list ap)
 		del(l_flags->width_specification);
 		l_flags->width_specification = ft_itoa(va_arg(ap, int));
 		return (1);
-
 	}
 	return (0);
 }

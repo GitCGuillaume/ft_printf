@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/16 18:48:06 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/09 16:48:37 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/10 15:46:41 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,17 @@ int				print_zero_p(size_t atoi, char *p);
 char				*ft_putnbr_base(void *nbr, char *base);
 ssize_t				ft_lensize(ssize_t n);
 char				*width_string(char const *fmt, size_t *i);
-//void				ft_putnbr_precision_fd(int n, int fd, int max);
+size_t	print_p_lr(t_flags *l_flags, char *addr);
+size_t	print_p_rl(t_flags *l_flags, char *addr);
+size_t	print_p_zero(t_flags *l_flags, char *addr);
+size_t	print_p_point_star(t_flags *l_flags, char *addr);
+size_t	print_p_minus_point_star(t_flags *l_flags, char *addr);
+size_t	print_empty_part_one(t_flags *l_flags, ssize_t *width, ssize_t *w_spec);
+size_t	print_empty_part_two(t_flags *l_flags, ssize_t *width, ssize_t *w_spec);
+size_t	print_empty(t_flags *l_flags);
 size_t	print_c(t_flags *l_flags, va_list ap);
+size_t	print_c_lr(t_flags *l_flags, char c);
+size_t	print_c_rl(t_flags *l_flags, char c);
 int	print_width_c(ssize_t width, char c);
 int	check_min_max_value_c(t_flags *l_flags);
 void			del(void *lst);

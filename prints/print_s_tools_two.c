@@ -27,7 +27,7 @@ ssize_t	calc_s(ssize_t width, ssize_t width_specification, ssize_t lensize)
 	return (size);
 }
 
-int	check_min_max_value_s(t_flags *l_flags)
+int		check_min_max_value_s(t_flags *l_flags)
 {
 	ssize_t	width;
 	ssize_t	w_spec;

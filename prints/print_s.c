@@ -42,8 +42,6 @@ size_t		check_flags_one_s(va_list ap, t_flags *l_flags)
 			&& l_flags->point == 0 && l_flags->asterisk == 0)
 	{
 		nb_print += print_basic_value_s(&width, s, ' ');
-		va_end(ap2);
-		return (nb_print);
 	}
 	else if (l_flags->minus == 1)
 	{
@@ -114,9 +112,7 @@ size_t		print_s(t_flags *l_flags, va_list ap)
 		if ((result = check_flags_one_s(ap, l_flags)) == 0)
 		{
 			if ((result = check_flags_two_s(l_flags, ap2)) == 0)
-			{
 				result = check_flags_three_s(l_flags, ap3);
-			}
 		}
 	}
 	del(l_flags->width);

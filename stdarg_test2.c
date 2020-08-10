@@ -55,6 +55,24 @@ printf("---------12---------\n");
 	printf("\n");
 	ft_printf("%2.9sa", "abcd");
 	printf("\n");
-
+	printf("\n");
+	printf("\n");
+	printf("%.*ia", -6, -3);
+	printf("\n");
+	ft_printf("%.*ia", -6, -3);
+	printf("\n");
+	printf("%.*db", -6, -3);
+	printf("\n");
+	ft_printf("%.*db", -6, -3);
+	printf("\n");
+	printf("%.*ia", -6, -3);
+	printf("\n");
+	ft_printf("%.*ia", -6, -3);
+	printf("\n");
+	printf("%-10.*db", -6, -3);
+	printf("\n");
+	ft_printf("%-10.*db", -6, -3);
+	printf("\n");
+	
 	return (0);
 }

@@ -19,6 +19,56 @@ void	basic_value(void)
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%.*db", -6 ,123);
+	printf("\n");
+	two = ft_printf("%.*db", -6, 123);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%.*db", 6 ,123);
+	printf("\n");
+	two = ft_printf("%.*db", 6, 123);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%10.*db", -6 ,123);
+	printf("\n");
+	two = ft_printf("%10.*db", -6, 123);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%10.*db", 6 ,123);
+	printf("\n");
+	two = ft_printf("%10.*db", 6, 123);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%-10.*db", 6 ,123);
+	printf("\n");
+	two = ft_printf("%-10.*db", 6, 123);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
 	printf("---------EMPTY .0d---------\n");
 	one = printf("%.0d", 0);
 	printf("\n");

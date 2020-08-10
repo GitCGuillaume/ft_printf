@@ -58,7 +58,7 @@ void	spec_pnt_no_ast_d(t_flags *l_flags, size_t *nb_prt, int d)
 	if (d != 0)
 		ft_putnbr_fd(d, nb_prt, 1);
 }
-
+#include <stdio.h>
 void	spec_point_astrsk_d(t_flags *l_flags, va_list ap, size_t *nb_prt, int d)
 {
 	va_list	ap2;
@@ -80,7 +80,7 @@ void	spec_point_astrsk_d(t_flags *l_flags, va_list ap, size_t *nb_prt, int d)
 	{
 		if (width != 0 && 0 > d)
 			lsize = 0;
-		w_spec = -w_spec;
+		//w_spec = -w_spec;
 	}
 	(*nb_prt) += print_w_spec(w_spec - lsize, 0, '0');
 	if (d_copy != 0)

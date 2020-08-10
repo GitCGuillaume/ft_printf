@@ -5,7 +5,6 @@ void	handle_sizes(ssize_t *width, ssize_t *w_spec)
 	if (0 > *w_spec)
 	{
 		(*w_spec)++;
-		//*w_spec = -(*w_spec);
 	}
 	if (0 > *width)
 	{
@@ -69,7 +68,7 @@ size_t	astrsk_d_rl(va_list ap, t_flags *l_flags, int d, ssize_t *width)
 	va_end(ap2);
 	return (nb_print);
 }
-#include <stdio.h>
+
 size_t	print_d_stars_minus(ssize_t width, ssize_t w_spec, int value)
 {
 	size_t	nb_print;

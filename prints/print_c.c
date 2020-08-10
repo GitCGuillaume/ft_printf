@@ -1,33 +1,4 @@
 #include "../ft_printf.h"
-#include <stdio.h>
-
-size_t	print_c_lr(t_flags *l_flags, char c)
-{
-	size_t	nb_print;
-	ssize_t	width;
-
-	width = ft_atoi(l_flags->width);
-	nb_print = 0;
-	nb_print += print_width_c(width, ' ');
-	//ft_putstr_limit_fd(c, 0, &nb_print, 1);
-	ft_putchar_fd(c, 1);
-	nb_print += 1;
-	return (nb_print);
-}
-
-size_t	print_c_rl(t_flags *l_flags, char c)
-{
-	size_t	nb_print;
-	ssize_t	width;
-
-	width = ft_atoi(l_flags->width);
-	nb_print = 0;
-	//ft_putstr_limit_fd(c, 0, &nb_print, 1);
-	ft_putchar_fd(c, 1);
-	nb_print += 1;
-	nb_print += print_width_c(width, ' ');
-	return (nb_print);
-}
 
 size_t	print_c_zero(t_flags *l_flags, char c)
 {
@@ -37,13 +8,11 @@ size_t	print_c_zero(t_flags *l_flags, char c)
 	width = ft_atoi(l_flags->width);
 	nb_print = 0;
 	nb_print += print_width_c(width, '0');
-	//ft_putstr_limit_fd(c, 0, &nb_print, 1);
 	ft_putchar_fd(c, 1);
 	nb_print += 1;
 	return (nb_print);
 }
 
-#include <stdio.h>
 size_t	print_c_point_star(t_flags *l_flags, char c)
 {
 	size_t	nb_print;
@@ -51,9 +20,7 @@ size_t	print_c_point_star(t_flags *l_flags, char c)
 
 	nb_print = 0;
 	width = ft_atoi(l_flags->width);
-	//if (width > w_spec)
-		nb_print += print_w_spec(calc(width, 0, 1, 0), nb_print, ' ');
-	//ft_putstr_	ft_putchar_fd(c, 1);
+	nb_print += print_w_spec(calc(width, 0, 1, 0), nb_print, ' ');
 	nb_print += 1;
 	ft_putchar_fd(c, 1);
 	return (nb_print);
@@ -66,8 +33,6 @@ size_t	print_c_minus_point_star(t_flags *l_flags, char c)
 
 	nb_print = 0;
 	width = ft_atoi(l_flags->width);
-	//nb_print += print_w_spec(w_spec - 1, 0, '0');
-	//ft_putstr_limit_fd(c, 0, &nb_print, 1);
 	ft_putchar_fd(c, 1);
 	nb_print += 1;
 	nb_print += print_w_spec(width, nb_print, ' ');
@@ -92,46 +57,6 @@ size_t	check_flags_one_c(t_flags *l_flags, char c)
 	return (nb_print);
 }
 
-/*size_t	print_empty(t_flags *l_flags)
-{
-	size_t	nb_print;
-	ssize_t	width;
-	ssize_t	w_spec;
-
-	nb_print = 0;
-	width = ft_atoi(l_flags->width);
-	w_spec = ft_atoi(l_flags->width_specification);
-	if (l_flags->minus == 0 && l_flags->point == 0)
-	{
-	}
-	if (l_flags->minus == 1 && l_flags->point == 0)
-	{
-	}
-	if (l_flags->minus == 0 && l_flags->point == 1)
-	{
-		nb_print += print_w_spec(width, w_spec, ' ');
-		if (w_spec >= 0)
-		{
-		}
-		else
-		{
-		}
-		nb_print += print_w_spec(w_spec, 0, '0');
-	}
-	if (l_flags->minus == 1 && l_flags->point == 1)
-	{
-		if (w_spec >= 0)
-		{
-		}
-		else
-		{
-		}
-		nb_print += print_w_spec(w_spec, 0, '0');
-		nb_print += print_w_spec(width, w_spec + 2, ' ');
-	}
-	return (nb_print);
-}*/
-#include <stdio.h>
 size_t	print_c(t_flags *l_flags, va_list ap)
 {
 	size_t	result;
@@ -147,17 +72,12 @@ size_t	print_c(t_flags *l_flags, va_list ap)
 			get_one_star(l_flags, ap);
 		else if (l_flags->asterisk == 2)
 			get_two_stars(l_flags, ap);
+		c = va_arg(ap, int);
 		if ((result = check_min_max_value_c(l_flags)) == 0)
-		{
-			c = va_arg(ap, int);
-			//if (c == NULL)
-			//	return (print_empty(l_flags));
 			result = check_flags_one_c(l_flags, c);
-		}
-		else if (result == -negative)/*&& c != 1*/
+		else if (result == -negative)
 		{
-			ft_putchar_fd(va_arg(ap, int), 1);
-			printf("c=%c\n", c);
+			ft_putchar_fd(c, 1);
 			result = 1;
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: gchopin </var/mail/gchopin>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/20 14:49:22 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/03 17:31:57 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/10 17:17:45 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ size_t		check_flags_one_d(t_flags *l_flags, va_list ap, int d)
 		spec_minus_d(l_flags, ap, &nb_print, d);
 		return (nb_print);
 	}
-	else if (l_flags->asterisk == 1)
+	else if (l_flags->asterisk == 1 && l_flags->point == 0)
 		nb_print += astrsk_d_lr(ap, l_flags, d, &width);
 	return (nb_print);
 }

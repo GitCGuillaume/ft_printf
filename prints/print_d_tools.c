@@ -62,7 +62,7 @@ size_t	browse_two_stars_d(va_list ap, t_flags *l_flags, int d)
 	return (nb_print);
 }
 
-int	check_min_max_value(t_flags *l_flags, int d)
+int		check_min_max_value(t_flags *l_flags, int d)
 {
 	ssize_t	width;
 	ssize_t	w_spec;
@@ -72,17 +72,17 @@ int	check_min_max_value(t_flags *l_flags, int d)
 	if (l_flags->zero == 0 && l_flags->minus == 0
 			&& l_flags->point == 0 && l_flags->asterisk == 0)
 	{
-		if (width < -2147483646 ||width > 2147483646)
+		if (width < -2147483646 || width > 2147483646)
 			return (-1);
 	}
 	if (l_flags->point == 0 && l_flags->asterisk == 1)
 	{
-		if (d < -2147483646 ||d > 2147483646)
+		if (d < -2147483646 || d > 2147483646)
 			return (-1);
 	}
-	if (width < -2147483646 ||width > 2147483646)
+	if (width < -2147483646 || width > 2147483646)
 		return (-1);
-	if (w_spec < -2147483648 ||w_spec > 2147483646)
+	if (w_spec < -2147483648 || w_spec > 2147483646)
 		return (-1);
 	return (0);
 }

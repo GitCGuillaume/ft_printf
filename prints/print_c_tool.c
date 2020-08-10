@@ -1,6 +1,32 @@
 #include "../ft_printf.h"
 
-int	check_min_max_value_c(t_flags *l_flags)
+size_t	print_c_lr(t_flags *l_flags, char c)
+{
+	size_t	nb_print;
+	ssize_t	width;
+
+	width = ft_atoi(l_flags->width);
+	nb_print = 0;
+	nb_print += print_width_c(width, ' ');
+	ft_putchar_fd(c, 1);
+	nb_print += 1;
+	return (nb_print);
+}
+
+size_t	print_c_rl(t_flags *l_flags, char c)
+{
+	size_t	nb_print;
+	ssize_t	width;
+
+	width = ft_atoi(l_flags->width);
+	nb_print = 0;
+	ft_putchar_fd(c, 1);
+	nb_print += 1;
+	nb_print += print_width_c(width, ' ');
+	return (nb_print);
+}
+
+int		check_min_max_value_c(t_flags *l_flags)
 {
 	ssize_t	width;
 	ssize_t	w_spec;
