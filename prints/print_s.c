@@ -60,11 +60,9 @@ size_t		check_flags_two_s(t_flags *l_flags, va_list ap)
 {
 	va_list	ap2;
 	size_t	nb_print;
-	//char	*s;
 
 	va_copy(ap2, ap);
 	nb_print = 0;
-	//s = va_arg(ap, char *);
 	if (check_min_max_value_s(l_flags) == -1)
 		return (-1);
 	if (l_flags->asterisk == 1 && l_flags->point == 0)
@@ -73,8 +71,7 @@ size_t		check_flags_two_s(t_flags *l_flags, va_list ap)
 		va_end(ap2);
 		return (nb_print);
 	}
-	else if (l_flags->minus == 0 && l_flags->point == 1
-			/*&& l_flags->zero == 0*/)
+	else if (l_flags->minus == 0 && l_flags->point == 1)
 	{
 		nb_print += check_flags_spec_s(l_flags, ap2);
 		va_end(ap2);

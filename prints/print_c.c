@@ -48,11 +48,9 @@ size_t	print_c_point_star(t_flags *l_flags, char c)
 {
 	size_t	nb_print;
 	ssize_t	width;
-	ssize_t	w_spec;
 
 	nb_print = 0;
 	width = ft_atoi(l_flags->width);
-	w_spec = ft_atoi(l_flags->width_specification);
 	//if (width > w_spec)
 		nb_print += print_w_spec(calc(width, 0, 1, 0), nb_print, ' ');
 	//ft_putstr_	ft_putchar_fd(c, 1);
@@ -65,11 +63,9 @@ size_t	print_c_minus_point_star(t_flags *l_flags, char c)
 {
 	size_t	nb_print;
 	ssize_t	width;
-	ssize_t	w_spec;
 
 	nb_print = 0;
 	width = ft_atoi(l_flags->width);
-	w_spec = ft_atoi(l_flags->width_specification);
 	//nb_print += print_w_spec(w_spec - 1, 0, '0');
 	//ft_putstr_limit_fd(c, 0, &nb_print, 1);
 	ft_putchar_fd(c, 1);
