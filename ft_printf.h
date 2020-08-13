@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/16 18:48:06 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/10 15:46:41 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/13 11:18:53 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,14 @@ size_t				check_flags_spec_d(t_flags *l_flags, va_list ap, int d);
 int				print_width_d(ssize_t width, int d, char c);
 ssize_t				calc(ssize_t width, ssize_t width_specification, ssize_t lensize, int d);
 void				negative_d(size_t *nb_print, int *d);
+void	handle_sizes(ssize_t *width, ssize_t *w_spec);
 size_t				print_basic_value_d(ssize_t *width, int d, char c);
 int				print_w_spec(ssize_t width, ssize_t sum, char c);
 void				spec_minus_d(t_flags *l_flags, va_list ap,size_t *nb_print, int d);
 size_t				astrsk_d_lr(va_list ap, t_flags *l_flags, int d, ssize_t *width);
 size_t				astrsk_d_rl(va_list ap, t_flags *l_flags, int d, ssize_t *width);
 void				spec_pnt_no_ast_d(t_flags *l_flags, size_t *nb_prt, int d);
-void				spec_point_astrsk_d(t_flags *l_flags, va_list ap, size_t *nb_prt, int d);
+void				spec_point_astrsk_d(va_list ap, t_flags *l_flags, size_t *nb_prt, int d);
 size_t				print_s(t_flags *l_flags, va_list ap);
 int	check_min_max_value_s(t_flags *l_flags);
 char				*ft_strlimit(char *s, ssize_t width);

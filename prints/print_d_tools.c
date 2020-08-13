@@ -26,10 +26,9 @@ ssize_t	calc(ssize_t width, ssize_t width_specification, ssize_t lensize, int d)
 {
 	ssize_t	size;
 
-	size = 0;
+	size = width - lensize;
 	if (width_specification >= 0)
 	{
-		size = width - lensize;
 		if (width_specification - lensize > 0)
 			size = size - (width_specification - lensize);
 		if (d < 0 && width_specification > lensize)
