@@ -6,13 +6,13 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/07 11:12:39 by gchopin           #+#    #+#             */
-/*   Updated: 2020/05/07 11:23:18 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/14 19:25:31 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(ssize_t n, size_t *nb_print, int fd)
+void	ft_putnbr_fd(ssize_t n, ssize_t *nb_print, int fd)
 {
 	if (n < 0)
 	{

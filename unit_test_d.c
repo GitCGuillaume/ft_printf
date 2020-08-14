@@ -23,7 +23,7 @@ void	basic_value(void)
 	printf("---------1---------\n");
 	one = printf("%d", -122);
 	printf("\n");
-	two = ft_printf("%d", -12);
+	two = ft_printf("%d", -122);
 	printf("\n");
 	if (one == two)
 		ft_putstr_fd("OK", 1);

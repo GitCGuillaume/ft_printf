@@ -15,7 +15,7 @@ void	handle_sizes(ssize_t *width, ssize_t *w_spec)
 ssize_t	astrsk_d_lr(va_list ap, t_flags *l_flags, int d, ssize_t *width)
 {
 	va_list	ap2;
-	size_t	nb_print;
+	ssize_t	nb_print;
 	int		d_copy;
 
 	nb_print = 0;
@@ -43,7 +43,7 @@ ssize_t	astrsk_d_lr(va_list ap, t_flags *l_flags, int d, ssize_t *width)
 ssize_t	astrsk_d_rl(va_list ap, t_flags *l_flags, int d, ssize_t *width)
 {
 	va_list	ap2;
-	size_t	nb_print;
+	ssize_t	nb_print;
 	int		d_copy;
 
 	nb_print = 0;
@@ -68,12 +68,14 @@ ssize_t	astrsk_d_rl(va_list ap, t_flags *l_flags, int d, ssize_t *width)
 	va_end(ap2);
 	return (nb_print);
 }
-
+#include <stdio.h>
 ssize_t	print_d_stars_minus(ssize_t width, ssize_t w_spec, int value)
 {
-	size_t	nb_print;
+	ssize_t	nb_print;
 
 	nb_print = 0;
+	if (0 > value && 0 > w_spec)
+		width--;
 	if (0 > value)
 	{
 		negative_d(&nb_print, &value);
@@ -94,7 +96,7 @@ ssize_t	print_d_stars_minus(ssize_t width, ssize_t w_spec, int value)
 					value), 0, ' ');
 	return (nb_print);
 }
-#include <stdio.h>
+
 ssize_t	print_d_stars(ssize_t width, ssize_t w_spec, int value)
 {
 	ssize_t	nb_print;

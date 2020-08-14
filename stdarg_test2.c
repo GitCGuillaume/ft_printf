@@ -6,7 +6,7 @@
 /*   By: gchopin </var/mail/gchopin>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/14 18:22:12 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/14 18:26:11 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/14 19:42:33 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,19 @@ printf("---------12---------\n");
 	printf("%10.*db", -6, -3);
 	printf("\n");
 	ft_printf("%10.*db", -6, -3);
-	printf("% *i", 5, 123);	
 	printf("\n");
-	ft_printf("% *i", 5, 123);
+	printf("% *i%d", 5, 123, 12);	
 	printf("\n");
+	ft_printf("% *i%d", 5, 123, 12);
+	printf("\n");
+	printf("%-10.*ub", -6, -3);
+	printf("\n");
+	ft_printf("%-10.*ub", -6, -3);
+	printf("\n");
+	printf("%10.*ub", -6, -3);
+	printf("\n");
+	ft_printf("%10.*ub", -6, -3);
+	printf("\n");
+
 	return (0);
 }

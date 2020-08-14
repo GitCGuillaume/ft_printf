@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/07 10:49:11 by gchopin           #+#    #+#             */
-/*   Updated: 2020/05/07 11:31:09 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/14 19:28:41 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_putstr_fd(char *s, int fd)
 	}
 }
 
-void	ft_putstr_pr_fd(char *s, size_t *nb_print, int fd)
+void	ft_putstr_pr_fd(char *s, ssize_t *nb_print, int fd)
 {
 	size_t i;
 

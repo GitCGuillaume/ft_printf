@@ -12,7 +12,7 @@ void	negative_d(ssize_t *nb_print, int *d)
 
 ssize_t	print_basic_value_d(ssize_t *width, int d, char c)
 {
-	size_t	nb_print;
+	ssize_t	nb_print;
 
 	nb_print = 0;
 	if (d == 0)

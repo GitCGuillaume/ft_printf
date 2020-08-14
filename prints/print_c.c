@@ -60,7 +60,7 @@ ssize_t	check_flags_one_c(t_flags *l_flags, char c)
 ssize_t	print_c(t_flags *l_flags, va_list ap)
 {
 	ssize_t	result;
-	size_t	negative;
+	ssize_t	negative;
 	char	c;
 
 	result = 0;

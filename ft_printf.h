@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/16 18:48:06 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/14 19:22:15 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/14 19:29:06 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ ssize_t				print_s(t_flags *l_flags, va_list ap);
 int	check_min_max_value_s(t_flags *l_flags);
 char				*ft_strlimit(char *s, ssize_t width);
 void				ft_putstr_limit_fd(char *s, size_t limit, ssize_t *nb_print, int fd);
-size_t				print_basic_value_s(ssize_t *width, char *s, char c);
+ssize_t				print_basic_value_s(ssize_t *width, char *s, char c);
 ssize_t				calc_s(ssize_t width, ssize_t width_specification, ssize_t lensize);
 void				ft_putstr_limit_fd(char *s, size_t limit, ssize_t *nb_print, int fd);
 ssize_t				print_width_s(ssize_t width, char *s, char c);
