@@ -6,7 +6,7 @@
 /*   By: gchopin </var/mail/gchopin>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/20 14:49:22 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/13 21:16:37 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/14 10:34:51 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ size_t		print_zero_d(ssize_t *width, int value)
 		if (*width < 0)
 			(*width)++;
 	}
-	if (value == 0 && width != 0)
+	if (value == 0 && *width != 0)
 		(*width)--;
 	if (*width > 0)
 		nb_print += print_width_d(*width, value, '0');

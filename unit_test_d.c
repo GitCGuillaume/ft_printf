@@ -30,6 +30,16 @@ void	basic_value(void)
 		ft_putstr_fd("KO", 1);
 	printf("\n");
 	printf("---------1---------\n");
+	one = printf("%d", NULL);
+	printf("\n");
+	two = ft_printf("%d", NULL);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+
+	printf("---------1---------\n");
 	one = printf("%0*ia", 5, 43);
 	printf("\n");
 	two = ft_printf("%0*ia", 5, 43);
@@ -266,7 +276,20 @@ void	basic_value(void)
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
-	printf("---------1---------\n");
+	printf("---------EMPTY d---------\n");
+	one = printf("%d", 0);
+	printf("one=%d\n", one);
+	printf("\n");
+	two = ft_printf("%d", 0);
+	printf("two=%d\n", two);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+
+	printf("---------0*i  empty---------\n");
 	one = printf("%0*i", 0, 0);
 	printf("one=%d\n", one);
 	printf("\n");
