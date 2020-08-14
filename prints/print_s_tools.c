@@ -22,9 +22,9 @@ char	*ft_strlimit(char *s, ssize_t width)
 	return (ptr);
 }
 
-size_t	print_basic_value_s(ssize_t *width, char *s, char c)
+ssize_t	print_basic_value_s(ssize_t *width, char *s, char c)
 {
-	size_t	nb_print;
+	ssize_t	nb_print;
 
 	nb_print = 0;
 	if (s == NULL)
@@ -36,9 +36,9 @@ size_t	print_basic_value_s(ssize_t *width, char *s, char c)
 	return (nb_print);
 }
 
-size_t	astrsk_s_rl(int d, char *s)
+ssize_t	astrsk_s_rl(int d, char *s)
 {
-	size_t	nb_print;
+	ssize_t	nb_print;
 
 	nb_print = 0;
 	d = -d;
@@ -47,9 +47,9 @@ size_t	astrsk_s_rl(int d, char *s)
 	return (nb_print);
 }
 
-size_t	astrsk_s_lr(int d, char *s)
+ssize_t	astrsk_s_lr(int d, char *s)
 {
-	size_t	nb_print;
+	ssize_t	nb_print;
 
 	nb_print = 0;
 	nb_print += print_width_s(d, s, ' ');
@@ -57,9 +57,9 @@ size_t	astrsk_s_lr(int d, char *s)
 	return (nb_print);
 }
 
-size_t	astrsk_s(va_list ap)
+ssize_t	astrsk_s(va_list ap)
 {
-	size_t	nb_print;
+	ssize_t	nb_print;
 	int		d;
 	char	*s;
 

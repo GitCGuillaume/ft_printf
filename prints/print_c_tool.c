@@ -1,8 +1,8 @@
 #include "../ft_printf.h"
 
-size_t	print_c_lr(t_flags *l_flags, char c)
+ssize_t	print_c_lr(t_flags *l_flags, char c)
 {
-	size_t	nb_print;
+	ssize_t	nb_print;
 	ssize_t	width;
 
 	width = ft_atoi(l_flags->width);
@@ -13,9 +13,9 @@ size_t	print_c_lr(t_flags *l_flags, char c)
 	return (nb_print);
 }
 
-size_t	print_c_rl(t_flags *l_flags, char c)
+ssize_t	print_c_rl(t_flags *l_flags, char c)
 {
-	size_t	nb_print;
+	ssize_t	nb_print;
 	ssize_t	width;
 
 	width = ft_atoi(l_flags->width);

@@ -1,6 +1,6 @@
 #include "../ft_printf.h"
 
-void	spec_pnt_no_ast_s(t_flags *l_flags, size_t *nb_prt, char *s)
+void	spec_pnt_no_ast_s(t_flags *l_flags, ssize_t *nb_prt, char *s)
 {
 	ssize_t	width;
 	ssize_t	w_spec;
@@ -41,7 +41,7 @@ void	browse_two_stars_s(va_list ap, t_flags *l_flags,
 		va_arg(ap, int);
 }
 
-void	spec_pnt_ast_s(t_flags *l_flags, va_list ap, size_t *nb_prt)
+void	spec_pnt_ast_s(t_flags *l_flags, va_list ap, ssize_t *nb_prt)
 {
 	ssize_t	width;
 	ssize_t	w_spec;
@@ -69,7 +69,7 @@ void	spec_pnt_ast_s(t_flags *l_flags, va_list ap, size_t *nb_prt)
 	free(width_to_str);
 }
 
-void	spec_minus_ast_s(va_list ap, t_flags *l_flags, size_t *nb_print)
+void	spec_minus_ast_s(va_list ap, t_flags *l_flags, ssize_t *nb_print)
 {
 	va_list	ap2;
 	ssize_t	width;
@@ -96,7 +96,7 @@ void	spec_minus_ast_s(va_list ap, t_flags *l_flags, size_t *nb_print)
 	va_end(ap2);
 }
 
-void	spec_minus_no_ast_s(t_flags *l_flags, size_t *nb_print, char *s)
+void	spec_minus_no_ast_s(t_flags *l_flags, ssize_t *nb_print, char *s)
 {
 	ssize_t	width;
 	size_t	w_spec;

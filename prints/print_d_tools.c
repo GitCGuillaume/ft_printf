@@ -1,6 +1,6 @@
 #include "../ft_printf.h"
 
-void	negative_d(size_t *nb_print, int *d)
+void	negative_d(ssize_t *nb_print, int *d)
 {
 	if (*d < 0)
 	{
@@ -10,7 +10,7 @@ void	negative_d(size_t *nb_print, int *d)
 	}
 }
 
-size_t	print_basic_value_d(ssize_t *width, int d, char c)
+ssize_t	print_basic_value_d(ssize_t *width, int d, char c)
 {
 	size_t	nb_print;
 
@@ -37,9 +37,9 @@ ssize_t	calc(ssize_t width, ssize_t width_specification, ssize_t lensize, int d)
 	return (size);
 }
 
-size_t	browse_two_stars_d(va_list ap, t_flags *l_flags, int d)
+ssize_t	browse_two_stars_d(va_list ap, t_flags *l_flags, int d)
 {
-	size_t	nb_print;
+	ssize_t	nb_print;
 	ssize_t	width;
 	ssize_t	width_spec;
 	int		value;

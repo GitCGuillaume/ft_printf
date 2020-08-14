@@ -1,8 +1,8 @@
 #include "../ft_printf.h"
 #include <stdio.h>
-size_t	print_u_zero(t_flags *l_flags, unsigned int value)
+ssize_t	print_u_zero(t_flags *l_flags, unsigned int value)
 {
-	size_t	nb_print;
+	ssize_t	nb_print;
 	ssize_t	width;
 	ssize_t	w_spec;
 
@@ -22,9 +22,9 @@ size_t	print_u_zero(t_flags *l_flags, unsigned int value)
 	return (nb_print);
 }
 
-size_t	print_u_rl(t_flags *l_flags, unsigned int value)
+ssize_t	print_u_rl(t_flags *l_flags, unsigned int value)
 {
-	size_t	nb_print;
+	ssize_t	nb_print;
 	ssize_t	width;
 
 	nb_print = 0;
@@ -36,9 +36,9 @@ size_t	print_u_rl(t_flags *l_flags, unsigned int value)
 	return (nb_print);
 }
 
-size_t	print_u_lr(t_flags *l_flags, unsigned int value)
+ssize_t	print_u_lr(t_flags *l_flags, unsigned int value)
 {
-	size_t	nb_print;
+	ssize_t	nb_print;
 	ssize_t	width;
 
 	nb_print = 0;
@@ -50,9 +50,9 @@ size_t	print_u_lr(t_flags *l_flags, unsigned int value)
 	return (nb_print);
 }
 
-size_t	print_u_stars(t_flags *l_flags, unsigned int value)
+ssize_t	print_u_stars(t_flags *l_flags, unsigned int value)
 {
-	size_t	nb_print;
+	ssize_t	nb_print;
 	ssize_t	width;
 	ssize_t	w_spec;
 
@@ -73,10 +73,9 @@ size_t	print_u_stars(t_flags *l_flags, unsigned int value)
 	return (nb_print);
 }
 
-size_t	print_u_stars_minus(t_flags *l_flags, unsigned int value)
+ssize_t	print_u_stars_minus(t_flags *l_flags, unsigned int value)
 {
-	printf("ah");
-	size_t	nb_print;
+	ssize_t	nb_print;
 	ssize_t	width;
 	ssize_t	w_spec;
 
@@ -95,4 +94,3 @@ size_t	print_u_stars_minus(t_flags *l_flags, unsigned int value)
 					value), 0, ' ');
 	return (nb_print);
 }
-

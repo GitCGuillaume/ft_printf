@@ -1,8 +1,8 @@
 #include "../ft_printf.h"
 
-size_t		check_flags_spec_s(t_flags *l_flags, va_list ap)
+ssize_t		check_flags_spec_s(t_flags *l_flags, va_list ap)
 {
-	size_t	nb_print;
+	ssize_t	nb_print;
 	char	*s;
 
 	nb_print = 0;
@@ -25,11 +25,11 @@ size_t		check_flags_spec_s(t_flags *l_flags, va_list ap)
 	return (nb_print);
 }
 
-size_t		check_flags_one_s(va_list ap, t_flags *l_flags)
+ssize_t		check_flags_one_s(va_list ap, t_flags *l_flags)
 {
 	va_list	ap2;
 	ssize_t	width;
-	size_t	nb_print;
+	ssize_t	nb_print;
 	char	*s;
 
 	va_copy(ap2, ap);
@@ -54,10 +54,10 @@ size_t		check_flags_one_s(va_list ap, t_flags *l_flags)
 	return (nb_print);
 }
 
-size_t		check_flags_two_s(t_flags *l_flags, va_list ap)
+ssize_t		check_flags_two_s(t_flags *l_flags, va_list ap)
 {
 	va_list	ap2;
-	size_t	nb_print;
+	ssize_t	nb_print;
 
 	va_copy(ap2, ap);
 	nb_print = 0;
@@ -79,9 +79,9 @@ size_t		check_flags_two_s(t_flags *l_flags, va_list ap)
 	return (nb_print);
 }
 
-size_t		check_flags_three_s(t_flags *l_flags, va_list ap)
+ssize_t		check_flags_three_s(t_flags *l_flags, va_list ap)
 {
-	size_t	nb_print;
+	ssize_t	nb_print;
 	ssize_t	width;
 	char	*s;
 
@@ -98,11 +98,11 @@ size_t		check_flags_three_s(t_flags *l_flags, va_list ap)
 	return (nb_print);
 }
 
-size_t		print_s(t_flags *l_flags, va_list ap)
+ssize_t		print_s(t_flags *l_flags, va_list ap)
 {
 	va_list	ap2;
 	va_list	ap3;
-	size_t	result;
+	ssize_t	result;
 
 	result = 0;
 	va_copy(ap2, ap);

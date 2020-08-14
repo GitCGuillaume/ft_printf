@@ -1,8 +1,8 @@
 #include "../ft_printf.h"
 
-size_t	print_p_lr(t_flags *l_flags, char *addr)
+ssize_t	print_p_lr(t_flags *l_flags, char *addr)
 {
-	size_t	nb_print;
+	ssize_t	nb_print;
 	ssize_t	width;
 
 	width = ft_atoi(l_flags->width);
@@ -17,9 +17,9 @@ size_t	print_p_lr(t_flags *l_flags, char *addr)
 	return (nb_print);
 }
 
-size_t	print_p_rl(t_flags *l_flags, char *addr)
+ssize_t	print_p_rl(t_flags *l_flags, char *addr)
 {
-	size_t	nb_print;
+	ssize_t	nb_print;
 	ssize_t	width;
 
 	width = ft_atoi(l_flags->width);
@@ -34,9 +34,9 @@ size_t	print_p_rl(t_flags *l_flags, char *addr)
 	return (nb_print);
 }
 
-size_t	print_p_zero(t_flags *l_flags, char *addr)
+ssize_t	print_p_zero(t_flags *l_flags, char *addr)
 {
-	size_t	nb_print;
+	ssize_t	nb_print;
 	ssize_t	width;
 
 	width = ft_atoi(l_flags->width);
@@ -51,9 +51,9 @@ size_t	print_p_zero(t_flags *l_flags, char *addr)
 	return (nb_print);
 }
 
-size_t	print_p_point_star(t_flags *l_flags, char *addr)
+ssize_t	print_p_point_star(t_flags *l_flags, char *addr)
 {
-	size_t	nb_print;
+	ssize_t	nb_print;
 	ssize_t	width;
 	ssize_t	w_spec;
 	ssize_t	i;
@@ -80,9 +80,9 @@ size_t	print_p_point_star(t_flags *l_flags, char *addr)
 	return (nb_print);
 }
 
-size_t	print_p_minus_point_star(t_flags *l_flags, char *addr)
+ssize_t	print_p_minus_point_star(t_flags *l_flags, char *addr)
 {
-	size_t	nb_print;
+	ssize_t	nb_print;
 	ssize_t	width;
 	ssize_t	w_spec;
 

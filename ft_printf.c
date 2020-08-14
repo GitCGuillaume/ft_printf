@@ -6,13 +6,13 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/16 10:50:36 by gchopin           #+#    #+#             */
-/*   Updated: 2020/06/23 12:15:18 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/14 18:57:06 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int			find_percentage(t_flags *lst_flags, size_t *i, size_t *nb_print, const char *fmt)
+int			find_percentage(t_flags *lst_flags, size_t *i, ssize_t *nb_print, const char *fmt)
 {
 	while (fmt[*i])
 	{
@@ -67,12 +67,12 @@ int				ft_printf(const char *fmt, ...)
 	va_list		ap;
 	t_flags	l_flags;
 	size_t		i;
-	size_t		nb_print;
-
+	ssize_t		nb_print;
+	
 	i = 0;
 	nb_print = 0;
 	va_start(ap, fmt);
-	while (fmt[i])
+	while (fmt[i] && nb_print != -1)
 	{
 		if (find_percentage(&l_flags, &i, &nb_print, fmt) == 1)
 		{

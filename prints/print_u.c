@@ -1,9 +1,9 @@
 #include "../ft_printf.h"
 #include <stdio.h>
-size_t	check_flags_u_one(t_flags *l_flags, unsigned int value)
+ssize_t	check_flags_u_one(t_flags *l_flags, unsigned int value)
 {
-	size_t	nb_print;
-printf("test");
+	ssize_t	nb_print;
+
 	nb_print = 0;
 	if (l_flags->zero == 1 && l_flags->minus == 0 && l_flags->point == 0)
 		return (nb_print += print_u_zero(l_flags, value));
@@ -24,9 +24,9 @@ printf("test");
 	return (nb_print);
 }
 
-size_t	print_u(t_flags *l_flags, va_list ap)
+ssize_t	print_u(t_flags *l_flags, va_list ap)
 {
-	size_t	result;
+	ssize_t	result;
 	unsigned int	value;
 
 	result = 0;

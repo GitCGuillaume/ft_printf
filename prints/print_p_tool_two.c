@@ -1,8 +1,8 @@
 #include "../ft_printf.h"
 
-size_t	print_empty_part_one(t_flags *l_flags, ssize_t *width, ssize_t *w_spec)
+ssize_t	print_empty_part_one(t_flags *l_flags, ssize_t *width, ssize_t *w_spec)
 {
-	size_t	nb_print;
+	ssize_t	nb_print;
 
 	nb_print = 0;
 	if (l_flags->minus == 0 && l_flags->point == 1)
@@ -23,9 +23,9 @@ size_t	print_empty_part_one(t_flags *l_flags, ssize_t *width, ssize_t *w_spec)
 	return (nb_print);
 }
 
-size_t	print_empty_part_two(t_flags *l_flags, ssize_t *width, ssize_t *w_spec)
+ssize_t	print_empty_part_two(t_flags *l_flags, ssize_t *width, ssize_t *w_spec)
 {
-	size_t	nb_print;
+	ssize_t	nb_print;
 
 	nb_print = 0;
 	if (l_flags->minus == 1 && l_flags->point == 1)
@@ -46,9 +46,9 @@ size_t	print_empty_part_two(t_flags *l_flags, ssize_t *width, ssize_t *w_spec)
 	return (nb_print);
 }
 
-size_t	print_empty(t_flags *l_flags)
+ssize_t	print_empty(t_flags *l_flags)
 {
-	size_t	nb_print;
+	ssize_t	nb_print;
 	ssize_t	width;
 	ssize_t	w_spec;
 

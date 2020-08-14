@@ -670,8 +670,10 @@ void	width_min_max(void)
 	printf("\n");
 	printf("---------WIDTH_MAX 2147483647.2147483647 ---------\n");
 	one = printf("%2147483647.2147483647d", 0);
+	printf("\one=%d\n", one);
 	printf("\n");
 	two = ft_printf("%2147483647.2147483647d", 0);
+	printf("\ntwo=%d\n", two);
 	printf("\n");
 	if (one == two)
 		ft_putstr_fd("OK", 1);
@@ -679,9 +681,11 @@ void	width_min_max(void)
 		ft_putstr_fd("KO", 1);
 	printf("\n");
 	printf("---------WIDTH_MAX - 2147483647.2147483647 ---------\n");
-	one = printf("%-2147483647.2147483647d", 0);
+	one = printf("%-2147483647.2147483647da%d", 0, 1);
+	printf("\one=%d\n", one);
 	printf("\n");
-	two = ft_printf("%-2147483647.2147483647d", 0);
+	two = ft_printf("%-2147483647.2147483647da%d", 0, 1);
+	printf("\ntwo=%d\n", two);
 	printf("\n");
 	if (one == two)
 		ft_putstr_fd("OK", 1);
@@ -690,9 +694,9 @@ void	width_min_max(void)
 	printf("\n");
 
 	printf("---------WIDTH_MAX.2147483647 ---------\n");
-	one = printf("%.2147483647d", 0);
+	one = printf("%.2147483647da", 0);
 	printf("\n");
-	two = ft_printf("%.2147483647d", 0);
+	two = ft_printf("%.2147483647da", 0);
 	printf("\n");
 	if (one == two)
 		ft_putstr_fd("OK", 1);

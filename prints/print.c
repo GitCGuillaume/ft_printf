@@ -6,15 +6,15 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 18:39:51 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/14 15:45:21 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/14 18:59:54 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	print_w_spec(ssize_t width, ssize_t sum, char c)
+ssize_t	print_w_spec(ssize_t width, ssize_t sum, char c)
 {
-	size_t	nb_value;
+	ssize_t	nb_value;
 
 	nb_value = 0;
 	if (width != 0)
@@ -29,10 +29,10 @@ int	print_w_spec(ssize_t width, ssize_t sum, char c)
 	return (nb_value);
 }
 
-int	print_width_d(ssize_t width, int d, char c)
+ssize_t	print_width_d(ssize_t width, int d, char c)
 {
 	ssize_t	i;
-	size_t	nb_value;
+	ssize_t	nb_value;
 
 	i = 0;
 	nb_value = 0;
@@ -48,10 +48,10 @@ int	print_width_d(ssize_t width, int d, char c)
 	}
 	return (nb_value);
 }
-int	print_width_u(ssize_t width, unsigned int d, char c)
+ssize_t	print_width_u(ssize_t width, unsigned int d, char c)
 {
 	ssize_t	i;
-	size_t	nb_value;
+	ssize_t	nb_value;
 
 	i = 0;
 	nb_value = 0;
@@ -68,10 +68,10 @@ int	print_width_u(ssize_t width, unsigned int d, char c)
 	return (nb_value);
 }
 
-int	print_width_s(ssize_t width, char *s, char c)
+ssize_t	print_width_s(ssize_t width, char *s, char c)
 {
 	ssize_t	i;
-	size_t	nb_value;
+	ssize_t	nb_value;
 
 	i = 0;
 	nb_value = 0;
@@ -88,10 +88,10 @@ int	print_width_s(ssize_t width, char *s, char c)
 	return (nb_value);
 }
 
-int	print_width_c(ssize_t width, char c)
+ssize_t	print_width_c(ssize_t width, char c)
 {
 	ssize_t	i;
-	size_t	nb_value;
+	ssize_t	nb_value;
 
 	i = 0;
 	nb_value = 0;

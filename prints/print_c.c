@@ -1,8 +1,8 @@
 #include "../ft_printf.h"
 
-size_t	print_c_zero(t_flags *l_flags, char c)
+ssize_t	print_c_zero(t_flags *l_flags, char c)
 {
-	size_t	nb_print;
+	ssize_t	nb_print;
 	ssize_t	width;
 
 	width = ft_atoi(l_flags->width);
@@ -13,9 +13,9 @@ size_t	print_c_zero(t_flags *l_flags, char c)
 	return (nb_print);
 }
 
-size_t	print_c_point_star(t_flags *l_flags, char c)
+ssize_t	print_c_point_star(t_flags *l_flags, char c)
 {
-	size_t	nb_print;
+	ssize_t	nb_print;
 	ssize_t	width;
 
 	nb_print = 0;
@@ -26,9 +26,9 @@ size_t	print_c_point_star(t_flags *l_flags, char c)
 	return (nb_print);
 }
 
-size_t	print_c_minus_point_star(t_flags *l_flags, char c)
+ssize_t	print_c_minus_point_star(t_flags *l_flags, char c)
 {
-	size_t	nb_print;
+	ssize_t	nb_print;
 	ssize_t	width;
 
 	nb_print = 0;
@@ -39,9 +39,9 @@ size_t	print_c_minus_point_star(t_flags *l_flags, char c)
 	return (nb_print);
 }
 
-size_t	check_flags_one_c(t_flags *l_flags, char c)
+ssize_t	check_flags_one_c(t_flags *l_flags, char c)
 {
-	size_t	nb_print;
+	ssize_t	nb_print;
 
 	nb_print = 0;
 	if (l_flags->zero == 1 && l_flags->minus == 0 && l_flags->point == 0)
@@ -57,9 +57,9 @@ size_t	check_flags_one_c(t_flags *l_flags, char c)
 	return (nb_print);
 }
 
-size_t	print_c(t_flags *l_flags, va_list ap)
+ssize_t	print_c(t_flags *l_flags, va_list ap)
 {
-	size_t	result;
+	ssize_t	result;
 	size_t	negative;
 	char	c;
 

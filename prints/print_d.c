@@ -6,16 +6,16 @@
 /*   By: gchopin </var/mail/gchopin>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/20 14:49:22 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/14 10:34:51 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/14 19:02:21 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 #include <stdio.h>
 
-size_t		print_zero_d(ssize_t *width, int value)
+ssize_t		print_zero_d(ssize_t *width, int value)
 {
-	size_t	nb_print;
+	ssize_t	nb_print;
 
 	nb_print = 0;
 	if (0 > value)
@@ -41,9 +41,9 @@ size_t		print_zero_d(ssize_t *width, int value)
 	return (nb_print);
 }
 
-size_t		check_flags_two_d(t_flags *l_flags, va_list ap, int d)
+ssize_t		check_flags_two_d(t_flags *l_flags, va_list ap, int d)
 {
-	size_t	nb_print;
+	ssize_t	nb_print;
 	ssize_t	width;
 
 	nb_print = 0;
@@ -62,10 +62,10 @@ size_t		check_flags_two_d(t_flags *l_flags, va_list ap, int d)
 	return (nb_print);
 }
 
-size_t		check_flags_one_d(t_flags *l_flags, va_list ap, int d)
+ssize_t		check_flags_one_d(t_flags *l_flags, va_list ap, int d)
 {
 	ssize_t	width;
-	size_t	nb_print;
+	ssize_t	nb_print;
 
 	nb_print = 0;
 	width = ft_atoi(l_flags->width);
@@ -87,10 +87,10 @@ size_t		check_flags_one_d(t_flags *l_flags, va_list ap, int d)
 	return (nb_print);
 }
 
-size_t		print_d(t_flags *l_flags, va_list ap)
+ssize_t		print_d(t_flags *l_flags, va_list ap)
 {
 	int		d;
-	size_t	result;
+	ssize_t	result;
 
 	d = va_arg(ap, int);
 	result = 0;

@@ -1,6 +1,6 @@
 #include "../ft_printf.h"
 
-void	ft_putstr_limit_fd(char *s, size_t limit, size_t *nb_print, int fd)
+void	ft_putstr_limit_fd(char *s, size_t limit, ssize_t *nb_print, int fd)
 {
 	size_t i;
 

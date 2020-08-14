@@ -1,8 +1,8 @@
 #include "../ft_printf.h"
 
-size_t	check_flags_one_p(t_flags *l_flags, char *addr)
+ssize_t	check_flags_one_p(t_flags *l_flags, char *addr)
 {
-	size_t	nb_print;
+	ssize_t	nb_print;
 
 	nb_print = 0;
 	if (l_flags->zero == 1 && l_flags->minus == 0 && l_flags->point == 0)
@@ -18,9 +18,9 @@ size_t	check_flags_one_p(t_flags *l_flags, char *addr)
 	return (nb_print);
 }
 
-size_t	print_hexa(va_list ap, t_flags *l_flags)
+ssize_t	print_hexa(va_list ap, t_flags *l_flags)
 {
-	size_t	nb_print;
+	ssize_t	nb_print;
 	char	*addr;
 	char	*hexa;
 
@@ -41,10 +41,10 @@ size_t	print_hexa(va_list ap, t_flags *l_flags)
 	return (nb_print);
 }
 
-size_t	print_p(t_flags *l_flags, va_list ap)
+ssize_t	print_p(t_flags *l_flags, va_list ap)
 {
-	size_t	result;
-	size_t	minus;
+	ssize_t	result;
+	ssize_t	minus;
 
 	result = 0;
 	minus = -1;

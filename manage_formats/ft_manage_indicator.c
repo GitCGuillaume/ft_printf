@@ -9,6 +9,7 @@ void	init_list_flags(t_flags *lst_flags)
 	lst_flags->percentage = 0;
 	lst_flags->width = NULL;
 	lst_flags->width_specification = NULL;
+	lst_flags->space = 0;
 }
 
 int		check_value_indicator_one(t_flags *l_flags, char c)
@@ -21,6 +22,11 @@ int		check_value_indicator_one(t_flags *l_flags, char c)
 	else if (c == '0')
 	{
 		l_flags->zero = 1;
+		return (1);
+	}
+	else if (c == ' ')
+	{
+		l_flags->space = 1;
 		return (1);
 	}
 	return (0);
@@ -70,6 +76,8 @@ int		find_indicators(const char *fmt, size_t *i,
 			check_value_indicator_two(l_flags, i, nb_print, fmt);
 		else if (fmt[*i] == '%')
 			check_value_indicator_two(l_flags, i, nb_print, fmt);
+		else if (fmt[*i] == ' ')
+			check_value_indicator_one(l_flags, fmt[*i]);
 		else
 			return (1);
 		*i = *i + 1;
@@ -95,5 +103,7 @@ int		is_indicator(char const *fmt, size_t *i,
 		(*nb_print)++;
 		init_list_flags(l_flags);
 	}
+	else if (fmt[*i] == ' ')
+		check_value_indicator_one(l_flags, fmt[*i]);
 	return (result);
 }
