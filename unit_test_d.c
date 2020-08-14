@@ -20,9 +20,9 @@ void	basic_value(void)
 		ft_putstr_fd("KO", 1);
 	printf("\n");
 	printf("---------1---------\n");
-	one = printf("%d", -123);
+	one = printf("%d", -122);
 	printf("\n");
-	two = ft_printf("%d", -123);
+	two = ft_printf("%d", -12);
 	printf("\n");
 	if (one == two)
 		ft_putstr_fd("OK", 1);
