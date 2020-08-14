@@ -20,6 +20,15 @@ void	basic_value(void)
 	else
 		ft_putstr_fd("KO", 1);
 	printf("---------1---------\n");
+	one = printf("%5u", 123);
+	printf("\n");
+	two = ft_printf("%5u", 123);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("---------1---------\n");
 	one = printf("%u", neg);
 	printf("\n");
 	two = ft_printf("%u", neg);
@@ -110,6 +119,27 @@ void	basic_value(void)
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
+printf("---------0*UINTMAX---------\n");
+	one = printf("%0*ua", -7, UINT_MAX);
+	printf("\n");
+	two = ft_printf("%0*ua", -7, UINT_MAX);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+printf("---------0*UINTMAX---------\n");
+	one = printf("%0*ua", 7, UINT_MAX);
+	printf("\n");
+	two = ft_printf("%0*ua", 7, UINT_MAX);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+
 
 	printf("---------1---------\n");
 	one = printf("%0*ua", 5, -43);
@@ -292,6 +322,18 @@ void	basic_value(void)
 	printf("one=%d\n", one);
 	printf("\n");
 	two = ft_printf("%u", 0);
+	printf("two=%d\n", two);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+printf("---------EMPTY -d---------\n");
+	one = printf("%-0u", 0);
+	printf("one=%-d\n", one);
+	printf("\n");
+	two = ft_printf("%-u", 0);
 	printf("two=%d\n", two);
 	printf("\n");
 	if (one == two)
@@ -636,9 +678,9 @@ void	width_min_max(void)
 	printf("\n");
 
 	printf("---------WIDTH_MAX.2147483647 ---------\n");
-	one = printf("%.4294967295u", 0);
+	one = printf("%.2147483647", 0);
 	printf("\n");
-	two = ft_printf("%.4294967295u", 0);
+	two = ft_printf("%.2147483647u", 0);
 	printf("\n");
 	if (one == two)
 		ft_putstr_fd("OK", 1);
@@ -646,9 +688,9 @@ void	width_min_max(void)
 		ft_putstr_fd("KO", 1);
 	printf("\n");
 	printf("---------WIDTH_MAX*d ---------\n");
-	one = printf("%*u", 4294967295, 0);
+	one = printf("%*u", UINT_MAX, 0);
 	printf("\n");
-	two = ft_printf("%*u", 4294967295, 0);
+	two = ft_printf("%*u", UINT_MAX, 0);
 	printf("\n");
 	if (one == two)
 		ft_putstr_fd("OK", 1);
@@ -718,10 +760,10 @@ void	width_min_max_special(void)
 	one = 0;
 	two = 0;
 	printf("---------WIDTH_MAX.2147483647 ---------\n");
-	one = printf("%.4294967295u", 0);
+	one = printf("%.2147483647u", 0);
 	printf("one==%d\n", one);
 	printf("\n");
-	two = ft_printf("%.4294967295u", 0);
+	two = ft_printf("%.2147483647u", 0);
 	printf("two==%d\n", two);
 	printf("\n");
 	if (one == two)
@@ -730,10 +772,10 @@ void	width_min_max_special(void)
 		ft_putstr_fd("KO", 1);
 	printf("\n");
 	printf("---------WIDTH_MAX-.2147483647 ---------\n");
-	one = printf("%-.4294967295u", 0);
+	one = printf("%-.2147483647u", 0);
 	printf("one==%d\n", one);
 	printf("\n");
-	two = ft_printf("%-.4294967295u", 0);
+	two = ft_printf("%-.2147483647u", 0);
 	printf("two==%d\n", two);
 	printf("\n");
 	if (one == two)
@@ -742,10 +784,10 @@ void	width_min_max_special(void)
 		ft_putstr_fd("KO", 1);
 	printf("\n");
 	printf("---------WIDTH_MAX.2147483647 abc---------\n");
-	one = printf("%.4294967295u", 123);
+	one = printf("%.2147483647u", 123);
 	printf("one==%d\n", one);
 	printf("\n");
-	two = ft_printf("%.4294967295u", 123);
+	two = ft_printf("%.2147483647u", 123);
 	printf("two==%d\n", two);
 	printf("\n");
 	if (one == two)
@@ -754,10 +796,10 @@ void	width_min_max_special(void)
 		ft_putstr_fd("KO", 1);
 	printf("\n");
 	printf("---------WIDTH_MAX-.2147483647 abc---------\n");
-	one = printf("%-.4294967295u", 123);
+	one = printf("%-.2147483647u", 123);
 	printf("one==%d\n", one);
 	printf("\n");
-	two = ft_printf("%-.4294967295u", 123);
+	two = ft_printf("%-.2147483647u", 123);
 	printf("two==%d\n", two);
 	printf("\n");
 	if (one == two)

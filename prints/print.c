@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 18:39:51 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/10 15:21:58 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/14 15:45:21 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,25 @@ int	print_w_spec(ssize_t width, ssize_t sum, char c)
 }
 
 int	print_width_d(ssize_t width, int d, char c)
+{
+	ssize_t	i;
+	size_t	nb_value;
+
+	i = 0;
+	nb_value = 0;
+	if (width != 0)
+	{
+		i = ft_lensize(d);
+		while (width > i)
+		{
+			ft_putchar_fd(c, 1);
+			nb_value++;
+			i++;
+		}
+	}
+	return (nb_value);
+}
+int	print_width_u(ssize_t width, unsigned int d, char c)
 {
 	ssize_t	i;
 	size_t	nb_value;

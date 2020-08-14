@@ -30,6 +30,8 @@ int	find_convertor(char const *fmt, t_flags *l_flags, va_list ap, size_t *i)
 		result = print_d(l_flags, ap);
 	else if (fmt[*i] == 'i')
 		result = print_d(l_flags, ap);
+	else if (fmt[*i] == 'u')
+		result = print_u(l_flags, ap);
 	else if (fmt[*i] == 's')
 		result = print_s(l_flags, ap);
 	else if (fmt[*i] == 'p')

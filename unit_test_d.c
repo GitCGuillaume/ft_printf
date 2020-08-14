@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include "ft_printf.h"
+#include <limits.h>
 
 void	basic_value(void)
 {
@@ -38,6 +39,16 @@ void	basic_value(void)
 		ft_putstr_fd("OK", 1);
 	else
 		ft_putstr_fd("KO", 1);
+printf("---------5.0d---------\n");
+	one = printf("%5.0d", 0);
+	printf("\n");
+	two = ft_printf("%5.0d", 0);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+
 
 	printf("---------1---------\n");
 	one = printf("%0*ia", 5, 43);
@@ -59,6 +70,27 @@ void	basic_value(void)
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%0*da", 7, INT_MAX);
+	printf("\n");
+	two = ft_printf("%0*da", 7, INT_MAX);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+printf("---------1---------\n");
+	one = printf("%0*ia", -7, INT_MAX);
+	printf("\n");
+	two = ft_printf("%0*ia", -7, INT_MAX);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+
 	printf("---------1---------\n");
 	one = printf("%0*ia", 7, 43);
 	printf("\n");
@@ -269,6 +301,18 @@ void	basic_value(void)
 	printf("one=%d\n", one);
 	printf("\n");
 	two = ft_printf("%0d", 0);
+	printf("two=%d\n", two);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------EMPTY -d---------\n");
+	one = printf("%-0d", 0);
+	printf("one=%-d\n", one);
+	printf("\n");
+	two = ft_printf("%-d", 0);
 	printf("two=%d\n", two);
 	printf("\n");
 	if (one == two)

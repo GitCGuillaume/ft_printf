@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/16 18:48:06 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/13 11:18:53 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/14 17:23:41 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,13 @@ size_t	print_c_lr(t_flags *l_flags, char c);
 size_t	print_c_rl(t_flags *l_flags, char c);
 int	print_width_c(ssize_t width, char c);
 int	check_min_max_value_c(t_flags *l_flags);
+size_t	print_u(t_flags *l_flags, va_list ap);
+int	print_width_u(ssize_t width, unsigned int d, char c);
+size_t	print_u_zero(t_flags *l_flags, unsigned int value);
+size_t	print_u_rl(t_flags *l_flags, unsigned int value);
+size_t	print_u_lr(t_flags *l_flags, unsigned int value);
+size_t	print_u_stars(t_flags *l_flags, unsigned int value);
+size_t	print_u_stars_minus(t_flags *l_flags, unsigned int value);
 void			del(void *lst);
 
 
