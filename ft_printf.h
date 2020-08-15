@@ -97,6 +97,7 @@ ssize_t	print_u_rl(t_flags *l_flags, unsigned int value);
 ssize_t	print_u_lr(t_flags *l_flags, unsigned int value);
 ssize_t	print_u_stars(t_flags *l_flags, unsigned int value);
 ssize_t	print_u_stars_minus(t_flags *l_flags, unsigned int value);
+char	*ft_putnbr_base_x(unsigned int *nbr, char *base);
 void			del(void *lst);
 
 
