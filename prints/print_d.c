@@ -6,7 +6,7 @@
 /*   By: gchopin </var/mail/gchopin>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/20 14:49:22 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/14 19:02:21 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/17 14:12:52 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ ssize_t		print_zero_d(ssize_t *width, int value)
 	}
 	return (nb_print);
 }
-
+#include <stdio.h>
 ssize_t		check_flags_two_d(t_flags *l_flags, va_list ap, int d)
 {
 	ssize_t	nb_print;
@@ -51,13 +51,17 @@ ssize_t		check_flags_two_d(t_flags *l_flags, va_list ap, int d)
 	if (l_flags->minus == 1)
 	{
 		spec_minus_d(l_flags, ap, &nb_print, d);
-		return (nb_print);
 	}
 	else if (l_flags->asterisk == 1 && l_flags->point == 0)
-		nb_print += astrsk_d_lr(ap, l_flags, d, &width);
-	if (l_flags->point == 1 && l_flags->minus == 0)
 	{
-		nb_print = check_flags_spec_d(l_flags, ap, d);
+		nb_print += astrsk_d_lr(ap, l_flags, d, &width);
+	}
+	else if (l_flags->point == 1 && l_flags->minus == 0)
+	{
+		if (width < 0)
+			spec_minus_d(l_flags, ap, &nb_print, d);
+		else
+			nb_print = check_flags_spec_d(l_flags, ap, d);
 	}
 	return (nb_print);
 }

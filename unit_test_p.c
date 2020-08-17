@@ -154,6 +154,47 @@ void	basic_value(void)
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%0*pa", -5, 43);
+	printf("\n");
+	two = ft_printf("%0*pa", -5, 43);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+printf("---------1---------\n");
+	one = printf("%*pa", -5, 43);
+	printf("\n");
+	two = ft_printf("%*pa", -5, 43);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+printf("---------1---------\n");
+	one = printf("%*.*pa", -5, -5, 43);
+	printf("\n");
+	two = ft_printf("%*.*pa", -5, -5, 43);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+printf("---------1---------\n");
+	one = printf("%-*.*pa", -5, -5, 43);
+	printf("\n");
+	two = ft_printf("%-*.*pa", -5, -5, 43);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+
 	printf("---------EMPTY .*p---------\n");
 	one = printf("%-30.*pab", 20, 0);
 	printf("\n");

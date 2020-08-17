@@ -1,6 +1,6 @@
 #include "../ft_printf.h"
 
-ssize_t	print_x_lr(t_flags *l_flags, char hexa)
+ssize_t	print_x_lr(t_flags *l_flags, char *hexa)
 {
 	ssize_t	nb_print;
 	ssize_t	width;
@@ -12,7 +12,7 @@ ssize_t	print_x_lr(t_flags *l_flags, char hexa)
 	return (nb_print);
 }
 
-ssize_t	print_x_rl(t_flags *l_flags, char hexa)
+ssize_t	print_x_rl(t_flags *l_flags, char *hexa)
 {
 	ssize_t	nb_print;
 	ssize_t	width;
@@ -24,7 +24,7 @@ ssize_t	print_x_rl(t_flags *l_flags, char hexa)
 	return (nb_print);
 }
 
-ssize_t	print_p_zero(t_flags *l_flags, char hexa)
+ssize_t	print_x_zero(t_flags *l_flags, char *hexa)
 {
 	ssize_t	nb_print;
 	ssize_t	width;
@@ -36,7 +36,7 @@ ssize_t	print_p_zero(t_flags *l_flags, char hexa)
 	return (nb_print);
 }
 
-ssize_t	print_p_point_star(t_flags *l_flags, char hexa)
+ssize_t	print_x_point_star(t_flags *l_flags, char *hexa)
 {
 	ssize_t	nb_print;
 	ssize_t	width;
@@ -58,7 +58,7 @@ ssize_t	print_p_point_star(t_flags *l_flags, char hexa)
 	return (nb_print);
 }
 
-ssize_t	print_p_minus_point_star(t_flags *l_flags, char hexa)
+ssize_t	print_x_minus_point_star(t_flags *l_flags, char *hexa)
 {
 	ssize_t	nb_print;
 	ssize_t	width;

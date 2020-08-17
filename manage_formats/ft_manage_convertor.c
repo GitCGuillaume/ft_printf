@@ -38,6 +38,8 @@ int	find_convertor(char const *fmt, t_flags *l_flags, va_list ap, size_t *i)
 		result = print_p(l_flags, ap);
 	else if (fmt[*i] == 'c')
 		result = print_c(l_flags, ap);
+	else if (fmt[*i] == 'x')
+		result = print_x(l_flags, ap);
 	return (result);
 }
 

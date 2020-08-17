@@ -1,18 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: gchopin <marvin@42.fr>                     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/17 09:03:12 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/07 11:46:25 by gchopin          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../ft_printf.h"
 
-int		check_value(char c)
+int		check_value_x(char c)
 {
 	if (c == '+' || c == '-')
 	{
@@ -24,7 +12,7 @@ int		check_value(char c)
 	}
 }
 
-int		ft_check_error(char *base)
+int		ft_check_error_x(char *base)
 {
 	size_t	i;
 	size_t	j;
@@ -33,7 +21,7 @@ int		ft_check_error(char *base)
 	while (base[i] != '\0')
 	{
 		j = i + 1;
-		if (base[0] == '\0' || base[1] == '\0' || check_value(base[i]) == 1)
+		if (base[0] == '\0' || base[1] == '\0' || check_value_x(base[i]) == 1)
 		{
 			return (0);
 		}
@@ -50,7 +38,7 @@ int		ft_check_error(char *base)
 	return (i);
 }
 
-void	ft_size_memory(unsigned int nbr, size_t *size)
+void	ft_size_memory_x(unsigned int nbr, size_t *size)
 {
 	size_t	i;
 
@@ -58,11 +46,11 @@ void	ft_size_memory(unsigned int nbr, size_t *size)
 	(*size)++;
 	if (nbr > 9)
 	{
-		ft_size_memory((nbr / i), size);
+		ft_size_memory_x((nbr / i), size);
 	}
 }
 
-void	ft_memstr(unsigned int nbr, size_t size, char *ptr, char *base)
+void	ft_memstr_x(unsigned int nbr, size_t size, char *ptr, char *base)
 {
 	ptr[size] = '\0';
 	while (size > 0)
@@ -73,24 +61,24 @@ void	ft_memstr(unsigned int nbr, size_t size, char *ptr, char *base)
 	}
 }
 
-char	*ft_putnbr_base_x(unsigned int *nbr, char *base)
+char	*ft_putnbr_base_x(unsigned int nbr, char *base)
 {
 	size_t	i;
 	size_t	size;
 	unsigned int	convert_nbr;
 	char	*ptr;
 
-	i = ft_check_error(base);
+	i = ft_check_error_x(base);
 	size = 0;
 	convert_nbr = nbr;
-	ft_size_memory(convert_nbr, &size);
+	ft_size_memory_x(convert_nbr, &size);
 	if (!(ptr = malloc(size + 1)))
 		return (NULL);
-	ft_check_error(base);
+	ft_check_error_x(base);
 	if (nbr)
 	{
 		if (i > 1)
-			ft_memstr(convert_nbr, size, ptr, base);
+			ft_memstr_x(convert_nbr, size, ptr, base);
 		else
 			ptr[0] = '0';
 	}
