@@ -266,9 +266,9 @@ printf("---------1---------\n");
 	printf("\n");
 
 printf("---------1---------\n");
-	one = printf("%-*.*sa", 5, -5, "43");
+	one = printf("%-*.*sa", 5, -1, "43");
 	printf("\n");
-	two = ft_printf("%-*.*sa", 5, -5, "43");
+	two = ft_printf("%-*.*sa", 5, -1, "43");
 	printf("\n");
 	if (one == two)
 		ft_putstr_fd("OK", 1);
@@ -276,9 +276,9 @@ printf("---------1---------\n");
 		ft_putstr_fd("KO", 1);
 	printf("\n");
 printf("---------1---------\n");
-	one = printf("%0-*.*sa", 5, -5, "43");
+	one = printf("%0-*.*sa", 1, -5, "43");
 	printf("\n");
-	two = ft_printf("%0-*.*sa", 5, -5, "43");
+	two = ft_printf("%0-*.*sa", 1, -5, "43");
 	printf("\n");
 	if (one == two)
 		ft_putstr_fd("OK", 1);
@@ -318,7 +318,18 @@ printf("---------1---------\n");
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
-printf("---------1-5---------\n");
+	printf("---------1-5---------\n");
+	one = printf("%*.sa", -1, "-5");
+	printf("\n");0
+	two = ft_printf("%*.sa", -1, "-5");
+	printf("\n");
+	if (one == two11)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+
+	printf("---------1-5---------\n");
 	one = printf("%*.*sa", -5, 0, "45");
 	printf("\n");
 	two = ft_printf("%*.*sa", -5, 0, "45");
@@ -541,6 +552,27 @@ printf("---------6---------\n");
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%-*.*sa", -5, 1, "43");
+	printf("\n");
+	two = ft_printf("%-*.*sa", -5, 1, "43");
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+printf("---------1---------\n");
+	one = printf("%-*.*sa", -1, 5, "43");
+	printf("\n");
+	two = ft_printf("%-*.*sa", -1, 5, "43");
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+
 	printf("---------7---------\n");
 	   one = printf("%-*.*s", 0, 0, "4");
 	printf("one=%d\n", one);

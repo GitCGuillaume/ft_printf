@@ -74,16 +74,23 @@ void	spec_pnt_ast_s(t_flags *l_flags, va_list ap, ssize_t *nb_prt)
 	printf("w_spec=%li\n", w_spec);
 	if (w_spec >= 0)
 	{
-		if (0 > width)
+		if (0 > width && strlen > 0)
 		{
 			ft_putstr_limit_fd(s, w_spec, nb_prt, 1);
 			(*nb_prt) += print_w_spec(-width, strlen, ' ');
 		}
 		else
-			(*nb_prt) += print_w_spec(width, strlen, ' ');
-		if (width > 0)
+		{
+			if (0 > width)
+				(*nb_prt) += print_w_spec(-width, strlen, ' ');
+			else
+				(*nb_prt) += print_w_spec(width, strlen, ' ');
+		}
+		if (width > 0 && strlen > 0)
 			ft_putstr_limit_fd(s, w_spec, nb_prt, 1);
 	}
+	if (width == 0 && w_spec != 0)
+			ft_putstr_limit_fd(s, w_spec, nb_prt, 1);
 	/*if (w_spec == 0)
 	{
 		if (0 > width)
