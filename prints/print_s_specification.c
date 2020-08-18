@@ -68,10 +68,6 @@ void	spec_pnt_ast_s(t_flags *l_flags, va_list ap, ssize_t *nb_prt)
 	}
 	if (s == NULL)
 		s = ft_strdup("(null)");
-	printf("strlen=%li\n", strlen);
-	printf("ft_strlen=%li\n", ft_strlen(width_to_str));
-	printf("width = %li\n", width);
-	printf("w_spec=%li\n", w_spec);
 	if (w_spec >= 0)
 	{
 		if (0 > width && strlen > 0)
@@ -127,7 +123,7 @@ void	spec_minus_ast_s(va_list ap, t_flags *l_flags, ssize_t *nb_print)
 	if (0 > w_spec)
 		w_spec = ft_strlen(s);
 	if (l_flags->asterisk == 1 && w_spec == 0)
-		ft_putstr_limit_fd(0, ft_strlen(s), nb_print, 1);
+		ft_putstr_limit_fd(s, ft_strlen(s), nb_print, 1);
 	else if (w_spec > 0)
 		ft_putstr_limit_fd(s, w_spec, nb_print, 1);
 	if (ft_strnstr(s, "(null)", 6))
