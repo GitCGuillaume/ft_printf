@@ -51,19 +51,19 @@ void	spec_pnt_ast_s(t_flags *l_flags, va_list ap, ssize_t *nb_prt)
 	browse_two_stars_s(ap, l_flags, &width, &w_spec);
 	s = va_arg(ap, char *);
 	width_to_str = 0;
-	if (0 > w_spec && width != 0)
-		w_spec = -w_spec;
+	//if (0 > w_spec && width != 0)
+	//	w_spec = -w_spec;
 	if (w_spec >= 0)
 		width_to_str = ft_strlimit(s, w_spec);
 	if (s == NULL)
 		s = ft_strdup("(null)");
-	if (0 > width && w_spec > 0)
+	if (0 > width /*&& w_spec > 0*/)
 	{
 		ft_putstr_limit_fd(s, w_spec, nb_prt, 1);
 		width = -width;
 		(*nb_prt) += print_w_spec(width, ft_strlen(width_to_str), ' ');
 	}
-	else if (width > 0 && w_spec > 0)
+	else if (width > 0 /*&& w_spec > 0*/)
 	{
 		(*nb_prt) += print_w_spec(width, ft_strlen(width_to_str), ' ');
 		ft_putstr_limit_fd(s, w_spec, nb_prt, 1);
