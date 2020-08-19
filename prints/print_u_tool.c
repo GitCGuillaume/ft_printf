@@ -49,7 +49,7 @@ ssize_t	print_u_lr(t_flags *l_flags, unsigned int value)
 	ft_putnbr_fd(value, &nb_print, 1);
 	return (nb_print);
 }
-
+#include <stdio.h>
 ssize_t	print_u_stars(t_flags *l_flags, unsigned int value)
 {
 	ssize_t	nb_print;
@@ -59,6 +59,8 @@ ssize_t	print_u_stars(t_flags *l_flags, unsigned int value)
 	nb_print = 0;
 	width = ft_atoi(l_flags->width);
 	w_spec = ft_atoi(l_flags->width_specification);
+	if (0 > width)
+		return (nb_print += print_u_stars_minus(l_flags, value));
 	handle_sizes(&width, &w_spec);
 	if (value == 0 &&  w_spec <= -1)
 		return (nb_print += print_w_spec(1, 0, '0'));

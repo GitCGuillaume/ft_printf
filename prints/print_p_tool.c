@@ -14,6 +14,11 @@ ssize_t	print_p_lr(t_flags *l_flags, char *addr)
 	if (addr != NULL)
 		nb_print += 2;
 	ft_putstr_limit_fd(addr, 0, &nb_print, 1);
+	if (0 > width)
+	{
+		width = -width;
+		nb_print += print_width_s(width - 2, addr, ' ');
+	}
 	return (nb_print);
 }
 
@@ -48,6 +53,11 @@ ssize_t	print_p_zero(t_flags *l_flags, char *addr)
 		nb_print += 2;
 	nb_print += print_width_s(width, addr, '0');
 	ft_putstr_limit_fd(addr, 0, &nb_print, 1);
+	if (0 > width)
+	{
+		width = -width;
+		nb_print += print_width_s(width - 2, addr, ' ');
+	}
 	return (nb_print);
 }
 

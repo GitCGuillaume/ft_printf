@@ -11,6 +11,17 @@ void	basic_value(void)
 	one = 0;
 	two = 0;
 	printf("---------1---------\n");
+	one = printf("%*da", -5, 43);
+	printf("\n");
+	two = ft_printf("%*da", -5, 43);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+
+	printf("---------1---------\n");
 	one = printf("%d", 123);
 	printf("\n");
 	two = ft_printf("%d", 123);
