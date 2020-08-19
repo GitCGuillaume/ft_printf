@@ -29,6 +29,8 @@ ssize_t	print_u_rl(t_flags *l_flags, unsigned int value)
 
 	nb_print = 0;
 	width = ft_atoi(l_flags->width);
+	if (0 > width)
+		width = -width;
 	if (value == 0)
 		width--;
 	ft_putnbr_fd(value, &nb_print, 1);
@@ -43,6 +45,8 @@ ssize_t	print_u_lr(t_flags *l_flags, unsigned int value)
 
 	nb_print = 0;
 	width = ft_atoi(l_flags->width);
+	if (0 > width)
+		return (nb_print += print_u_rl(l_flags, value));
 	if (value == 0)
 		width--;
 	nb_print += print_width_d(width, value, ' ');
