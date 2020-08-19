@@ -15,6 +15,8 @@ ssize_t	print_basic_value_d(ssize_t *width, int d, char c)
 	ssize_t	nb_print;
 
 	nb_print = 0;
+	if (0 > *width)
+			*width = -(*width);
 	if (d == 0)
 		(*width)--;
 	nb_print += print_width_d(*width, d, c);

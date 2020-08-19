@@ -20,7 +20,36 @@ void	basic_value(void)
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
-
+	printf("---------1---------\n");
+	one = printf("%-*da", -5, 43);
+	printf("\n");
+	two = ft_printf("%-*da", -5, 43);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%-*da", 5, 43);
+	printf("\n");
+	two = ft_printf("%-*da", 5, 43);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%-5da", 43);
+	printf("\n");
+	two = ft_printf("%-5da", 43);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
 	printf("---------1---------\n");
 	one = printf("%d", 123);
 	printf("\n");
@@ -339,7 +368,7 @@ printf("---------1---------\n");
 		ft_putstr_fd("KO", 1);
 	printf("\n");
 	printf("---------EMPTY -d---------\n");
-	one = printf("%-0d", 0);
+	one = printf("%-d", 0);
 	printf("one=%-d\n", one);
 	printf("\n");
 	two = ft_printf("%-d", 0);
@@ -350,6 +379,32 @@ printf("---------1---------\n");
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
+	printf("---------EMPTY -0d---------\n");
+	one = printf("%-0d", 0);
+	printf("one=%-d\n", one);
+	printf("\n");
+	two = ft_printf("%-0d", 0);
+	printf("two=%d\n", two);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+
+	printf("---------EMPTY -*d---------\n");
+	one = printf("%-*d", 0, 0);
+	printf("one=%-d\n", one);
+	printf("\n");
+	two = ft_printf("%-*d", 0, 0);
+	printf("two=%d\n", two);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+
 	printf("---------EMPTY d---------\n");
 	one = printf("%d", 0);
 	printf("one=%d\n", one);

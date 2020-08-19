@@ -303,6 +303,16 @@ printf("---------1---------\n");
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
+printf("---------1---------\n");
+	one = printf("%-*ua", -5, 43);
+	printf("\n");
+	two = ft_printf("%-*ua", -5, 43);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
 
 	printf("---------1---------\n");
 	one = printf("%-10.*ub", 6 ,123);
