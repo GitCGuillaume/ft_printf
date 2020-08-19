@@ -9,6 +9,77 @@ void	basic_value(void)
 
 	one = 0;
 	two = 0;
+	printf("---------1---------\n");
+	one = printf("%*pa", -5, 43);
+	printf("\n");
+	two = ft_printf("%*pa", -5, 43);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%-*pa", -5, 43);
+	printf("\n");
+	two = ft_printf("%-*pa", -5, 43);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%-*pa", 5, 43);
+	printf("\n");
+	two = ft_printf("%-*pa", 5, 43);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%-5pa", 43);
+	printf("\n");
+	two = ft_printf("%-5pa", 43);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%.*pb", -6 ,123);
+	printf("\n");
+	two = ft_printf("%.*pb", -6, 123);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%.*pb", 6 ,123);
+	printf("\n");
+	two = ft_printf("%.*pb", 6, 123);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%10.*pb", -6 ,123);
+	printf("\n");
+	two = ft_printf("%10.*pb", -6, 123);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+
 	printf("-------NULL--------\n");
 	one = printf("%p", NULL);
 	printf("\n");
@@ -269,6 +340,16 @@ printf("---------1-5---------\n");
 	one = printf("%*.pa", -5, -1);
 	printf("\n");
 	two = ft_printf("%*.pa", -5, -1);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+printf("---------1-5---------\n");
+	one = printf("%*.pa", 5, -1);
+	printf("\n");
+	two = ft_printf("%*.pa", 5, -1);
 	printf("\n");
 	if (one == two)
 		ft_putstr_fd("OK", 1);

@@ -552,6 +552,47 @@ printf("---------1---------\n");
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
+printf("---------1 5---------\n");
+	one = printf("%*.da", -5, -5);
+	printf("\n");
+	two = ft_printf("%*.da", -5, -5);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+printf("---------1.*d---------\n");
+	one = printf("%.*da", -1, -43);
+	printf("\n");
+	two = ft_printf("%.*da", -1, -43);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+
+printf("---------1.*d---------\n");
+	one = printf("%.*da", 5, -43);
+	printf("\n");
+	two = ft_printf("%.*da", 5, -43);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%-.*da", 5, -43);
+	printf("\n");
+	two = ft_printf("%-.*da", 5, -43);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
 
 printf("---------1????---------\n");
 	one = printf("%*.*db", 1, -1 , 0);
@@ -577,6 +618,26 @@ printf("---------1????---------\n");
 	one = printf("%*.*db", 10, 6 ,123);
 	printf("\n");
 	two = ft_printf("%*.*db", 10, 6, 123);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1-123---------\n");
+	one = printf("%*.*db", 10, -6 ,-123);
+	printf("\n");
+	two = ft_printf("%*.*db", 10, -6, -123);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1-123---------\n");
+	one = printf("%*.*db", 10, 6 , -123);
+	printf("\n");
+	two = ft_printf("%*.*db", 10, 6, -123);
 	printf("\n");
 	if (one == two)
 		ft_putstr_fd("OK", 1);
@@ -767,6 +828,26 @@ printf("---------1---------\n");
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
+printf("---------1---------\n");
+	one = printf("%-*.*da", -5, 5, -43);
+	printf("\n");
+	two = ft_printf("%-*.*da", -5, 5, -43);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+printf("---------1---------\n");
+	one = printf("%-*.*da", -5, -1, 43);
+	printf("\n");
+	two = ft_printf("%-*.*da", -5, -1, 43);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
 
 	printf("---------6---------\n");
 	   one = printf("%-*.*d", 0, -4, 0);
@@ -788,6 +869,17 @@ printf("---------1---------\n");
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
+	printf("---------7---------\n");
+	   one = printf("%-*.*d", 0, 0, -4);
+	printf("\n");
+	two = ft_printf("%-*.*d", 0, 0, -4);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+
 	printf("---------8---------\n");
 	   one = printf("%-*.*d", 0, 10, 0);
 	printf("\n");
@@ -902,6 +994,17 @@ printf("---------2---------\n");
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
+	printf("---------1-5---------\n");
+	one = printf("%*.da", 5, -1);
+	printf("\n");
+	two = ft_printf("%*.da", 5, -1);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+
 }
 
 void	minus_star_point_star_min(void)
