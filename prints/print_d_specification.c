@@ -1,15 +1,22 @@
 #include "../ft_printf.h"
 
-void	spec_minus_no_ast_d(t_flags *l_flags,
-		ssize_t *nb_prt, ssize_t *width, int d)
+ssize_t	spec_minus_no_ast_d(t_flags *l_flags, ssize_t *width, ssize_t w_spec, int d)
 {
+	ssize_t	nb_print;
+
+	nb_print = 0;
 	if (d < 0)
-		negative_d(nb_prt, &d);
-	(*nb_prt) += print_width_d(ft_atoi(l_flags->width_specification),
-			d, '0');
+		negative_d(&nb_print, &d);
+	(void)l_flags;
+	//if (l_flags->point == 1 && width > 0 && d == 0)
+	//	w_spec--;
+	if (d == 0 && width > 0 && l_flags->point == 0)
+		w_spec++;
+	nb_print += print_width_d(w_spec, d, '0');
 	if (d != 0)
-		ft_putnbr_fd(d, nb_prt, 1);
-	(*nb_prt) += print_w_spec(*width, *nb_prt, ' ');
+		ft_putnbr_fd(d, &nb_print, 1);
+	nb_print += print_w_spec(*width, nb_print, ' ');
+	return (nb_print);
 }
 #include <stdio.h>
 void	spec_minus_d(t_flags *l_flags, va_list ap, ssize_t *nb_print, int d)
@@ -29,7 +36,7 @@ void	spec_minus_d(t_flags *l_flags, va_list ap, ssize_t *nb_print, int d)
 		return ;
 	}
 	if (l_flags->asterisk == 0)
-		spec_minus_no_ast_d(l_flags, nb_print, &width, d);
+		(*nb_print) += spec_minus_no_ast_d(l_flags, &width, w_spec, d);
 	else
 		(*nb_print) += print_d_stars_minus(width, w_spec, va_arg(ap, int));
 }
