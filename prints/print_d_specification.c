@@ -20,11 +20,10 @@ void	spec_minus_d(t_flags *l_flags, va_list ap, ssize_t *nb_print, int d)
 	width = ft_atoi(l_flags->width);
 	w_spec = ft_atoi(l_flags->width_specification);
 	if (l_flags->asterisk == 1 && l_flags->point == 0)
-	{
 		width = d;
-		d = va_arg(ap, int);
-	}
-	if (width == 0 && d == 0 && l_flags->width_specification == NULL)
+	if (l_flags->asterisk == 1 && l_flags->point == 1)
+			w_spec = d;
+	if (width == 0 && d == 0 && w_spec == 0)
 	{
 		ft_putnbr_fd(0, nb_print, 1);
 		return ;
@@ -32,10 +31,7 @@ void	spec_minus_d(t_flags *l_flags, va_list ap, ssize_t *nb_print, int d)
 	if (l_flags->asterisk == 0)
 		spec_minus_no_ast_d(l_flags, nb_print, &width, d);
 	else
-	{
-		//w_spec = d;
-		(*nb_print) += print_d_stars_minus(width, w_spec, d);
-	}
+		(*nb_print) += print_d_stars_minus(width, w_spec, va_arg(ap, int));
 }
 
 void	spec_pnt_no_ast_d(t_flags *l_flags, ssize_t *nb_prt, int d)
