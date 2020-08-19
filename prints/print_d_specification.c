@@ -25,13 +25,16 @@ void	spec_minus_d(t_flags *l_flags, va_list ap, ssize_t *nb_print, int d)
 		d = va_arg(ap, int);
 	}
 	if (width == 0 && d == 0 && l_flags->width_specification == NULL)
-			ft_putnbr_fd(0, nb_print, 1);
+	{
+		ft_putnbr_fd(0, nb_print, 1);
+		return ;
+	}
 	if (l_flags->asterisk == 0)
 		spec_minus_no_ast_d(l_flags, nb_print, &width, d);
 	else
 	{
-		w_spec = d;
-		(*nb_print) += print_d_stars_minus(width, w_spec, va_arg(ap, int));
+		//w_spec = d;
+		(*nb_print) += print_d_stars_minus(width, w_spec, d);
 	}
 }
 
