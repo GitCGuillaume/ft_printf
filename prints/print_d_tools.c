@@ -1,5 +1,5 @@
 #include "../ft_printf.h"
-
+#include <stdio.h>
 void	negative_d(ssize_t *nb_print, int *d)
 {
 	if (*d < 0)
@@ -15,6 +15,8 @@ ssize_t	print_basic_value_d(ssize_t *width, int d, char c)
 	ssize_t	nb_print;
 
 	nb_print = 0;
+	if (0 > d)
+		negative_d(&nb_print, &d);
 	if (0 > *width)
 			*width = -(*width);
 	if (d == 0)

@@ -12,60 +12,81 @@ void	handle_sizes(ssize_t *width, ssize_t *w_spec)
 	}
 }
 
-ssize_t	astrsk_d_lr(va_list ap, t_flags *l_flags, int d, ssize_t *width)
+#include <stdio.h>
+ssize_t	astrsk_d_lr(va_list ap, t_flags *l_flags, int d)
 {
 	va_list	ap2;
 	ssize_t	nb_print;
-	int		d_copy;
+	ssize_t	width;
+	int		value;
 
 	nb_print = 0;
 	va_copy(ap2, ap);
-	d_copy = va_arg(ap2, int);
-	if (d_copy == 0 && l_flags->zero == 0)
-		d--;
-	if (d < 0)
+	width = d;
+	value = va_arg(ap2, int);
+	printf("width==%li\n", width);
+	printf("value=%d\n", value);
+	//if (d_copy == 0 && l_flags->zero == 0)
+	//	d--;
+	if (width < 0)
 	{
-		d = -d;
-		//d--;
-		nb_print += astrsk_d_rl(ap, l_flags, d, width);
+		nb_print += astrsk_d_rl(ap, l_flags, d);
 		return (nb_print);
 	}
-	if (l_flags->zero == 0)
+	print_basic_value_d(&width, value, ' ');
+	/*if (l_flags->zero == 0)
 	{
 		nb_print += print_width_d(d, d_copy, ' ');
 		ft_putnbr_fd(d_copy, &nb_print, 1);
-	}
-	*width = d;
+	}*/
 	va_end(ap2);
 	return (nb_print);
 }
 
-ssize_t	astrsk_d_rl(va_list ap, t_flags *l_flags, int d, ssize_t *width)
+ssize_t	astrsk_d_rl(va_list ap, t_flags *l_flags, int d)
 {
-	va_list	ap2;
+	//va_list	ap2;
 	ssize_t	nb_print;
-	int		d_copy;
+	ssize_t	width;
+	int		value;
+	//int		d_copy;
 
 	nb_print = 0;
-	va_copy(ap2, ap);
-	d_copy = va_arg(ap2, int);
-	if (d_copy == 0 && l_flags->zero == 0)
-		d--;
-	if (d < 0)
+	width = 0;
+	if (l_flags->point == 0)
 	{
-		d = -d;
-		nb_print += astrsk_d_rl(ap, l_flags, d, width);
-		return (nb_print);
+		width = d;
+		value = va_arg(ap, int);
+		if (0 > width)
+			width = -width;
+		if (value < 0)
+			negative_d(&nb_print, &value);
+	printf("width==%li\n", width);
+	printf("value=%d\n", value);
+		ft_putnbr_fd(value, &nb_print, 1);
+		nb_print += print_width_d(width, value, ' ');
 	}
-	if (l_flags->zero == 0)
+	else
+		spec_point_astrsk_d(ap, l_flags, &nb_print, d);
+	//va_copy(ap2, ap);
+	//d_copy = va_arg(ap2, int);
+	//if (d_copy == 0 && l_flags->zero == 0)
+	//	d--;
+	/*if (l_flags->zero == 0)
 	{
+		if (d < 0)
+		{
+			negative_d(&nb_print, &d_copy);
+			return (nb_print);
+		}
 		ft_putnbr_fd(d_copy, &nb_print, 1);
 		nb_print += print_width_d(d, d_copy, ' ');
 	}
 	else
 		spec_point_astrsk_d(ap, l_flags, &nb_print, d);
-	*width = d;
-	va_end(ap2);
+	*/
+	//*width = d;
+	//va_end(ap2);
 	return (nb_print);
 }
 #include <stdio.h>
@@ -105,8 +126,8 @@ ssize_t	print_d_stars(ssize_t width, ssize_t w_spec, int value)
 	handle_sizes(&width, &w_spec);
 	if (value == 0 &&  w_spec <= -1)
 		return (nb_print += print_w_spec(1, 0, '0'));
-	if (0 > value && w_spec > 0)
-		width--;
+	//if (0 > value && w_spec > 0)
+	//	width--;
 	if (width > w_spec)
 		nb_print += print_w_spec(calc(width, w_spec, ft_lensize(value), value),
 				nb_print, ' ');
