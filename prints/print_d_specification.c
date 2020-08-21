@@ -16,6 +16,8 @@ ssize_t	spec_minus_no_ast_d(t_flags *l_flags, ssize_t *width, ssize_t w_spec, in
 	nb_print += print_width_d(w_spec, d, '0');
 	if (d != 0)
 		ft_putnbr_fd(d, &nb_print, 1);
+	if (0 > *width)
+		*width = -(*width);
 	nb_print += print_w_spec(*width, nb_print, ' ');
 	return (nb_print);
 }
@@ -34,13 +36,13 @@ void	spec_minus_d(t_flags *l_flags, va_list ap, ssize_t *nb_print, int d)
 		w_spec = d;
 	if (l_flags->asterisk == 1)
 		d = va_arg(ap, int);
-	if (w_spec == 0 && d == 0)
-		return ;
-	if (width == 0 && d == 0 && w_spec <= -1)
+	/*if (width == 0 && d == 0 && (w_spec <= -1 || w_spec > 0))
 	{
 		ft_putnbr_fd(0, nb_print, 1);
 		return ;
 	}
+	if (w_spec == 0 && d == 0)
+		return ;*/
 	if (l_flags->asterisk == 0 || (l_flags->asterisk == 1 && l_flags->width_specification == NULL))
 		(*nb_print) += spec_minus_no_ast_d(l_flags, &width, w_spec, d);
 	else
@@ -83,14 +85,14 @@ void	spec_point_astrsk_d(va_list ap, t_flags *l_flags, ssize_t *nb_prt, ssize_t 
 	if (width > w_spec)
 		(*nb_prt) += print_w_spec(calc(width, w_spec, ft_lensize(value), value),
 				*nb_prt, ' ');
-	if (0 > value && w_spec > 0)
-		w_spec++;
 	if (0 > value)
 	{
 		negative_d(nb_prt, &value);
 		//if (width < 0)
 		//	width = width + 2;
 	}
+	if (0 > value && w_spec > 0)
+		w_spec++;
 	(*nb_prt) += print_w_spec(w_spec - ft_lensize(value), 0, '0');
 	if (value != 0)
 		ft_putnbr_fd(value, nb_prt, 1);

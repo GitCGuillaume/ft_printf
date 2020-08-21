@@ -41,12 +41,12 @@ ssize_t		check_flags_two_d(t_flags *l_flags, va_list ap, int d)
 		spec_minus_d(l_flags, ap, &nb_print, d);
 	}
 	else if ((l_flags->asterisk == 1 && l_flags->point == 0)
-			|| (l_flags->point == 1 && l_flags->width_specification == NULL))
+			|| (l_flags->asterisk == 1 && l_flags->point == 1 && l_flags->width_specification == NULL))
 	{
 		nb_print += astrsk_d_lr(ap, l_flags, d);
 	}
 	else if (l_flags->point == 1 && l_flags->minus == 0
-			&& l_flags->width_specification != NULL)
+			/*&& l_flags->width_specification != NULL*/)
 	{
 		if (width < 0)
 			spec_minus_d(l_flags, ap, &nb_print, d);

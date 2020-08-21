@@ -29,7 +29,7 @@ ssize_t	print_basic_value_d(ssize_t *width, int d, char c)
 	{
 		(*width)--;
 	}
-	nb_print += print_width_d(*width, d, c);
+	nb_print += print_width_d(*width, value, c);
 	if (0 > value)
 	{
 		negative_d(&nb_print, &value);

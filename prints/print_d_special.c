@@ -51,21 +51,20 @@ ssize_t	astrsk_d_rl(va_list ap, t_flags *l_flags, int d)
 
 	nb_print = 0;
 	width = 0;
-	if (l_flags->point == 0)
-	{
+	(void)l_flags;
+	//if (l_flags->point == 0)
+	//{
 		width = d;
 		value = va_arg(ap, int);
-		if (0 > width)
-			width = -width;
-		if (value == 0)
-			width--;
 		if (value < 0)
 			negative_d(&nb_print, &value);
+		if (0 > width)
+			width = -width;
 		ft_putnbr_fd(value, &nb_print, 1);
-		nb_print += print_width_d(width, value, ' ');
-	}
-	else
-		spec_point_astrsk_d(ap, l_flags, &nb_print, d);
+		nb_print += print_w_spec(width, nb_print, ' ');
+	//}
+	//else
+	//	spec_point_astrsk_d(ap, l_flags, &nb_print, d);
 	//va_copy(ap2, ap);
 	//d_copy = va_arg(ap2, int);
 	//if (d_copy == 0 && l_flags->zero == 0)
