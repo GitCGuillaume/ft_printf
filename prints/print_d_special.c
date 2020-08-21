@@ -19,13 +19,11 @@ ssize_t	astrsk_d_lr(va_list ap, t_flags *l_flags, int d)
 	ssize_t	nb_print;
 	ssize_t	width;
 	int		value;
-
+	
 	nb_print = 0;
 	va_copy(ap2, ap);
 	width = d;
 	value = va_arg(ap2, int);
-	printf("width==%li\n", width);
-	printf("value=%d\n", value);
 	//if (d_copy == 0 && l_flags->zero == 0)
 	//	d--;
 	if (width < 0)
@@ -33,7 +31,7 @@ ssize_t	astrsk_d_lr(va_list ap, t_flags *l_flags, int d)
 		nb_print += astrsk_d_rl(ap, l_flags, d);
 		return (nb_print);
 	}
-	print_basic_value_d(&width, value, ' ');
+	nb_print += print_basic_value_d(&width, value, ' ');
 	/*if (l_flags->zero == 0)
 	{
 		nb_print += print_width_d(d, d_copy, ' ');
@@ -59,10 +57,10 @@ ssize_t	astrsk_d_rl(va_list ap, t_flags *l_flags, int d)
 		value = va_arg(ap, int);
 		if (0 > width)
 			width = -width;
+		if (value == 0)
+			width--;
 		if (value < 0)
 			negative_d(&nb_print, &value);
-	printf("width==%li\n", width);
-	printf("value=%d\n", value);
 		ft_putnbr_fd(value, &nb_print, 1);
 		nb_print += print_width_d(width, value, ' ');
 	}
@@ -95,17 +93,14 @@ ssize_t	print_d_stars_minus(ssize_t width, ssize_t w_spec, int value)
 	ssize_t	nb_print;
 
 	nb_print = 0;
-	if (0 > value && 0 > w_spec)
-		width--;
+	handle_sizes(&width, &w_spec);
 	if (0 > value)
 	{
+		//width--;
 		negative_d(&nb_print, &value);
-		if (w_spec >= 0)
-			width--;
-		if (width < 0)
-			width = width + 2;
+		if (0 > value && w_spec > 0)
+			w_spec++;
 	}
-	handle_sizes(&width, &w_spec);
 	if (value == 0 && w_spec <= -1)
 		w_spec = 1;
 	if (w_spec > 0)
@@ -113,8 +108,7 @@ ssize_t	print_d_stars_minus(ssize_t width, ssize_t w_spec, int value)
 	if (value != 0)
 		ft_putnbr_fd(value, &nb_print, 1);
 	if (width > w_spec)
-		nb_print += print_w_spec(calc(width, w_spec, ft_lensize(value),
-					value), 0, ' ');
+		nb_print += print_w_spec(width, nb_print, ' ');
 	return (nb_print);
 }
 
@@ -126,17 +120,15 @@ ssize_t	print_d_stars(ssize_t width, ssize_t w_spec, int value)
 	handle_sizes(&width, &w_spec);
 	if (value == 0 &&  w_spec <= -1)
 		return (nb_print += print_w_spec(1, 0, '0'));
-	//if (0 > value && w_spec > 0)
-	//	width--;
 	if (width > w_spec)
 		nb_print += print_w_spec(calc(width, w_spec, ft_lensize(value), value),
 				nb_print, ' ');
 	if (0 > value)
 	{
 		negative_d(&nb_print, &value);
-		if (width < 0)
-			width = width + 2;
 	}
+	if (0 > value && w_spec > 0)
+		w_spec++;
 	nb_print += print_w_spec(w_spec - ft_lensize(value), 0, '0');
 	if (value != 0)
 		ft_putnbr_fd(value, &nb_print, 1);

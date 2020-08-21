@@ -13,16 +13,28 @@ void	negative_d(ssize_t *nb_print, int *d)
 ssize_t	print_basic_value_d(ssize_t *width, int d, char c)
 {
 	ssize_t	nb_print;
+	int		value;
 
 	nb_print = 0;
+	value = d;
 	if (0 > d)
-		negative_d(&nb_print, &d);
+	{
+		d = -d;
+	}
 	if (0 > *width)
-			*width = -(*width);
+	{
+		*width = -(*width);
+	}
 	if (d == 0)
+	{
 		(*width)--;
+	}
 	nb_print += print_width_d(*width, d, c);
-	ft_putnbr_fd(d, &nb_print, 1);
+	if (0 > value)
+	{
+		negative_d(&nb_print, &value);
+	}
+	ft_putnbr_fd(value, &nb_print, 1);
 	return (nb_print);
 }
 
