@@ -34,7 +34,7 @@ ssize_t	print_u_rl(t_flags *l_flags, unsigned int value)
 	if (value == 0)
 		width--;
 	ft_putnbr_fd(value, &nb_print, 1);
-	nb_print += print_width_d(width, value, ' ');
+	nb_print += print_w_spec(width, nb_print, ' ');
 	return (nb_print);
 }
 
