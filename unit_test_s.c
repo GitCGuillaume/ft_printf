@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <assert.h>
 #include "ft_printf.h"
-
+char min[] = "-1111111111";
 void	basic_value(void)
 {
 	int one;
 	int two;
-
+	char min[] = "-1111111111";
 	one = 0;
 	two = 0;
 	printf("---------1---------\n");
