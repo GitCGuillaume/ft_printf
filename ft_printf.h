@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/16 18:48:06 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/21 11:46:24 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/24 14:21:57 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ ssize_t	print_width_c(ssize_t width, char c);
 int	check_min_max_value_c(t_flags *l_flags);
 ssize_t	print_u(t_flags *l_flags, va_list ap);
 ssize_t	print_width_u(ssize_t width, unsigned int d, char c);
+ssize_t	calc_u(ssize_t width, ssize_t width_specification, ssize_t lensize, unsigned int u);
 ssize_t	print_u_zero(t_flags *l_flags, unsigned int value);
 ssize_t	print_u_rl(t_flags *l_flags, unsigned int value);
 ssize_t	print_u_lr(t_flags *l_flags, unsigned int value);

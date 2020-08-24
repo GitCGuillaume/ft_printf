@@ -31,8 +31,8 @@ ssize_t	print_u_rl(t_flags *l_flags, unsigned int value)
 	width = ft_atoi(l_flags->width);
 	if (0 > width)
 		width = -width;
-	if (value == 0)
-		width--;
+	/*if (value == 0)
+		width--;*/
 	ft_putnbr_fd(value, &nb_print, 1);
 	nb_print += print_w_spec(width, nb_print, ' ');
 	return (nb_print);
@@ -68,10 +68,8 @@ ssize_t	print_u_stars(t_flags *l_flags, unsigned int value)
 	handle_sizes(&width, &w_spec);
 	if (value == 0 &&  w_spec <= -1)
 		return (nb_print += print_w_spec(1, 0, '0'));
-//	if (0 > value && w_spec > 0)
-//		width--;
 	if (width > w_spec)
-		nb_print += print_w_spec(calc(width, w_spec, ft_lensize(value), value),
+		nb_print += print_w_spec(calc_u(width, w_spec, ft_lensize(value), value),
 				nb_print, ' ');
 	nb_print += print_w_spec(w_spec - ft_lensize(value), 0, '0');
 	if (value != 0)
@@ -96,7 +94,6 @@ ssize_t	print_u_stars_minus(t_flags *l_flags, unsigned int value)
 	if (value != 0)
 		ft_putnbr_fd(value, &nb_print, 1);
 	if (width > w_spec)
-		nb_print += print_w_spec(calc(width, w_spec, ft_lensize(value),
-					value), 0, ' ');
+		nb_print += print_w_spec(width, nb_print, ' ');
 	return (nb_print);
 }

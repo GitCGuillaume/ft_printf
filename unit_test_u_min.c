@@ -909,6 +909,16 @@ printf("---------1-123---------\n");
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
+	printf("---------1-123---------\n");
+	one = printf("%*.*ub", 29, 20, INT_MAX);
+	printf("\n");
+	two = ft_printf("%*.*ub", 29, 20, INT_MAX);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
 
 printf("---------1-123---------\n");
 	one = printf("%*.*ub", 6, -20, INT_MIN);
