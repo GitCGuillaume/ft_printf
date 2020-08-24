@@ -173,9 +173,9 @@ printf("---------5.0s---------\n");
 
 
 	printf("---------1---------\n");
-	one = printf("%0*ia", 5, "-43");
+	one = printf("%0sa", 5, "-43");
 	printf("\n");
-	two = ft_printf("%0*ia", 5, "-43");
+	two = ft_printf("%0sa", 5, "-43");
 	printf("\n");
 	if (one == two)
 		ft_putstr_fd("OK", 1);
@@ -183,9 +183,9 @@ printf("---------5.0s---------\n");
 		ft_putstr_fd("KO", 1);
 	printf("\n");
 	printf("---------1---------\n");
-	one = printf("%0*ia", -5, min);
+	one = printf("%0sa", -5, min);
 	printf("\n");
-	two = ft_printf("%0*ia", -5, min);
+	two = ft_printf("%0sa", -5, min);
 	printf("\n");
 	if (one == two)
 		ft_putstr_fd("OK", 1);
@@ -204,50 +204,9 @@ printf("---------5.0s---------\n");
 		ft_putstr_fd("KO", 1);
 	printf("\n");
 printf("---------1---------\n");
-	one = printf("%0*ia", -7, min);
+	one = printf("%0sa", -7, min);
 	printf("\n");
-	two = ft_printf("%0*ia", -7, min);
-	printf("\n");
-	if (one == two)
-		ft_putstr_fd("OK", 1);
-	else
-		ft_putstr_fd("KO", 1);
-	printf("\n");
-
-	printf("---------1---------\n");
-	one = printf("%0*ia", 7, "-43");
-	printf("\n");
-	two = ft_printf("%0*ia", 7, "-43");
-	printf("\n");
-	if (one == two)
-		ft_putstr_fd("OK", 1);
-	else
-		ft_putstr_fd("KO", 1);
-	printf("\n");
-	printf("---------1---------\n");
-	one = printf("%0*ia", -7, "-43");
-	printf("\n");
-	two = ft_printf("%0*ia", -7, "-43");
-	printf("\n");
-	if (one == two)
-		ft_putstr_fd("OK", 1);
-	else
-		ft_putstr_fd("KO", 1);
-	printf("\n");
-	printf("---------1---------\n");
-	one = printf("%0*ia", 2, "-43");
-	printf("\n");
-	two = ft_printf("%0*ia", 2, "-43");
-	printf("\n");
-	if (one == two)
-		ft_putstr_fd("OK", 1);
-	else
-		ft_putstr_fd("KO", 1);
-	printf("\n");
-	printf("---------1---------\n");
-	one = printf("%0*ia", -7, "-43");
-	printf("\n");
-	two = ft_printf("%0*ia", -7, "-43");
+	two = ft_printf("%0sa", -7, min);
 	printf("\n");
 	if (one == two)
 		ft_putstr_fd("OK", 1);
@@ -256,9 +215,9 @@ printf("---------1---------\n");
 	printf("\n");
 
 	printf("---------1---------\n");
-	one = printf("%0*ia", 5, "-43");
+	one = printf("%0sa", 7, "-43");
 	printf("\n");
-	two = ft_printf("%0*ia", 5, "-43");
+	two = ft_printf("%0sa", 7, "-43");
 	printf("\n");
 	if (one == two)
 		ft_putstr_fd("OK", 1);
@@ -266,9 +225,29 @@ printf("---------1---------\n");
 		ft_putstr_fd("KO", 1);
 	printf("\n");
 	printf("---------1---------\n");
-	one = printf("%0*ia", -5, "-43");
+	one = printf("%0sa", -7, "-43");
 	printf("\n");
-	two = ft_printf("%0*ia", -5, "-43");
+	two = ft_printf("%0sa", -7, "-43");
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%0sa", 2, "-43");
+	printf("\n");
+	two = ft_printf("%0sa", 2, "-43");
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%0sa", -7, "-43");
+	printf("\n");
+	two = ft_printf("%0sa", -7, "-43");
 	printf("\n");
 	if (one == two)
 		ft_putstr_fd("OK", 1);
@@ -277,9 +256,9 @@ printf("---------1---------\n");
 	printf("\n");
 
 	printf("---------1---------\n");
-	one = printf("%0*i", 7, "-123");
+	one = printf("%0sa", 5, "-43");
 	printf("\n");
-	two = ft_printf("%0*i", 7, "-123");
+	two = ft_printf("%0sa", 5, "-43");
 	printf("\n");
 	if (one == two)
 		ft_putstr_fd("OK", 1);
@@ -287,9 +266,30 @@ printf("---------1---------\n");
 		ft_putstr_fd("KO", 1);
 	printf("\n");
 	printf("---------1---------\n");
-	one = printf("%0*i", 0, "-123");
+	one = printf("%0sa", -5, "-43");
 	printf("\n");
-	two = ft_printf("%0*i", 0, "-123");
+	two = ft_printf("%0sa", -5, "-43");
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+
+	printf("---------1---------\n");
+	one = printf("%0s", 7, "-123");
+	printf("\n");
+	two = ft_printf("%0s", 7, "-123");
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%0s", 0, "-123");
+	printf("\n");
+	two = ft_printf("%0s", 0, "-123");
 	printf("\n");
 	if (one == two)
 		ft_putstr_fd("OK", 1);
@@ -537,7 +537,7 @@ printf("---------1---------\n");
 		ft_putstr_fd("KO", 1);
 	printf("\n");
 
-	printf("---------0*i  empty---------\n");
+	printf("---------0s  empty---------\n");
 	one = printf("%0*s", 0, 0);
 	printf("one=%d\n", one);
 	printf("\n");
