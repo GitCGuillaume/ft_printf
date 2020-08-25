@@ -52,12 +52,27 @@ ssize_t	print_s_zero(va_list ap, t_flags *l_flags)
 	ssize_t	nb_print;
 	ssize_t	width;
 	ssize_t	w_spec;
+	char	*value;
 
 	nb_print = 0;
+	if (l_flags->asterisk == 1)
+		get_one_star(l_flags, ap);
+	else if (l_flags->asterisk == 2)
+		get_two_stars(l_flags, ap);
 	width = ft_atoi(l_flags->width);
 	w_spec = ft_atoi(l_flags->width_specification);
-	browse_two_stars_s(ap, l_flags, &width, &w_spec);
-	printf("width = %li\n", width);
-	printf("w_spec = %li\n", w_spec);
+	value = va_arg(ap, char *);
+	nb_print += print_width_s(width, value, '0');
+	if (value == NULL)
+		value = ft_strdup("(null)");
+	if (w_spec > 0 || l_flags->point == 0)
+		ft_putstr_limit_fd(value, w_spec, &nb_print, 1);
+	if (ft_strnstr(value, "(null)", 6))
+		free(value);
+	if (0 > width)
+	{
+		width = -width;
+		nb_print += print_width_s(width, value, ' ');
+	}
 	return (nb_print);
 }

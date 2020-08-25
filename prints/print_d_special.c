@@ -95,7 +95,6 @@ ssize_t	print_d_stars_minus(ssize_t width, ssize_t w_spec, int value)
 	handle_sizes(&width, &w_spec);
 	if (0 > value)
 	{
-		//width--;
 		negative_d(&nb_print, &value);
 		if (0 > value && w_spec > 0)
 			w_spec++;

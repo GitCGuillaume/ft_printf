@@ -36,13 +36,6 @@ void	spec_minus_d(t_flags *l_flags, va_list ap, ssize_t *nb_print, int d)
 		w_spec = d;
 	if (l_flags->asterisk == 1)
 		d = va_arg(ap, int);
-	/*if (width == 0 && d == 0 && (w_spec <= -1 || w_spec > 0))
-	{
-		ft_putnbr_fd(0, nb_print, 1);
-		return ;
-	}
-	if (w_spec == 0 && d == 0)
-		return ;*/
 	if (l_flags->asterisk == 0 || (l_flags->asterisk == 1 && l_flags->width_specification == NULL))
 		(*nb_print) += spec_minus_no_ast_d(l_flags, &width, w_spec, d);
 	else

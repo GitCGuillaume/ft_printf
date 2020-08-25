@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 18:39:51 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/14 18:59:54 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/25 15:23:05 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ ssize_t	print_width_s(ssize_t width, char *s, char c)
 
 	i = 0;
 	nb_value = 0;
-	if (width != 0 && s != NULL)
+	if (width != 0)
 	{
 		i = ft_strlen(s);
 		while (width > i)

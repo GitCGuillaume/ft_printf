@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/16 18:48:06 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/24 14:21:57 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/25 17:05:09 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ void	browse_two_stars_s(va_list ap, t_flags *l_flags,
 ssize_t	print_s_zero(va_list ap, t_flags *l_flags);
 char				*ft_strlimit(char *s, ssize_t width);
 void				ft_putstr_limit_fd(char *s, size_t limit, ssize_t *nb_print, int fd);
+ssize_t	astrsk_s_rl(int d, char *s);
+ssize_t	astrsk_s_lr(int d, char *s);
 ssize_t				print_basic_value_s(ssize_t *width, char *s, char c);
 ssize_t				calc_s(ssize_t width, ssize_t width_specification, ssize_t lensize);
 void				ft_putstr_limit_fd(char *s, size_t limit, ssize_t *nb_print, int fd);

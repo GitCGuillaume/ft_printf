@@ -3,6 +3,7 @@
 #include "ft_printf.h"
 #include <limits.h>
 
+char	min[] = "-1111111111";
 void	basic_value(void)
 {
 	int one;
@@ -62,7 +63,7 @@ void	basic_value(void)
 	printf("---------1---------\n");
 	one = printf("%s", "1111111111");
 	printf("\n");
-	two = ft_printf("%s", "1111111111";
+	two = ft_printf("%s", "1111111111");
 	printf("\n");
 	if (one == two)
 		ft_putstr_fd("OK", 1);
@@ -702,8 +703,6 @@ printf("---------1-123---------\n");
 		ft_putstr_fd("KO", 1);
 	printf("\n");
 
-	char min = "-1111111111";
-
 	printf("---------1-123---------\n");
 	one = printf("%*.*sb", 10, 6 , min);
 	printf("\n");
@@ -940,9 +939,9 @@ printf("---------1---------\n");
 		ft_putstr_fd("KO", 1);
 	printf("\n");
 	printf("---------7---------\n");
-	   one = printf("%-*.*s", 0, 0, 4);
+	   one = printf("%-*.*s", 0, 0, "4");
 	printf("\n");
-	two = ft_printf("%-*.*s", 0, 0, 4);
+	two = ft_printf("%-*.*s", 0, 0, "4");
 	printf("\n");
 	if (one == two)
 		ft_putstr_fd("OK", 1);
@@ -950,9 +949,9 @@ printf("---------1---------\n");
 		ft_putstr_fd("KO", 1);
 	printf("\n");
 	printf("---------7---------\n");
-	   one = printf("%-*.*s", 0, 0, -4);
+	   one = printf("%-*.*s", 0, 0, "-4");
 	printf("\n");
-	two = ft_printf("%-*.*s", 0, 0, -4);
+	two = ft_printf("%-*.*s", 0, 0, "-4");
 	printf("\n");
 	if (one == two)
 		ft_putstr_fd("OK", 1);
@@ -1279,9 +1278,9 @@ void	width_min_max(void)
 	printf("\n");
 
 	printf("---------WIDTH_MAX0d ---------\n");
-	  one = printf("%02147483647s", 2147483647, 0);
+	one = printf("%02147483647s", 0);
 	printf("\n");
-	two = ft_printf("%02147483647s", 2147483647, 0);
+	two = ft_printf("%02147483647s", 0);
 	printf("\n");
 	if (one == two)
 		ft_putstr_fd("OK", 1);
