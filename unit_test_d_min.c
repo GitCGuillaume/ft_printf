@@ -459,6 +459,17 @@ printf("---------1---------\n");
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
+	
+	printf("---------EMPTY .0d---------\n");
+	one = printf("%.0d", 0);
+	printf("\n");
+	two = ft_printf("%.0d", 0);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
 	printf("---------EMPTY 0d---------\n");
 	one = printf("%0d", 0);
 	printf("one=%d\n", one);
@@ -1293,7 +1304,39 @@ printf("---------1-123---------\n");
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
-
+printf("\n");
+	printf("---------123-.*s---------\n");
+	one = printf("%.*d", 0, 123);
+	printf("one=%d\n", one);
+	printf("\n");
+	two = ft_printf("%.*d", 0, 123);
+	printf("two=%d\n", two);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	
+printf("--------(-)5.0s---------\n");
+	one = printf("%-5.0da", -0);
+	printf("\n");
+	two = ft_printf("%-5.0da", -0);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("--------(-)5.s---------\n");
+	one = printf("%-5.da", -0);
+	printf("\n");
+	two = ft_printf("%-5.da", -0);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	
 
 printf("---------1-123---------\n");
 	one = printf("%-*.*db", 6, 20 , INT_MIN);
