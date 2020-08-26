@@ -1,6 +1,6 @@
 #include "../ft_printf.h"
 
-ssize_t	print_c_zero(t_flags *l_flags, char c)
+ssize_t	print_c_zero(t_flags *l_flags, unsigned char c)
 {
 	ssize_t	nb_print;
 	ssize_t	width;
@@ -13,33 +13,37 @@ ssize_t	print_c_zero(t_flags *l_flags, char c)
 	return (nb_print);
 }
 
-ssize_t	print_c_point_star(t_flags *l_flags, char c)
+ssize_t	print_c_minus_point_star(t_flags *l_flags, unsigned char c)
 {
 	ssize_t	nb_print;
 	ssize_t	width;
 
 	nb_print = 0;
 	width = ft_atoi(l_flags->width);
+	ft_putchar_fd(c, 1);
+	nb_print += 1;
+	if (0 > width)
+		width = -width;
+	nb_print += print_w_spec(width, nb_print, ' ');
+	return (nb_print);
+}
+
+ssize_t	print_c_point_star(t_flags *l_flags, unsigned char c)
+{
+	ssize_t	nb_print;
+	ssize_t	width;
+
+	nb_print = 0;
+	width = ft_atoi(l_flags->width);
+	if (0 > width)
+		return (nb_print += print_c_minus_point_star(l_flags, c));
 	nb_print += print_w_spec(calc(width, 0, 1, 0), nb_print, ' ');
 	nb_print += 1;
 	ft_putchar_fd(c, 1);
 	return (nb_print);
 }
 
-ssize_t	print_c_minus_point_star(t_flags *l_flags, char c)
-{
-	ssize_t	nb_print;
-	ssize_t	width;
-
-	nb_print = 0;
-	width = ft_atoi(l_flags->width);
-	ft_putchar_fd(c, 1);
-	nb_print += 1;
-	nb_print += print_w_spec(width, nb_print, ' ');
-	return (nb_print);
-}
-
-ssize_t	check_flags_one_c(t_flags *l_flags, char c)
+ssize_t	check_flags_one_c(t_flags *l_flags, unsigned char c)
 {
 	ssize_t	nb_print;
 
@@ -61,7 +65,7 @@ ssize_t	print_c(t_flags *l_flags, va_list ap)
 {
 	ssize_t	result;
 	ssize_t	negative;
-	char	c;
+	unsigned char	c;
 
 	result = 0;
 	negative = -1;

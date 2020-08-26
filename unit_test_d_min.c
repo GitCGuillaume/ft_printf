@@ -1715,6 +1715,26 @@ void	minus_star_point_star_min(void)
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
+	printf("--------(-)1.s 0---------\n");
+	one = printf("%-.4da", 0);
+	printf("\n");
+	two = ft_printf("%-.4da", 0);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+		printf("--------(-)1.s 0---------\n");
+	one = printf("%-10.4da", 0);
+	printf("\n");
+	two = ft_printf("%-10.4da", 0);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
 	printf("---------W_SPEC MAX---------\n");
 	one = printf("%-*.*d", 0, 0, INT_MIN);
 	printf("\n");

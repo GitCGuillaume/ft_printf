@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 18:39:51 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/25 15:23:05 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/26 11:08:27 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ ssize_t	print_width_s(ssize_t width, char *s, char c)
 	return (nb_value);
 }
 
-ssize_t	print_width_c(ssize_t width, char c)
+ssize_t	print_width_c(ssize_t width, unsigned char c)
 {
 	ssize_t	i;
 	ssize_t	nb_value;

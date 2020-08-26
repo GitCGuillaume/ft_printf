@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/16 18:48:06 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/25 17:05:09 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/26 10:57:11 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,9 +91,9 @@ ssize_t	print_empty_part_one(t_flags *l_flags, ssize_t *width, ssize_t *w_spec);
 ssize_t	print_empty_part_two(t_flags *l_flags, ssize_t *width, ssize_t *w_spec);
 ssize_t	print_empty(t_flags *l_flags);
 ssize_t	print_c(t_flags *l_flags, va_list ap);
-ssize_t	print_c_lr(t_flags *l_flags, char c);
-ssize_t	print_c_rl(t_flags *l_flags, char c);
-ssize_t	print_width_c(ssize_t width, char c);
+ssize_t	print_c_lr(t_flags *l_flags, unsigned char c);
+ssize_t	print_c_rl(t_flags *l_flags, unsigned char c);
+ssize_t	print_width_c(ssize_t width, unsigned char c);
 int	check_min_max_value_c(t_flags *l_flags);
 ssize_t	print_u(t_flags *l_flags, va_list ap);
 ssize_t	print_width_u(ssize_t width, unsigned int d, char c);

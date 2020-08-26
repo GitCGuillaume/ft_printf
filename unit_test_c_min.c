@@ -571,7 +571,7 @@ printf("---------5.d---------\n");
 	one = printf("%5.c", 0);
 	printf("one=%d\n", one);
 	printf("\n");
-	two = ft_printf("%c.d", 0);
+	two = ft_printf("%5.c", 0);
 	printf("two=%d\n", two);
 	printf("\n");
 	if (one == two)
@@ -1293,13 +1293,24 @@ printf("---------1-123---------\n");
 	printf("---------1-123---------\n");
 	one = printf("%-*.*cb", 6, 20 , 65);
 	printf("\n");
-	two = ft_printf("%-*.*dc", 6, 20, 65);
+	two = ft_printf("%-*.*cb", 6, 20, 65);
 	printf("\n");
 	if (one == two)
 		ft_putstr_fd("OK", 1);
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
+printf("---------1-123---------\n");
+	one = printf("%*.*cb", 6, 20 , 65);
+	printf("\n");
+	two = ft_printf("%*.*cb", 6, 20, 65);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+
 
 printf("---------1---------\n");
 	one = printf("%-*.*cb", 0, -1 ,0);
