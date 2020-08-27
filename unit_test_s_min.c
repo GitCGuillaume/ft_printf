@@ -11,14 +11,85 @@ void	basic_value(void)
 	one = 0;
 	two = 0;
 	printf("---------1---------\n");
+	one = printf("%-32sa", NULL);
+	printf("\n");
+	two = ft_printf("%-32sa", NULL);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("ok", 1);
+	else
+		ft_putstr_fd("ko", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%32sa", NULL);
+	printf("\n");
+	two = ft_printf("%32sa", NULL);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("ok", 1);
+	else
+		ft_putstr_fd("ko", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%-*sa", 0, NULL);
+	printf("\n");
+	two = ft_printf("%-*sa", 0, NULL);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("ok", 1);
+	else
+		ft_putstr_fd("ko", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%-*sa", NULL, NULL);
+	printf("\n");
+	two = ft_printf("%-*sa", NULL, NULL);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("ok", 1);
+	else
+		ft_putstr_fd("ko", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%-*sa", -32, NULL);
+	printf("\n");
+	two = ft_printf("%-*sa", -32, NULL);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("ok", 1);
+	else
+		ft_putstr_fd("ko", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%*sa", 32, NULL);
+	printf("\n");
+	two = ft_printf("%*sa", 32, NULL);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("ok", 1);
+	else
+		ft_putstr_fd("ko", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%*sa", -32, NULL);
+	printf("\n");
+	two = ft_printf("%*sa", -32, NULL);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("ok", 1);
+	else
+		ft_putstr_fd("ko", 1);
+	printf("\n");
+	
+	printf("---------1---------\n");
 	one = printf("%*sa", -5, min);
 	printf("\n");
 	two = ft_printf("%*sa", -5, min);
 	printf("\n");
 	if (one == two)
-		ft_putstr_fd("OK", 1);
+		ft_putstr_fd("ok", 1);
 	else
-		ft_putstr_fd("KO", 1);
+		ft_putstr_fd("ko", 1);
 	printf("\n");
 	printf("---------1---------\n");
 	one = printf("%*sa", -5, "-1");

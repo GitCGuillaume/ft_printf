@@ -154,6 +154,8 @@ void	spec_minus_no_ast_s(t_flags *l_flags, ssize_t *nb_print, char *s)
 
 	width = ft_atoi(l_flags->width);
 	w_spec = ft_atoi(l_flags->width_specification);
+	if (0 > width)
+		width = -width;
 	if (s == NULL)
 		s = ft_strdup("(null)");
 	if (l_flags->point == 0)

@@ -11,6 +11,56 @@ void	basic_value(void)
 	one = 0;
 	two = 0;
 	printf("---------1---------\n");
+	one = printf("%-32da", 12);
+	printf("\n");
+	two = ft_printf("%-32da", 12);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("ok", 1);
+	else
+		ft_putstr_fd("ko", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%32da", 12);
+	printf("\n");
+	two = ft_printf("%32da", 12);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("ok", 1);
+	else
+		ft_putstr_fd("ko", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%-*da", 0, 12);
+	printf("\n");
+	two = ft_printf("%-*da", 0, 12);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("ok", 1);
+	else
+		ft_putstr_fd("ko", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%-*da", 12, 12);
+	printf("\n");
+	two = ft_printf("%-*da", 12, 12);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("ok", 1);
+	else
+		ft_putstr_fd("ko", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%-*da", -32, 12);
+	printf("\n");
+	two = ft_printf("%-*da", -32, 12);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("ok", 1);
+	else
+		ft_putstr_fd("ko", 1);
+	printf("\n");
+	printf("---------1---------\n");
 	one = printf("%*da", -5, INT_MIN);
 	printf("\n");
 	two = ft_printf("%*da", -5, INT_MIN);
@@ -659,6 +709,17 @@ void	star_point_star(void)
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
+printf("---------2---------\n");
+	one = printf("%*.*pb", 10, -2 , 0);
+	printf("\n");
+	two = ft_printf("%*.*pb", 10, -2, 0);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+
 
 printf("---------2---------\n");
 	one = printf("%*.*db", 0, -2 , 0);
@@ -1129,6 +1190,19 @@ void	minus_star_point_star(void)
 {
 	int	one;
 	int	two;
+	
+	printf("---------2---------\n");
+	one = printf("%-*.*pb", 10, -2 , 0);
+	printf("\n");
+	two = ft_printf("%-*.*pb", 10, -2, 0);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+
+
 	printf("---------(-).*d---------\n");
 	one = printf("%-.*db", -1 , 0);
 	printf("\n");

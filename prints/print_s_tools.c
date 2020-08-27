@@ -41,7 +41,8 @@ ssize_t	astrsk_s_rl(int d, char *s)
 	ssize_t	nb_print;
 
 	nb_print = 0;
-	d = -d;
+	if (0 > d)
+		d = -d;
 	ft_putstr_limit_fd(s, 0, &nb_print, 1);
 	nb_print += print_width_s(d, s, ' ');
 	return (nb_print);
@@ -57,7 +58,7 @@ ssize_t	astrsk_s_lr(int d, char *s)
 	return (nb_print);
 }
 
-ssize_t	astrsk_s(va_list ap)
+ssize_t	astrsk_s(t_flags *l_flags, va_list ap)
 {
 	ssize_t	nb_print;
 	int		d;
@@ -72,8 +73,13 @@ ssize_t	astrsk_s(va_list ap)
 		free(s);
 	if (d < -2147483646 || d > 2147483646)
 		return (-1);
-	if (d >= 0)
-		nb_print += astrsk_s_lr(d, s);
+	if (l_flags->minus == 0)
+	{
+		if (d >= 0)
+			nb_print += astrsk_s_lr(d, s);
+		else
+			nb_print += astrsk_s_rl(d, s);
+	}
 	else
 		nb_print += astrsk_s_rl(d, s);
 	return (nb_print);

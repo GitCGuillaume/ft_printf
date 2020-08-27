@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/16 18:48:06 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/26 10:57:11 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/27 14:00:49 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ ssize_t				print_width_s(ssize_t width, char *s, char c);
 char				*ft_strlimit(char *s, ssize_t width);
 void				spec_minus_no_ast_s(t_flags *l_flags, ssize_t *nb_print, char *s);
 void				spec_minus_ast_s(va_list ap, t_flags *l_flags, ssize_t *nb_print);
-ssize_t				astrsk_s(va_list ap);
+ssize_t				astrsk_s(t_flags *l_flags, va_list ap);
 void				spec_pnt_no_ast_s(t_flags *l_flags, ssize_t *nb_prt, char *s);
 void				spec_pnt_ast_s(t_flags *l_flags, va_list ap, ssize_t *nb_prt);
 ssize_t	print_p(t_flags *l_flags, va_list ap);

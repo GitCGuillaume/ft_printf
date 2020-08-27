@@ -47,7 +47,7 @@ ssize_t		check_flags_one_s(va_list ap, t_flags *l_flags)
 	{
 		if (l_flags->asterisk == 0)
 			spec_minus_no_ast_s(l_flags, &nb_print, s);
-		else
+		else if (l_flags->point == 1)
 			spec_minus_ast_s(ap2, l_flags, &nb_print);
 	}
 	va_end(ap2);
@@ -65,7 +65,7 @@ ssize_t		check_flags_two_s(t_flags *l_flags, va_list ap)
 		return (-1);
 	if (l_flags->asterisk == 1 && l_flags->point == 0 && l_flags->zero == 0)
 	{
-		nb_print += astrsk_s(ap2);
+		nb_print += astrsk_s(l_flags, ap2);
 		va_end(ap2);
 		return (nb_print);
 	}

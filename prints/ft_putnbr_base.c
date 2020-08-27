@@ -6,7 +6,7 @@
 /*   By: gchopin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 09:03:12 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/26 17:46:13 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/27 15:03:59 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,12 @@ void	ft_rev_char_tab(char *tab, int size)
 	int j;
 
 	i = 0;
-	j = size;
+	j = size - 1;
+	if (size == 1 && (size / 2 == 0))
+	{
+		swap(&tab[i], &tab[j]);
+		return ;
+	}
 	while (i < size / 2)
 	{
 		swap(&tab[i], &tab[j]);
@@ -80,10 +85,10 @@ char	*ft_putnbr_base(void *nbr, char *base)
 	{
 		//if (i > 1)
 		i = ft_memstr(convert_nbr, ptr, base);
+		ft_rev_char_tab(ptr, i);
 		//else
 		//	ptr[0] = '0';
 	}
-	ft_rev_char_tab(ptr, i - 1);
 	ptr[i] = '\0';
 	return (ptr);
 }
