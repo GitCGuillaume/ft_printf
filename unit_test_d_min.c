@@ -60,6 +60,27 @@ void	basic_value(void)
 	else
 		ft_putstr_fd("ko", 1);
 	printf("\n");
+printf("---------3---------\n");
+	one = printf("%*.*d8", 8, NULL, NULL);
+	printf("\n");
+	two = ft_printf("%*.*d8", 8, NULL, NULL);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------3---------\n");
+	one = printf("%-*.*d8", 8, NULL, NULL);
+	printf("\n");
+	two = ft_printf("%-*.*d8", 8, NULL, NULL);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	
 	printf("---------1---------\n");
 	one = printf("%*da", -5, INT_MIN);
 	printf("\n");

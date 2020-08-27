@@ -93,8 +93,10 @@ ssize_t		check_flags_three_s(t_flags *l_flags, va_list ap)
 		return (-1);
 	if (l_flags->zero == 1 /*&& l_flags->point == 0 && l_flags->asterisk == 0*/)
 	{
+		(void)ap;
+		ft_printf("undefined behavior");
 		//nb_print += print_basic_value_s(&width, s, '0');
-		nb_print += print_s_zero(ap, l_flags);
+		//nb_print += print_s_zero(ap, l_flags);
 		return (nb_print);
 	}
 	return (nb_print);

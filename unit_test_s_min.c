@@ -2115,9 +2115,9 @@ void	wisth_min_max(void)
 	printf("\n");
 
 	printf("---------WIsTH_MAX0s ---------\n");
-	  one = printf("%02147483647*s", 2147483647, 0);
+	  one = printf("%0*s", 2147483647, 0);
 	printf("\n");
-	two = ft_printf("%02147483647*s", 2147483647, 0);
+	two = ft_printf("%0*s", 2147483647, 0);
 	printf("\n");
 	if (one == two)
 		ft_putstr_fd("OK", 1);

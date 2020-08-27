@@ -69,8 +69,6 @@ ssize_t	astrsk_s(t_flags *l_flags, va_list ap)
 	s = va_arg(ap, char *);
 	if (s == NULL)
 		s = ft_strdup("(null)");
-	if (ft_strnstr(s, "(null)", 6))
-		free(s);
 	if (d < -2147483646 || d > 2147483646)
 		return (-1);
 	if (l_flags->minus == 0)
@@ -82,5 +80,7 @@ ssize_t	astrsk_s(t_flags *l_flags, va_list ap)
 	}
 	else
 		nb_print += astrsk_s_rl(d, s);
+	if (ft_strnstr(s, "(null)", 6))
+		free(s);
 	return (nb_print);
 }

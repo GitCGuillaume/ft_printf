@@ -49,14 +49,14 @@ ssize_t	check_flags_one_c(t_flags *l_flags, unsigned char c)
 
 	nb_print = 0;
 	if (l_flags->zero == 1 && l_flags->minus == 0 && l_flags->point == 0)
-		return (nb_print += print_c_zero(l_flags, c));
-	if (l_flags->minus == 1 && l_flags->point == 0)
+		ft_printf("undefined behavior");
+	else if (l_flags->minus == 1 && l_flags->point == 0)
 		return (nb_print += print_c_rl(l_flags, c));
-	if (l_flags->minus == 0 && l_flags->point == 0)
+	else if (l_flags->minus == 0 && l_flags->point == 0)
 		return (nb_print += print_c_lr(l_flags, c));
-	if (l_flags->point == 1 && l_flags->minus == 0)
+	else if (l_flags->point == 1 && l_flags->minus == 0)
 		return (print_c_point_star(l_flags, c));
-	if (l_flags->point == 1 && l_flags->minus == 1)
+	else if (l_flags->point == 1 && l_flags->minus == 1)
 		return (print_c_minus_point_star(l_flags, c));
 	return (nb_print);
 }
