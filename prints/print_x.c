@@ -15,10 +15,11 @@ ssize_t	check_flags_one_x(t_flags *l_flags, char *hexa)
 		return (print_x_point_star(l_flags, hexa));
 	if (l_flags->point == 1 && l_flags->minus == 1)
 		return (print_x_minus_point_star(l_flags, hexa));
+	
 	return (nb_print);
 }
 #include <stdio.h>
-ssize_t	print_hexa_x(va_list ap, t_flags *l_flags)
+ssize_t	print_hexa_x(va_list ap, t_flags *l_flags, char *base)
 {
 	ssize_t	nb_print;
 	unsigned int	value;
@@ -28,20 +29,26 @@ ssize_t	print_hexa_x(va_list ap, t_flags *l_flags)
 	value = va_arg(ap, unsigned int);
 	nb_print = 0;
 	//printf("value=%u\n", value);
-	if (!(hexa = ft_putnbr_base_x(value, "0123456789abcdef")))
+	if (!(hexa = ft_putnbr_base_x(value, base)))
 	{
 		del(l_flags->width);
 		del(l_flags->width_specification);
 		return (-1);
 	}
 	//printf("hexa=%s\n", hexa);
-	if (value != 0)
+	if (hexa[0] == '\0')
+	{
+		free(hexa);
+		if (!(hexa = ft_strdup("0")))
+			return (-1);
+	}
+	if (hexa)
 		nb_print += check_flags_one_x(l_flags, hexa);
 	free(hexa);
 	return (nb_print);
 }
 
-ssize_t     print_x(t_flags *l_flags, va_list ap)
+ssize_t     print_x(t_flags *l_flags, va_list ap, char *base)
 {
     ssize_t result;
     ssize_t minus;
@@ -56,7 +63,7 @@ ssize_t     print_x(t_flags *l_flags, va_list ap)
 			get_two_stars(l_flags, ap);
         if ((result = check_min_max_value_all(l_flags)) == 0)
 		{
-			result = print_hexa_x(ap, l_flags);
+			result = print_hexa_x(ap, l_flags, base);
 		}
     }
     del(l_flags->width);

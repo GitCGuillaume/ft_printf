@@ -11,6 +11,67 @@ void	basic_value(void)
 	one = 0;
 	two = 0;
 	printf("---------1---------\n");
+	one = printf("%0*da", -5, 123);
+	printf("\n");
+	two = ft_printf("%0*da", -5, 123);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	
+	printf("---------12---------\n");
+	one = printf("%*.*da", 2, 0, NULL);
+	printf("\n");
+	two = ft_printf("%*.*da", 2, 0, NULL);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------13---------\n");
+	   one = printf("%-*.*da", 2, 0, NULL);
+	printf("\n");
+	two = ft_printf("%-*.*da", 2, 0, NULL);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------13---------\n");
+	   one = printf("%-*.*da", 5, 0, 12);
+	printf("\n");
+	two = ft_printf("%-*.*da", 5, 0, 12);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	
+	printf("---------14---------\n");
+	one = printf("%*.da", 2, NULL);
+	printf("\n");
+	two = ft_printf("%*.da", 2, NULL);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------14---------\n");
+	one = printf("%*.da", 5, 12);
+	printf("\n");
+	two = ft_printf("%*.da", 5, 12);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
 	one = printf("%-32da", 12);
 	printf("\n");
 	two = ft_printf("%-32da", 12);

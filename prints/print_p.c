@@ -39,7 +39,8 @@ ssize_t	print_hexa(va_list ap, t_flags *l_flags)
 	if (hexa[0] == '\0')
 	{
 		free(hexa);
-		hexa = ft_strdup("0");
+		if (!(hexa = ft_strdup("0")))
+			return (-1);
 	}
 	if (hexa)
 		nb_print += check_flags_one_p(l_flags, hexa);

@@ -39,7 +39,9 @@ int	find_convertor(char const *fmt, t_flags *l_flags, va_list ap, size_t *i)
 	else if (fmt[*i] == 'c')
 		result = print_c(l_flags, ap);
 	else if (fmt[*i] == 'x')
-		result = print_x(l_flags, ap);
+		result = print_x(l_flags, ap, "0123456789abcdef");
+	else if (fmt[*i] == 'X')
+		result = print_x(l_flags, ap, "0123456789ABCDEF");
 	return (result);
 }
 
