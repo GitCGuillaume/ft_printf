@@ -122,7 +122,6 @@ void	spec_pnt_ast_s(t_flags *l_flags, va_list ap, ssize_t *nb_prt)
 
 void	spec_minus_ast_s(va_list ap, t_flags *l_flags, ssize_t *nb_print)
 {
-	va_list	ap2;
 	ssize_t	width;
 	ssize_t	w_spec;
 	char	*s;
@@ -144,7 +143,6 @@ void	spec_minus_ast_s(va_list ap, t_flags *l_flags, ssize_t *nb_print)
 	if (ft_strnstr(s, "(null)", 6))
 		free(s);
 	(*nb_print) += print_w_spec(width, *nb_print, ' ');
-	va_end(ap2);
 }
 
 void	spec_minus_no_ast_s(t_flags *l_flags, ssize_t *nb_print, char *s)

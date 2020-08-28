@@ -8,7 +8,6 @@ ssize_t	spec_minus_no_ast_d(t_flags *l_flags, ssize_t *width, ssize_t w_spec, in
 	nb_print = 0;
 	if (d < 0)
 		negative_d(&nb_print, &d);
-	(void)l_flags;
 	//if (l_flags->point == 1 && width > 0 && d == 0)
 	//	w_spec--;
 	if (d == 0 && width > 0 && l_flags->point == 0)
