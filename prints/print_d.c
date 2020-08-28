@@ -43,7 +43,7 @@ ssize_t		check_flags_two_d(t_flags *l_flags, va_list ap, int d)
 	else if ((l_flags->asterisk == 1 && l_flags->point == 0)
 			|| (l_flags->asterisk == 1 && l_flags->point == 1 && l_flags->width_specification == NULL))
 	{
-		nb_print += astrsk_d_lr(ap, l_flags, d);
+		nb_print += astrsk_d_lr(ap, d);
 	}
 	else if (l_flags->point == 1 && l_flags->minus == 0
 			/*&& l_flags->width_specification != NULL*/)

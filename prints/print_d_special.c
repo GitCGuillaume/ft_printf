@@ -13,35 +13,36 @@ void	handle_sizes(ssize_t *width, ssize_t *w_spec)
 }
 
 #include <stdio.h>
-ssize_t	astrsk_d_lr(va_list ap, t_flags *l_flags, int d)
+ssize_t	astrsk_d_lr(va_list ap, int d)
 {
-	va_list	ap2;
+	//va_list	ap2;
 	ssize_t	nb_print;
 	ssize_t	width;
 	int		value;
 	
 	nb_print = 0;
-	va_copy(ap2, ap);
+	//va_copy(ap2, ap);
 	width = d;
-	value = va_arg(ap2, int);
+	value = 0;
 	//if (d_copy == 0 && l_flags->zero == 0)
 	//	d--;
 	if (width < 0)
 	{
-		nb_print += astrsk_d_rl(ap, l_flags, d);
+		nb_print += astrsk_d_rl(ap, d);
 		return (nb_print);
 	}
+	value = va_arg(ap, int);
 	nb_print += print_basic_value_d(&width, value, ' ');
 	/*if (l_flags->zero == 0)
 	{
 		nb_print += print_width_d(d, d_copy, ' ');
 		ft_putnbr_fd(d_copy, &nb_print, 1);
 	}*/
-	va_end(ap2);
+	//va_end(ap2);
 	return (nb_print);
 }
 
-ssize_t	astrsk_d_rl(va_list ap, t_flags *l_flags, int d)
+ssize_t	astrsk_d_rl(va_list ap, int d)
 {
 	//va_list	ap2;
 	ssize_t	nb_print;
@@ -51,7 +52,6 @@ ssize_t	astrsk_d_rl(va_list ap, t_flags *l_flags, int d)
 
 	nb_print = 0;
 	width = 0;
-	(void)l_flags;
 	//if (l_flags->point == 0)
 	//{
 		width = d;

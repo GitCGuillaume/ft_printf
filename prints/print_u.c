@@ -1,5 +1,5 @@
 #include "../ft_printf.h"
-#include <stdio.h>
+
 ssize_t	check_flags_u_one(t_flags *l_flags, unsigned int value)
 {
 	ssize_t	nb_print;

@@ -6,7 +6,7 @@
 /*   By: gchopin </var/mail/gchopin>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/14 18:22:12 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/14 19:42:33 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/28 18:56:16 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,27 @@ printf("---------12---------\n");
 	printf("\n");
 	ft_printf("%10.*ub", -6, -3);
 	printf("\n");
-
+	//ft_printf("%%");
+	printf("\n");
+	printf("%*.*s%s", 0, 1,"abc", "abc");
+	printf("\n");
+	ft_printf("%s%s", "abc", "abc");
+	printf("\n");
+	ft_printf("%*.*s", 0, 1, "abc");
+	printf("\n");
+	printf("%*.*%s", 0, 5);
+	printf("\n");
+	printf("%*.*s%-10sa", 0, 1, "123","45");
+	printf("\n");
+	printf("%*.s%-10sa", 0, "123","45");
+	printf("\n");
+	ft_printf("%*.s%-10sa", 0, "123","45");
+	printf("\n");
+	printf("%-*.s%-10sa", 0, "123","45");
+	printf("\n");
+	ft_printf("%-*.s%-10sa", 0, "123","45");
+	printf("\n");
+	ft_printf("%*.*s%-10sa", 0, 1, "123","45");
+	printf("\n");
 	return (0);
 }
