@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/16 18:48:06 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/27 14:00:49 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/28 12:31:29 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ ssize_t				print_zero_p(size_t atoi, char *p);
 char				*ft_putnbr_base(void *nbr, char *base);
 ssize_t				ft_lensize(ssize_t n);
 char				*width_string(char const *fmt, size_t *i);
+void	swap(char *a, char *b);
+void	ft_rev_char_tab(char *tab, int size);
 ssize_t	print_p_lr(t_flags *l_flags, char *addr);
 ssize_t	print_p_rl(t_flags *l_flags, char *addr);
 ssize_t	print_p_zero(t_flags *l_flags, char *addr);

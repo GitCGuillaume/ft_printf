@@ -27,7 +27,7 @@ ssize_t	print_hexa_x(va_list ap, t_flags *l_flags)
 	hexa = 0;
 	value = va_arg(ap, unsigned int);
 	nb_print = 0;
-	printf("value=%u\n", value);
+	//printf("value=%u\n", value);
 	if (!(hexa = ft_putnbr_base_x(value, "0123456789abcdef")))
 	{
 		del(l_flags->width);

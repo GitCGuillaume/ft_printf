@@ -11,6 +11,56 @@ void	basic_value(void)
 	one = 0;
 	two = 0;
 	printf("---------1---------\n");
+	one = printf("%-32ua", 12);
+	printf("\n");
+	two = ft_printf("%-32ua", 12);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("ok", 1);
+	else
+		ft_putstr_fd("ko", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%32ua", 12);
+	printf("\n");
+	two = ft_printf("%32ua", 12);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("ok", 1);
+	else
+		ft_putstr_fd("ko", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%-*ua", 0, 12);
+	printf("\n");
+	two = ft_printf("%-*ua", 0, 12);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("ok", 1);
+	else
+		ft_putstr_fd("ko", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%-*ua", 12, 12);
+	printf("\n");
+	two = ft_printf("%-*ua", 12, 12);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("ok", 1);
+	else
+		ft_putstr_fd("ko", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%-*ua", -32, 12);
+	printf("\n");
+	two = ft_printf("%-*ua", -32, 12);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("ok", 1);
+	else
+		ft_putstr_fd("ko", 1);
+	printf("\n");
+	printf("---------1---------\n");
 	one = printf("%*ua", -5, INT_MIN);
 	printf("\n");
 	two = ft_printf("%*ua", -5, INT_MIN);

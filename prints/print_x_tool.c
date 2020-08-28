@@ -7,6 +7,8 @@ ssize_t	print_x_lr(t_flags *l_flags, char *hexa)
 
 	width = ft_atoi(l_flags->width);
 	nb_print = 0;
+	if (0 > width)
+		return (nb_print += print_x_rl(l_flags, hexa));
 	nb_print += print_width_s(width, hexa, ' ');
 	ft_putstr_limit_fd(hexa, 0, &nb_print, 1);
 	return (nb_print);
@@ -19,6 +21,8 @@ ssize_t	print_x_rl(t_flags *l_flags, char *hexa)
 
 	width = ft_atoi(l_flags->width);
 	nb_print = 0;
+	if (0 > width)
+		width = -width;
 	ft_putstr_limit_fd(hexa, 0, &nb_print, 1);
 	nb_print += print_width_s(width, hexa, ' ');
 	return (nb_print);

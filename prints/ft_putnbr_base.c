@@ -6,7 +6,7 @@
 /*   By: gchopin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 09:03:12 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/27 15:03:59 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/28 12:27:46 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	ft_size_memory(ssize_t nbr, ssize_t *size)
 	}
 }
 
-ssize_t	ft_memstr(ssize_t nbr, char *ptr, char *base)
+size_t	ft_memstr(ssize_t nbr, char *ptr, char *base)
 {
 	ssize_t	i;
 
