@@ -6,7 +6,7 @@
 /*   By: gchopin </var/mail/gchopin>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/14 18:22:12 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/28 18:56:16 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/28 19:22:33 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,5 +123,12 @@ printf("---------12---------\n");
 	printf("\n");
 	ft_printf("%*.*s%-10sa", 0, 1, "123","45");
 	printf("\n");
+	printf("%%");
+	printf("\n");
+	ft_printf("%%");
+	printf("\n");
+	printf("%5%%s", "abc");
+	printf("\n");
+	//ft_printf("%5%s");
 	return (0);
 }
