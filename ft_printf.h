@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/16 18:48:06 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/28 18:41:10 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/29 13:18:30 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ typedef struct	s_flags
 
 int				ft_printf(const char *, ...);
 void				init_list_flags(t_flags *lst_flags);
-int				find_indicators(const char *fmt, size_t *i, size_t *nb_print, t_flags *l_flags);
-int				is_indicator(char const *fmt, size_t *i, size_t *nb_print, t_flags *l_flags);
+int				find_indicators(const char *fmt, size_t *i, t_flags *l_flags);
+int				is_indicator(char const *fmt, size_t *i, t_flags *l_flags);
 int				find_convertor(char const *fmt, t_flags *l_flags, va_list ap, size_t *i);
 int				is_convertor(char c);
 int				is_digit(t_flags *l_flags, size_t *i, char const *fmt);
