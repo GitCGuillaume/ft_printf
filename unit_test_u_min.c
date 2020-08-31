@@ -1937,6 +1937,20 @@ void	width_min_max_special(void)
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
+printf("---------WIsTH_MAX-.2147483647 abc---------\n");
+	one = printf("%-20.2147483647u", 12);
+	printf("one==%d\n", one);
+	printf("\n");
+	two = ft_printf("%-20.2147483647u", 12);
+	printf("two==%d\n", two);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+
+
 }
 
 int	main(void)

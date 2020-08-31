@@ -45,7 +45,7 @@ int		check_min_max_value_c(t_flags *l_flags)
 	}
 	if (width < -2147483646 || width > 2147483646)
 		return (-1);
-	else if (w_spec < -2147483648 || w_spec > 2147483646)
-		return (1);
+	//else if (w_spec < -2147483648 || w_spec > 2147483646)
+	//	return ();
 	return (0);
 }

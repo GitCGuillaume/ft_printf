@@ -2192,6 +2192,28 @@ printf("---------1---------\n");
 		ft_putstr_fd("KO", 1);
 	printf("\n");
 	printf("---------1-5---------\n");
+	one = printf("%0*.0%a", 20);
+	printf("\n");
+	two = ft_printf("%0*.0%a", 20);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("ok", 1);
+	else
+		ft_putstr_fd("ko", 1);
+	printf("\n");
+		
+	printf("---------utest---------\n");
+	one = printf("%0*.ua", 20);
+	printf("\n");
+	two = ft_printf("%0*.ua", 20);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	
+	printf("---------1-5---------\n");
 	one = printf("%0*.%a", 20);
 	printf("\n");
 	two = ft_printf("%0*.%a", 20);
@@ -2226,7 +2248,17 @@ void	minus_star_point_star_min(void)
 {
 	int	one;
 	int	two;
-
+printf("---------1-5---------\n");
+	one = printf("%-0*.%a", 20);
+	printf("\n");
+	two = ft_printf("%-0*.%a", 20);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	
 	printf("---------1-5---------\n");
 	one = printf("%-*.%a", 20);
 	printf("\n");
