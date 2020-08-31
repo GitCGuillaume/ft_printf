@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/16 10:50:36 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/29 13:40:27 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/31 12:21:12 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,8 @@ int	browse_fmt(t_flags *l_flags, va_list ap, size_t *i, char const *fmt)
 	nb_print = 0;
 	while (fmt[*i])
 	{
-		printf("l_flags->%d%c", l_flags->percentage, fmt[*i]);
 		if (is_indicator(fmt, i, l_flags) == 1)
 			find_indicators(fmt, i, l_flags);
-		printf("l_flags->%d%c", l_flags->percentage, fmt[*i]);
 		is_digit(l_flags, i, fmt);
 		is_specification(l_flags, ap, fmt, i);
 		if (is_convertor(fmt[*i]))

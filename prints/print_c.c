@@ -70,20 +70,17 @@ ssize_t	print_c(t_flags *l_flags, va_list ap)
 	result = 0;
 	negative = -1;
 	c = 0;
-	if (l_flags->percentage == 0)
+	if (l_flags->asterisk == 1)
+		get_one_star(l_flags, ap);
+	else if (l_flags->asterisk == 2)
+		get_two_stars(l_flags, ap);
+	c = va_arg(ap, int);
+	if ((result = check_min_max_value_c(l_flags)) == 0)
+		result = check_flags_one_c(l_flags, c);
+	else if (result == -negative)
 	{
-		if (l_flags->asterisk == 1)
-			get_one_star(l_flags, ap);
-		else if (l_flags->asterisk == 2)
-			get_two_stars(l_flags, ap);
-		c = va_arg(ap, int);
-		if ((result = check_min_max_value_c(l_flags)) == 0)
-			result = check_flags_one_c(l_flags, c);
-		else if (result == -negative)
-		{
-			ft_putchar_fd(c, 1);
-			result = 1;
-		}
+		ft_putchar_fd(c, 1);
+		result = 1;
 	}
 	del(l_flags->width);
 	del(l_flags->width_specification);

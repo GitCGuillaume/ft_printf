@@ -31,17 +31,14 @@ ssize_t	print_u(t_flags *l_flags, va_list ap)
 
 	result = 0;
 	value = 0;
-	if (l_flags->percentage == 0)
+	if (l_flags->asterisk == 1)
+		get_one_star(l_flags, ap);
+	else if (l_flags->asterisk == 2)
+		get_two_stars(l_flags, ap);
+	value = va_arg(ap, int);
+	if ((result = check_min_max_value_all(l_flags)) == 0)
 	{
-		if (l_flags->asterisk == 1)
-			get_one_star(l_flags, ap);
-		else if (l_flags->asterisk == 2)
-			get_two_stars(l_flags, ap);
-		value = va_arg(ap, int);
-		if ((result = check_min_max_value_all(l_flags)) == 0)
-		{
-			result += check_flags_u_one(l_flags, value);
-		}
+		result += check_flags_u_one(l_flags, value);
 	}
 	del(l_flags->width);
 	del(l_flags->width_specification);

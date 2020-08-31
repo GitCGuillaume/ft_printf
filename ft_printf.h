@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/16 18:48:06 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/29 13:18:30 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/31 12:20:25 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ typedef struct	s_flags
 	int	zero;
 	int	point;
 	int	asterisk;
-	int	percentage;
 	char	*width;
 	char	*width_specification;
 	int	space;

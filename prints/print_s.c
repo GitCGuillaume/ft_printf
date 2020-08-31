@@ -111,13 +111,10 @@ ssize_t		print_s(t_flags *l_flags, va_list ap)
 	result = 0;
 	//va_copy(ap2, ap);
 	//va_copy(ap3, ap);
-	if (l_flags->percentage == 0)
+	if ((result = check_flags_one_s(ap, l_flags)) == 0)
 	{
-		if ((result = check_flags_one_s(ap, l_flags)) == 0)
-		{
-			if ((result = check_flags_two_s(l_flags, ap)) == 0)
-				result = check_flags_three_s(l_flags, ap);
-		}
+		if ((result = check_flags_two_s(l_flags, ap)) == 0)
+			result = check_flags_three_s(l_flags, ap);
 	}
 	del(l_flags->width);
 	del(l_flags->width_specification);

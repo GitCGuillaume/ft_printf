@@ -18,6 +18,11 @@ int	is_convertor(char c)
 		return (1);
 	else if (c == 'X')
 		return (1);
+	else if (c == '%')
+	{
+		ft_printf("% c=%c", c);
+		return (1);
+	}
 	return (0);
 }
 
