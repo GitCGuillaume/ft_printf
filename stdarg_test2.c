@@ -6,7 +6,7 @@
 /*   By: gchopin </var/mail/gchopin>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/14 18:22:12 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/31 13:23:48 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/31 19:04:31 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,7 @@ printf("---------12---------\n");
 	printf("\n");
 	//ft_printf("%5%s", "abc");
 	printf("------");
+	printf("\n");
 	printf("%5%%s", "abc");
 	printf("\n");
 	ft_printf("%5%%s", "abc");
@@ -158,5 +159,24 @@ printf("---------12---------\n");
 	printf("\n");
 	ft_printf("%");
 	printf("\n");
+	printf("%0*%", -5);
+	printf("\n");
+	ft_printf("%0*%", -5);
+	printf("\n");
+	printf("ah%*.*%", 10, 5);
+	printf("\n");
+	ft_printf("ah%*.*%", 10, 5);
+	printf("\n");
+	printf("%0*%", 5);
+	printf("\n");
+	ft_printf("%0*%", 5);
+	printf("\n");
+	ft_printf("%0*%", 5);
+	printf("\n");
+	printf("(|%010.u|)", 10);
+	printf("\n");
+	ft_printf("(|%010.u|)", 10);
+	printf("\n");
+	printf("lalala, %d%% des gens qui parlent %C Ly adorent %s. Ou Presque. %d, %u, %X, %c", 100, L'à', "Ly", 2, 10, 10000, '\n', "ôHohoho");
 	return (0);
 }

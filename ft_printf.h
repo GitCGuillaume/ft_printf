@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/16 18:48:06 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/31 12:20:25 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/08/31 17:07:25 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,9 @@ ssize_t	print_x_rl(t_flags *l_flags, char *hexa);
 ssize_t	print_x_zero(t_flags *l_flags, char *hexa);
 ssize_t	print_x_point_star(t_flags *l_flags, char *hexa);
 ssize_t	print_x_minus_point_star(t_flags *l_flags, char *hexa);
+ssize_t	print_pct(t_flags *l_flags, va_list ap);
+ssize_t	print_pct_lr(t_flags *l_flags, unsigned char c);
+ssize_t	print_pct_rl(t_flags *l_flags, unsigned char c);
 void			del(void *lst);
 
 

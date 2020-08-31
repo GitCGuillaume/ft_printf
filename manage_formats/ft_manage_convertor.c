@@ -19,10 +19,7 @@ int	is_convertor(char c)
 	else if (c == 'X')
 		return (1);
 	else if (c == '%')
-	{
-		ft_printf("% c=%c", c);
 		return (1);
-	}
 	return (0);
 }
 
@@ -47,6 +44,8 @@ int	find_convertor(char const *fmt, t_flags *l_flags, va_list ap, size_t *i)
 		result = print_x(l_flags, ap, "0123456789abcdef");
 	else if (fmt[*i] == 'X')
 		result = print_x(l_flags, ap, "0123456789ABCDEF");
+	else if (fmt[*i] == '%')
+		result = print_pct(l_flags, ap);
 	return (result);
 }
 
