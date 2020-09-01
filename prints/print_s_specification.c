@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/01 10:05:11 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/01 19:17:41 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/01 20:06:29 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,7 @@ void	spec_pnt_ast_s(t_flags *l_flags, ssize_t *nb_prt, char *s)
 		w_spec = ft_strlen(s);
 	if (w_spec > 0)
 		width_to_str = ft_strlimit(s, w_spec);
-	printf("w_spec=%li ", w_spec);
-	if (w_spec > 0)
+	if (w_spec > 0 && l_flags->width_specification != NULL)
 	{
 		if (0 > width)
 			(*nb_prt) += astrsk_s_rl(width, width_to_str, ' ');

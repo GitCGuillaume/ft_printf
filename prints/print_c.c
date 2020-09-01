@@ -4,12 +4,19 @@ ssize_t	print_c_zero(t_flags *l_flags, unsigned char c)
 {
 	ssize_t	nb_print;
 	ssize_t	width;
+	char	padding;
 
 	width = ft_atoi(l_flags->width);
 	nb_print = 0;
-	nb_print += print_width_c(width, '0');
+	padding = '0';
+	if (0 > width)
+		padding = ' ';
+	if (width > 0)
+		nb_print += print_width_c(width, padding);
 	ft_putchar_fd(c, 1);
 	nb_print += 1;
+	if (0 > width)
+		nb_print += print_width_c(-width, padding);
 	return (nb_print);
 }
 
@@ -32,12 +39,16 @@ ssize_t	print_c_point_star(t_flags *l_flags, unsigned char c)
 {
 	ssize_t	nb_print;
 	ssize_t	width;
+	char	padding;
 
 	nb_print = 0;
 	width = ft_atoi(l_flags->width);
+	padding = ' ';
 	if (0 > width)
 		return (nb_print += print_c_minus_point_star(l_flags, c));
-	nb_print += print_w_spec(calc(width, 0, 1, 0), nb_print, ' ');
+	if (l_flags->zero == 1)
+		padding = '0';
+	nb_print += print_w_spec(calc(width, 0, 1, 0), nb_print, padding);
 	nb_print += 1;
 	ft_putchar_fd(c, 1);
 	return (nb_print);
@@ -49,7 +60,7 @@ ssize_t	check_flags_one_c(t_flags *l_flags, unsigned char c)
 
 	nb_print = 0;
 	if (l_flags->zero == 1 && l_flags->minus == 0 && l_flags->point == 0)
-		ft_printf("undefined behavior");
+		return (nb_print += print_c_zero(l_flags, c));
 	else if (l_flags->minus == 1 && l_flags->point == 0)
 		return (nb_print += print_c_rl(l_flags, c));
 	else if (l_flags->minus == 0 && l_flags->point == 0)

@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/01 10:04:18 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/01 10:04:19 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/01 20:48:56 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@ ssize_t	print_c_lr(t_flags *l_flags, unsigned char c)
 {
 	ssize_t	nb_print;
 	ssize_t	width;
+	char	padding;
 
 	nb_print = 0;
 	width = ft_atoi(l_flags->width);
+	padding = ' ';
 	if (0 > width)
 		return (nb_print += print_c_rl(l_flags, c));
-	nb_print += print_width_c(width, ' ');
+	nb_print += print_width_c(width, padding);
 	ft_putchar_fd(c, 1);
 	nb_print += 1;
 	return (nb_print);

@@ -4,12 +4,14 @@ ssize_t	print_pct_lr(t_flags *l_flags, unsigned char c)
 {
 	ssize_t	nb_print;
 	ssize_t	width;
+	char	padding;
 
 	nb_print = 0;
 	width = ft_atoi(l_flags->width);
+	padding = ' ';
 	if (0 > width)
 		return (nb_print += print_c_rl(l_flags, c));
-	nb_print += print_width_c(width, ' ');
+	nb_print += print_width_c(width, padding);
 	ft_putchar_fd(c, 1);
 	nb_print += 1;
 	return (nb_print);

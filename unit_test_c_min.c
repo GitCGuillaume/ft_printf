@@ -21,6 +21,109 @@ void	basic_value(void)
 		ft_putstr_fd("ko", 1);
 	printf("\n");
 	printf("---------1---------\n");
+	one = printf("%032ca", 'c');
+	printf("\n");
+	two = ft_printf("%032ca", 'c');
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("ok", 1);
+	else
+		ft_putstr_fd("ko", 1);
+	printf("\n");
+printf("---------1---------\n");
+	one = printf("%0-*ca", 10, 'c');
+	printf("\n");
+	two = ft_printf("%0-*ca", 10, 'c');
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("ok", 1);
+	else
+		ft_putstr_fd("ko", 1);
+	printf("\n");
+printf("---------1---------\n");
+	one = printf("%0-*ca", 0, 'c');
+	printf("\n");
+	two = ft_printf("%0-*ca", 0, 'c');
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("ok", 1);
+	else
+		ft_putstr_fd("ko", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%0-*ca", -10, 'c');
+	printf("\n");
+	two = ft_printf("%0-*ca", -10, 'c');
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("ok", 1);
+	else
+		ft_putstr_fd("ko", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%0*ca", -10, 'c');
+	printf("\n");
+	two = ft_printf("%0*ca", -10,'c');
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("ok", 1);
+	else
+		ft_putstr_fd("ko", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%0*ca", 10, 'c');
+	printf("\n");
+	two = ft_printf("%0*ca", 10,'c');
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("ok", 1);
+	else
+		ft_putstr_fd("ko", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%0*ca", 0, 'c');
+	printf("\n");
+	two = ft_printf("%0*ca", 0,'c');
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("ok", 1);
+	else
+		ft_putstr_fd("ko", 1);
+	printf("\n");
+
+
+printf("---------1---------\n");
+	one = printf("%0*ca", 10, 'c');
+	printf("\n");
+	two = ft_printf("%0*ca", 10, 'c');
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("ok", 1);
+	else
+		ft_putstr_fd("ko", 1);
+	printf("\n");
+printf("---------1---------\n");
+	one = printf("%0*ca", 0, 'c');
+	printf("\n");
+	two = ft_printf("%0*ca", 0, 'c');
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("ok", 1);
+	else
+		ft_putstr_fd("ko", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%0*ca", -10, 'c');
+	printf("\n");
+	two = ft_printf("%0*ca", -10, 'c');
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("ok", 1);
+	else
+		ft_putstr_fd("ko", 1);
+	printf("\n");
+
+	printf("---------1---------\n");
 	one = printf("%32ca", 'c');
 	printf("\n");
 	two = ft_printf("%32ca", 'c');

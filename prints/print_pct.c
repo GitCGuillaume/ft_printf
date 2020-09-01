@@ -4,14 +4,19 @@ ssize_t	print_pct_zero(t_flags *l_flags, unsigned char c)
 {
 	ssize_t	nb_print;
 	ssize_t	width;
+	char	padding;
 
 	width = ft_atoi(l_flags->width);
 	nb_print = 0;
+	padding = '0';
 	if (0 > width)
-		width = -width;
-	nb_print += print_width_c(width, '0');
+		padding = ' ';
+	if (width > 0)
+		nb_print += print_width_c(width, padding);
 	ft_putchar_fd(c, 1);
 	nb_print += 1;
+	if (0 > width)
+		nb_print += print_width_c(-width, padding);
 	return (nb_print);
 }
 #include <stdio.h>
@@ -34,12 +39,16 @@ ssize_t	print_pct_point_star(t_flags *l_flags, unsigned char c)
 {
 	ssize_t	nb_print;
 	ssize_t	width;
+	char	padding;
 
 	nb_print = 0;
 	width = ft_atoi(l_flags->width);
+	padding = ' ';
 	if (0 > width)
 		return (nb_print += print_pct_minus_point_star(l_flags, c));
-	nb_print += print_width_c(width, ' ');
+	if (l_flags->zero == 1)
+		padding = '0';
+	nb_print += print_width_c(width, padding);
 	nb_print += 1;
 	ft_putchar_fd(c, 1);
 	return (nb_print);
