@@ -1,124 +1,107 @@
 #include "../ft_printf.h"
 
-ssize_t		check_flags_spec_s(t_flags *l_flags, va_list ap)
+ssize_t		check_flags_spec_s(t_flags *l_flags, char *value)
 {
 	ssize_t	nb_print;
-	char	*s;
 
 	nb_print = 0;
-	s = NULL;
 	if (l_flags->point == 1)
 	{
 		if (l_flags->asterisk == 0)
 		{
-			s = va_arg(ap, char *);
-			if (s == NULL)
-				s = ft_strdup("(null)");
-			spec_pnt_no_ast_s(l_flags, &nb_print, s);
-			if (ft_strnstr(s, "(null)", 6))
-				free(s);
+			spec_pnt_no_ast_s(l_flags, &nb_print, value);
 			return (nb_print);
 		}
 		else
-			spec_pnt_ast_s(l_flags, ap, &nb_print);
+			spec_pnt_ast_s(l_flags, &nb_print, value);
 	}
 	return (nb_print);
 }
 
-ssize_t		check_flags_one_s(va_list ap, t_flags *l_flags)
+ssize_t		check_flags_one_s(t_flags *l_flags, char *value)
 {
-	//va_list	ap2;
 	ssize_t	width;
 	ssize_t	nb_print;
-	//char	*s;
 
-	//va_copy(ap2, ap);
 	width = ft_atoi(l_flags->width);
 	nb_print = 0;
-	//s = va_arg(ap, char *);
 	if (check_min_max_value_s(l_flags) == -1)
 		return (-1);
 	if (l_flags->zero == 0 && l_flags->minus == 0
 			&& l_flags->point == 0 && l_flags->asterisk == 0)
 	{
-		nb_print += print_basic_value_s(&width, va_arg(ap, char *), ' ');
+		nb_print += print_basic_value_s(&width, value, ' ');
 	}
-	else if (l_flags->minus == 1 && l_flags->zero == 0)
+	else if (l_flags->minus == 1 /*&& l_flags->zero == 0*/)
 	{
 		if (l_flags->asterisk == 0)
-			spec_minus_no_ast_s(l_flags, &nb_print, va_arg(ap, char *));
+			nb_print += spec_minus_no_ast_s(l_flags, value);
 		else if (l_flags->point == 1)
-			spec_minus_ast_s(ap, l_flags, &nb_print);
+			nb_print += spec_minus_ast_s(l_flags, value);
 	}
-	//va_end(ap2);
 	return (nb_print);
 }
 
-ssize_t		check_flags_two_s(t_flags *l_flags, va_list ap)
+ssize_t		check_flags_two_s(t_flags *l_flags, char *value)
 {
-	//va_list	ap2;
 	ssize_t	nb_print;
 
-	//va_copy(ap2, ap);
 	nb_print = 0;
 	if (check_min_max_value_s(l_flags) == -1)
 		return (-1);
 	if (l_flags->asterisk == 1 && l_flags->point == 0 && l_flags->zero == 0)
 	{
-		nb_print += astrsk_s(l_flags, ap);
-		//va_end(ap2);
+		nb_print += astrsk_s(l_flags, value);
 		return (nb_print);
 	}
-	else if (l_flags->minus == 0 && l_flags->point == 1 && l_flags->zero == 0)
+	else if (l_flags->minus == 0 && l_flags->point == 1 /*&& l_flags->zero == 0*/)
 	{
-		nb_print += check_flags_spec_s(l_flags, ap);
-		//va_end(ap2);
+		nb_print += check_flags_spec_s(l_flags, value);
 		return (nb_print);
 	}
-	//va_end(ap2);
 	return (nb_print);
 }
 
-ssize_t		check_flags_three_s(t_flags *l_flags, va_list ap)
+ssize_t		check_flags_three_s(t_flags *l_flags, char *value)
 {
 	ssize_t	nb_print;
-	/*ssize_t	width;
-	char	*s;
 
-	s = va_arg(ap, char *);
-	*/
 	nb_print = 0;
-	//width = ft_atoi(l_flags->width);
 	if (check_min_max_value_s(l_flags) == -1)
 		return (-1);
-	if (l_flags->zero == 1 /*&& l_flags->point == 0 && l_flags->asterisk == 0*/)
+	if (l_flags->zero == 1 && l_flags->point == 0 && l_flags->point == 0)
 	{
-		(void)ap;
-		ft_printf("undefined behavior");
-		//nb_print += print_basic_value_s(&width, s, '0');
-		//nb_print += print_s_zero(ap, l_flags);
+		nb_print += print_s_zero(l_flags, value);
 		return (nb_print);
 	}
 	return (nb_print);
 }
-
+#include <stdio.h>
 ssize_t		print_s(t_flags *l_flags, va_list ap)
 {
-	//va_list	ap2;
-	//va_list	ap3;
 	ssize_t	result;
+	char	*value;
 
 	result = 0;
-	//va_copy(ap2, ap);
-	//va_copy(ap3, ap);
-	if ((result = check_flags_one_s(ap, l_flags)) == 0)
+	if (l_flags->asterisk == 1)
+		get_one_star(l_flags, ap);
+	else if (l_flags->asterisk == 2)
+		get_two_stars(l_flags, ap);
+	value = va_arg(ap, char *);
+	if (value == NULL)
+		if (!(value = ft_strdup("(null)")))
+			result = -1;
+	if (result != -1)
 	{
-		if ((result = check_flags_two_s(l_flags, ap)) == 0)
-			result = check_flags_three_s(l_flags, ap);
+		if ((result = check_flags_three_s(l_flags, value)) == 0)
+		{
+			if ((result = check_flags_one_s(l_flags, value)) == 0)
+				result = check_flags_two_s(l_flags, value);
+		}
 	}
+	if (ft_strnstr(value, "(null)", 6))
+		free(value);
 	del(l_flags->width);
 	del(l_flags->width_specification);
-	//va_end(ap2);
-	//va_end(ap3);
 	return (result);
 }

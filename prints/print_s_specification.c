@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_s_specification.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/09/01 10:05:11 by gchopin           #+#    #+#             */
+/*   Updated: 2020/09/01 19:17:41 by gchopin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
-void	spec_pnt_no_ast_s(t_flags *l_flags, ssize_t *nb_prt, char *s)
+void	spec_pnt_no_ast_s(t_flags *l_flags, ssize_t *nb_prt, char *value)
 {
 	ssize_t	width;
 	ssize_t	w_spec;
@@ -8,10 +20,13 @@ void	spec_pnt_no_ast_s(t_flags *l_flags, ssize_t *nb_prt, char *s)
 
 	width = ft_atoi(l_flags->width);
 	w_spec = ft_atoi(l_flags->width_specification);
-	width_to_str = ft_strlimit(s, w_spec);
-	(*nb_prt) += print_w_spec(width, ft_strlen(width_to_str), ' ');
+	width_to_str = ft_strlimit(value, w_spec);
+	if (l_flags->zero == 0)
+		(*nb_prt) += print_w_spec(width, ft_strlen(width_to_str), ' ');
+	else
+		(*nb_prt) += print_w_spec(width, ft_strlen(width_to_str), '0');
 	if (w_spec > 0)
-		ft_putstr_limit_fd(s, w_spec, nb_prt, 1);
+		ft_putstr_limit_fd(value, w_spec, nb_prt, 1);
 	free(width_to_str);
 }
 
@@ -40,133 +55,83 @@ void	browse_two_stars_s(va_list ap, t_flags *l_flags,
 		va_arg(ap, int);
 }
 #include <stdio.h>
-void	spec_pnt_ast_s(t_flags *l_flags, va_list ap, ssize_t *nb_prt)
+void	spec_pnt_ast_s(t_flags *l_flags, ssize_t *nb_prt, char *s)
 {
 	ssize_t	width;
 	ssize_t	w_spec;
-	char	*s;
 	char	*width_to_str;
+	char	padding;
 
-	browse_two_stars_s(ap, l_flags, &width, &w_spec);
-	s = va_arg(ap, char *);
+	width = ft_atoi(l_flags->width);
+	w_spec = ft_atoi(l_flags->width_specification);
 	width_to_str = 0;
-	if (s == NULL)
-		s = ft_strdup("(null)");
+	padding = ' ';
+	if (l_flags->zero == 1 && width > 0)
+		padding = '0';
 	if (0 > w_spec)
 		w_spec = ft_strlen(s);
 	if (l_flags->asterisk == 1 && w_spec == 0 && l_flags->width_specification == NULL)
 		w_spec = ft_strlen(s);
 	if (w_spec > 0)
 		width_to_str = ft_strlimit(s, w_spec);
-	if (l_flags->width_specification != NULL)
+	printf("w_spec=%li ", w_spec);
+	if (w_spec > 0)
 	{
 		if (0 > width)
-		{
-			(*nb_prt) += astrsk_s_rl(width, width_to_str);
-		}
+			(*nb_prt) += astrsk_s_rl(width, width_to_str, ' ');
 		else
-			(*nb_prt) += astrsk_s_lr(width, width_to_str);
+			(*nb_prt) += astrsk_s_lr(width, width_to_str, padding);
 	}
 	else
 	{
 		if (0 > width)
 			width = -width;
-		(*nb_prt) += print_width_s(width, 0, ' ');
+		(*nb_prt) += print_width_s(width, 0, padding);
 	}
-	//if (l_flags->asterisk == 1 && w_spec == 0 && l_flags->width_specification == NULL)
-	//	w_spec = ft_strlen(s);
-	//(*nb_prt) += print_w_spec(width, );
-	/*if (0 > w_spec && width != 0)
-	{
-		w_spec = 0;
-		strlen = ft_strlen(s);
-	}
-	if (s == NULL)
-		s = ft_strdup("(null)");
-	//if (w_spec >= 0)
-	//{
-		if (0 > width && strlen > 0)
-		{
-			ft_putstr_limit_fd(s, w_spec, nb_prt, 1);
-			(*nb_prt) += print_w_spec(-width, strlen, ' ');
-		}
-		else
-		{
-			if (0 > width)
-				(*nb_prt) += print_w_spec(-width, strlen, ' ');
-			else
-				(*nb_prt) += print_w_spec(width, strlen, ' ');
-		}
-		if (width > 0 && strlen > 0)
-			ft_putstr_limit_fd(s, w_spec, nb_prt, 1);
-	//}
-	if (width == 0 && w_spec != 0)
-			ft_putstr_limit_fd(s, w_spec, nb_prt, 1);
-	*//*if (w_spec == 0)
-	{
-		if (0 > width)
-			width = -width;
-		(*nb_prt) += print_w_spec(width, strlen, ' ');
-	}*/
-	/*if (width == 0 && w_spec)
-	{
-		(*nb_prt) += print_w_spec(width, strlen, ' ');
-		ft_putstr_limit_fd(s, w_spec, nb_prt, 1);
-	}*/
-	//if (width > 0)
-	//	ft_putstr_limit_fd(s, w_spec, nb_prt, 1);
-	if (ft_strnstr(s, "(null)", 6))
-		free(s);
 	free(width_to_str);
 }
 
-void	spec_minus_ast_s(va_list ap, t_flags *l_flags, ssize_t *nb_print)
+ssize_t	spec_minus_ast_s(t_flags *l_flags, char *value)
 {
 	ssize_t	width;
 	ssize_t	w_spec;
-	char	*s;
+	ssize_t	nb_print;
 
-	browse_two_stars_s(ap, l_flags, &width, &w_spec);
-	s = va_arg(ap, char *);
+	nb_print = 0;
+	width = ft_atoi(l_flags->width);
+	w_spec = ft_atoi(l_flags->width_specification);
 	if (width < -2147483646 || width > 2147483646)
-		return ;
+		return (-1);
 	if (0 > width)
 		width = -width;
-	if (s == NULL)
-		s = ft_strdup("(null)");
 	if (0 > w_spec)
-		w_spec = ft_strlen(s);
+		w_spec = ft_strlen(value);
 	if (l_flags->asterisk == 1 && w_spec == 0 && l_flags->width_specification == NULL)
-		w_spec = ft_strlen(s);
+		w_spec = ft_strlen(value);
 	if (w_spec > 0 && l_flags->width_specification != NULL)
-		ft_putstr_limit_fd(s, w_spec, nb_print, 1);
-	if (ft_strnstr(s, "(null)", 6))
-		free(s);
-	(*nb_print) += print_w_spec(width, *nb_print, ' ');
+		ft_putstr_limit_fd(value, w_spec, &nb_print, 1);
+	nb_print += print_w_spec(width, nb_print, ' ');
+	return (nb_print);
 }
 
-void	spec_minus_no_ast_s(t_flags *l_flags, ssize_t *nb_print, char *s)
+ssize_t	spec_minus_no_ast_s(t_flags *l_flags, char *value)
 {
 	ssize_t	width;
+	ssize_t	nb_print;
 	size_t	w_spec;
 
 	width = ft_atoi(l_flags->width);
 	w_spec = ft_atoi(l_flags->width_specification);
+	nb_print = 0;
 	if (0 > width)
 		width = -width;
-	if (s == NULL)
-		s = ft_strdup("(null)");
 	if (l_flags->point == 0)
-	{
-		ft_putstr_pr_fd(s, nb_print, 1);
-		(*nb_print) += print_width_s(width, s, ' ');
-	}
+		nb_print += astrsk_s_rl(width, value, ' ');
 	else
 	{
 		if (w_spec > 0)
-			ft_putstr_limit_fd(s, w_spec, nb_print, 1);
-		(*nb_print) += print_w_spec(width, *nb_print, ' ');
+			ft_putstr_limit_fd(value, w_spec, &nb_print, 1);
+		nb_print += print_w_spec(width, nb_print, ' ');
 	}
-	if (ft_strnstr(s, "(null)", 6))
-		free(s);
+	return (nb_print);
 }

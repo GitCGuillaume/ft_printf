@@ -1737,10 +1737,21 @@ printf("---------2---------\n");
 	two = ft_printf("%0*.ca", 20, 'a');
 	printf("\n");
 	if (one == two)
-		ft_putstr_fd("OK", 1);
+		ft_putstr_fd("ok", 1);
 	else
-		ft_putstr_fd("KO", 1);
+		ft_putstr_fd("ko", 1);
 	printf("\n");
+	printf("---------1-5---------\n");
+	one = printf("%0*.30ca", 20, 'a');
+	printf("\n");
+	two = ft_printf("%0*.30ca", 20, 'a');
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("ok", 1);
+	else
+		ft_putstr_fd("ko", 1);
+	printf("\n");
+	
 	printf("---------1-5---------\n");
 	one = printf("%0*.ca", 0, 'a');
 	printf("\n");

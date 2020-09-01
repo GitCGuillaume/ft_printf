@@ -6,7 +6,7 @@
 /*   By: gchopin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 09:03:12 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/28 12:27:46 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/01 10:03:43 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ char	*ft_putnbr_base(void *nbr, char *base)
 	ssize_t	convert_nbr;
 	char	*ptr;
 
-	//i = ft_check_error(base);
 	size = 0;
 	i = 0;
 	convert_nbr = (ssize_t)nbr;
@@ -83,11 +82,8 @@ char	*ft_putnbr_base(void *nbr, char *base)
 		return (NULL);
 	if (nbr)
 	{
-		//if (i > 1)
 		i = ft_memstr(convert_nbr, ptr, base);
 		ft_rev_char_tab(ptr, i);
-		//else
-		//	ptr[0] = '0';
 	}
 	ptr[i] = '\0';
 	return (ptr);

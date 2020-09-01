@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_c_tool.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/09/01 10:04:18 by gchopin           #+#    #+#             */
+/*   Updated: 2020/09/01 10:04:19 by gchopin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
 ssize_t	print_c_lr(t_flags *l_flags, unsigned char c)
@@ -45,7 +57,5 @@ int		check_min_max_value_c(t_flags *l_flags)
 	}
 	if (width < -2147483646 || width > 2147483646)
 		return (-1);
-	//else if (w_spec < -2147483648 || w_spec > 2147483646)
-	//	return ();
 	return (0);
 }

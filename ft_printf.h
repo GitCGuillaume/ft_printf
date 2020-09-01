@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/16 18:48:06 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/31 17:07:25 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/01 16:13:31 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,21 +58,21 @@ ssize_t				print_s(t_flags *l_flags, va_list ap);
 int	check_min_max_value_s(t_flags *l_flags);
 void	browse_two_stars_s(va_list ap, t_flags *l_flags,
 		ssize_t *width, ssize_t *w_spec);
-ssize_t	print_s_zero(va_list ap, t_flags *l_flags);
+ssize_t	print_s_zero(t_flags *l_flags, char *value);
 char				*ft_strlimit(char *s, ssize_t width);
 void				ft_putstr_limit_fd(char *s, size_t limit, ssize_t *nb_print, int fd);
-ssize_t	astrsk_s_rl(int d, char *s);
-ssize_t	astrsk_s_lr(int d, char *s);
+ssize_t	astrsk_s_rl(int d, char *s, char padding);
+ssize_t	astrsk_s_lr(int d, char *s, char padding);
 ssize_t				print_basic_value_s(ssize_t *width, char *s, char c);
 ssize_t				calc_s(ssize_t width, ssize_t width_specification, ssize_t lensize);
 void				ft_putstr_limit_fd(char *s, size_t limit, ssize_t *nb_print, int fd);
 ssize_t				print_width_s(ssize_t width, char *s, char c);
 char				*ft_strlimit(char *s, ssize_t width);
-void				spec_minus_no_ast_s(t_flags *l_flags, ssize_t *nb_print, char *s);
-void				spec_minus_ast_s(va_list ap, t_flags *l_flags, ssize_t *nb_print);
-ssize_t				astrsk_s(t_flags *l_flags, va_list ap);
+ssize_t				spec_minus_no_ast_s(t_flags *l_flags, char *s);
+ssize_t	spec_minus_ast_s(t_flags *l_flags, char *value);
+ssize_t				astrsk_s(t_flags *l_flags, char *value);
 void				spec_pnt_no_ast_s(t_flags *l_flags, ssize_t *nb_prt, char *s);
-void				spec_pnt_ast_s(t_flags *l_flags, va_list ap, ssize_t *nb_prt);
+void				spec_pnt_ast_s(t_flags *l_flags, ssize_t *nb_prt, char *value);
 ssize_t	print_p(t_flags *l_flags, va_list ap);
 int	get_one_star(t_flags *l_flags, va_list ap);
 int	get_two_stars(t_flags *l_flags, va_list ap);

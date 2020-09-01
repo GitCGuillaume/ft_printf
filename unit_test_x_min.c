@@ -2546,17 +2546,18 @@ void	wisth_min_max_special(void)
 
 int	main(void)
 {
-	/*printf("BASIC INPUTS\n\n");
+	printf("BASIC INPUTS\n\n");
 	basic_value();
 	printf("STAR POINT STAR\n\n");
 	star_point_star();
 	printf("MINUS STAR POINT STAR\n\n");
 	minus_star_point_star();
-	*/minus_star_point_star_min();
+	
+	/*minus_star_point_star_min();
 	printf("WIsTH MIN MAX\n\n");
 	wisth_min_max();
 	printf("WIsTH MIN MAX SPECIAL\n\n");
 	wisth_min_max_special();
-	
+	*/
 	return (0);
 }

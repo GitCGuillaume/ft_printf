@@ -47,32 +47,28 @@ int		check_min_max_value_s(t_flags *l_flags)
 	return (0);
 }
 #include <stdio.h>
-ssize_t	print_s_zero(va_list ap, t_flags *l_flags)
+ssize_t	print_s_zero(t_flags *l_flags, char *value)
 {
 	ssize_t	nb_print;
 	ssize_t	width;
 	ssize_t	w_spec;
-	char	*value;
+	char	padding;
 
 	nb_print = 0;
-	if (l_flags->asterisk == 1)
-		get_one_star(l_flags, ap);
-	else if (l_flags->asterisk == 2)
-		get_two_stars(l_flags, ap);
 	width = ft_atoi(l_flags->width);
 	w_spec = ft_atoi(l_flags->width_specification);
-	value = va_arg(ap, char *);
-	nb_print += print_width_s(width, value, '0');
-	if (value == NULL)
-		value = ft_strdup("(null)");
-	if (w_spec > 0 || l_flags->point == 0)
-		ft_putstr_limit_fd(value, w_spec, &nb_print, 1);
-	if (ft_strnstr(value, "(null)", 6))
-		free(value);
+	padding = '0';
 	if (0 > width)
+		padding = ' ';
+	if (l_flags->minus == 0 && width > 0)
+		nb_print += astrsk_s_lr(width, value, padding);
+	else if (l_flags->minus == 0)
+		nb_print += astrsk_s_rl(width, value, padding);
+	else if (l_flags->minus == 1)
 	{
-		width = -width;
-		nb_print += print_width_s(width, value, ' ');
+		if (0 > width)
+			width = -width;
+		nb_print += astrsk_s_rl(width, value, ' ');
 	}
 	return (nb_print);
 }

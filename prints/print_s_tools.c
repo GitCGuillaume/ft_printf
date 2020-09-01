@@ -27,16 +27,12 @@ ssize_t	print_basic_value_s(ssize_t *width, char *s, char c)
 	ssize_t	nb_print;
 
 	nb_print = 0;
-	if (s == NULL)
-		s = ft_strdup("(null)");
 	nb_print += print_width_s(*width, s, c);
 	ft_putstr_pr_fd(s, &nb_print, 1);
-	if (ft_strnstr(s, "(null)", 6))
-		free(s);
 	return (nb_print);
 }
 
-ssize_t	astrsk_s_rl(int d, char *s)
+ssize_t	astrsk_s_rl(int d, char *s, char padding)
 {
 	ssize_t	nb_print;
 
@@ -44,43 +40,41 @@ ssize_t	astrsk_s_rl(int d, char *s)
 	if (0 > d)
 		d = -d;
 	ft_putstr_limit_fd(s, 0, &nb_print, 1);
-	nb_print += print_width_s(d, s, ' ');
+	nb_print += print_width_s(d, s, padding);
 	return (nb_print);
 }
 
-ssize_t	astrsk_s_lr(int d, char *s)
+ssize_t	astrsk_s_lr(int d, char *s, char padding)
 {
 	ssize_t	nb_print;
 
 	nb_print = 0;
-	nb_print += print_width_s(d, s, ' ');
+	nb_print += print_width_s(d, s, padding);
 	ft_putstr_limit_fd(s, 0, &nb_print, 1);
 	return (nb_print);
 }
 
-ssize_t	astrsk_s(t_flags *l_flags, va_list ap)
+ssize_t	astrsk_s(t_flags *l_flags, char *value)
 {
 	ssize_t	nb_print;
-	int		d;
-	char	*s;
+	int		width;
+	char	padding;
 
 	nb_print = 0;
-	d = va_arg(ap, int);
-	s = va_arg(ap, char *);
-	if (s == NULL)
-		s = ft_strdup("(null)");
-	if (d < -2147483646 || d > 2147483646)
+	width = ft_atoi(l_flags->width);
+	padding = ' ';
+	if (width < -2147483646 || width > 2147483646)
 		return (-1);
+	if (l_flags->zero == 1)
+		padding = '0';
 	if (l_flags->minus == 0)
 	{
-		if (d >= 0)
-			nb_print += astrsk_s_lr(d, s);
+		if (width >= 0)
+			nb_print += astrsk_s_lr(width, value, padding);
 		else
-			nb_print += astrsk_s_rl(d, s);
+			nb_print += astrsk_s_rl(width, value, padding);
 	}
 	else
-		nb_print += astrsk_s_rl(d, s);
-	if (ft_strnstr(s, "(null)", 6))
-		free(s);
+		nb_print += astrsk_s_rl(width, value, padding);
 	return (nb_print);
 }
