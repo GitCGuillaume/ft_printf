@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_manage_convertor.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/09/01 09:58:14 by gchopin           #+#    #+#             */
+/*   Updated: 2020/09/01 09:58:18 by gchopin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
 int	is_convertor(char c)
@@ -48,4 +60,3 @@ int	find_convertor(char const *fmt, t_flags *l_flags, va_list ap, size_t *i)
 		result = print_pct(l_flags, ap);
 	return (result);
 }
-
