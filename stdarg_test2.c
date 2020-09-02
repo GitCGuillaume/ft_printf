@@ -6,7 +6,7 @@
 /*   By: gchopin </var/mail/gchopin>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/14 18:22:12 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/31 19:04:31 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/02 18:06:20 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,5 +178,45 @@ printf("---------12---------\n");
 	ft_printf("(|%010.u|)", 10);
 	printf("\n");
 	printf("lalala, %d%% des gens qui parlent %C Ly adorent %s. Ou Presque. %d, %u, %X, %c", 100, L'à', "Ly", 2, 10, 10000, '\n', "ôHohoho");
+	printf("\n");
+	printf("%0*da", -4, -12);
+	printf("\n");
+	ft_printf("%0*da", -4, -12);
+	printf("\n");
+	printf("%0*da", 4, -12);
+	printf("\n");
+	ft_printf("%0*da", 4, -12);
+	printf("\n");
+	printf("%0*da", -4, 12);
+	printf("\n");
+	ft_printf("%0*da", -4, 12);
+	printf("\n");
+	printf("%0*da", 4, 12);
+	printf("\n");
+	ft_printf("%0*da", 4, 12);
+	printf("\n");
+	printf("%0*da", -1, -12);
+	printf("\n");
+	ft_printf("%0*da", -1, -12);
+	printf("\n");
+	printf("%0*da", 1, -12);
+	printf("\n");
+	ft_printf("%0*da", 1, -12);
+	printf("\n");
+	printf("%0*da", -1, 12);
+	printf("\n");
+	ft_printf("%0*da", -1, 12);
+	printf("\n");
+	printf("%0*da", 1, 12);
+	printf("\n");
+	ft_printf("%0*da", 1, 12);
+	printf("\n");
+
+
+	ft_printf("%0*da", 0, 12);
+	printf("\n");
+	ft_printf("%0*da", 0, -12);
+	printf("\n");
+	printf("\n");
 	return (0);
 }

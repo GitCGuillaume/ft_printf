@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 10:57:58 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/02 10:58:25 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/02 17:25:16 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ char	*ft_putnbr_base_x(unsigned int nbr, char *base)
 	size = 0;
 	i = 0;
 	convert_nbr = nbr;
+	ft_size_memory_x(convert_nbr, &size);
 	if (!(ptr = malloc(size + 1)))
 		return (NULL);
 	if (nbr)

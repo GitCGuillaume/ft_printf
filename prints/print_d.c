@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 10:58:38 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/02 11:02:15 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/02 18:47:38 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,30 @@
 ssize_t		print_zero_d(ssize_t *width, int value)
 {
 	ssize_t	nb_print;
+	ssize_t	width_copy;
+	int		value_copy;
 
 	nb_print = 0;
+	width_copy = *width;
+	value_copy = value;
 	if (0 > value)
-	{
-		nb_print++;
-		ft_putchar_fd('-', 1);
 		value = -value;
-		if (*width > 0)
-			(*width)--;
-		if (*width < 0)
-			(*width)++;
+	if (0 > width_copy)
+		width_copy = -width_copy;
+	if (value == 0)
+		width_copy--;
+	if (0 > value_copy)
+	{
+		width_copy--;
+		negative_d(&nb_print, &value_copy);
 	}
-	if (value == 0 && *width != 0)
-		(*width)--;
 	if (*width > 0)
-		nb_print += print_width_d(*width, value, '0');
+	{
+		nb_print += print_width_d(width_copy, value_copy, '0');
+	}
 	ft_putnbr_fd(value, &nb_print, 1);
 	if (0 > *width)
-	{
-		*width = -(*width);
-		nb_print += print_width_d(*width, value, ' ');
-	}
+		nb_print += print_width_d(width_copy, value_copy, ' ');
 	return (nb_print);
 }
 
