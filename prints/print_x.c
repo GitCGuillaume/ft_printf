@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 11:05:20 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/02 11:06:42 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/02 14:25:13 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,6 @@ ssize_t	print_hexa_x(va_list ap, t_flags *l_flags, char *base)
 	nb_print = 0;
 	if (!(hexa = ft_putnbr_base_x(value, base)))
 	{
-		del(l_flags->width);
-		del(l_flags->width_specification);
 		return (-1);
 	}
 	if (hexa[0] == '\0')

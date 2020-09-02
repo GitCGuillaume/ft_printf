@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/01 10:05:11 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/02 11:40:57 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/02 14:01:17 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,16 @@ void	spec_pnt_no_ast_s(t_flags *l_flags, ssize_t *nb_prt, char *value)
 	free(width_to_str);
 }
 
-void	spec_pnt_ast_s(t_flags *l_flags, ssize_t *nb_prt, char *s)
+ssize_t	spec_pnt_ast_s(t_flags *l_flags, ssize_t *nb_prt, char *s)
 {
 	ssize_t	width;
 	ssize_t	w_spec;
+	char	*strlimit;
 	char	padding;
 
 	width = ft_atoi(l_flags->width);
 	w_spec = ft_atoi(l_flags->width_specification);
+	strlimit = 0;
 	padding = ' ';
 	if (l_flags->zero == 1 && width > 0)
 		padding = '0';
@@ -47,14 +49,14 @@ void	spec_pnt_ast_s(t_flags *l_flags, ssize_t *nb_prt, char *s)
 			&& l_flags->width_specification == NULL)
 		w_spec = ft_strlen(s);
 	if (0 > width)
-	{
-		(*nb_prt) += spec_minus_ast_s(l_flags, s);
-		return ;
-	}
+		return ((*nb_prt) += spec_minus_ast_s(l_flags, s));
+	strlimit = ft_strlimit(s, w_spec);
 	if (w_spec > 0 && l_flags->width_specification != NULL)
-		(*nb_prt) += astrsk_s_lr(width, ft_strlimit(s, w_spec), padding);
+		(*nb_prt) += astrsk_s_lr(width, strlimit, padding);
 	else
 		(*nb_prt) += print_width_s(width, 0, padding);
+	free(strlimit);
+	return (*nb_prt);
 }
 
 ssize_t	spec_minus_ast_s(t_flags *l_flags, char *value)

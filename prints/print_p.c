@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 11:03:28 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/02 11:03:36 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/02 14:25:04 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,6 @@ ssize_t	print_hexa(va_list ap, t_flags *l_flags)
 	nb_print = 0;
 	if (!(hexa = ft_putnbr_base(addr, "0123456789abcdef")))
 	{
-		del(l_flags->width);
-		del(l_flags->width_specification);
 		return (-1);
 	}
 	if (hexa[0] == '\0')

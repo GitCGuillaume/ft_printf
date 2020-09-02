@@ -2174,5 +2174,6 @@ int	main(void)
 	width_min_max();
 	printf("WIDTH MIN MAX SPECIAL\n\n");
 	width_min_max_special();
+	getchar();
 	return (0);
 }
