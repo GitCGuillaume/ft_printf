@@ -1,43 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_base_x.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/09/02 10:57:58 by gchopin           #+#    #+#             */
+/*   Updated: 2020/09/02 10:58:25 by gchopin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
-/*
-int		check_value_x(char c)
-{
-	if (c == '+' || c == '-')
-	{
-		return (1);
-	}
-	else
-	{
-		return (0);
-	}
-}
-
-int		ft_check_error_x(char *base)
-{
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	while (base[i] != '\0')
-	{
-		j = i + 1;
-		if (base[0] == '\0' || base[1] == '\0' || check_value_x(base[i]) == 1)
-		{
-			return (0);
-		}
-		while (base[j] != '\0')
-		{
-			if (base[i] == base[j])
-			{
-				return (0);
-			}
-			j++;
-		}
-		i++;
-	}
-	return (i);
-}
-*/
 
 void	ft_size_memory_x(unsigned int nbr, ssize_t *size)
 {
@@ -67,10 +40,10 @@ size_t	ft_memstr_x(unsigned int nbr, char *ptr, char *base)
 
 char	*ft_putnbr_base_x(unsigned int nbr, char *base)
 {
-	size_t	i;
-	ssize_t	size;
+	size_t			i;
+	ssize_t			size;
 	unsigned int	convert_nbr;
-	char	*ptr;
+	char			*ptr;
 
 	size = 0;
 	i = 0;

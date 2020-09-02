@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_x.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/09/02 11:05:20 by gchopin           #+#    #+#             */
+/*   Updated: 2020/09/02 11:06:42 by gchopin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
 ssize_t	check_flags_one_x(t_flags *l_flags, char *hexa)
@@ -15,27 +27,24 @@ ssize_t	check_flags_one_x(t_flags *l_flags, char *hexa)
 		return (print_x_point_star(l_flags, hexa));
 	if (l_flags->point == 1 && l_flags->minus == 1)
 		return (print_x_minus_point_star(l_flags, hexa));
-	
 	return (nb_print);
 }
-#include <stdio.h>
+
 ssize_t	print_hexa_x(va_list ap, t_flags *l_flags, char *base)
 {
-	ssize_t	nb_print;
+	ssize_t			nb_print;
 	unsigned int	value;
-	char	*hexa;
+	char			*hexa;
 
 	hexa = 0;
 	value = va_arg(ap, unsigned int);
 	nb_print = 0;
-	//printf("value=%u\n", value);
 	if (!(hexa = ft_putnbr_base_x(value, base)))
 	{
 		del(l_flags->width);
 		del(l_flags->width_specification);
 		return (-1);
 	}
-	//printf("hexa=%s\n", hexa);
 	if (hexa[0] == '\0')
 	{
 		free(hexa);
@@ -48,13 +57,13 @@ ssize_t	print_hexa_x(va_list ap, t_flags *l_flags, char *base)
 	return (nb_print);
 }
 
-ssize_t     print_x(t_flags *l_flags, va_list ap, char *base)
+ssize_t	print_x(t_flags *l_flags, va_list ap, char *base)
 {
-    ssize_t result;
-    ssize_t minus;
+	ssize_t	result;
+	ssize_t	minus;
 
-    result = 0;
-    minus = -1;
+	result = 0;
+	minus = -1;
 	if (l_flags->asterisk == 1)
 		get_one_star(l_flags, ap);
 	else if (l_flags->asterisk == 2)
@@ -63,7 +72,7 @@ ssize_t     print_x(t_flags *l_flags, va_list ap, char *base)
 	{
 		result = print_hexa_x(ap, l_flags, base);
 	}
-    del(l_flags->width);
+	del(l_flags->width);
 	del(l_flags->width_specification);
 	return (result);
 }

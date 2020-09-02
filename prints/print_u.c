@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_u.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/09/02 10:55:56 by gchopin           #+#    #+#             */
+/*   Updated: 2020/09/02 10:56:18 by gchopin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
 ssize_t	check_flags_u_one(t_flags *l_flags, unsigned int value)
@@ -15,18 +27,12 @@ ssize_t	check_flags_u_one(t_flags *l_flags, unsigned int value)
 		return (nb_print += print_u_stars(l_flags, value));
 	if (l_flags->minus == 1 && l_flags->point == 1)
 		return (nb_print += print_u_stars_minus(l_flags, value));
-	/*
-	if (l_flags->point == 1 && l_flags->minus == 0)
-		return (print_p_point_star(l_flags, addr));
-	if (l_flags->point == 1 && l_flags->minus == 1)
-		return (print_p_minus_point_star(l_flags, addr));
-	*/
 	return (nb_print);
 }
 
 ssize_t	print_u(t_flags *l_flags, va_list ap)
 {
-	ssize_t	result;
+	ssize_t			result;
 	unsigned int	value;
 
 	result = 0;

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_s_tools_two.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/09/02 10:54:49 by gchopin           #+#    #+#             */
+/*   Updated: 2020/09/02 10:54:56 by gchopin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
 void	ft_putstr_limit_fd(char *s, size_t limit, ssize_t *nb_print, int fd)
@@ -46,7 +58,7 @@ int		check_min_max_value_s(t_flags *l_flags)
 		return (-1);
 	return (0);
 }
-#include <stdio.h>
+
 ssize_t	print_s_zero(t_flags *l_flags, char *value)
 {
 	ssize_t	nb_print;

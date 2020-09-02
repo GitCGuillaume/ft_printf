@@ -1,5 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_u_tool.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/09/02 11:15:25 by gchopin           #+#    #+#             */
+/*   Updated: 2020/09/02 11:23:55 by gchopin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
-#include <stdio.h>
+
 ssize_t	print_u_zero(t_flags *l_flags, unsigned int value)
 {
 	ssize_t	nb_print;
@@ -31,8 +43,6 @@ ssize_t	print_u_rl(t_flags *l_flags, unsigned int value)
 	width = ft_atoi(l_flags->width);
 	if (0 > width)
 		width = -width;
-	/*if (value == 0)
-		width--;*/
 	ft_putnbr_fd(value, &nb_print, 1);
 	nb_print += print_w_spec(width, nb_print, ' ');
 	return (nb_print);
@@ -53,7 +63,7 @@ ssize_t	print_u_lr(t_flags *l_flags, unsigned int value)
 	ft_putnbr_fd(value, &nb_print, 1);
 	return (nb_print);
 }
-#include <stdio.h>
+
 ssize_t	print_u_stars(t_flags *l_flags, unsigned int value)
 {
 	ssize_t	nb_print;
@@ -65,12 +75,12 @@ ssize_t	print_u_stars(t_flags *l_flags, unsigned int value)
 	w_spec = ft_atoi(l_flags->width_specification);
 	if (0 > width)
 		return (nb_print += print_u_stars_minus(l_flags, value));
-	handle_sizes(&width, &w_spec);
-	if (value == 0 &&  w_spec <= -1)
+	handle_sizes(&width);
+	if (value == 0 && w_spec <= -1)
 		return (nb_print += print_w_spec(1, 0, '0'));
 	if (width > w_spec)
-		nb_print += print_w_spec(calc_u(width, w_spec, ft_lensize(value), value),
-				nb_print, ' ');
+		nb_print += print_w_spec(calc_u(width, w_spec,
+			ft_lensize(value), value), nb_print, ' ');
 	nb_print += print_w_spec(w_spec - ft_lensize(value), 0, '0');
 	if (value != 0)
 		ft_putnbr_fd(value, &nb_print, 1);
@@ -86,7 +96,7 @@ ssize_t	print_u_stars_minus(t_flags *l_flags, unsigned int value)
 	nb_print = 0;
 	width = ft_atoi(l_flags->width);
 	w_spec = ft_atoi(l_flags->width_specification);
-	handle_sizes(&width, &w_spec);
+	handle_sizes(&width);
 	if (value == 0 && w_spec <= -1)
 		w_spec = 1;
 	if (w_spec > 0)

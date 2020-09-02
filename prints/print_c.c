@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_c.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/09/02 11:25:06 by gchopin           #+#    #+#             */
+/*   Updated: 2020/09/02 11:25:35 by gchopin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
 ssize_t	print_c_zero(t_flags *l_flags, unsigned char c)
@@ -74,8 +86,8 @@ ssize_t	check_flags_one_c(t_flags *l_flags, unsigned char c)
 
 ssize_t	print_c(t_flags *l_flags, va_list ap)
 {
-	ssize_t	result;
-	ssize_t	negative;
+	ssize_t			result;
+	ssize_t			negative;
 	unsigned char	c;
 
 	result = 0;

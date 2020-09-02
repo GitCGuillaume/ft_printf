@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_p.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/09/02 11:03:28 by gchopin           #+#    #+#             */
+/*   Updated: 2020/09/02 11:03:36 by gchopin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
 ssize_t	check_flags_one_p(t_flags *l_flags, char *addr)
@@ -27,9 +39,6 @@ ssize_t	print_hexa(va_list ap, t_flags *l_flags)
 	hexa = 0;
 	addr = va_arg(ap, void *);
 	nb_print = 0;
-	/*if (addr == NULL)
-		return (print_empty(l_flags));
-	else */
 	if (!(hexa = ft_putnbr_base(addr, "0123456789abcdef")))
 	{
 		del(l_flags->width);

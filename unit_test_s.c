@@ -320,10 +320,10 @@ printf("---------1---------\n");
 	printf("\n");
 	printf("---------1-5---------\n");
 	one = printf("%*.sa", -1, "-5");
-	printf("\n");0
+	printf("\n");
 	two = ft_printf("%*.sa", -1, "-5");
 	printf("\n");
-	if (one == two11)
+	if (one == two)
 		ft_putstr_fd("OK", 1);
 	else
 		ft_putstr_fd("KO", 1);

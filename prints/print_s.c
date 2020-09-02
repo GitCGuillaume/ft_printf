@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_s.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/09/02 10:19:41 by gchopin           #+#    #+#             */
+/*   Updated: 2020/09/02 10:20:20 by gchopin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
 ssize_t		check_flags_spec_s(t_flags *l_flags, char *value)
@@ -32,7 +44,7 @@ ssize_t		check_flags_one_s(t_flags *l_flags, char *value)
 	{
 		nb_print += print_basic_value_s(&width, value, ' ');
 	}
-	else if (l_flags->minus == 1 /*&& l_flags->zero == 0*/)
+	else if (l_flags->minus == 1)
 	{
 		if (l_flags->asterisk == 0)
 			nb_print += spec_minus_no_ast_s(l_flags, value);
@@ -54,7 +66,7 @@ ssize_t		check_flags_two_s(t_flags *l_flags, char *value)
 		nb_print += astrsk_s(l_flags, value);
 		return (nb_print);
 	}
-	else if (l_flags->minus == 0 && l_flags->point == 1 /*&& l_flags->zero == 0*/)
+	else if (l_flags->minus == 0 && l_flags->point == 1)
 	{
 		nb_print += check_flags_spec_s(l_flags, value);
 		return (nb_print);
@@ -76,7 +88,7 @@ ssize_t		check_flags_three_s(t_flags *l_flags, char *value)
 	}
 	return (nb_print);
 }
-#include <stdio.h>
+
 ssize_t		print_s(t_flags *l_flags, va_list ap)
 {
 	ssize_t	result;

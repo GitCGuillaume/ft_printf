@@ -1,17 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_u_tool_two.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/09/02 11:41:33 by gchopin           #+#    #+#             */
+/*   Updated: 2020/09/02 11:42:35 by gchopin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
-ssize_t	calc_u(ssize_t width, ssize_t width_specification, ssize_t lensize, unsigned int u)
+ssize_t	calc_u(ssize_t width, ssize_t w_spec, ssize_t lensize, unsigned int u)
 {
 	ssize_t	size;
 
 	size = width - lensize;
-	if (width_specification >= 0)
+	if (w_spec >= 0)
 	{
-		if (width_specification - lensize > 0)
-			size = size - (width_specification - lensize);
-		if (u < 0 && width_specification > lensize)
+		if (w_spec - lensize > 0)
+			size = size - (w_spec - lensize);
+		if (u < 0 && w_spec > lensize)
 			size--;
 	}
 	return (size);
 }
-

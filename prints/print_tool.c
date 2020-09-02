@@ -1,5 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_tool.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/09/02 11:04:10 by gchopin           #+#    #+#             */
+/*   Updated: 2020/09/02 11:04:27 by gchopin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
-#include <stdio.h>
+
 int	get_one_star(t_flags *l_flags, va_list ap)
 {
 	if (l_flags->asterisk == 1 && l_flags->point == 0)
@@ -8,29 +20,11 @@ int	get_one_star(t_flags *l_flags, va_list ap)
 		l_flags->width = ft_itoa(va_arg(ap, int));
 		return (1);
 	}
-	/*else if (l_flags->width != NULL && l_flags->width_specification == NULL && l_flags->point == 1)
-	{
-		del(l_flags->width_specification);
-		l_flags->width_specification = ft_itoa(va_arg(ap, int));
-		return (1);
-	}
-	else */
 	if (l_flags->point == 1)
 	{
 		va_arg(ap, int);
 		return (1);
 	}
-	/*else if (l_flags->asterisk == 1 && l_flags->point == 1 && l_flags->width_specification == NULL)
-	{
-		del(l_flags->width_specification);
-		l_flags->width_specification = ft_itoa(va_arg(ap, int));
-		return (1);
-	}
-	else if (l_flags->asterisk == 1 && l_flags->point == 1 && l_flags->width_specification != NULL)
-	{
-		del(l_flags->width);
-		l_flags->width = ft_itoa(va_arg(ap, int));
-	}*/
 	return (0);
 }
 

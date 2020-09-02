@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_d.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/09/02 10:58:38 by gchopin           #+#    #+#             */
+/*   Updated: 2020/09/02 11:02:15 by gchopin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
-#include <stdio.h>
 
 ssize_t		print_zero_d(ssize_t *width, int value)
 {
@@ -28,7 +39,7 @@ ssize_t		print_zero_d(ssize_t *width, int value)
 	}
 	return (nb_print);
 }
-#include <stdio.h>
+
 ssize_t		check_flags_two_d(t_flags *l_flags, va_list ap, int d)
 {
 	ssize_t	nb_print;
@@ -41,12 +52,12 @@ ssize_t		check_flags_two_d(t_flags *l_flags, va_list ap, int d)
 		spec_minus_d(l_flags, ap, &nb_print, d);
 	}
 	else if ((l_flags->asterisk == 1 && l_flags->point == 0)
-			|| (l_flags->asterisk == 1 && l_flags->point == 1 && l_flags->width_specification == NULL))
+			|| (l_flags->asterisk == 1 && l_flags->point == 1
+				&& l_flags->width_specification == NULL))
 	{
 		nb_print += astrsk_d_lr(ap, d);
 	}
-	else if (l_flags->point == 1 && l_flags->minus == 0
-			/*&& l_flags->width_specification != NULL*/)
+	else if (l_flags->point == 1 && l_flags->minus == 0)
 	{
 		if (width < 0)
 			spec_minus_d(l_flags, ap, &nb_print, d);
@@ -94,7 +105,7 @@ ssize_t		print_d(t_flags *l_flags, va_list ap)
 			result = browse_two_stars_d(ap, l_flags, d);
 		else if ((result = check_flags_one_d(l_flags, ap, d)) == 0)
 		{
-				result = check_flags_two_d(l_flags, ap, d);
+			result = check_flags_two_d(l_flags, ap, d);
 		}
 	}
 	del(l_flags->width);

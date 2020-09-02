@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_pct.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/09/02 11:33:59 by gchopin           #+#    #+#             */
+/*   Updated: 2020/09/02 11:38:08 by gchopin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
 ssize_t	print_pct_zero(t_flags *l_flags, unsigned char c)
@@ -19,7 +31,7 @@ ssize_t	print_pct_zero(t_flags *l_flags, unsigned char c)
 		nb_print += print_width_c(-width, padding);
 	return (nb_print);
 }
-#include <stdio.h>
+
 ssize_t	print_pct_minus_point_star(t_flags *l_flags, unsigned char c)
 {
 	ssize_t	nb_print;
@@ -74,8 +86,8 @@ ssize_t	check_flags_one_pct(t_flags *l_flags, unsigned char c)
 
 ssize_t	print_pct(t_flags *l_flags, va_list ap)
 {
-	ssize_t	result;
-	ssize_t	negative;
+	ssize_t			result;
+	ssize_t			negative;
 	unsigned char	c;
 
 	result = 0;
@@ -88,11 +100,6 @@ ssize_t	print_pct(t_flags *l_flags, va_list ap)
 	c = '%';
 	if ((result = check_min_max_value_c(l_flags)) == 0)
 		result = check_flags_one_pct(l_flags, c);
-	/*else if (result == -negative)
-	{
-		ft_putchar_fd(c, 1);
-		result = 1;
-	}*/
 	del(l_flags->width);
 	del(l_flags->width_specification);
 	return (result);

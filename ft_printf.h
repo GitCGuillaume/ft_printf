@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/16 18:48:06 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/01 16:13:31 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/02 11:42:55 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ ssize_t				check_flags_spec_d(t_flags *l_flags, va_list ap, int d);
 ssize_t				print_width_d(ssize_t width, int d, char c);
 ssize_t				calc(ssize_t width, ssize_t width_specification, ssize_t lensize, int d);
 void				negative_d(ssize_t *nb_print, int *d);
-void	handle_sizes(ssize_t *width, ssize_t *w_spec);
+void	handle_sizes(ssize_t *width);
 ssize_t				print_basic_value_d(ssize_t *width, int d, char c);
 ssize_t				print_w_spec(ssize_t width, ssize_t sum, char c);
 void				spec_minus_d(t_flags *l_flags, va_list ap,ssize_t *nb_print, int d);
@@ -56,8 +56,6 @@ void				spec_pnt_no_ast_d(t_flags *l_flags, ssize_t *nb_prt, int d);
 void				spec_point_astrsk_d(va_list ap, t_flags *l_flags, ssize_t *nb_prt, ssize_t w_spec);
 ssize_t				print_s(t_flags *l_flags, va_list ap);
 int	check_min_max_value_s(t_flags *l_flags);
-void	browse_two_stars_s(va_list ap, t_flags *l_flags,
-		ssize_t *width, ssize_t *w_spec);
 ssize_t	print_s_zero(t_flags *l_flags, char *value);
 char				*ft_strlimit(char *s, ssize_t width);
 void				ft_putstr_limit_fd(char *s, size_t limit, ssize_t *nb_print, int fd);
@@ -98,7 +96,7 @@ ssize_t	print_width_c(ssize_t width, unsigned char c);
 int	check_min_max_value_c(t_flags *l_flags);
 ssize_t	print_u(t_flags *l_flags, va_list ap);
 ssize_t	print_width_u(ssize_t width, unsigned int d, char c);
-ssize_t	calc_u(ssize_t width, ssize_t width_specification, ssize_t lensize, unsigned int u);
+ssize_t	calc_u(ssize_t width, ssize_t w_spec, ssize_t lensize, unsigned int u);
 ssize_t	print_u_zero(t_flags *l_flags, unsigned int value);
 ssize_t	print_u_rl(t_flags *l_flags, unsigned int value);
 ssize_t	print_u_lr(t_flags *l_flags, unsigned int value);
