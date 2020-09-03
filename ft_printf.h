@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/16 18:48:06 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/03 11:58:31 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/03 15:23:00 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ ssize_t			calc(ssize_t width, ssize_t width_specification,
 	ssize_t lensize, int d);
 void			negative_d(ssize_t *nb_print, int *d);
 void			handle_sizes(ssize_t *width);
+ssize_t			print_zero_d(ssize_t *width, int value);
 ssize_t			print_basic_value_d(ssize_t *width, int d, char c);
 ssize_t			print_w_spec(ssize_t width, ssize_t sum, char c);
 void			spec_minus_d(t_flags *l_flags,

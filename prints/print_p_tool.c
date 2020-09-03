@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 11:09:57 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/02 11:40:31 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/03 13:42:00 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ ssize_t	print_p_point_star(t_flags *l_flags, char *addr)
 		width++;
 	if (width > w_spec)
 		nb_print += print_w_spec(calc(width, w_spec, ft_strlen(addr), 0),
-				nb_print, ' ');
+			nb_print, ' ');
 	ft_putstr_fd("0x", 1);
 	nb_print += print_w_spec(w_spec, ft_strlen(addr), '0');
 	if (!(addr[0] == '0' && addr[1] == '\0')
