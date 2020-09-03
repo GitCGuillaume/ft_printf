@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 11:07:56 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/03 15:23:46 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/03 23:53:59 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,14 @@ ssize_t	print_d_stars_minus(ssize_t width, ssize_t w_spec, int value)
 		nb_print += print_w_spec(width, nb_print, ' ');
 	return (nb_print);
 }
-
+#include <stdio.h>
 ssize_t	print_d_stars(t_flags *l_flags, ssize_t width, ssize_t w_spec, int value)
 {
 	ssize_t	nb_print;
+	int		value_copy;
 
 	nb_print = 0;
+	value_copy = value;
 	handle_sizes(&width);
 	if (l_flags->zero == 1 && 0 > w_spec)
 		return (nb_print += print_zero_d(&width, value));
@@ -94,9 +96,9 @@ ssize_t	print_d_stars(t_flags *l_flags, ssize_t width, ssize_t w_spec, int value
 	if (width > w_spec)
 		nb_print += print_w_spec(calc(width, w_spec, ft_lensize(value), value),
 				nb_print, ' ');
-	if (0 > value)
+	if (0 > value_copy)
 		negative_d(&nb_print, &value);
-	if (0 > value && w_spec > 0)
+	if (value == -2147483648 && w_spec > 0)
 		w_spec++;
 	nb_print += print_w_spec(w_spec - ft_lensize(value), 0, '0');
 	if (value != 0)

@@ -6,7 +6,7 @@
 /*   By: gchopin </var/mail/gchopin>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/14 18:22:12 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/03 19:21:41 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/03 22:10:05 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -648,6 +648,17 @@ printf("%*.*uua", 5, 2, 0);
 			ft_putstr_fd("KO", 1);
 		printf("\n");
 		ft_printf("i=%d\n", i);
+		one = printf("%*.*dda", i+1, j, -12);
+		printf("\n");
+		two = ft_printf("%*.*dda", i+1, j, -12);
+		printf("\n");
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
+		printf("\n");
+
+		ft_printf("i=%d\n", i);
 		one = printf("%*.*dda", i, j, -12);
 		printf("\n");
 		two = ft_printf("%*.*dda", i, j, -12);
@@ -700,6 +711,37 @@ printf("%*.*uua", 5, 2, 0);
 		else
 			ft_putstr_fd("KO", 1);
 		printf("\n");
+		ft_printf("i=%d\n", i);
+		one = printf("Ah!w%d%wp%d%0*.*dda", j, i, j, i, -12);
+		printf("\n");
+		two = ft_printf("Ah!w%dwp%d%0*.*dda", j, i, j, i, -12);
+		printf("\n");
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
+		printf("\n");
+	one = printf("Ah!w%d%wp%d%*.*dda", j, i, j, i, 12);
+		printf("\n");
+		two = ft_printf("Ah!w%dwp%d%*.*dda", j, i, j, i, 12);
+		printf("\n");
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
+		printf("\n");
+		ft_printf("i=%d\n", i);
+		one = printf("Ah!w%d%wp%d%0*.*dda", j, i, j, i, 12);
+		printf("\n");
+		two = ft_printf("Ah!w%dwp%d%0*.*dda", j, i, j, i, 12);
+		printf("\n");
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
+		printf("\n");
+
+
 
 		i++;
 		j++;
