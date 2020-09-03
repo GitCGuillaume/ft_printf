@@ -6,7 +6,7 @@
 /*   By: gchopin </var/mail/gchopin>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/14 18:22:12 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/03 11:21:06 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/03 12:07:48 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -254,48 +254,123 @@ printf("---------12---------\n");
 	printf("\n");
 	ft_printf("%0*dda", 0, 0);
 	printf("\n");
+	printf("%*.*dda", 3, 5, 0);
+	printf("\n");
+	ft_printf("%*.*dda", 3, 5, 0);
+	printf("\n");
+
+	printf("%0*.*dda", 3, 5, 0);
+	printf("\n");
+	ft_printf("%0*.*dda", 3, 5, 0);
+	printf("\n");
+
+	printf("%*.*dda", 3, -5, 0);
+	printf("\n");
+	ft_printf("%*.*dda", 3, -5, 0);
+	printf("\n");
+
+	printf("%0*.*dda", 3, -5, 0);
+	printf("\n");
+	ft_printf("%0*.*dda", 3, -5, 0);
+	printf("\n");
+	printf("%5.*dda", -5, 0);
+	printf("\n");
+	ft_printf("%5.*dda", -5, 0);
+	printf("\n");
+
+	printf("%03.*dda", -5, 0);
+	printf("\n");
+	ft_printf("%03.*dda", -5, 0);
+	printf("\n");
+
+printf("%*.*dda", 5, 2, 0);
+	printf("\n");
+	ft_printf("%*.*dda", 5, 2, 0);
+	printf("\n");
+
+	printf("%0*.*dda", 5, 2, 0);
+	printf("\n");
+	ft_printf("%0*.*dda", 5, 2, 0);
+	printf("\n");
+
+
+	printf("%*.2dda", 5, 0);
+	printf("\n");
+	ft_printf("%*.2dda", 5, 0);
+	printf("\n");
+
+	printf("%0*.2dda", 5, 0);
+	printf("\n");
+	ft_printf("%0*.2dda", 5, 0);
+	printf("\n");
+
+	printf("%-*.*dda", 3, -5, 0);
+	printf("\n");
+	ft_printf("%-*.*dda", 3, -5, 0);
+	printf("\n");
+
+	printf("%0-*.*dda", 3, -5, 0);
+	printf("\n");
+	ft_printf("%0-*.*dda", 3, -5, 0);
+	printf("\n");
 	
-	printf("%*.*dda", 2, -2, 0);
+	printf("%0*.*uua", 3, 5, 0);
 	printf("\n");
-	ft_printf("%*.*dda", 2, -2, 0);
-	printf("\n");
-
-	printf("%0*.*dda", 2, -2, 0);
-	printf("\n");
-	ft_printf("%0*.*dda", 2, -2, 0);
-	printf("\n");
-	printf("%2.*dda", -2, 0);
-	printf("\n");
-	ft_printf("%2.*dda", -2, 0);
+	ft_printf("%0*.*uua", 3, 5, 0);
 	printf("\n");
 
-	printf("%02.*dda", -2, 0);
+	printf("%*.*uua", 3, -5, 0);
 	printf("\n");
-	ft_printf("%02.*dda", -2, 0);
+	ft_printf("%*.*uua", 3, -5, 0);
+	printf("\n");
+
+	printf("%0*.*uua", 3, -5, 0);
+	printf("\n");
+	ft_printf("%0*.*uua", 3, -5, 0);
+	printf("\n");
+	printf("%5.*uua", -5, 0);
+	printf("\n");
+	ft_printf("%5.*uua", -5, 0);
+	printf("\n");
+
+	printf("%03.*uua", -5, 0);
+	printf("\n");
+	ft_printf("%03.*uua", -5, 0);
+	printf("\n");
+
+printf("%*.*uua", 5, 2, 0);
+	printf("\n");
+	ft_printf("%*.*uua", 5, 2, 0);
+	printf("\n");
+
+	printf("%0*.*uua", 5, 2, 0);
+	printf("\n");
+	ft_printf("%0*.*uua", 5, 2, 0);
 	printf("\n");
 
 
-	printf("%*.2dda", 2, 0);
+	printf("%*.2uua", 5, 0);
 	printf("\n");
-	ft_printf("%*.2dda", 2, 0);
-	printf("\n");
-
-	printf("%0*.2dda", 2, 0);
-	printf("\n");
-	ft_printf("%0*.2dda", 2, 0);
+	ft_printf("%*.2uua", 5, 0);
 	printf("\n");
 
-	printf("%-*.*dda", 2, -2, 0);
+	printf("%0*.2uua", 5, 0);
 	printf("\n");
-	ft_printf("%-*.*dda", 2, -2, 0);
-	printf("\n");
-
-	printf("%0-*.*dda", 2, -2, 0);
-	printf("\n");
-	ft_printf("%0-*.*dda", 2, -2, 0);
+	ft_printf("%0*.2uua", 5, 0);
 	printf("\n");
 
-	/*printf("%0*.*uua", 2, -2, 0);
+	printf("%-*.*uua", 3, -5, 0);
+	printf("\n");
+	ft_printf("%-*.*uua", 3, -5, 0);
+	printf("\n");
+
+	printf("%0-*.*uua", 3, -5, 0);
+	printf("\n");
+	ft_printf("%0-*.*uua", 3, -5, 0);
+	printf("\n");
+
+
+	printf("%0*.*uua", 2, -2, 0);
 	printf("\n");
 	ft_printf("%0*.*uua", 2, -2, 0);
 	printf("\n");
@@ -331,6 +406,7 @@ printf("---------12---------\n");
 	printf("\n");
 	ft_printf("%0*.*uua", 2, -2, 0);
 	printf("\n");
+
 	ft_printf("%0*.*xua", 2, -2, 0);
 	printf("\n");
 	printf("%0*.*xxa", 2, -2, 0);
@@ -369,6 +445,56 @@ printf("---------12---------\n");
 	printf("\n");
 	ft_printf("%*.*xxa", 3, -2, 0);
 	printf("\n");
+	printf("%*.2xxa", 5, 0);
+	printf("\n");
+	ft_printf("%*.2xxa", 5, 0);
+	printf("\n");
+
+	printf("%0*.2xxa", 5, 0);
+	printf("\n");
+	ft_printf("%0*.2xxa", 5, 0);
+	printf("\n");
+
+	printf("%-*.*xxa", 3, -5, 0);
+	printf("\n");
+	ft_printf("%-*.*xxa", 3, -5, 0);
+	printf("\n");
+
+	printf("%0-*.*xxa", 3, -5, 0);
+	printf("\n");
+	ft_printf("%0-*.*xxa", 3, -5, 0);
+	printf("\n");
+
+
+	printf("%0*.*xxa", 2, -2, 0);
+	printf("\n");
+	ft_printf("%0*.*xxa", 2, -2, 0);
+	printf("\n");
+	printf("%0*.*xxa", 2, -2, 0);
+	printf("\n");
+	ft_printf("%0*.*xxa", 2, -2, 0);
+	printf("\n");
+	printf("%0*.*xxa", 2, -2, 0);
+	printf("\n");
+	ft_printf("%0*.*xxa", 2, -2, 0);
+	printf("\n");
+	printf("%0*.*xxa", 2, -2, 0);
+	printf("\n");
+	ft_printf("%0*.*xxa", 2, -2, 0);
+	printf("\n");
+	printf("%0*.*xxa", 2, -2, -0);
+	printf("\n");
+	ft_printf("%0*.*xxa", 2, -2, 0);
+	printf("\n");
+	printf("%0*.*xxa", 2, -2, 0);
+	printf("\n");
+	ft_printf("%0*.*xxa", 2, -2, 0);
+	printf("\n");
+	printf("%0*.*xxa", 2, -2, 0);
+	printf("\n");
+	ft_printf("%0*.*xxa", 2, -2, 0);
+	printf("\n");
+	printf("%0*.*xxa", 2, -2, 0);
 	printf("%0*.*dda", 3, 1, 1);
 	printf("\n");
 	ft_printf("%0*.*dda", 3, 1, 1);
@@ -390,6 +516,109 @@ printf("---------12---------\n");
 	ft_printf("%0*d", 6, 12);
 	printf("\n");
 */
+	printf("%0*.*ppa", 3, 5, 0);
+	printf("\n");
+	ft_printf("%0*.*ppa", 3, 5, 0);
+	printf("\n");
+
+	printf("%*.*ppa", 3, -5, 0);
+	printf("\n");
+	ft_printf("%*.*ppa", 3, -5, 0);
+	printf("\n");
+
+	printf("%0*.*ppa", 3, -5, 0);
+	printf("\n");
+	ft_printf("%0*.*ppa", 3, -5, 0);
+	printf("\n");
+	printf("%5.*ppa", -5, 0);
+	printf("\n");
+	ft_printf("%5.*ppa", -5, 0);
+	printf("\n");
+
+	printf("%03.*ppa", -5, 0);
+	printf("\n");
+	ft_printf("%03.*ppa", -5, 0);
+	printf("\n");
+
+	printf("%*.*ppa", 5, 2, 0);
+	printf("\n");
+	ft_printf("%*.*ppa", 5, 2, 0);
+	printf("\n");
+
+	printf("%0*.*ppa", 5, 2, 0);
+	printf("\n");
+	ft_printf("%0*.*ppa", 5, 2, 0);
+	printf("\n");
+
+
+	printf("%*.2ppa", 5, 0);
+	printf("\n");
+	ft_printf("%*.2ppa", 5, 0);
+	printf("\n");
+
+	printf("%0*.2ppa", 5, 0);
+	printf("\n");
+	ft_printf("%0*.2ppa", 5, 0);
+	printf("\n");
+	printf("%*.2ppa", 5, 0);
+	printf("\n");
+	ft_printf("%*.2ppa", 5, 0);
+	printf("\n");
+
+	printf("%0*.2ppa", 5, 0);
+	printf("\n");
+	ft_printf("%0*.2ppa", 5, 0);
+	printf("\n");
+
+	printf("%-*.*ppa", 3, -5, 0);
+	printf("\n");
+	ft_printf("%-*.*ppa", 3, -5, 0);
+	printf("\n");
+
+	printf("%0-*.*ppa", 3, -5, 0);
+	printf("\n");
+	ft_printf("%0-*.*ppa", 3, -5, 0);
+	printf("\n");
+
+
+	printf("%0*.*ppa", 2, -2, 0);
+	printf("\n");
+	ft_printf("%0*.*ppa", 2, -2, 0);
+	printf("\n");
+	printf("%0*.*ppa", 2, -2, 0);
+	printf("\n");
+	ft_printf("%0*.*ppa", 2, -2, 0);
+	printf("\n");
+	printf("%0*.*ppa", 2, -2, 0);
+	printf("\n");
+	ft_printf("%0*.*ppa", 2, -2, 0);
+	printf("\n");
+	printf("%0*.*ppa", 2, -2, 0);
+	printf("\n");
+	ft_printf("%0*.*ppa", 2, -2, 0);
+	printf("\n");
+	printf("%0*.*ppa", 2, -2, -0);
+	printf("\n");
+	ft_printf("%0*.*ppa", 2, -2, 0);
+	printf("\n");
+	printf("%0*.*ppa", 2, -2, 0);
+	printf("\n");
+	ft_printf("%0*.*ppa", 2, -2, 0);
+	printf("\n");
+	printf("%0*.*ppa", 2, -2, 0);
+	printf("\n");
+	ft_printf("%0*.*ppa", 2, -2, 0);
+	printf("\n");
+	printf("%0*.*ppa", 2, -2, 0);
+	printf("\n");
+	ft_printf("%0*.*ppa", 2, -2, 0);
+	printf("\n");
+	ft_printf("%0*.*ppa", 2, -2, 0);
+	printf("\n");
+	ft_printf("%0*.*ppa", 2, -2, 0);
+	printf("\n");
+
+
 
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 11:26:03 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/03 10:30:33 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/03 11:58:47 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	spec_pnt_no_ast_d(t_flags *l_flags, ssize_t *nb_prt, int d)
 	if (d != 0)
 		ft_putnbr_fd(d, nb_prt, 1);
 }
-
+/*
 void	spec_point_astrsk_d(va_list ap, t_flags *l_flags,
 		ssize_t *nb_prt, ssize_t w_spec)
 {
@@ -103,11 +103,15 @@ void	spec_point_astrsk_d(va_list ap, t_flags *l_flags,
 	if (value != 0)
 		ft_putnbr_fd(value, nb_prt, 1);
 }
-
+*/
 ssize_t	check_flags_spec_d(t_flags *l_flags, va_list ap, int d)
 {
 	ssize_t	nb_print;
+	ssize_t	width;
+	ssize_t	w_spec;
 
+	width = ft_atoi(l_flags->width);
+	w_spec = ft_atoi(l_flags->width_specification);
 	nb_print = 0;
 	if (l_flags->point == 1)
 	{
@@ -118,7 +122,8 @@ ssize_t	check_flags_spec_d(t_flags *l_flags, va_list ap, int d)
 		}
 		else
 		{
-			spec_point_astrsk_d(ap, l_flags, &nb_print, d);
+			nb_print += print_d_stars(l_flags, width, w_spec, va_arg(ap, int));
+			//spec_point_astrsk_d(ap, l_flags, &nb_print, d);
 			return (nb_print);
 		}
 	}
