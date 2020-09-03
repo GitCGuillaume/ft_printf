@@ -6,16 +6,18 @@
 /*   By: gchopin </var/mail/gchopin>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/14 18:22:12 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/02 20:36:39 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/03 11:21:06 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "ft_printf.h"
 
+int				ft_printf(const char *fmt, ...);
+
 int	main(void)
 {
-	int	ch_pos_1 = 100;
+	/*int	ch_pos_1 = 100;
 	char str_3[] = "this is a longer string";
 	static long neg = -22337203685477;
 	char str_2[] = "panda";
@@ -27,10 +29,10 @@ int	main(void)
 	printf("\ngneee1%-*.*sb\n", -7, -3, "yolo");
 	ft_printf("\ngneee2%-*.*sb", -7, -3, "yolo");
 	printf("\n");
-	/*printf("d5=%-*.2sa\n", 6, "abc");
+	*//*printf("d5=%-*.2sa\n", 6, "abc");
 	ft_printf("d6=%-*.*sa\n", 6, "abc");
 	*/
-	printf("d5=%d\n", printf("d5=%-*.2sa\n", 6, "abc"));
+	/*printf("d5=%d\n", printf("d5=%-*.2sa\n", 6, "abc"));
 	ft_printf("d6=%d\n", ft_printf("d6=%-*.2sa\n", 6, "abc"));
 	printf("\n");
 	printf("d7=%d\n", printf("d7=%*.*sb\n", NULL, NULL, NULL));
@@ -178,7 +180,7 @@ printf("---------12---------\n");
 	ft_printf("(|%010.u|)", 10);
 	printf("\n");
 	printf("lalala, %d%% des gens qui parlent %C Ly adorent %s. Ou Presque. %d, %u, %X, %c", 100, L'à', "Ly", 2, 10, 10000, '\n', "ôHohoho");
-	printf("\n");
+	*/printf("\n");
 	printf("%0*da", -4, -12);
 	printf("\n");
 	ft_printf("%0*da", -4, -12);
@@ -219,6 +221,7 @@ printf("---------12---------\n");
 	printf("\n");
 	ft_printf("%0*dda", -4, 0);
 	printf("\n");
+	
 	printf("%0*dda", 4, 0);
 	printf("\n");
 	ft_printf("%0*dda", 4, 0);
@@ -251,42 +254,48 @@ printf("---------12---------\n");
 	printf("\n");
 	ft_printf("%0*dda", 0, 0);
 	printf("\n");
+	
+	printf("%*.*dda", 2, -2, 0);
+	printf("\n");
+	ft_printf("%*.*dda", 2, -2, 0);
+	printf("\n");
+
 	printf("%0*.*dda", 2, -2, 0);
 	printf("\n");
 	ft_printf("%0*.*dda", 2, -2, 0);
 	printf("\n");
-	printf("%0*.*dda", 2, -2, 0);
+	printf("%2.*dda", -2, 0);
 	printf("\n");
-	ft_printf("%0*.*dda", 2, -2, 0);
+	ft_printf("%2.*dda", -2, 0);
 	printf("\n");
-	printf("%0*.*dda", 2, -2, 0);
+
+	printf("%02.*dda", -2, 0);
 	printf("\n");
-	ft_printf("%0*.*dda", 2, -2, 0);
+	ft_printf("%02.*dda", -2, 0);
 	printf("\n");
-	printf("%0*.*dda", 2, -2, 0);
+
+
+	printf("%*.2dda", 2, 0);
 	printf("\n");
-	ft_printf("%0*.*dda", 2, -2, 0);
+	ft_printf("%*.2dda", 2, 0);
 	printf("\n");
-	printf("%0*.*dda", 2, -2, -0);
+
+	printf("%0*.2dda", 2, 0);
 	printf("\n");
-	ft_printf("%0*.*dda", 2, -2, 0);
+	ft_printf("%0*.2dda", 2, 0);
 	printf("\n");
-	printf("%0*.*dda", 2, -2, 0);
+
+	printf("%-*.*dda", 2, -2, 0);
 	printf("\n");
-	ft_printf("%0*.*dda", 2, -2, 0);
+	ft_printf("%-*.*dda", 2, -2, 0);
 	printf("\n");
-	printf("%0*.*dda", 2, -2, 0);
+
+	printf("%0-*.*dda", 2, -2, 0);
 	printf("\n");
-	ft_printf("%0*.*dda", 2, -2, 0);
+	ft_printf("%0-*.*dda", 2, -2, 0);
 	printf("\n");
-	printf("%0*.*dda", 2, -2, 0);
-	printf("\n");
-	ft_printf("%0*.*dda", 2, -2, 0);
-	printf("\n");
-	ft_printf("%0*.*dda", 2, -2, 0);
-	printf("\n");
-	ft_printf("%0*.*dda", 2, -2, 0);
-	printf("%0*.*uua", 2, -2, 0);
+
+	/*printf("%0*.*uua", 2, -2, 0);
 	printf("\n");
 	ft_printf("%0*.*uua", 2, -2, 0);
 	printf("\n");
@@ -356,9 +365,31 @@ printf("---------12---------\n");
 	printf("\n");
 	ft_printf("%0*.*xxa", 3, -2, 0);
 	printf("\n");
+	printf("%*.*xxa", 3, -2, 0);
+	printf("\n");
+	ft_printf("%*.*xxa", 3, -2, 0);
+	printf("\n");
 	printf("%0*.*dda", 3, 1, 1);
 	printf("\n");
-	ft_printf("%0*.*dda", 3, -1, 1);
+	ft_printf("%0*.*dda", 3, 1, 1);
 	printf("\n");
+	printf("%0*.*dda", 3, 0, 1);
+	printf("\n");
+	ft_printf("%0*.*dda", 3, 0, 1);
+	printf("\n");
+	printf("%06d", 12);
+	printf("\n");
+	ft_printf("%06d", 12);
+	printf("\n");
+	printf("%0*d", 6, 12);
+	printf("\n");
+	ft_printf("%0*d", 6, 12);
+	printf("\n");
+	printf("%0*d", 6, 12);
+	printf("\n");
+	ft_printf("%0*d", 6, 12);
+	printf("\n");
+*/
+
 	return (0);
 }

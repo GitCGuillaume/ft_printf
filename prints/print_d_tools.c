@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/01 10:04:31 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/01 10:04:38 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/03 10:23:00 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ ssize_t	browse_two_stars_d(va_list ap, t_flags *l_flags, int d)
 	else if (0 > width && l_flags->minus == 0)
 		nb_print += print_d_stars_minus(width, width_spec, value);
 	else
-		nb_print += print_d_stars(width, width_spec, value);
+		nb_print += print_d_stars(l_flags, width, width_spec, value);
 	return (nb_print);
 }
 

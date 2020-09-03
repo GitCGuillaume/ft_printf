@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 11:07:56 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/02 11:13:12 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/03 11:22:50 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,17 +81,21 @@ ssize_t	print_d_stars_minus(ssize_t width, ssize_t w_spec, int value)
 	return (nb_print);
 }
 
-ssize_t	print_d_stars(ssize_t width, ssize_t w_spec, int value)
+ssize_t	print_d_stars(t_flags *l_flags, ssize_t width, ssize_t w_spec, int value)
 {
 	ssize_t	nb_print;
+	char	padding;
 
 	nb_print = 0;
+	padding = ' ';
 	handle_sizes(&width);
+	if (l_flags->zero == 1 && 0 > w_spec)
+		padding = '0';
 	if (value == 0 && w_spec <= -1)
-		return (nb_print += print_w_spec(1, 0, '0'));
+		return (nb_print += print_w_spec(width, 0, padding));
 	if (width > w_spec)
 		nb_print += print_w_spec(calc(width, w_spec, ft_lensize(value), value),
-				nb_print, ' ');
+				nb_print, padding);
 	if (0 > value)
 	{
 		negative_d(&nb_print, &value);

@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 11:26:03 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/02 11:33:28 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/03 10:30:33 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,15 +80,19 @@ void	spec_point_astrsk_d(va_list ap, t_flags *l_flags,
 {
 	ssize_t	width;
 	int		value;
+	char	padding;
 
 	width = ft_atoi(l_flags->width);
 	value = va_arg(ap, int);
+	padding = ' ';
 	handle_sizes(&width);
+	if (l_flags->zero == 1 && 0 > w_spec)
+		padding = '0';
 	if (value == 0 && w_spec <= -1)
 		w_spec = 1;
 	if (width > w_spec)
 		(*nb_prt) += print_w_spec(calc(width, w_spec, ft_lensize(value), value),
-				*nb_prt, ' ');
+				*nb_prt, padding);
 	if (0 > value)
 	{
 		negative_d(nb_prt, &value);

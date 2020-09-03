@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/16 18:48:06 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/02 13:59:03 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/03 10:22:30 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ ssize_t			print_d(t_flags *l_flags, va_list ap);
 int				check_min_max_value(t_flags *l_flags, int d);
 ssize_t			browse_two_stars_d(va_list ap, t_flags *l_flags, int d);
 ssize_t			print_d_stars_minus(ssize_t width, ssize_t w_spec, int value);
-ssize_t			print_d_stars(ssize_t width, ssize_t w_spec, int value);
+ssize_t			print_d_stars(t_flags *l_flags, ssize_t width, ssize_t w_spec, int value);
 ssize_t			check_flags_spec_d(t_flags *l_flags, va_list ap, int d);
 ssize_t			print_width_d(ssize_t width, int d, char c);
 ssize_t			calc(ssize_t width, ssize_t width_specification,

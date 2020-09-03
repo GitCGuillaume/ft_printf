@@ -6,39 +6,33 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 10:58:38 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/02 18:47:38 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/03 11:02:08 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
-
 ssize_t		print_zero_d(ssize_t *width, int value)
 {
 	ssize_t	nb_print;
 	ssize_t	width_copy;
-	int		value_copy;
 
 	nb_print = 0;
 	width_copy = *width;
-	value_copy = value;
-	if (0 > value)
-		value = -value;
 	if (0 > width_copy)
 		width_copy = -width_copy;
 	if (value == 0)
 		width_copy--;
-	if (0 > value_copy)
+	if (0 > value)
 	{
 		width_copy--;
-		negative_d(&nb_print, &value_copy);
+		negative_d(&nb_print, &value);
+		//value = -value;
 	}
 	if (*width > 0)
-	{
-		nb_print += print_width_d(width_copy, value_copy, '0');
-	}
+		nb_print += print_width_d(width_copy, value, '0');
 	ft_putnbr_fd(value, &nb_print, 1);
 	if (0 > *width)
-		nb_print += print_width_d(width_copy, value_copy, ' ');
+		nb_print += print_width_d(width_copy, value, ' ');
 	return (nb_print);
 }
 
