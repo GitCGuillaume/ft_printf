@@ -6,7 +6,7 @@
 /*   By: gchopin </var/mail/gchopin>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/14 18:22:12 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/03 15:11:15 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/03 19:21:41 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -621,9 +621,9 @@ printf("%*.*uua", 5, 2, 0);
 	printf("\n");
 	printf("\n");
 	int i = 0;
-	int j = -13;
+	int j = 1;
 	int one, two;
-	one = 0;
+	one = 1;
 	two = 0;
 	while (13 > i)
 	{
@@ -637,6 +637,37 @@ printf("%*.*uua", 5, 2, 0);
 		else
 			ft_putstr_fd("KO", 1);
 		printf("\n");
+		ft_printf("i=%d\n", i);
+		one = printf("%0*.*dda", i, j, -12);
+		printf("\n");
+		two = ft_printf("%0*.*dda", i, j, -12);
+		printf("\n");
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
+		printf("\n");
+		ft_printf("i=%d\n", i);
+		one = printf("%*.*dda", i, j, -12);
+		printf("\n");
+		two = ft_printf("%*.*dda", i, j, -12);
+		printf("\n");
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
+		printf("\n");
+		ft_printf("i=%d\n", i);
+		one = printf("%0*.*uua", i, j, 12);
+		printf("\n");
+		two = ft_printf("%0*.*uua", i, j, 12);
+		printf("\n");
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
+		printf("\n");
+		
 		one = printf("%0*.*dda", i, j, 1);
 		printf("\n");
 		two = ft_printf("%0*.*dda", i, j, 1);
@@ -654,26 +685,70 @@ printf("%*.*uua", 5, 2, 0);
 		printf("\n");
 		ft_printf("%0*.*xxa", i, j, 1);
 		printf("\n");
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
+		printf("\n");
+		ft_printf("i=%d\n", i);
+		one = printf("Ah!w%d%wp%d%*.*dda", j, i, j, i, -12);
+		printf("\n");
+		two = ft_printf("Ah!w%dwp%d%*.*dda", j, i, j, i, -12);
+		printf("\n");
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
+		printf("\n");
+
 		i++;
-		j--;
+		j++;
 	}
 	i = -13;
-	j = -3;
+	j = -13;
 	while (i != 0)
 	{
 		ft_printf("i=%d\n", i);
-		printf("%0*.*dda", i, j, -1);
+		one = printf("%*.*dda", i, j, j);
 		printf("\n");
-		ft_printf("%0*.*dda", i, j, -1);
+		two = ft_printf("%*.*dda", i, j, j);
 		printf("\n");
-		printf("%0*.*uua", i, j, 1);
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
 		printf("\n");
-		ft_printf("%0*.*uua", i, j, 1);
+
+		ft_printf("i=%d\n", i);
+		one = printf("%0*.*dda", i, j, j);
 		printf("\n");
-		printf("%0*.*xxa", i, j, 1);
+		two = ft_printf("%0*.*dda", i, j, j);
 		printf("\n");
-		ft_printf("%0*.*xxa", i, j, 1);
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
 		printf("\n");
+		one = printf("%0*.*uua", i, j, 1);
+		printf("\n");
+		two = ft_printf("%0*.*uua", i, j, 1);
+		printf("\n");
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
+		printf("\n");
+
+		one = printf("%0*.*xxa", i, j, 1);
+		printf("\n");
+		two = ft_printf("%0*.*xxa", i, j, 1);
+		printf("\n");
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
+		printf("\n");
+		j++;
 		i++;
 	}
 	printf("%0*.*uua", 20, -2, 1);
