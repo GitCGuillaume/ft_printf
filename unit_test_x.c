@@ -11,6 +11,56 @@ void	basic_value(void)
 	one = 0;
 	two = 0;
 	printf("---------1---------\n");
+	one = printf("%xa", 0);
+	printf("\n");
+	two = ft_printf("%xa", 0);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	
+	printf("---------1---------\n");
+	one = printf("%*xa", 0, 0);
+	printf("\n");
+	two = ft_printf("%*xa", 0, 0);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	
+	printf("---------1---------\n");
+	one = printf("%0*xa", 1, 1);
+	printf("\n");
+	two = ft_printf("%0*xa", 1, 1);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%0*xa", 0, 0);
+	printf("\n");
+	two = ft_printf("%0*xa", 0, 0);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%0*xa", 10, 0);
+	printf("\n");
+	two = ft_printf("%0*xa", 10, 0);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+	printf("---------1---------\n");
 	one = printf("%x", 123);
 	printf("\n");
 	two = ft_printf("%x", 123);
@@ -839,5 +889,6 @@ int	main(void)
 	width_min_max();
 	printf("WIDTH MIN MAX SPECIAL\n\n");
 	width_min_max_special();
+	getchar();
 	return (0);
 }

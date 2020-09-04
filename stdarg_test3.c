@@ -6,7 +6,7 @@
 /*   By: gchopin </var/mail/gchopin>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/14 18:22:12 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/04 18:35:02 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/04 17:45:12 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,7 +180,8 @@ printf("---------12---------\n");
 	ft_printf("(|%010.u|)", 10);
 	printf("\n");
 	printf("lalala, %d%% des gens qui parlent %C Ly adorent %s. Ou Presque. %d, %u, %X, %c", 100, L'à', "Ly", 2, 10, 10000, '\n', "ôHohoho");
-	*/printf("\n");
+	*/
+	printf("\n");
 	printf("%0*da", -4, -12);
 	printf("\n");
 	ft_printf("%0*da", -4, -12);
@@ -839,9 +840,6 @@ printf("%*.*uua", 5, 2, 0);
 	printf("\n");
 	ft_printf("%*.*dda", 4, -2, -12);
 	printf("\n");
-	printf("ah%-16.sa", "abc");
-	printf("\n");
-	ft_printf("ah%-16.sa", "abc");
-	printf("\n");
+
 	return (0);
 }

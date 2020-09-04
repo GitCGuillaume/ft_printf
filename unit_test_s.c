@@ -7,8 +7,59 @@ void	basic_value(void)
 	int one;
 	int two;
 	char min[] = "-1111111111";
+	
 	one = 0;
 	two = 0;
+	printf("---------1---------\n");
+	one = printf("%sa", 0);
+	printf("\n");
+	two = ft_printf("%sa", 0);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	
+	printf("---------1---------\n");
+	one = printf("%*sa", 0, 0);
+	printf("\n");
+	two = ft_printf("%*sa", 0, 0);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	
+	printf("---------1---------\n");
+	one = printf("%0*sa", 1, "1");
+	printf("\n");
+	two = ft_printf("%0*sa", 1, "1");
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%0*sa", 0, 0);
+	printf("\n");
+	two = ft_printf("%0*sa", 0, 0);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%0*sa", 10, 0);
+	printf("\n");
+	two = ft_printf("%0*sa", 10, 0);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
 	printf("---------1---------\n");
 	one = printf("%s", "123");
 	printf("\n");

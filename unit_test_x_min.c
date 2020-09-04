@@ -2753,12 +2753,12 @@ int	main(void)
 	printf("MINUS STAR POINT STAR\n\n");
 	minus_star_point_star();
 	
-	/*minus_star_point_star_min();
+	minus_star_point_star_min();
 	printf("WIsTH MIN MAX\n\n");
 	wisth_min_max();
 	printf("WIsTH MIN MAX SPECIAL\n\n");
 	wisth_min_max_special();
-	*/
+	
 	getchar();
 	return (0);
 }

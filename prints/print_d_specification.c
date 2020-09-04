@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 11:26:03 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/03 11:58:47 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/04 16:30:16 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ void	spec_point_astrsk_d(va_list ap, t_flags *l_flags,
 		ft_putnbr_fd(value, nb_prt, 1);
 }
 */
+#include <stdio.h>
 ssize_t	check_flags_spec_d(t_flags *l_flags, va_list ap, int d)
 {
 	ssize_t	nb_print;
@@ -117,7 +118,7 @@ ssize_t	check_flags_spec_d(t_flags *l_flags, va_list ap, int d)
 	{
 		if (l_flags->asterisk == 0)
 		{
-			spec_pnt_no_ast_d(l_flags, &nb_print, d);
+			nb_print += print_d_stars(l_flags, width, w_spec, d);
 			return (nb_print);
 		}
 		else

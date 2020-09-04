@@ -6,33 +6,32 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 10:58:38 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/03 11:02:08 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/04 16:52:06 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
+
 ssize_t		print_zero_d(ssize_t *width, int value)
 {
 	ssize_t	nb_print;
 	ssize_t	width_copy;
+	int		value_copy;
 
 	nb_print = 0;
 	width_copy = *width;
+	value_copy = value;
 	if (0 > width_copy)
 		width_copy = -width_copy;
 	if (value == 0)
 		width_copy--;
 	if (0 > value)
-	{
-		width_copy--;
 		negative_d(&nb_print, &value);
-		//value = -value;
-	}
 	if (*width > 0)
-		nb_print += print_width_d(width_copy, value, '0');
+		nb_print += print_w_spec(width_copy - ft_lensize(value_copy), 0, '0');
 	ft_putnbr_fd(value, &nb_print, 1);
 	if (0 > *width)
-		nb_print += print_width_d(width_copy, value, ' ');
+		nb_print += print_width_d(width_copy, value_copy, ' ');
 	return (nb_print);
 }
 
@@ -47,9 +46,7 @@ ssize_t		check_flags_two_d(t_flags *l_flags, va_list ap, int d)
 	{
 		spec_minus_d(l_flags, ap, &nb_print, d);
 	}
-	else if ((l_flags->asterisk == 1 && l_flags->point == 0)
-			|| (l_flags->asterisk == 1 && l_flags->point == 1
-				&& l_flags->width_specification == NULL))
+	else if (l_flags->asterisk == 1 && l_flags->point == 0)
 	{
 		nb_print += astrsk_d_lr(ap, d);
 	}

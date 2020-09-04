@@ -11,6 +11,73 @@ void	basic_value(void)
 	one = 0;
 	two = 0;
 	printf("---------1---------\n");
+	one = printf("");
+	printf("\n");
+	two = ft_printf("");
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	
+	
+	printf("---------1---------\n");
+	one = printf("%");
+	printf("\n");
+	two = ft_printf("%");
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	
+
+	printf("---------1---------\n");
+	one = printf("%%");
+	printf("\n");
+	two = ft_printf("%%");
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	
+	printf("---------1---------\n");
+	one = printf("%*%a", 0);
+	printf("\n");
+	two = ft_printf("%*%a", 0);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	
+	printf("---------1---------\n");
+	one = printf("%0*%a", 1);
+	printf("\n");
+	two = ft_printf("%0*%a", 1);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%0*%a", 0);
+	printf("\n");
+	two = ft_printf("%0*%a", 0);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	
+	printf("---------1---------\n");
 	one = printf("%0*%a", -5);
 	printf("\n");
 	two = ft_printf("%0*%a", -5);
