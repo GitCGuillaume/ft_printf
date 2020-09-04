@@ -6,7 +6,7 @@
 /*   By: gchopin </var/mail/gchopin>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/14 18:22:12 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/03 22:10:05 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/04 10:25:45 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -620,13 +620,35 @@ printf("%*.*uua", 5, 2, 0);
 	printf("\n");
 	printf("\n");
 	printf("\n");
-	int i = 0;
-	int j = 1;
+	int i = -4;
+	int j = -3;
 	int one, two;
 	one = 1;
 	two = 0;
 	while (13 > i)
 	{
+		ft_printf("i=%d\n", i);
+		one = printf("%*uua", -12, i);
+		printf("\n");
+		two = ft_printf("%*uua", -12, i);
+		printf("\n");
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
+		printf("\n");
+		ft_printf("i=%d\n", i);
+		ft_printf("i=%d\n", i);
+		one = printf("%012uua", i);
+		printf("\n");
+		two = ft_printf("%012uua", i);
+		printf("\n");
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
+		printf("\n");
+		ft_printf("i=%d\n", i);
 		ft_printf("i=%d\n", i);
 		one = printf("%0*.*dda", i, j, -1);
 		printf("\n");

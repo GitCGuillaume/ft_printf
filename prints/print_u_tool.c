@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 11:15:25 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/03 12:01:27 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/04 11:21:39 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,23 @@ ssize_t	print_u_zero(t_flags *l_flags, unsigned int value)
 {
 	ssize_t	nb_print;
 	ssize_t	width;
+	ssize_t	width_copy;
 	ssize_t	w_spec;
 
 	nb_print = 0;
 	width = ft_atoi(l_flags->width);
 	w_spec = ft_atoi(l_flags->width_specification);
+	width_copy = width;
+	if (0 > width)
+		width_copy = -width_copy;
 	if (value == 0 && width != 0)
-		width--;
+		width_copy--;
 	if (width > 0)
-		nb_print += print_width_u(width, value, '0');
+		nb_print += print_width_u(width_copy, value, '0');
 	ft_putnbr_fd(value, &nb_print, 1);
 	if (0 > width)
 	{
-		width = -width;
-		nb_print += print_width_u(width, value, ' ');
+		nb_print += print_width_u(width_copy, value, ' ');
 	}
 	return (nb_print);
 }
@@ -59,7 +62,7 @@ ssize_t	print_u_lr(t_flags *l_flags, unsigned int value)
 		return (nb_print += print_u_rl(l_flags, value));
 	if (value == 0)
 		width--;
-	nb_print += print_width_d(width, value, ' ');
+	nb_print += print_width_u(width, value, ' ');
 	ft_putnbr_fd(value, &nb_print, 1);
 	return (nb_print);
 }

@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/01 10:04:31 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/03 23:47:25 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/04 11:22:16 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ ssize_t	print_basic_value_d(ssize_t *width, int d, char c)
 ssize_t	calc(ssize_t width, ssize_t width_specification, ssize_t lensize, int d)
 {
 	ssize_t	size;
-(void)d;
+
 	size = width - lensize;
 	if (width_specification >= 0)
 	{
