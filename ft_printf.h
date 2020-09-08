@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/16 18:48:06 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/03 15:23:00 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/08 16:27:11 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct	s_flags
 	int		space;
 }				t_flags;
 
+int				ft_printf(const char *fmt, ...);
 void			init_list_flags(t_flags *lst_flags);
 int				find_indicators(const char *fmt, size_t *i, t_flags *l_flags);
 int				is_indicator(char const *fmt, size_t *i, t_flags *l_flags);
@@ -40,10 +41,10 @@ int				is_specification(t_flags *l_flags,
 	va_list ap, char const *fmt, size_t *i);
 ssize_t			print_d(t_flags *l_flags, va_list ap);
 int				check_min_max_value(t_flags *l_flags, int d);
-ssize_t			browse_two_stars_d(va_list ap, t_flags *l_flags, int d);
 ssize_t			print_d_stars_minus(ssize_t width, ssize_t w_spec, int value);
-ssize_t			print_d_stars(t_flags *l_flags, ssize_t width, ssize_t w_spec, int value);
-ssize_t			check_flags_spec_d(t_flags *l_flags, va_list ap, int d);
+ssize_t			print_d_stars(t_flags *l_flags, ssize_t width,
+	ssize_t w_spec, int value);
+ssize_t			check_flags_spec_d(t_flags *l_flags, int d);
 ssize_t			print_width_d(ssize_t width, int d, char c);
 ssize_t			calc(ssize_t width, ssize_t width_specification,
 	ssize_t lensize, int d);
@@ -52,13 +53,10 @@ void			handle_sizes(ssize_t *width);
 ssize_t			print_zero_d(ssize_t *width, int value);
 ssize_t			print_basic_value_d(ssize_t *width, int d, char c);
 ssize_t			print_w_spec(ssize_t width, ssize_t sum, char c);
-void			spec_minus_d(t_flags *l_flags,
-	va_list ap, ssize_t *nb_print, int d);
-ssize_t			astrsk_d_lr(va_list ap, int d);
-ssize_t			astrsk_d_rl(va_list ap, int d);
-void			spec_pnt_no_ast_d(t_flags *l_flags, ssize_t *nb_prt, int d);
-//void			spec_point_astrsk_d(va_list ap, t_flags *l_flags,
-//	ssize_t *nb_prt, ssize_t w_spec);
+void			spec_minus_d(t_flags *l_flags, ssize_t *nb_print, int d);
+ssize_t			astrsk_d_lr(t_flags *l_flags, int value);
+ssize_t			astrsk_d_rl(t_flags *l_flags, int value);
+//void			spec_pnt_no_ast_d(t_flags *l_flags, ssize_t *nb_prt, int d);
 ssize_t			print_s(t_flags *l_flags, va_list ap);
 int				check_min_max_value_s(t_flags *l_flags);
 ssize_t			print_s_zero(t_flags *l_flags, char *value);

@@ -6,12 +6,12 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 11:26:03 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/04 16:30:16 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/08 16:22:24 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
-
+/*
 ssize_t	spec_minus_no_ast_d(t_flags *l_flags,
 		ssize_t *width, ssize_t w_spec, int d)
 {
@@ -30,28 +30,32 @@ ssize_t	spec_minus_no_ast_d(t_flags *l_flags,
 	nb_print += print_w_spec(*width, nb_print, ' ');
 	return (nb_print);
 }
-
-void	spec_minus_d(t_flags *l_flags, va_list ap, ssize_t *nb_print, int d)
+*/
+void	spec_minus_d(t_flags *l_flags, ssize_t *nb_print, int d)
 {
 	ssize_t	width;
 	ssize_t	w_spec;
 
 	width = ft_atoi(l_flags->width);
 	w_spec = ft_atoi(l_flags->width_specification);
-	if (l_flags->asterisk == 1 && l_flags->point == 0)
-		width = d;
-	if (l_flags->asterisk == 1 && l_flags->point == 1
+	//if (l_flags->asterisk == 1 && l_flags->point == 0)
+	//	width = d;
+	/*if (l_flags->asterisk == 1 && l_flags->point == 1
 			&& l_flags->width_specification != NULL)
 		w_spec = d;
-	if (l_flags->asterisk == 1)
+	*/
+	/*if (l_flags->asterisk == 1)
 		d = va_arg(ap, int);
-	if (l_flags->asterisk == 0 || (l_flags->asterisk == 1
+	*/
+	(*nb_print) += print_d_stars_minus(width, w_spec, d);
+	/*if (l_flags->asterisk == 0 || (l_flags->asterisk == 1
 				&& l_flags->width_specification == NULL))
 		(*nb_print) += spec_minus_no_ast_d(l_flags, &width, w_spec, d);
 	else
 		(*nb_print) += print_d_stars_minus(width, w_spec, d);
+	*/
 }
-
+/*
 void	spec_pnt_no_ast_d(t_flags *l_flags, ssize_t *nb_prt, int d)
 {
 	ssize_t	width;
@@ -73,7 +77,7 @@ void	spec_pnt_no_ast_d(t_flags *l_flags, ssize_t *nb_prt, int d)
 	(*nb_prt) += print_w_spec(w_spec - ft_lensize(d), 0, '0');
 	if (d != 0)
 		ft_putnbr_fd(d, nb_prt, 1);
-}
+}*/
 /*
 void	spec_point_astrsk_d(va_list ap, t_flags *l_flags,
 		ssize_t *nb_prt, ssize_t w_spec)
@@ -105,7 +109,7 @@ void	spec_point_astrsk_d(va_list ap, t_flags *l_flags,
 }
 */
 #include <stdio.h>
-ssize_t	check_flags_spec_d(t_flags *l_flags, va_list ap, int d)
+ssize_t	check_flags_spec_d(t_flags *l_flags, int d)
 {
 	ssize_t	nb_print;
 	ssize_t	width;
@@ -116,17 +120,17 @@ ssize_t	check_flags_spec_d(t_flags *l_flags, va_list ap, int d)
 	nb_print = 0;
 	if (l_flags->point == 1)
 	{
-		if (l_flags->asterisk == 0)
-		{
+	//	if (l_flags->asterisk == 0)
+	//	{
+	//		nb_print += print_d_stars(l_flags, width, w_spec, d);
+	//		return (nb_print);
+	//	}
+	//	else
+	//	{
 			nb_print += print_d_stars(l_flags, width, w_spec, d);
-			return (nb_print);
-		}
-		else
-		{
-			nb_print += print_d_stars(l_flags, width, w_spec, va_arg(ap, int));
 			//spec_point_astrsk_d(ap, l_flags, &nb_print, d);
-			return (nb_print);
-		}
+	//		return (nb_print);
+	//	}
 	}
 	return (nb_print);
 }

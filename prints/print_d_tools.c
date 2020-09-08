@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/01 10:04:31 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/04 11:22:16 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/08 19:28:39 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ ssize_t	calc(ssize_t width, ssize_t width_specification, ssize_t lensize, int d)
 	}
 	return (size);
 }
-
+/*
 ssize_t	browse_two_stars_d(va_list ap, t_flags *l_flags, int d)
 {
 	ssize_t	nb_print;
@@ -87,13 +87,13 @@ ssize_t	browse_two_stars_d(va_list ap, t_flags *l_flags, int d)
 	else
 		nb_print += print_d_stars(l_flags, width, width_spec, value);
 	return (nb_print);
-}
+}*/
 
 int		check_min_max_value(t_flags *l_flags, int d)
 {
 	ssize_t	width;
 	ssize_t	w_spec;
-
+(void)d;
 	width = ft_atoi(l_flags->width);
 	w_spec = ft_atoi(l_flags->width_specification);
 	if (l_flags->zero == 0 && l_flags->minus == 0
@@ -104,12 +104,12 @@ int		check_min_max_value(t_flags *l_flags, int d)
 	}
 	if (l_flags->point == 0 && l_flags->asterisk == 1)
 	{
-		if (d < -2147483646 || d > 2147483646)
+		if (width < -2147483646 || width > 2147483646)
 			return (-1);
 	}
 	if (width < -2147483646 || width > 2147483646)
 		return (-1);
-	if (w_spec < -2147483648 || w_spec > 2147483646)
+	if (/*w_spec < -2147483648 || */w_spec > 2147483646)
 		return (-1);
 	return (0);
 }

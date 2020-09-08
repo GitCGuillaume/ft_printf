@@ -72,6 +72,18 @@ void	basic_value(void)
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
+	printf("---------1---------\n");
+	//one = printf("%05.*da", INT_MAX, INT_MIN);
+	printf("\n");
+	//two = ft_printf("%05.*da", INT_MAX, INT_MIN);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	
+	printf("---------1---------\n");
 	one = printf("%0*da", 15, INT_MIN);
 	printf("\n");
 	two = ft_printf("%0*da", 15, INT_MIN);
@@ -81,6 +93,7 @@ void	basic_value(void)
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
+	printf("---------1---------\n");
 	one = printf("%0*da", 15, INT_MAX);
 	printf("\n");
 	two = ft_printf("%0*da", 15, INT_MAX);
@@ -215,6 +228,8 @@ printf("---------3---------\n");
 	printf("\n");
 	
 	printf("---------1---------\n");
+	printf("---------1---------\n");
+	printf("---------1---------\n");
 	one = printf("%*da", -5, INT_MIN);
 	printf("\n");
 	two = ft_printf("%*da", -5, INT_MIN);
@@ -224,6 +239,8 @@ printf("---------3---------\n");
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
+	printf("---------1---------\n");
+	printf("---------1---------\n");
 	printf("---------1---------\n");
 	one = printf("%*da", -5, -1);
 	printf("\n");
@@ -1907,7 +1924,41 @@ printf("---------2---------\n");
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
-printf("---------1-5---------\n");
+	printf("---------1-5---------\n");
+	one = printf("%0*.7da", 0, INT_MIN);
+	printf("\n");
+	two = ft_printf("%0*.7da", 0, INT_MIN);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1-5---------\n");
+	one = printf("%0*.7da", 0, -1);
+	printf("\n");
+	two = ft_printf("%0*.7da", 0, -1);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1-5---------\n");
+	one = printf("%0*.7da", 0, 1);
+	printf("\n");
+	two = ft_printf("%0*.7da", 0, 1);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+
+
+
+
+	printf("---------1-5---------\n");
 	one = printf("%0*.da", -20, INT_MIN);
 	printf("\n");
 	two = ft_printf("%0*.da", -20, INT_MIN);

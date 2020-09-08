@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 11:07:56 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/03 23:53:59 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/08 18:57:39 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,35 +20,30 @@ void	handle_sizes(ssize_t *width)
 	}
 }
 
-ssize_t	astrsk_d_lr(va_list ap, int d)
+ssize_t	astrsk_d_lr(t_flags *l_flags, int value)
 {
 	ssize_t	nb_print;
 	ssize_t	width;
-	int		value;
 
 	nb_print = 0;
-	width = d;
-	value = 0;
+	width = ft_atoi(l_flags->width);
 	if (width < 0)
 	{
-		nb_print += astrsk_d_rl(ap, d);
+		nb_print += astrsk_d_rl(l_flags, value);
 		return (nb_print);
 	}
-	value = va_arg(ap, int);
 	nb_print += print_basic_value_d(&width, value, ' ');
 	return (nb_print);
 }
 
-ssize_t	astrsk_d_rl(va_list ap, int d)
+ssize_t	astrsk_d_rl(t_flags *l_flags, int value)
 {
 	ssize_t	nb_print;
 	ssize_t	width;
-	int		value;
 
 	nb_print = 0;
-	width = 0;
-	width = d;
-	value = va_arg(ap, int);
+	width = ft_atoi(l_flags->width);
+
 	if (value < 0)
 		negative_d(&nb_print, &value);
 	if (0 > width)
@@ -64,14 +59,16 @@ ssize_t	print_d_stars_minus(ssize_t width, ssize_t w_spec, int value)
 
 	nb_print = 0;
 	handle_sizes(&width);
+	if (value == 0 && w_spec <= -1)
+		w_spec = 1;
 	if (0 > value)
 	{
 		negative_d(&nb_print, &value);
-		if (0 > value && w_spec > 0)
-			w_spec++;
+		//if (0 > value && w_spec > 0)
+		//	w_spec++;
 	}
-	if (value == 0 && w_spec <= -1)
-		w_spec = 1;
+	if (value == -2147483648 && w_spec > 0)
+		w_spec++;
 	if (w_spec > 0)
 		nb_print += print_w_spec(w_spec - ft_lensize(value), 0, '0');
 	if (value != 0)
@@ -88,9 +85,9 @@ ssize_t	print_d_stars(t_flags *l_flags, ssize_t width, ssize_t w_spec, int value
 
 	nb_print = 0;
 	value_copy = value;
-	handle_sizes(&width);
 	if (l_flags->zero == 1 && 0 > w_spec)
 		return (nb_print += print_zero_d(&width, value));
+	handle_sizes(&width);
 	if (value == 0 && w_spec <= -1)
 		w_spec = 1;
 	if (width > w_spec)
