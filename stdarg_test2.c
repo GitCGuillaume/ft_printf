@@ -6,7 +6,7 @@
 /*   By: gchopin </var/mail/gchopin>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/14 18:22:12 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/08 15:49:41 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/08 21:20:54 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -894,9 +894,9 @@ printf("%*.*uua", 5, 2, 0);
 		else
 			ft_putstr_fd("KO", 1);
 		printf("\n");
-		one = printf("%0-*.5dda", i, 135);
+		one = printf("%0-*.4dda", i, -135);
 		printf("\n");
-		two = ft_printf("%0-*.5dda", i, 135);
+		two = ft_printf("%0-*.4dda", i, -135);
 		printf("\n");
 		if (one == two)
 			ft_putstr_fd("OK", 1);
@@ -1000,6 +1000,15 @@ printf("%*.*uua", 5, 2, 0);
 		printf("\n");
 		j++;
 	}
-
+	one = printf("%-*.3dda", 4, -135);
+		printf("\n");
+		two = ft_printf("%-*.3dda", 4, -135);
+		printf("\n");
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
+		printf("\n");
+		
 	return (0);
 }
