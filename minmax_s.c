@@ -217,8 +217,7 @@ void	star_star2_2(void)
 		ft2(i, j);
 		ft2_z(i, j);
 		j++;
-	}
-
+	}	
 }
 void	star_star3(void)
 {
@@ -227,7 +226,7 @@ void	star_star3(void)
 	
 	i = -12;
 	j = -13;
-	while (i != 13)
+	while (i != 12)
 	{
 		ft3("ss", "1234", i, j);
 		ft3_z("ss_z", "1234", i, j);
@@ -236,6 +235,23 @@ void	star_star3(void)
 		ft3("ss", "1234", i, j);
 		ft3_z("ss_z", "1234", i, j);
 	}
+	i = -12;
+	j = -10;
+	while (j != 12)
+	{
+		ft2(i, j);
+		ft2_z(i, j);
+		j++;
+	}
+	i = -10;
+	j = -13;
+	while (j != 12)
+	{
+		ft2(i, j);
+		ft2_z(i, j);
+		j++;
+	}
+
 }
 
 int	main(void)
