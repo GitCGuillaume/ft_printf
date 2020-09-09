@@ -2493,6 +2493,5 @@ int	main(void)
 	wisth_min_max();
 	printf("WIsTH MIN MAX SPECIAL\n\n");
 	wisth_min_max_special();
-	getchar();
 	return (0);
 }

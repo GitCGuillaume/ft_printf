@@ -63,12 +63,10 @@ ssize_t	print_s_zero(t_flags *l_flags, char *value)
 {
 	ssize_t	nb_print;
 	ssize_t	width;
-	ssize_t	w_spec;
 	char	padding;
 
 	nb_print = 0;
 	width = ft_atoi(l_flags->width);
-	w_spec = ft_atoi(l_flags->width_specification);
 	padding = '0';
 	if (0 > width)
 		padding = ' ';

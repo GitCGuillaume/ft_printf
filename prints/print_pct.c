@@ -87,11 +87,9 @@ ssize_t	check_flags_one_pct(t_flags *l_flags, unsigned char c)
 ssize_t	print_pct(t_flags *l_flags, va_list ap)
 {
 	ssize_t			result;
-	ssize_t			negative;
 	unsigned char	c;
 
 	result = 0;
-	negative = -1;
 	c = 0;
 	if (l_flags->asterisk == 1)
 		get_one_star(l_flags, ap);

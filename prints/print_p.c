@@ -15,10 +15,8 @@
 ssize_t	check_flags_one_p(t_flags *l_flags, char *addr)
 {
 	ssize_t	nb_print;
-	ssize_t	w_spec;
 
 	nb_print = 0;
-	w_spec = ft_atoi(l_flags->width_specification);
 	if (l_flags->zero == 1 && l_flags->minus == 0 && l_flags->point == 0)
 		return (nb_print += print_p_zero(l_flags, addr));
 	if (l_flags->minus == 1 && l_flags->point == 0)

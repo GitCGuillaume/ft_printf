@@ -1066,6 +1066,5 @@ int	main(void)
 	printf("WIDTH MIN MAX\n\n");
 	width_min_max();
 	width_min_max_special();
-	getchar();
 	return (0);
 }

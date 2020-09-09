@@ -58,10 +58,8 @@ ssize_t	print_hexa_x(va_list ap, t_flags *l_flags, char *base)
 ssize_t	print_x(t_flags *l_flags, va_list ap, char *base)
 {
 	ssize_t	result;
-	ssize_t	minus;
 
 	result = 0;
-	minus = -1;
 	if (l_flags->asterisk == 1)
 		get_one_star(l_flags, ap);
 	else if (l_flags->asterisk == 2)

@@ -47,10 +47,8 @@ ssize_t	print_c_rl(t_flags *l_flags, unsigned char c)
 int		check_min_max_value_c(t_flags *l_flags)
 {
 	ssize_t	width;
-	ssize_t	w_spec;
 
 	width = ft_atoi(l_flags->width);
-	w_spec = ft_atoi(l_flags->width_specification);
 	if (l_flags->zero == 0 && l_flags->minus == 0
 			&& l_flags->point == 0 && l_flags->asterisk == 0)
 	{

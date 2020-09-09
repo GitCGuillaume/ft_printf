@@ -17,11 +17,9 @@ ssize_t	print_u_zero(t_flags *l_flags, unsigned int value)
 	ssize_t	nb_print;
 	ssize_t	width;
 	ssize_t	width_copy;
-	ssize_t	w_spec;
 
 	nb_print = 0;
 	width = ft_atoi(l_flags->width);
-	w_spec = ft_atoi(l_flags->width_specification);
 	width_copy = width;
 	if (0 > width)
 		width_copy = -width_copy;
@@ -87,7 +85,7 @@ ssize_t	print_u_stars(t_flags *l_flags, unsigned int value)
 		w_spec = 1;
 	if (width > w_spec)
 		nb_print += print_w_spec(calc_u(width, w_spec,
-			ft_lensize(value), value), nb_print, padding);
+			ft_lensize(value)), nb_print, padding);
 	nb_print += print_w_spec(w_spec - ft_lensize(value), 0, '0');
 	if (value != 0)
 		ft_putnbr_fd(value, &nb_print, 1);

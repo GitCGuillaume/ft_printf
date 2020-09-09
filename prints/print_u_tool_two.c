@@ -12,7 +12,7 @@
 
 #include "../ft_printf.h"
 
-ssize_t	calc_u(ssize_t width, ssize_t w_spec, ssize_t lensize, unsigned int u)
+ssize_t	calc_u(ssize_t width, ssize_t w_spec, ssize_t lensize)
 {
 	ssize_t	size;
 
@@ -21,7 +21,7 @@ ssize_t	calc_u(ssize_t width, ssize_t w_spec, ssize_t lensize, unsigned int u)
 	{
 		if (w_spec - lensize > 0)
 			size = size - (w_spec - lensize);
-		if (u < 0 && w_spec > lensize)
+		if (w_spec > lensize)
 			size--;
 	}
 	return (size);

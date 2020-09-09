@@ -98,8 +98,7 @@ ssize_t			print_width_c(ssize_t width, unsigned char c);
 int				check_min_max_value_c(t_flags *l_flags);
 ssize_t			print_u(t_flags *l_flags, va_list ap);
 ssize_t			print_width_u(ssize_t width, unsigned int d, char c);
-ssize_t			calc_u(ssize_t width, ssize_t w_spec,
-	ssize_t lensize, unsigned int u);
+ssize_t			calc_u(ssize_t width, ssize_t w_spec, ssize_t lensize);
 ssize_t			print_u_zero(t_flags *l_flags, unsigned int value);
 ssize_t			print_u_rl(t_flags *l_flags, unsigned int value);
 ssize_t			print_u_lr(t_flags *l_flags, unsigned int value);

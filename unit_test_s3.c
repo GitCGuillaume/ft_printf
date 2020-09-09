@@ -248,6 +248,5 @@ int	main(void)
 		ft_putstr_fd("KO", 1);
 	printf("\n");
 	
-	getchar();
 	return (0);
 }
