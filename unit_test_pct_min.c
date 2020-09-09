@@ -2624,6 +2624,26 @@ printf("---------WIsTH_MAX-.2147483647 abc---------\n");
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%.%a");
+	printf("\n");
+	two = ft_printf("%.%a");
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%-.%a");
+	printf("\n");
+	two = ft_printf("%-.%a");
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
 
 }
 
@@ -2635,11 +2655,10 @@ int	main(void)
 	star_point_star();
 	printf("MINUS STAR POINT STAR\n\n");
 	minus_star_point_star();
-	/*minus_star_point_star_min();
+	minus_star_point_star_min();
 	printf("WIsTH MIN MAX\n\n");
 	wisth_min_max();
 	printf("WIsTH MIN MAX SPECIAL\n\n");
 	wisth_min_max_special();
-	*/
 	return (0);
 }

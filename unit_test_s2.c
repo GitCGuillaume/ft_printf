@@ -1345,7 +1345,66 @@ void	width_min_max_special(void)
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
-
+	printf("---------1---------\n");
+	one = printf("%0-10.4sa", "43");
+	printf("\n");
+	two = ft_printf("%0-10.4sa", "43");
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%-4.2sa", "43");
+	printf("\n");
+	two = ft_printf("%-4.2sa", "43");
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%-4.sa", "43");
+	printf("\n");
+	two = ft_printf("%-4.sa", "43");
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%-0.0sa", "43");
+	printf("\n");
+	two = ft_printf("%-0.0sa", "43");
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%0.0sa", "43");
+	printf("\n");
+	two = ft_printf("%0.0sa", "43");
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%0-0.0sa", "43");
+	printf("\n");
+	two = ft_printf("%0-0.0sa", "43");
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
 }
 
 int	main(void)

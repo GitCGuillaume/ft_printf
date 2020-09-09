@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/16 18:48:06 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/08 16:27:11 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/09 12:09:39 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int				is_digit(t_flags *l_flags, size_t *i, char const *fmt);
 int				is_specification(t_flags *l_flags,
 	va_list ap, char const *fmt, size_t *i);
 ssize_t			print_d(t_flags *l_flags, va_list ap);
-int				check_min_max_value(t_flags *l_flags, int d);
+int				check_min_max_value(t_flags *l_flags);
 ssize_t			print_d_stars_minus(ssize_t width, ssize_t w_spec, int value);
 ssize_t			print_d_stars(t_flags *l_flags, ssize_t width,
 	ssize_t w_spec, int value);
@@ -56,7 +56,6 @@ ssize_t			print_w_spec(ssize_t width, ssize_t sum, char c);
 void			spec_minus_d(t_flags *l_flags, ssize_t *nb_print, int d);
 ssize_t			astrsk_d_lr(t_flags *l_flags, int value);
 ssize_t			astrsk_d_rl(t_flags *l_flags, int value);
-//void			spec_pnt_no_ast_d(t_flags *l_flags, ssize_t *nb_prt, int d);
 ssize_t			print_s(t_flags *l_flags, va_list ap);
 int				check_min_max_value_s(t_flags *l_flags);
 ssize_t			print_s_zero(t_flags *l_flags, char *value);

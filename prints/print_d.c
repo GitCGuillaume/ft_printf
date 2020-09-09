@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 10:58:38 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/08 19:37:57 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/09 11:55:18 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,58 +34,6 @@ ssize_t		print_zero_d(ssize_t *width, int value)
 		nb_print += print_width_d(width_copy, value_copy, ' ');
 	return (nb_print);
 }
-/*
-ssize_t		check_flags_two_d(t_flags *l_flags, int d)
-{
-	ssize_t	nb_print;
-	ssize_t	width;
-
-	nb_print = 0;
-	width = ft_atoi(l_flags->width);
-	if (l_flags->minus == 1 && l_flags->point == 1)
-	{
-		spec_minus_d(l_flags, &nb_print, d);
-	}
-	else if (l_flags->point == 0 && l_flags->minus == 1)
-		nb_print += astrsk_d_rl(l_flags, d);
-	else if (l_flags->asterisk == 1 && l_flags->point == 0)
-	{
-		nb_print += astrsk_d_lr(l_flags, d);
-	}
-	else if (l_flags->point == 1 && l_flags->minus == 0)
-	{
-		if (width < 0)
-			spec_minus_d(l_flags, &nb_print, d);
-		else
-			nb_print = check_flags_spec_d(l_flags, d);
-	}
-	return (nb_print);
-}
-
-ssize_t		check_flags_one_d(t_flags *l_flags, int d)
-{
-	ssize_t	width;
-	ssize_t	nb_print;
-
-	nb_print = 0;
-	width = ft_atoi(l_flags->width);
-	if (l_flags->zero == 0 && l_flags->minus == 0
-			&& l_flags->point == 0 && l_flags->asterisk == 0)
-	{
-		nb_print += print_basic_value_d(&width, d, ' ');
-		return (nb_print);
-	}
-	if (l_flags->zero == 1 && l_flags->minus == 0 && l_flags->point == 0)
-	{
-		*//*if (l_flags->asterisk == 1)
-		{
-			width = d;
-			d = va_arg(ap, int);
-		}*/
-		/*nb_print += print_zero_d(&width, d);
-	}
-	return (nb_print);
-}*/
 
 ssize_t		check_flags_one_d(t_flags *l_flags, int d)
 {
@@ -109,9 +57,8 @@ ssize_t		check_flags_one_d(t_flags *l_flags, int d)
 	if (l_flags->minus == 1 && l_flags->point == 1)
 		return (nb_print += print_d_stars_minus(width, w_spec, d));
 	return (nb_print);
-
 }
-#include <stdio.h>
+
 ssize_t		print_d(t_flags *l_flags, va_list ap)
 {
 	int		value;
@@ -123,16 +70,9 @@ ssize_t		print_d(t_flags *l_flags, va_list ap)
 	else if (l_flags->asterisk == 2)
 		get_two_stars(l_flags, ap);
 	value = va_arg(ap, int);
-	if ((result = check_min_max_value(l_flags, value)) == 0)
+	if ((result = check_min_max_value(l_flags)) == 0)
 	{
 		result += check_flags_one_d(l_flags, value);
-		//if (l_flags->asterisk == 2)
-		//	result = browse_two_stars_d(ap, l_flags, value);
-		//else 
-	//	if ((result = check_flags_one_d(l_flags, value)) == 0)
-	//	{
-	//		result = check_flags_two_d(l_flags, value);
-	//	}
 	}
 	del(l_flags->width);
 	del(l_flags->width_specification);

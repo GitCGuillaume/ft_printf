@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 11:03:28 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/03 14:01:46 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/09 11:55:49 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ ssize_t	check_flags_one_p(t_flags *l_flags, char *addr)
 
 	nb_print = 0;
 	w_spec = ft_atoi(l_flags->width_specification);
-	//if (l_flags->minus == 0 && l_flags->zero == 1 && 0 > w_spec && l_flags->point == 1)
-	//	return (nb_print += print_p_zero(l_flags, addr));
 	if (l_flags->zero == 1 && l_flags->minus == 0 && l_flags->point == 0)
 		return (nb_print += print_p_zero(l_flags, addr));
 	if (l_flags->minus == 1 && l_flags->point == 0)

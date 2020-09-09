@@ -6,13 +6,14 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/16 10:50:36 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/31 12:21:12 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/09 12:05:00 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int			find_percentage(t_flags *lst_flags, size_t *i, ssize_t *nb_print, const char *fmt)
+int		find_percentage(t_flags *lst_flags, size_t *i,
+	ssize_t *nb_prt, const char *fmt)
 {
 	while (fmt[*i])
 	{
@@ -24,15 +25,15 @@ int			find_percentage(t_flags *lst_flags, size_t *i, ssize_t *nb_print, const ch
 		}
 		else
 		{
-			*nb_print = *nb_print + 1;
+			*nb_prt = *nb_prt + 1;
 			write(1, &fmt[*i], 1);
 			*i = *i + 1;
 		}
 	}
 	return (0);
 }
-#include <stdio.h>
-int	browse_fmt(t_flags *l_flags, va_list ap, size_t *i, char const *fmt)
+
+int		browse_fmt(t_flags *l_flags, va_list ap, size_t *i, char const *fmt)
 {
 	size_t	nb_print;
 
@@ -56,19 +57,19 @@ int	browse_fmt(t_flags *l_flags, va_list ap, size_t *i, char const *fmt)
 	return (nb_print);
 }
 
-void del(void *lst)
+void	del(void *lst)
 {
 	if (lst)
 		free(lst);
 }
-#include <stdio.h>
-int				ft_printf(const char *fmt, ...)
+
+int		ft_printf(const char *fmt, ...)
 {
 	va_list		ap;
-	t_flags	l_flags;
+	t_flags		l_flags;
 	size_t		i;
 	ssize_t		nb_print;
-	
+
 	i = 0;
 	nb_print = 0;
 	va_start(ap, fmt);
@@ -78,14 +79,7 @@ int				ft_printf(const char *fmt, ...)
 		{
 			nb_print += browse_fmt(&l_flags, ap, &i, fmt);
 		}
-		//i++;
 	}
-	/*while (fmt[i])
-	{
-		write(1, &fmt[i], 1);
-		nb_print++;
-		i++;
-	}*/
 	va_end(ap);
 	return (nb_print);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/01 10:04:31 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/08 19:28:39 by gchopin          ###   ########.fr       */
+/*   Created: 2020/09/09 11:52:21 by gchopin           #+#    #+#             */
+/*   Updated: 2020/09/09 11:53:07 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,36 +64,12 @@ ssize_t	calc(ssize_t width, ssize_t width_specification, ssize_t lensize, int d)
 	}
 	return (size);
 }
-/*
-ssize_t	browse_two_stars_d(va_list ap, t_flags *l_flags, int d)
-{
-	ssize_t	nb_print;
-	ssize_t	width;
-	ssize_t	width_spec;
-	int		value;
 
-	width = d;
-	width_spec = va_arg(ap, int);
-	value = va_arg(ap, int);
-	nb_print = 0;
-	if (width < -2147483646 || width > 2147483646)
-		return (-1);
-	if (width_spec < -2147483648 || width_spec > 2147483646)
-		return (-1);
-	if (l_flags->minus == 1)
-		nb_print += print_d_stars_minus(width, width_spec, value);
-	else if (0 > width && l_flags->minus == 0)
-		nb_print += print_d_stars_minus(width, width_spec, value);
-	else
-		nb_print += print_d_stars(l_flags, width, width_spec, value);
-	return (nb_print);
-}*/
-
-int		check_min_max_value(t_flags *l_flags, int d)
+int		check_min_max_value(t_flags *l_flags)
 {
 	ssize_t	width;
 	ssize_t	w_spec;
-(void)d;
+
 	width = ft_atoi(l_flags->width);
 	w_spec = ft_atoi(l_flags->width_specification);
 	if (l_flags->zero == 0 && l_flags->minus == 0
@@ -109,7 +85,7 @@ int		check_min_max_value(t_flags *l_flags, int d)
 	}
 	if (width < -2147483646 || width > 2147483646)
 		return (-1);
-	if (/*w_spec < -2147483648 || */w_spec > 2147483646)
+	if (w_spec > 2147483646)
 		return (-1);
 	return (0);
 }

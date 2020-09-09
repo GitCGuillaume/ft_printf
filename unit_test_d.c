@@ -1350,6 +1350,27 @@ void	width_min_max_special(void)
 	else
 		ft_putstr_fd("KO", 1);
 	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%.da", 4);
+	printf("\n");
+	two = ft_printf("%.da", 4);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	printf("---------1---------\n");
+	one = printf("%-.da", 4);
+	printf("\n");
+	two = ft_printf("%-.da", 4);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	
 
 }
 

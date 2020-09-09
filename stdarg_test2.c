@@ -6,7 +6,7 @@
 /*   By: gchopin </var/mail/gchopin>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/14 18:22:12 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/08 21:20:54 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/09 10:45:53 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -814,6 +814,16 @@ printf("%*.*uua", 5, 2, 0);
 		else
 			ft_putstr_fd("KO", 1);
 		printf("\n");
+		one = printf("%0*.*ssa", i, j, "1");
+		printf("\n");
+		two = ft_printf("%0*.*ssa", i, j, "1");
+		printf("\n");
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
+		printf("\n");
+
 		j++;
 		i++;
 	}
@@ -921,6 +931,33 @@ printf("%*.*uua", 5, 2, 0);
 		else
 			ft_putstr_fd("KO", 1);
 		printf("\n");
+		one = printf("%0-*.5ssa", i, "135");
+		printf("\n");
+		two = ft_printf("%0-*.5ssa", i, "135");
+		printf("\n");
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
+		printf("\n");
+		one = printf("%*.5ssa", i, "135");
+		printf("\n");
+		two = ft_printf("%*.5ssa", i, "135");
+		printf("\n");
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
+		printf("\n");
+		one = printf("%0*.5ssa", i, "135");
+		printf("\n");
+		two = ft_printf("%0*.5ssa", i, "135");
+		printf("\n");
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
+		printf("\n");
 		i++;
 	}
 	j = 0;
@@ -999,6 +1036,43 @@ printf("%*.*uua", 5, 2, 0);
 			ft_putstr_fd("KO", 1);
 		printf("\n");
 		j++;
+		one = printf("%0-*.4ssa", j, "a");
+		printf("\n");
+		two = ft_printf("%0-*.4ssa", j, "a");
+		printf("\n");
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
+		printf("\n");
+		one = printf("%-*.4ssa", j, "a");
+		printf("\n");
+		two = ft_printf("%-*.4ssa", j, "a");
+		printf("\n");
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
+		printf("\n");
+		one = printf("%*.4ssa", j, "a");
+		printf("\n");
+		two = ft_printf("%*.4ssa", j, "a");
+		printf("\n");
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
+		printf("\n");
+		one = printf("%0*.4ssa", j, "a");
+		printf("\n");
+		two = ft_printf("%0*.4ssa", j, "a");
+		printf("\n");
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
+		printf("\n");
+		j++;
 	}
 	one = printf("%-*.3dda", 4, -135);
 		printf("\n");
@@ -1009,6 +1083,79 @@ printf("%*.*uua", 5, 2, 0);
 		else
 			ft_putstr_fd("KO", 1);
 		printf("\n");
-		
+		one = printf("%-*.3ssa", 4, "-135");
+		printf("\n");
+		two = ft_printf("%-*.3ssa", 4, "-135");
+		printf("\n");
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
+		printf("\n");
+		one = printf("%*.3ssa", 4, "135");
+		printf("\n");
+		two = ft_printf("%*.3ssa", 4, "135");
+		printf("\n");
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
+		printf("\n");
+		one = printf("%0-*.3ssa", 2, "135");
+		printf("\n");
+		two = ft_printf("%0-*.3ssa", 2, "135");
+		printf("\n");
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
+		printf("\n");
+	one = printf("%-*.3ssa", -2, "-135");
+		printf("\n");
+		two = ft_printf("%-*.3ssa", -2, "-135");
+		printf("\n");
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
+		printf("\n");
+		one = printf("%4.*ssa", -2, "135");
+		printf("\n");
+		two = ft_printf("%4.*ssa", -2, "135");
+		printf("\n");
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
+		printf("\n");
+		one = printf("%-4.*ssa", 2, "135");
+		printf("\n");
+		two = ft_printf("%-4.*ssa", 2, "135");
+		printf("\n");
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
+		printf("\n");
+		one = printf("%-4.*ppa", -20, "135");
+		printf("\n");
+		two = ft_printf("%-4.*ppa", -20, "135");
+		printf("\n");
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
+		printf("\n");
+		one = printf("%4.*ppa", -20, "135");
+		printf("\n");
+		two = ft_printf("%4.*ppa", -20, "135");
+		printf("\n");
+		if (one == two)
+			ft_putstr_fd("OK", 1);
+		else
+			ft_putstr_fd("KO", 1);
+		printf("\n");
+
+		getchar();		
 	return (0);
 }

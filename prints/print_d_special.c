@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 11:07:56 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/08 18:57:39 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/09 11:50:32 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ ssize_t	astrsk_d_rl(t_flags *l_flags, int value)
 
 	nb_print = 0;
 	width = ft_atoi(l_flags->width);
-
 	if (value < 0)
 		negative_d(&nb_print, &value);
 	if (0 > width)
@@ -64,8 +63,6 @@ ssize_t	print_d_stars_minus(ssize_t width, ssize_t w_spec, int value)
 	if (0 > value)
 	{
 		negative_d(&nb_print, &value);
-		//if (0 > value && w_spec > 0)
-		//	w_spec++;
 	}
 	if (value == -2147483648 && w_spec > 0)
 		w_spec++;
@@ -77,8 +74,9 @@ ssize_t	print_d_stars_minus(ssize_t width, ssize_t w_spec, int value)
 		nb_print += print_w_spec(width, nb_print, ' ');
 	return (nb_print);
 }
-#include <stdio.h>
-ssize_t	print_d_stars(t_flags *l_flags, ssize_t width, ssize_t w_spec, int value)
+
+ssize_t	print_d_stars(t_flags *l_flags, ssize_t width,
+	ssize_t w_spec, int value)
 {
 	ssize_t	nb_print;
 	int		value_copy;
