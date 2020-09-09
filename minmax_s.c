@@ -153,29 +153,48 @@ void	star_star(void)
 	while (j != 12)
 	{
 		ft2(i, j);
+		ft3("ss", "1234",i, j);
 		ft2_z(i, j);
+		ft3_z("ss", "1234",i, j);
 		j++;
 		i++;
 	}
+}
+
+void	star_star_one(void)
+{
+	int i = 0;
+	int j = 0;
 
 	i = -10;
 	j = -12;
 	while (j != 12)
 	{
 		ft2(i, j);
+		ft3("ss", "1234",i, j);
 		ft2_z(i, j);
+		ft3_z("ss", "1234",i, j);
 		j++;
 		i++;
 	}
+}
+
+void	star_star_one_one(void)
+{
+	int i = 0;
+	int j = 0;
 	i = 12;
 	j = 10;
 	while (j != -10)
 	{
 		ft2(i, j);
+		ft3("ss", "1234",i, j);
 		ft2_z(i, j);
+		ft3_z("ss", "1234",i, j);
 		j--;
 		i--;
 	}	
+
 }
 
 void star_star2(void)
@@ -207,17 +226,29 @@ void	star_star2_2(void)
 	while (i != 12)
 	{
 		ft2(i, j);
+		ft3("ss", "1234",i, j);
 		ft2_z(i, j);
+		ft3_z("ss", "1234",i, j);
 		i++;
 	}
+}
+
+void	star_star2_2_2(void)
+{
+	int i = 0;
+	int j = 0;
+
 	i = 0;
 	j = -12;
 	while (j != 12)
 	{
 		ft2(i, j);
+		ft3("ss", "1234",i, j);
 		ft2_z(i, j);
+		ft3_z("ss", "1234",i, j);
 		j++;
 	}	
+
 }
 void	star_star3(void)
 {
@@ -228,30 +259,135 @@ void	star_star3(void)
 	j = -13;
 	while (i != 12)
 	{
+		ft2(i, j);
+		ft2_z(i, j);
 		ft3("ss", "1234", i, j);
 		ft3_z("ss_z", "1234", i, j);
 		i++;
 		j++;
+		ft2(i, j);
+		ft2_z(i, j);
 		ft3("ss", "1234", i, j);
 		ft3_z("ss_z", "1234", i, j);
-	}
+	}	
+}
+
+void	star_star3_3(void)
+{
+	int i = 0;
+	int j = 0;
+
 	i = -12;
 	j = -10;
 	while (j != 12)
 	{
 		ft2(i, j);
+		ft3("ss", "1234", i, j);
+		ft2_z(i, j);
+		ft3_z("ss", "1234", i, j);
+		j++;
+	}
+
+}
+
+void star_star3_3_3(void)
+{
+	int i = 0;
+	int j = 0;
+
+	i = -10;
+	j = -13;
+	while (j != 12)
+	{
+		ft3("ss", "1234", i, j);
+		ft3_z("ss", "1234", i, j);
+		ft2(i, j);
 		ft2_z(i, j);
 		j++;
 	}
-	i = -10;
-	j = -13;
+}
+
+void	star(void)
+{
+	int i = 0;
+	int j = 0;
+
+	i = 0;
+	j = -12;
+	while (j != 12)
+	{
+		ft3("ss", "1234", i, j);
+		ft3_z("ss", "1234", i, j);
+		j++;
+	}
+
+}
+
+void	star_one(void)
+{
+	int i = 0;
+	int j = 0;
+
+	i = 0;
+	j = -12;
 	while (j != 12)
 	{
 		ft2(i, j);
 		ft2_z(i, j);
 		j++;
 	}
+}
+void	star_one_one(void)
+{
+	int i = 0;
+	int j = 0;
 
+	j = -12;
+	i = -11;
+	while (j != 12)
+	{
+		ft2(i, j);
+		ft3("ss", "1234", i, j);
+		ft2_z(i, j);
+		ft3_z("ss", "1234", i, j);
+		j++;
+		i++;
+	}
+}
+
+
+void	star_two(void)
+{
+	int i = 0;
+	int j = 0;
+
+	j = -11;
+	i = -12;
+	while (j != 12)
+	{
+		ft2(i, j);
+		ft3("ss", "1234", i, j);
+		ft2_z(i, j);
+		ft3_z("ss", "1234", i, j);
+		j++;
+		i++;
+	}
+}
+
+void	star_two_two(void)
+{
+	int i = 0;
+	int j = 0;
+
+	j = -12;
+	i = -12;
+	while (j != 12)
+	{
+		ft2(i, j);
+		ft2_z(i, j);
+		j++;
+		i++;
+	}
 }
 
 int	main(void)
@@ -301,35 +437,21 @@ int	main(void)
 	ft("3.", "12");
 	ft("4.", "12");
 	*/
-	/*i = -12;
-	j = 0;
-	while (i != 1)
-	{
-		ft2(i, j);
-		ft2_z(i, j);
-		i++;
-	}
-	j = -12;
-	while (j != 1)
-	{
-		ft2(i, j);
-		ft2_z(i, j);
-		j++;
-	}
-	j = -12;
-	i = -11;
-	while (j != 1)
-	{
-		ft2(i, j);
-		ft2_z(i, j);
-		j++;
-		i++;
-	}*/
-	ft3("ss", "1", 0, 0);
+	//star();
+	//star_one();
+	//star_one_one();
+	//star_two();
+	//star_two_two();
+	//ft3("ss", "1", 0, 0);
 	//star_star();
+	//star_star_one();
+	//star_star_one_one();
 	//star_star2();
 	//star_star2_2();
-	star_star3();
+	//star_star2_2_2();
+	//star_star3();
+	//star_star3_3();
+	//star_star3_3_3();
 	//Don't forget to comment and uncomment functions
 	//Pour tester la commande leaks a.out
 	//getchar();
