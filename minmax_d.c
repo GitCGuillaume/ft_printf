@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/09 19:39:35 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/09 19:43:27 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/09 20:51:48 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,14 +222,29 @@ void	star_star(void)
 		ft3("dd", 1234,i, j);
 		ft3("dd", INT_MIN,i, j);
 		ft3("dd", INT_MAX,i, j);
-		ft2_z(i, j);
-		ft3_z("ss", 1234,i, j);
-		ft3_z("ss", INT_MIN,i, j);
-		ft3_z("ss", INT_MAX,i, j);
 		j++;
 		i++;
 	}
 }
+
+void	star_starr(void)
+{
+	int i = 0;
+	int j = 0;
+	
+	i = -12;
+	j = -12;
+	while (j != 12)
+	{
+		ft2_z(i, j);
+		ft3_z("dd", 1234,i, j);
+		ft3_z("dd", INT_MIN,i, j);
+		ft3_z("dd", INT_MAX,i, j);
+		j++;
+		i++;
+	}
+}
+
 
 void	star_star_one(void)
 {
@@ -241,15 +256,33 @@ void	star_star_one(void)
 	while (j != 12)
 	{
 		ft2(i, j);
-		ft2mm(i, j);
 		ft3("dd", 1234, i, j);
 		ft2_z(i, j);
-		ft2mm_z(i, j);
 		ft3_z("dd", 1234, i, j);
 		j++;
 		i++;
 	}
 }
+
+void	star_star_onee(void)
+{
+	int i = 0;
+	int j = 0;
+
+	i = -10;
+	j = -12;
+	while (j != 12)
+	{
+		ft2mm(i, j);
+		ft3("dd", INT_MIN, i, j);
+		ft3("dd", INT_MAX, i, j);
+		ft2_z(i, j);
+		ft2mm_z(i, j);
+		j++;
+		i++;
+	}
+}
+
 
 void	star_star_one_one(void)
 {
@@ -861,15 +894,15 @@ int	main(void)
 	//star_two();
 	//star_twotwo();
 	//star_twotwotwo();
-	star_two_two();
+	//star_two_two();
 	//star_two_twotwo();
 	//star_two_twotwo();
-	//ft3("ss", "1", 0, 0);
+	//ft3("dd", 1, 0, 0);
 	//star_star();
+	//star_starr();
 	//star_star_one();
+	//star_star_onee();
 	//star_star_one_one();
-	//star_star_one_oneone();
-	//star_star_one_oneoneone();
 	//star_star_one_one_zero();
 	//star_star2();
 	//star_star22();
@@ -882,11 +915,11 @@ int	main(void)
 	//star_star33();
 	//star_star333();
 	//star_star3_3();
-	//star_star_33_3();
-	//star_star_333_3();
+	//star_star33_3();
+	//star_star333_3();
 	//star_star3_3_3();
 	//star_star3_3_33();
-	//star_star3_3_333();
+	star_star3_3_333();
 	//Don't forget to comment and uncomment functions
 	//Pour tester la commande leaks a.out
 	//getchar();
