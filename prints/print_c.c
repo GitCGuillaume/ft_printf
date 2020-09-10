@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 11:25:06 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/02 11:25:35 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/10 13:42:52 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ ssize_t	print_c(t_flags *l_flags, va_list ap)
 		ft_putchar_fd(c, 1);
 		result = 1;
 	}
-	del(l_flags->width);
-	del(l_flags->width_specification);
+	//del(l_flags->width);
+	//del(l_flags->width_specification);
 	return (result);
 }

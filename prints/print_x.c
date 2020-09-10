@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 11:05:20 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/02 14:25:13 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/10 13:43:02 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ ssize_t	print_x(t_flags *l_flags, va_list ap, char *base)
 	{
 		result = print_hexa_x(ap, l_flags, base);
 	}
-	del(l_flags->width);
-	del(l_flags->width_specification);
+	//del(l_flags->width);
+	//del(l_flags->width_specification);
 	return (result);
 }

@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 10:55:56 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/02 10:56:18 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/10 13:43:12 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ ssize_t	print_u(t_flags *l_flags, va_list ap)
 	{
 		result += check_flags_u_one(l_flags, value);
 	}
-	del(l_flags->width);
-	del(l_flags->width_specification);
+	//del(l_flags->width);
+	//del(l_flags->width_specification);
 	return (result);
 }

@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 11:15:25 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/09 11:56:05 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/10 15:02:48 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,8 @@ ssize_t	print_u_stars(t_flags *l_flags, unsigned int value)
 	if (value == 0 && w_spec <= -1)
 		w_spec = 1;
 	if (width > w_spec)
-		nb_print += print_w_spec(calc_u(width, w_spec,
-			ft_lensize(value)), nb_print, padding);
+		nb_print += print_w_spec(calc(width, w_spec,
+			ft_lensize(value), value), nb_print, padding);
 	nb_print += print_w_spec(w_spec - ft_lensize(value), 0, '0');
 	if (value != 0)
 		ft_putnbr_fd(value, &nb_print, 1);

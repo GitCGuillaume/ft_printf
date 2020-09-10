@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/09 19:39:35 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/10 14:09:37 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/10 15:08:44 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,21 @@ void	ft(char *str, char *str2)
 		ft_putstr_fd("KO", 1);
 	printf("\n");
 	free(str3);
+	str3 = ft_strjoin("%-", str);
+	printf("\n------------------\n");
+	ft_putstr_fd(str, 1);
+	printf("\n------------------\n");
+	one = printf(str3, str2);
+	printf("\n");
+	two = ft_printf(str3, str2);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	free(str3);
+
 }
 void	ft_z(char *str, char *str2)
 {
@@ -77,7 +92,7 @@ void	ft2(int i, int j)
 	ito = ft_itoa(j_cpy);
 	str2 = ft_strjoin(str, ito);
 	free(str);
-	str = ft_strjoin(str2, "dd");
+	str = ft_strjoin(str2, "uu");
 	ft(str, 123);
 	free(ito);
 	free(str);
@@ -102,7 +117,7 @@ void	ft2mm(int i, int j)
 	ito = ft_itoa(j_cpy);
 	str2 = ft_strjoin(str, ito);
 	free(str);
-	str = ft_strjoin(str2, "dd");
+	str = ft_strjoin(str2, "uu");
 	ft(str, INT_MAX);
 	ft(str, INT_MIN);
 	free(ito);
@@ -128,7 +143,7 @@ void	ft2_z(int i, int j)
 	ito = ft_itoa(j_cpy);
 	str2 = ft_strjoin(str, ito);
 	free(str);
-	str = ft_strjoin(str2, "dd");
+	str = ft_strjoin(str2, "uu");
 	ft_z(str, 123);
 	free(ito);
 	free(str);
@@ -153,7 +168,7 @@ void	ft2mm_z(int i, int j)
 	ito = ft_itoa(j_cpy);
 	str2 = ft_strjoin(str, ito);
 	free(str);
-	str = ft_strjoin(str2, "dd");
+	str = ft_strjoin(str2, "uu");
 	ft_z(str, INT_MIN);
 	ft_z(str, INT_MAX);
 	free(ito);
@@ -219,9 +234,8 @@ void	star_star(void)
 	while (j != 12)
 	{
 		ft2(i, j);
-		ft3("dd", 1234,i, j);
-		ft3("dd", INT_MIN,i, j);
-		ft3("dd", INT_MAX,i, j);
+		ft3("uu", 1234,i, j);
+		ft3("uu", INT_MAX,i, j);
 		j++;
 		i++;
 	}
@@ -237,9 +251,8 @@ void	star_starr(void)
 	while (j != 12)
 	{
 		ft2_z(i, j);
-		ft3_z("dd", 1234,i, j);
-		ft3_z("dd", INT_MIN,i, j);
-		ft3_z("dd", INT_MAX,i, j);
+		ft3_z("uu", 1234,i, j);
+		ft3_z("uu", INT_MAX,i, j);
 		j++;
 		i++;
 	}
@@ -256,9 +269,9 @@ void	star_star_one(void)
 	while (j != 12)
 	{
 		ft2(i, j);
-		ft3("dd", 1234, i, j);
+		ft3("uu", 1234, i, j);
 		ft2_z(i, j);
-		ft3_z("dd", 1234, i, j);
+		ft3_z("uu", 1234, i, j);
 		j++;
 		i++;
 	}
@@ -274,8 +287,8 @@ void	star_star_onee(void)
 	while (j != 12)
 	{
 		ft2mm(i, j);
-		ft3("dd", INT_MIN, i, j);
-		ft3("dd", INT_MAX, i, j);
+		ft3("uu", INT_MIN, i, j);
+		ft3("uu", INT_MAX, i, j);
 		ft2_z(i, j);
 		ft2mm_z(i, j);
 		j++;
@@ -295,9 +308,9 @@ void	star_star_one_one(void)
 	{
 		ft2(i, j);
 		ft2mm(i, j);
-		ft3("dd", 1234, i, j);
-		ft3("dd", INT_MIN, i, j);
-		ft3("dd", INT_MAX, i, j);
+		ft3("uu", 1234, i, j);
+		ft3("uu", INT_MIN, i, j);
+		ft3("uu", INT_MAX, i, j);
 		j--;
 		i--;
 	}	
@@ -315,9 +328,9 @@ void	star_star_one_one_zero(void)
 	{
 		ft2_z(i, j);
 		ft2mm_z(i, j);
-		ft3_z("dd", 1234, i, j);
-		ft3_z("dd", INT_MIN, i, j);
-		ft3_z("dd", INT_MAX,i, j);
+		ft3_z("uu", 1234, i, j);
+		ft3_z("uu", INT_MIN, i, j);
+		ft3_z("uu", INT_MAX,i, j);
 		j--;
 		i--;
 	}	
@@ -333,11 +346,11 @@ void star_star2(void)
 	while (i != 13)
 	{
 		i++;
-		ft3("dd", 1234, i, j);
-		ft3_z("dd_z", 1234, i, j);
+		ft3("uu", 1234, i, j);
+		ft3_z("uu_z", 1234, i, j);
 		j++;
-		ft3("dd", 1234, i, j);
-		ft3_z("dd_z", 1234, i, j);
+		ft3("uu", 1234, i, j);
+		ft3_z("uu_z", 1234, i, j);
 	}
 }
 void star_star22(void)
@@ -350,10 +363,10 @@ void star_star22(void)
 	while (i != 13)
 	{
 		i++;
-		ft3("dd", INT_MAX, i, j);
-		ft3("dd", INT_MIN, i, j);
-		ft3_z("dd_z", INT_MAX, i, j);
-		ft3("dd", INT_MIN, i, j);
+		ft3("uu", INT_MAX, i, j);
+		ft3("uu", INT_MIN, i, j);
+		ft3_z("uu_z", INT_MAX, i, j);
+		ft3("uu", INT_MIN, i, j);
 		j++;
 	}
 }
@@ -369,9 +382,9 @@ void	star_star2_2(void)
 	while (i != 12)
 	{
 		ft2(i, j);
-		ft3("dd", 1234,i, j);
+		ft3("uu", 1234,i, j);
 		ft2_z(i, j);
-		ft3_z("dd", 1234,i, j);
+		ft3_z("uu", 1234,i, j);
 		i++;
 	}
 }
@@ -386,11 +399,9 @@ void	star_star22_2(void)
 	while (i != 12)
 	{
 		ft2mm(i, j);
-		ft3("dd", INT_MIN,i, j);
-		ft3("dd", INT_MAX,i, j);
+		ft3("uu", INT_MAX,i, j);
 		ft2mm_z(i, j);
-		ft3_z("dd", INT_MIN,i, j);
-		ft3("dd", INT_MAX,i, j);
+		ft3("uu", INT_MAX,i, j);
 		i++;
 	}
 }
@@ -405,9 +416,9 @@ void	star_star2_2_2(void)
 	while (j != 12)
 	{
 		ft2(i, j);
-		ft3("dd", 1234,i, j);
+		ft3("uu", 1234,i, j);
 		ft2_z(i, j);
-		ft3_z("dd", 1234,i, j);
+		ft3_z("uu", 1234,i, j);
 		j++;
 	}	
 
@@ -424,8 +435,8 @@ void	star_star2_2_22(void)
 	{
 		ft2(i, j);
 		ft2mm(i, j);
-		ft3("dd", INT_MIN, i, j);
-		ft3("dd", INT_MAX, i, j);
+		ft3("uu", INT_MIN, i, j);
+		ft3("uu", INT_MAX, i, j);
 		ft2_z(i, j);
 		j++;
 	}	
@@ -442,8 +453,8 @@ void	star_star2_2_222(void)
 	while (j != 12)
 	{
 		ft2mm_z(i, j);
-		ft3_z("dd", INT_MIN, i, j);
-		ft3_z("dd", INT_MAX, i, j);
+		ft3_z("uu", INT_MIN, i, j);
+		ft3_z("uu", INT_MAX, i, j);
 		j++;
 	}	
 
@@ -460,14 +471,14 @@ void	star_star3(void)
 	{
 		ft2(i, j);
 		ft2_z(i, j);
-		ft3("dd", 1234, i, j);
-		ft3_z("dd_z", 1234, i, j);
+		ft3("uu", 1234, i, j);
+		ft3_z("uu_z", 1234, i, j);
 		i++;
 		j++;
 		ft2(i, j);
 		ft2_z(i, j);
-		ft3("ss", "1234", i, j);
-		ft3_z("ss_z", "1234", i, j);
+		ft3("uu", "1234", i, j);
+		ft3_z("uu_z", "1234", i, j);
 	}	
 }
 
@@ -482,14 +493,14 @@ void	star_star33(void)
 	{
 		ft2mm(i, j);
 		ft2mm_z(i, j);
-		ft3("dd", INT_MIN, i, j);
-		ft3_z("dd_z", INT_MIN, i, j);
+		ft3("uu", INT_MIN, i, j);
+		ft3_z("uu_z", INT_MIN, i, j);
 		i++;
 		j++;
 		ft2(i, j);
 		ft2_z(i, j);
-		ft3("dd", INT_MIN, i, j);
-		ft3_z("dd_z", INT_MIN, i, j);
+		ft3("uu", INT_MIN, i, j);
+		ft3_z("uu_z", INT_MIN, i, j);
 	}	
 }
 
@@ -504,12 +515,12 @@ void	star_star333(void)
 	{
 		ft2mm(i, j);
 		ft2mm_z(i, j);
-		ft3("dd", INT_MAX, i, j);
-		ft3_z("dd_z", INT_MAX, i, j);
+		ft3("uu", INT_MAX, i, j);
+		ft3_z("uu_z", INT_MAX, i, j);
 		i++;
 		j++;
-		ft3("dd", INT_MAX, i, j);
-		ft3_z("dd_z", INT_MAX, i, j);
+		ft3("uu", INT_MAX, i, j);
+		ft3_z("uu_z", INT_MAX, i, j);
 	}	
 }
 
@@ -523,9 +534,9 @@ void	star_star3_3(void)
 	while (j != 12)
 	{
 		ft2(i, j);
-		ft3("dd", 1234, i, j);
+		ft3("uu", 1234, i, j);
 		ft2_z(i, j);
-		ft3_z("dd", "1234", i, j);
+		ft3_z("uu", "1234", i, j);
 		j++;
 	}
 
@@ -541,9 +552,9 @@ void	star_star33_3(void)
 	while (j != 12)
 	{
 		ft2mm(i, j);
-		ft3("dd", INT_MIN, i, j);
+		ft3("uu", INT_MIN, i, j);
 		ft2mm_z(i, j);
-		ft3_z("dd", INT_MIN, i, j);
+		ft3_z("uu", INT_MIN, i, j);
 		j++;
 	}
 }
@@ -557,8 +568,8 @@ void	star_star333_3(void)
 	j = -10;
 	while (j != 12)
 	{
-		ft3("dd", INT_MAX, i, j);
-		ft3_z("dd", INT_MAX, i, j);
+		ft3("uu", INT_MAX, i, j);
+		ft3_z("uu", INT_MAX, i, j);
 		j++;
 	}
 }
@@ -572,8 +583,8 @@ void star_star3_3_3(void)
 	j = -13;
 	while (j != 12)
 	{
-		ft3("dd", 1234, i, j);
-		ft3_z("dd", 1234, i, j);
+		ft3("uu", 1234, i, j);
+		ft3_z("uu", 1234, i, j);
 		ft2(i, j);
 		ft2_z(i, j);
 		j++;
@@ -589,8 +600,8 @@ void star_star3_3_33(void)
 	j = -13;
 	while (j != 12)
 	{
-		ft3("dd", INT_MIN, i, j);
-		ft3_z("dd", INT_MIN, i, j);
+		ft3("uu", INT_MIN, i, j);
+		ft3_z("uu", INT_MIN, i, j);
 		ft2mm(i, j);
 		ft2mm_z(i, j);
 		j++;
@@ -606,8 +617,8 @@ void star_star3_3_333(void)
 	j = -13;
 	while (j != 12)
 	{
-		ft3("dd", INT_MAX, i, j);
-		ft3_z("dd", INT_MAX, i, j);
+		ft3("uu", INT_MAX, i, j);
+		ft3_z("uu", INT_MAX, i, j);
 		j++;
 	}
 }
@@ -621,8 +632,8 @@ void	star(void)
 	j = -12;
 	while (j != 12)
 	{
-		ft3("dd", 1234, i, j);
-		ft3_z("dd", 1234, i, j);
+		ft3("uu", 1234, i, j);
+		ft3_z("uu", 1234, i, j);
 		j++;
 	}
 }
@@ -636,8 +647,8 @@ void	starr(void)
 	j = -13;
 	while (j != 13)
 	{
-		ft3("dd", INT_MIN, i, j);
-		ft3_z("dd", INT_MIN, i, j);
+		ft3("uu", INT_MIN, i, j);
+		ft3_z("uu", INT_MIN, i, j);
 		j++;
 	}
 }
@@ -651,8 +662,8 @@ void	starrr(void)
 	j = -13;
 	while (j != 13)
 	{
-		ft3("dd", INT_MAX, i, j);
-		ft3_z("dd", INT_MAX, i, j);
+		ft3("uu", INT_MAX, i, j);
+		ft3_z("uu", INT_MAX, i, j);
 		j++;
 	}
 }
@@ -710,9 +721,10 @@ void	star_one_one(void)
 	while (j != 12)
 	{
 		ft2(i, j);
-		ft3("dd", 1234, i, j);
+		/*ft3("uu", 1234, i, j);
 		ft2_z(i, j);
-		ft3_z("dd", 1234, i, j);
+		ft3_z("uu", 1234, i, j);
+		*/
 		j++;
 		i++;
 	}
@@ -728,9 +740,9 @@ void	star_one_oneone(void)
 	while (j != 12)
 	{
 		ft2mm(i, j);
-		ft3("dd", INT_MIN, i, j);
+		ft3("uu", INT_MIN, i, j);
 		ft2mm_z(i, j);
-		ft3_z("dd", INT_MIN, i, j);
+		ft3_z("uu", INT_MIN, i, j);
 		j++;
 		i++;
 	}
@@ -744,8 +756,8 @@ void	star_one_oneoneone(void)
 	i = -11;
 	while (j != 12)
 	{
-		ft3("dd", INT_MAX, i, j);
-		ft3_z("dd", INT_MAX, i, j);
+		ft3("uu", INT_MAX, i, j);
+		ft3_z("uu", INT_MAX, i, j);
 		j++;
 		i++;
 	}
@@ -761,9 +773,9 @@ void	star_two(void)
 	while (j != 12)
 	{
 		ft2(i, j);
-		ft3("dd", 1234, i, j);
+		ft3("uu", 1234, i, j);
 		ft2_z(i, j);
-		ft3_z("dd", 1234, i, j);
+		ft3_z("uu", 1234, i, j);
 		j++;
 		i++;
 	}
@@ -779,9 +791,9 @@ void	star_twotwo(void)
 	while (j != 12)
 	{
 		ft2mm(i, j);
-		ft3("dd", INT_MIN, i, j);
+		ft3("uu", INT_MIN, i, j);
 		ft2mm_z(i, j);
-		ft3_z("dd", INT_MIN, i, j);
+		ft3_z("uu", INT_MIN, i, j);
 		j++;
 		i++;
 	}
@@ -797,9 +809,9 @@ void	star_twotwotwo(void)
 	while (j != 12)
 	{
 		ft2mm(i, j);
-		ft3("dd", INT_MAX, i, j);
+		ft3("uu", INT_MAX, i, j);
 		ft2mm_z(i, j);
-		ft3_z("dd", INT_MAX, i, j);
+		ft3_z("uu", INT_MAX, i, j);
 		j++;
 		i++;
 	}
@@ -844,40 +856,40 @@ int	main(void)
 	char *ito;
 	int i = 0;
 	int j = 0;
-
-	ft("d", 123);
-	ft("0.0dd", 12);
-	ft("0.1dd", 12);
-	ft("0.2dd", 12);
-	ft("0.3dd", 12);
-	ft("0.0dd", 12);
-	ft("1.0dd", 12);
-	ft("2.0dd", 12);
-	ft("3.0dd", 12);
-	ft("-0.0dd", 12);
-	ft("-0.1dd", 12);
-	ft("-0.2dd", 12);
-	ft("-0.3dd", 12);
-	ft("-0.0dd", 12);
-	ft("-1.0dd", 12);
-	ft("-2.0dd", 12);
-	ft("-3.0dd", 12);
-	ft("00.0dd", 12);
-	ft("00.1dd", 12);
-	ft("00.2dd", 12);
-	ft("00.3dd", 12);
-	ft("00.0dd", 12);
-	ft("01.0dd", 12);
-	ft("02.0dd", 12);
-	ft("03.0dd", 12);
-	ft("0-0.0dd", 12);
-	ft("0-0.1dd", 12);
-	ft("0-0.2dd", 12);
-	ft("0-0.3dd", 12);
-	ft("0-0.0dd", 12);
-	ft("0-1.0dd", 12);
-	ft("0-2.0dd", 12);
-	ft("0-3.0dd", 12);
+/*
+	ft("u", 123);
+	ft("0.0uu", 12);
+	ft("0.1uu", 12);
+	ft("0.2uu", 12);
+	ft("0.3uu", 12);
+	ft("0.0uu", 12);
+	ft("1.0uu", 12);
+	ft("2.0uu", 12);
+	ft("3.0uu", 12);
+	ft("-0.0uu", 12);
+	ft("-0.1uu", 12);
+	ft("-0.2uu", 12);
+	ft("-0.3uu", 12);
+	ft("-0.0uu", 12);
+	ft("-1.0uu", 12);
+	ft("-2.0uu", 12);
+	ft("-3.0uu", 12);
+	ft("00.0uu", 12);
+	ft("00.1uu", 12);
+	ft("00.2uu", 12);
+	ft("00.3uu", 12);
+	ft("00.0uu", 12);
+	ft("01.0uu", 12);
+	ft("02.0uu", 12);
+	ft("03.0uu", 12);
+	ft("0-0.0uu", 12);
+	ft("0-0.1uu", 12);
+	ft("0-0.2uu", 12);
+	ft("0-0.3uu", 12);
+	ft("0-0.0uu", 12);
+	ft("0-1.0uu", 12);
+	ft("0-2.0uu", 12);
+	ft("0-3.0uu", 12);
 	ft("0.", 12);
 	ft("1.", 12);
 	ft("2.", 12);
@@ -888,46 +900,45 @@ int	main(void)
 	ft("2.1", 12);
 	ft("3.1", 12);
 	ft("4.1", 12);
-
-
-	star();
-	starr();
-	starrr();
-	starrrr();
-	star_one();
-	star_oneone();
-	star_one_one();
-	star_two();
+*/	
+	//star();
+	//starr();
+	//starrr();
+	//starrrr();
+	//star_one();
+	//star_oneone();
+	//star_one_one();
+	//star_two();
 	star_twotwo();
-	star_twotwotwo();
-	star_two_two();
-	star_two_twotwo();
-	star_two_twotwo();
-	ft3("dd", 1, 0, 0);
-	star_star();
-	star_starr();
-	star_star_one();
-	star_star_onee();
-	star_star_one_one();
-	star_star_one_one_zero();
-	star_star2();
-	star_star22();
-	star_star2_2();
-	star_star22_2();
-	star_star2_2_2();
-	star_star2_2_22();
-	star_star2_2_222();
-	star_star3();
-	star_star33();
-	star_star333();
-	star_star3_3();
-	star_star33_3();
-	star_star333_3();
-	star_star3_3_3();
-	star_star3_3_33();
-	star_star3_3_333();
+	//star_twotwotwo();
+	//star_two_two();
+	//star_two_twotwo();
+	//star_two_twotwo();
+	//ft3("uu", 1, 0, 0);
+	//star_star();
+	//star_starr();
+	//star_star_one();
+	//star_star_onee();
+	//star_star_one_one();
+	//star_star_one_one_zero();
+	//star_star2();
+	//star_star22();
+	//star_star2_2();
+	//star_star22_2();
+	//star_star2_2_2();
+	//star_star2_2_22();
+	//star_star2_2_222();
+	//star_star3();
+	//star_star33();
+	//star_star333();
+	//star_star3_3();
+	//star_star33_3();
+	//star_star333_3();
+	//star_star3_3_3();
+	//star_star3_3_33();
+	//star_star3_3_333();
 	//Don't forget to comment and uncomment functions
 	//Pour tester la commande leaks a.out
-	//getchar();
+	getchar();
 	return (0);
 }

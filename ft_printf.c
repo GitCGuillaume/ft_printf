@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/16 10:50:36 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/09 12:05:00 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/10 14:06:54 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	del(void *lst)
 	if (lst)
 		free(lst);
 }
-
+#include <stdio.h>
 int		ft_printf(const char *fmt, ...)
 {
 	va_list		ap;
@@ -78,6 +78,9 @@ int		ft_printf(const char *fmt, ...)
 		if (find_percentage(&l_flags, &i, &nb_print, fmt) == 1)
 		{
 			nb_print += browse_fmt(&l_flags, ap, &i, fmt);
+			del(l_flags.width);
+			del(l_flags.width_specification);
+
 		}
 	}
 	va_end(ap);
