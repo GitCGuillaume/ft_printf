@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/09 19:39:35 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/10 14:09:37 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/10 15:44:30 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,21 @@ void	ft(char *str, char *str2)
 		ft_putstr_fd("KO", 1);
 	printf("\n");
 	free(str3);
+	str3 = ft_strjoin("%-", str);
+	printf("\n------------------\n");
+	ft_putstr_fd(str, 1);
+	printf("\n------------------\n");
+	one = printf(str3, str2);
+	printf("\n");
+	two = ft_printf(str3, str2);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	free(str3);
+
 }
 void	ft_z(char *str, char *str2)
 {
@@ -57,6 +72,22 @@ void	ft_z(char *str, char *str2)
 		ft_putstr_fd("KO", 1);
 	printf("\n");
 	free(str3);
+	str3 = ft_strjoin("%0-", str);
+	printf("\n------------------\n");
+	ft_putstr_fd(str, 1);
+	printf("%s%s", str3, str);
+	printf("\n------------------\n");
+	one = printf(str3, str2);
+	printf("\n");
+	two = ft_printf(str3, str2);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	free(str3);
+
 }
 
 void	ft2(int i, int j)
@@ -184,6 +215,22 @@ void	ft3(char *str, char *str2, int i, int j)
 		ft_putstr_fd("KO", 1);
 	printf("\n");
 	free(str3);
+	str3 = ft_strjoin("%0*.*", str);
+	printf("\n------------------\n");
+	ft_printf("%d.%d", i, j);
+	ft_putstr_fd(str, 1);
+	printf("\n------------------\n");
+	one = printf(str3, i, j, str2);
+	printf("\n");
+	two = ft_printf(str3, i, j, str2);
+	printf("\n");
+	if (one == two)
+		ft_putstr_fd("OK", 1);
+	else
+		ft_putstr_fd("KO", 1);
+	printf("\n");
+	free(str3);
+
 }
 
 void	ft3_z(char *str, char *str2, int i, int j)
@@ -796,15 +843,40 @@ void	star_twotwotwo(void)
 	i = -12;
 	while (j != 12)
 	{
-		ft2mm(i, j);
 		ft3("dd", INT_MAX, i, j);
-		ft2mm_z(i, j);
 		ft3_z("dd", INT_MAX, i, j);
 		j++;
 		i++;
 	}
 }
+void	star_twtwtw(void)
+{
+	int i = 0;
+	int j = 0;
 
+	j = -11;
+	i = -12;
+	while (j != 14)
+	{
+		ft2mm(i, j);
+		j++;
+		i++;
+	}
+}
+void	star_twtwtwo(void)
+{
+	int i = 0;
+	int j = 0;
+
+	j = -11;
+	i = -12;
+	while (j != 14)
+	{
+		ft2mm_z(i, j);
+		j++;
+		i++;
+	}
+}
 void	star_two_two(void)
 {
 	int i = 0;
@@ -844,7 +916,7 @@ int	main(void)
 	char *ito;
 	int i = 0;
 	int j = 0;
-
+/*
 	ft("d", 123);
 	ft("0.0dd", 12);
 	ft("0.1dd", 12);
@@ -889,8 +961,8 @@ int	main(void)
 	ft("3.1", 12);
 	ft("4.1", 12);
 
-
-	star();
+*/
+/*	star();
 	starr();
 	starrr();
 	starrrr();
@@ -899,8 +971,11 @@ int	main(void)
 	star_one_one();
 	star_two();
 	star_twotwo();
-	star_twotwotwo();
-	star_two_two();
+*/
+	//star_twotwotwo();
+	//star_twtwtw();
+	//star_twtwtwo();
+/*	star_two_two();
 	star_two_twotwo();
 	star_two_twotwo();
 	ft3("dd", 1, 0, 0);
@@ -926,7 +1001,7 @@ int	main(void)
 	star_star3_3_3();
 	star_star3_3_33();
 	star_star3_3_333();
-	//Don't forget to comment and uncomment functions
+*/	//Don't forget to comment and uncomment functions
 	//Pour tester la commande leaks a.out
 	//getchar();
 	return (0);

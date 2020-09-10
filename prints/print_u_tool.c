@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 11:15:25 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/10 15:02:48 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/10 16:38:20 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,22 +70,22 @@ ssize_t	print_u_stars(t_flags *l_flags, unsigned int value)
 	ssize_t	nb_print;
 	ssize_t	width;
 	ssize_t	w_spec;
-	char	padding;
 
 	nb_print = 0;
 	width = ft_atoi(l_flags->width);
 	w_spec = ft_atoi(l_flags->width_specification);
-	padding = ' ';
+	if (l_flags->zero == 1 && 0 > w_spec)
+		return (nb_print += print_u_zero(l_flags, value));
 	if (0 > width)
 		return (nb_print += print_u_stars_minus(l_flags, value));
 	handle_sizes(&width);
-	if (l_flags->zero == 1 && w_spec < 0)
-		padding = '0';
 	if (value == 0 && w_spec <= -1)
 		w_spec = 1;
+	if (value == 2147483648 && w_spec >= ft_lensize(value) && width > 0)
+		width++;
 	if (width > w_spec)
 		nb_print += print_w_spec(calc(width, w_spec,
-			ft_lensize(value), value), nb_print, padding);
+			ft_lensize(value), value), nb_print, ' ');
 	nb_print += print_w_spec(w_spec - ft_lensize(value), 0, '0');
 	if (value != 0)
 		ft_putnbr_fd(value, &nb_print, 1);
