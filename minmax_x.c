@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/09 19:39:35 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/11 12:25:49 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/11 14:42:22 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -635,6 +635,19 @@ void	star_star33(void)
 	{
 		ft2mm(i, j);
 		ft2mm_z(i, j);
+		i++;
+		j++;
+	}	
+}
+void	zstar_star33(void)
+{
+	int i = 0;
+	int j = 0;
+	
+	i = -12;
+	j = -13;
+	while (i != 12)
+	{
 		ft3("xx", INT_MIN, i, j);
 		ft3_z("xx_z", INT_MIN, i, j);
 		i++;
@@ -671,12 +684,38 @@ void	star_star333(void)
 	{
 		ft2mm(i, j);
 		ft2mm_z(i, j);
-		ft3("xx", INT_MAX, i, j);
-		ft3_z("xx_z", INT_MAX, i, j);
+		i++;
+		j++;
+	}	
+}
+void	zstar_star333(void)
+{
+	int i = 0;
+	int j = 0;
+	
+	i = -12;
+	j = -13;
+	while (i != 12)
+	{
 		i++;
 		j++;
 		ft3("xx", INT_MAX, i, j);
 		ft3_z("xx_z", INT_MAX, i, j);
+	}	
+}
+
+void	zzstar_star333(void)
+{
+	int i = 0;
+	int j = 0;
+	
+	i = -12;
+	j = -13;
+	while (i != 12)
+	{
+		ft3("xx", INT_MAX, i, j);
+		i++;
+		j++;
 	}	
 }
 
@@ -1077,7 +1116,7 @@ int	main(void)
 	char *ito;
 	int i = 0;
 	int j = 0;
-	/*ft("20.18x", INT_MIN);
+	ft("20.18x", INT_MIN);
 
 	ft("x", 123);
 	ft("0.0xx", 12);
@@ -1122,8 +1161,6 @@ int	main(void)
 	ft("2.1", 12);
 	ft("3.1", 12);
 	ft("4.1", 12);
-	*/
-	/*
 	star();
 	starr();
 	starrr();
@@ -1138,8 +1175,8 @@ int	main(void)
 	star_twotwotwo();
 	star_twtwtw();
 	star_two_two();
-	*/star_two_twotwo();
-	/*star_two_twotwo();
+	star_two_twotwo();
+	star_two_twotwo();
 	ft3("xx", 1, 0, 0);
 	star_star();
 	star_sta();
@@ -1166,8 +1203,11 @@ int	main(void)
 	star_star3();
 	sstar_star3();
 	star_star33();
+	zstar_star33();
 	sstar_star33();
 	star_star333();
+	zstar_star333();
+	zzstar_star333();
 	star_star3_3();
 	star_star33_3();
 	star_star333_3();
@@ -1177,7 +1217,7 @@ int	main(void)
 	sstar_star3_3_33();
 	ssstar_star3_3_33();
 	star_star3_3_333();
-	*/
+	
 	//Don't forget to comment and uncomment functions
 	//Pour tester la commande leaks a.out
 	getchar();
