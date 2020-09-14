@@ -23,15 +23,17 @@ CFLAGS	=	-Wall -Wextra -Werror
 $(NAME):	$(OBJS)
 		ar rcs $(NAME) $(OBJS)
 .c.o:
-		$(GCC) $(CFLAGS) -Ilibft -c $< -o $(<:.c=.o)
+		$(GCC) $(CFLAGS) -I. -c $< -o $(<:.c=.o)
 
 all:		$(NAME)
 
 clean:
 		$(RM) $(OBJS)
+		make clean -C libft/
 
 fclean:		clean
 		$(RM) $(NAME)
+		make fclean -C libft/
 
 re:		fclean all
 

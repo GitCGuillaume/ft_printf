@@ -6,12 +6,12 @@
 /*   By: gchopin </var/mail/gchopin>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/14 18:22:12 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/11 13:46:32 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/14 18:02:42 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "ft_printf.h"
+//#include "ft_printf.h"
 #include <limits.h>
 
 int				ft_printf(const char *fmt, ...);
@@ -1161,6 +1161,122 @@ printf("%d", ft_printf(""));
 printf("%d", printf(""));
 		printf("\n");
 		ft_printf(NULL);
+		printf("\n");
+		printf("cspdiuxX%");
+		ft_printf("cspdiuxX%");
+		printf("\n");
+		printf("%c", NULL);
+		ft_printf("%c", NULL);
+		printf("\n");
+		printf("%s", NULL);
+		printf("\n");
+		ft_printf("%s", NULL);
+		printf("\n");
+		printf("%p", NULL);
+		printf("\n");
+		ft_printf("%p", NULL);
+		printf("\n");
+		ft_printf("%d", NULL);
+		printf("%d", NULL);
+		printf("\n");
+		ft_printf("%i", NULL);
+		printf("%i", NULL);
+		printf("\n");
+		ft_printf("%u", NULL);
+		printf("%u", NULL);
+		printf("\n");
+		ft_printf("%x", NULL);
+		printf("%x", NULL);
+		printf("\n");
+		ft_printf("%X", NULL);
+		printf("%X", NULL);
+		printf("\n");
+		ft_printf("%s", "zzz", "bbb");
+		printf("\n");
+		printf("%s", "zzz", "bbb");
+		printf("\n");
+		ft_printf("%s%s", "zzz");
+		printf("\n");
+		printf("%s%s", "zzz");
+		printf("\n");
+		ft_printf("%c", 'a', 'a');
+		printf("\n");
+		printf("%c", 'a', 'a');
+		printf("\n");
+		ft_printf("%c%c", 'a');
+		printf("\n");
+		printf("%c%c", 'a');
+		printf("\n");
+		ft_printf("%p", "zzz", "bbb");
+		printf("\n");
+		printf("%p", "zzz", "bbb");
+		printf("\n");
+		ft_printf("%p%p", "zzz");
+		printf("\n");
+		printf("%p%p", "zzz");
+		printf("\n");
+		ft_printf("%d", 12, 12);
+		printf("\n");
+		printf("%d", 12, 12);
+		printf("\n");
+		ft_printf("%d%d", 12);
+		printf("\n");
+		printf("%d%d", 12);
+		printf("\n");
+		ft_printf("%d", 12, 12);
+		printf("\n");
+		printf("%d", 12, 12);
+		printf("\n");
+		ft_printf("%d%d", 12);
+		printf("\n");
+		printf("%d%d", 12);
+		printf("\n");
+		ft_printf("%i", 12, 12);
+		printf("\n");
+		printf("%i", 12, 12);
+		printf("\n");
+		ft_printf("%i%i", 12);
+		printf("\n");
+		printf("%i%i", 12);
+		printf("\n");
+		ft_printf("%u", 12, 12);
+		printf("\n");
+		printf("%u", 12, 12);
+		printf("\n");
+		ft_printf("%u%u", 12);
+		printf("\n");
+		printf("%u%u", 12);
+		printf("\n");
+		ft_printf("%x", 12, 12);
+		printf("\n");
+		printf("%x", 12, 12);
+		printf("\n");
+		ft_printf("%x%x", 12);
+		printf("\n");
+		printf("%x%x", 12);
+		printf("\n");
+		ft_printf("%X", 12, 12);
+		printf("\n");
+		printf("%X", 12, 12);
+		printf("\n");
+		ft_printf("%X%X", 12);
+		printf("\n");
+		printf("%X%X", 12);
+		printf("\n");
+		ft_printf("%%", 12, 12);
+		printf("\n");
+		printf("%%", 12, 12);
+		printf("\n");
+		ft_printf("%%%%", 12);
+		printf("\n");
+		printf("%%%%", 12);
+		printf("\n");
+		printf("%%%", 12);
+		printf("\n");
+		ft_printf("%%%", 12);
+		printf("\n");
+		//printf(INT_MIN);
+		//ft_printf(INT_MIN);
 		getchar();		
 	return (0);
 }
