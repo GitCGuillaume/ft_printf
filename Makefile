@@ -1,8 +1,8 @@
-SRCS_LIBFT	=	$(LIBFT)/ft_strdup.c $(LIBFT)/ft_putchar_fd.c $(LIBFT)/ft_putstr_fd.c $(LIBFT)/ft_putnbr_fd.c $(LIBFT)/ft_strlen.c $(LIBFT)/ft_atoi.c $(LIBFT)/ft_itoa.c $(LIBFT)/ft_substr.c $(LIBFT)/ft_strnstr.c
+SRCS_LIBFT	=	$(LIBFT)/ft_strdup.o $(LIBFT)/ft_putchar_fd.o $(LIBFT)/ft_putstr_fd.o $(LIBFT)/ft_putnbr_fd.o $(LIBFT)/ft_strlen.o $(LIBFT)/ft_atoi.o $(LIBFT)/ft_itoa.o $(LIBFT)/ft_substr.o $(LIBFT)/ft_strnstr.o
 
 SRCS	=	./ft_printf.c $(MANAGE)/ft_manage_convertor.c $(MANAGE)/ft_manage_specification.c $(MANAGE)/ft_manage_indicator.c $(MANAGE)/ft_manage_width.c $(PRINTS)/print_d.c $(PRINTS)/print_d_tools.c $(PRINTS)/print_d_specification.c $(PRINTS)/print_d_special.c $(PRINTS)/print_s.c $(PRINTS)/print_s_specification.c $(PRINTS)/print_s_tools.c $(PRINTS)/print_s_tools_two.c $(PRINTS)/print_p.c $(PRINTS)/print_tool.c $(PRINTS)/print_p_tool.c $(PRINTS)/print.c  $(PRINTS)/ft_putnbr_base.c $(PRINTS)/print_c.c $(PRINTS)/print_c_tool.c $(PRINTS)/print_u.c $(PRINTS)/print_u_tool.c $(PRINTS)/print_x.c $(PRINTS)/print_x_tool.c $(PRINTS)/ft_putnbr_base_x.c $(PRINTS)/print_pct.c $(PRINTS)/print_pct_tool.c
 
-OBJS	=	$(SRCS_LIBFT:.c=.o) $(SRCS:.c=.o)
+OBJS	=	$(SRCS:.c=.o)
 
 LIBFT	=	./libft
 
@@ -21,7 +21,8 @@ RM	=	rm -f
 CFLAGS	=	-Wall -Wextra -Werror
 
 $(NAME):	$(OBJS)
-		ar rcs $(NAME) $(OBJS)
+		make -C libft/
+		ar rcs $(NAME) $(SRCS_LIBFT) $(OBJS)
 .c.o:
 		$(GCC) $(CFLAGS) -I. -c $< -o $(<:.c=.o)
 
@@ -29,11 +30,11 @@ all:		$(NAME)
 
 clean:
 		$(RM) $(OBJS)
-		make clean -C libft/
+		$(MAKE) clean -C libft/
 
 fclean:		clean
+		$(MAKE) fclean -C libft/
 		$(RM) $(NAME)
-		make fclean -C libft/
 
 re:		fclean all
 
