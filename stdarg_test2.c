@@ -6,7 +6,7 @@
 /*   By: gchopin </var/mail/gchopin>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/14 18:22:12 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/14 18:02:42 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/18 14:11:48 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1277,6 +1277,22 @@ printf("%d", printf(""));
 		printf("\n");
 		//printf(INT_MIN);
 		//ft_printf(INT_MIN);
+		printf("%*.*u", 42, 25, 4294967284);
+		printf("\n");
+		ft_printf("%*.*u", 42, 25, 4294967284);
+		printf("\n");
+		printf("%*.*u", 42, 25, 4294967295);
+		printf("\n");
+		ft_printf("%*.*u", 42, 25, 4294967295);
+		printf("\n");
+		printf("%*.*u", 42, 25, INT_MAX);
+		printf("\n");
+		ft_printf("%*.*u", 42, 25, INT_MAX);
+		printf("\n");
+		printf("%*.*u", 42, 25, INT_MIN + 1);
+		printf("\n");
+		ft_printf("%*.*u", 42, 25, INT_MIN + 1);
+		printf("\n");
 		getchar();		
 	return (0);
 }

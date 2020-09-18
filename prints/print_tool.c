@@ -6,13 +6,13 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 11:04:10 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/02 11:04:27 by gchopin          ###   ########.fr       */
+/*   Updated: 2020/09/18 14:22:37 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	get_one_star(t_flags *l_flags, va_list ap)
+int		get_one_star(t_flags *l_flags, va_list ap)
 {
 	if (l_flags->asterisk == 1 && l_flags->point == 0)
 	{
@@ -28,7 +28,7 @@ int	get_one_star(t_flags *l_flags, va_list ap)
 	return (0);
 }
 
-int	get_two_stars(t_flags *l_flags, va_list ap)
+int		get_two_stars(t_flags *l_flags, va_list ap)
 {
 	if (l_flags->asterisk == 2)
 	{
@@ -41,7 +41,7 @@ int	get_two_stars(t_flags *l_flags, va_list ap)
 	return (0);
 }
 
-int	check_min_max_value_all(t_flags *l_flags)
+int		check_min_max_value_all(t_flags *l_flags)
 {
 	ssize_t	width;
 	ssize_t	w_spec;
@@ -59,4 +59,20 @@ int	check_min_max_value_all(t_flags *l_flags)
 	if (w_spec < -2147483648 || w_spec > 2147483646)
 		return (-1);
 	return (0);
+}
+
+ssize_t	calc_u(ssize_t width, ssize_t width_specification,
+	ssize_t lensize, unsigned int d)
+{
+	ssize_t	size;
+
+	size = width - lensize;
+	if (width_specification >= 0)
+	{
+		if (width_specification - lensize > 0)
+			size -= (width_specification - lensize);
+		if (d < 0 && width_specification >= lensize)
+			size--;
+	}
+	return (size);
 }
