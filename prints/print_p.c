@@ -39,7 +39,8 @@ ssize_t	print_hexa(va_list ap, t_flags *l_flags)
 	hexa = 0;
 	addr = va_arg(ap, void *);
 	nb_print = 0;
-	if (!(hexa = ft_putnbr_base(addr, "0123456789abcdef")))
+	hexa = ft_putnbr_base(addr, "0123456789abcdef");
+	if (hexa == NULL)
 	{
 		return (-1);
 	}
@@ -66,7 +67,8 @@ ssize_t	print_p(t_flags *l_flags, va_list ap)
 		get_one_star(l_flags, ap);
 	else if (l_flags->asterisk == 2)
 		get_two_stars(l_flags, ap);
-	if ((result = check_min_max_value_all(l_flags)) != minus)
+	result = check_min_max_value_all(l_flags);
+	if (result != minus)
 	{
 		result = print_hexa(ap, l_flags);
 	}

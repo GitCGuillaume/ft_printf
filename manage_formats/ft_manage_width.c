@@ -24,7 +24,8 @@ char	*width_string(char const *fmt, size_t *i)
 	if ((fmt[min] >= '0' && fmt[min] <= '9')
 			&& (fmt[*i - 1] >= '0' && fmt[*i - 1] <= '9'))
 	{
-		if (!(width = ft_substr(fmt, min, *i - min)))
+		width = ft_substr(fmt, min, *i - min);
+		if (width == NULL)
 			return (NULL);
 	}
 	return (width);

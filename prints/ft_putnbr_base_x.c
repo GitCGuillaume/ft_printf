@@ -49,7 +49,8 @@ char	*ft_putnbr_base_x(unsigned int nbr, char *base)
 	i = 0;
 	convert_nbr = nbr;
 	ft_size_memory_x(convert_nbr, &size);
-	if (!(ptr = malloc(size + 1)))
+	ptr = malloc(size + 1);
+	if (ptr == NULL)
 		return (NULL);
 	if (nbr)
 	{

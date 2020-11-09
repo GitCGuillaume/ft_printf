@@ -59,6 +59,10 @@ ssize_t			astrsk_d_rl(t_flags *l_flags, int value);
 ssize_t			print_s(t_flags *l_flags, va_list ap);
 int				check_min_max_value_s(t_flags *l_flags);
 ssize_t			print_s_zero(t_flags *l_flags, char *value);
+void			result_s(t_flags *l_flags, ssize_t *result, char *value);
+ssize_t		check_flags_one_s(t_flags *l_flags, char *value);
+ssize_t		check_flags_two_s(t_flags *l_flags, char *value);
+ssize_t		check_flags_three_s(t_flags *l_flags, char *value);
 char			*ft_strlimit(char *s, ssize_t width);
 void			ft_putstr_limit_fd(char *s, size_t limit,
 	ssize_t *nb_print, int fd);
@@ -97,7 +101,8 @@ ssize_t			print_c_rl(t_flags *l_flags, unsigned char c);
 ssize_t			print_width_c(ssize_t width, unsigned char c);
 int				check_min_max_value_c(t_flags *l_flags);
 ssize_t			print_u(t_flags *l_flags, va_list ap);
-ssize_t			calc_u(ssize_t width, ssize_t width_specification, ssize_t lensize, unsigned int d);
+ssize_t			calc_u(ssize_t width, ssize_t width_specification,
+		ssize_t lensize);
 ssize_t			print_width_u(ssize_t width, unsigned int d, char c);
 ssize_t			print_u_zero(t_flags *l_flags, unsigned int value);
 ssize_t			print_u_rl(t_flags *l_flags, unsigned int value);

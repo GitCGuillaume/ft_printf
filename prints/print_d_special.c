@@ -90,7 +90,7 @@ ssize_t	print_d_stars(t_flags *l_flags, ssize_t width,
 		w_spec = 1;
 	if (width > w_spec)
 		nb_print += print_w_spec(calc(width, w_spec, ft_lensize(value), value),
-				nb_print, ' ');
+		nb_print, ' ');
 	if (0 > value_copy)
 		negative_d(&nb_print, &value);
 	if (value == -2147483648 && w_spec > 0)

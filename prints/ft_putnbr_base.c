@@ -78,7 +78,8 @@ char	*ft_putnbr_base(void *nbr, char *base)
 	i = 0;
 	convert_nbr = (ssize_t)nbr;
 	ft_size_memory(convert_nbr, &size);
-	if (!(ptr = malloc(size + 1)))
+	ptr = malloc(size + 1);
+	if (ptr == NULL)
 		return (NULL);
 	if (nbr)
 	{

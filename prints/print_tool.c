@@ -62,7 +62,7 @@ int		check_min_max_value_all(t_flags *l_flags)
 }
 
 ssize_t	calc_u(ssize_t width, ssize_t width_specification,
-	ssize_t lensize, unsigned int d)
+	ssize_t lensize)
 {
 	ssize_t	size;
 
@@ -71,7 +71,7 @@ ssize_t	calc_u(ssize_t width, ssize_t width_specification,
 	{
 		if (width_specification - lensize > 0)
 			size -= (width_specification - lensize);
-		if (d < 0 && width_specification >= lensize)
+		if (width_specification >= lensize)
 			size--;
 	}
 	return (size);

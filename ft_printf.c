@@ -62,7 +62,7 @@ void	del(void *lst)
 	if (lst)
 		free(lst);
 }
-#include <stdio.h>
+
 int		ft_printf(const char *fmt, ...)
 {
 	va_list		ap;

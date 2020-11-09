@@ -82,3 +82,17 @@ ssize_t	print_s_zero(t_flags *l_flags, char *value)
 	}
 	return (nb_print);
 }
+
+void	result_s(t_flags *l_flags, ssize_t *result, char *value)
+{
+	if (*result != -1)
+	{
+		*result = check_flags_three_s(l_flags, value);
+		if (*result == 0)
+		{
+			*result = check_flags_one_s(l_flags, value);
+			if (*result == 0)
+				*result = check_flags_two_s(l_flags, value);
+		}
+	}
+}

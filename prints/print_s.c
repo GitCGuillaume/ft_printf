@@ -34,10 +34,12 @@ ssize_t		check_flags_one_s(t_flags *l_flags, char *value)
 {
 	ssize_t	width;
 	ssize_t	nb_print;
+	ssize_t	result;
 
 	width = ft_atoi(l_flags->width);
 	nb_print = 0;
-	if (check_min_max_value_s(l_flags) == -1)
+	result = check_min_max_value_s(l_flags);
+	if (result == -1)
 		return (-1);
 	if (l_flags->zero == 0 && l_flags->minus == 0
 			&& l_flags->point == 0 && l_flags->asterisk == 0)
@@ -57,9 +59,11 @@ ssize_t		check_flags_one_s(t_flags *l_flags, char *value)
 ssize_t		check_flags_two_s(t_flags *l_flags, char *value)
 {
 	ssize_t	nb_print;
+	ssize_t	result;
 
 	nb_print = 0;
-	if (check_min_max_value_s(l_flags) == -1)
+	result = check_min_max_value_s(l_flags);
+	if (result == -1)
 		return (-1);
 	if (l_flags->asterisk == 1 && l_flags->point == 0 && l_flags->zero == 0)
 	{
@@ -77,9 +81,11 @@ ssize_t		check_flags_two_s(t_flags *l_flags, char *value)
 ssize_t		check_flags_three_s(t_flags *l_flags, char *value)
 {
 	ssize_t	nb_print;
+	ssize_t	result;
 
 	nb_print = 0;
-	if (check_min_max_value_s(l_flags) == -1)
+	result = check_min_max_value_s(l_flags);
+	if (result == -1)
 		return (-1);
 	if (l_flags->zero == 1 && l_flags->point == 0 && l_flags->point == 0)
 	{
@@ -93,6 +99,7 @@ ssize_t		print_s(t_flags *l_flags, va_list ap)
 {
 	ssize_t	result;
 	char	*value;
+	char	*strnstr;
 
 	result = 0;
 	if (l_flags->asterisk == 1)
@@ -103,15 +110,19 @@ ssize_t		print_s(t_flags *l_flags, va_list ap)
 	if (value == NULL)
 		if (!(value = ft_strdup("(null)")))
 			result = -1;
-	if (result != -1)
+	result_s(l_flags, &result, value);
+	/*if (result != -1)
 	{
-		if ((result = check_flags_three_s(l_flags, value)) == 0)
+		result = check_flags_three_s(l_flags, value);
+		if (result == 0)
 		{
-			if ((result = check_flags_one_s(l_flags, value)) == 0)
+			result = check_flags_one_s(l_flags, value);
+			if (result == 0)
 				result = check_flags_two_s(l_flags, value);
 		}
-	}
-	if (ft_strnstr(value, "(null)", 6))
+	}*/
+	strnstr = ft_strnstr(value, "(null)", 6);
+	if (strnstr != NULL)
 		free(value);
 	return (result);
 }

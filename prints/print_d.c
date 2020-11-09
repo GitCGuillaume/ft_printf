@@ -70,7 +70,8 @@ ssize_t		print_d(t_flags *l_flags, va_list ap)
 	else if (l_flags->asterisk == 2)
 		get_two_stars(l_flags, ap);
 	value = va_arg(ap, int);
-	if ((result = check_min_max_value(l_flags)) == 0)
+	result = check_min_max_value(l_flags);
+	if (result == 0)
 	{
 		result += check_flags_one_d(l_flags, value);
 	}

@@ -20,7 +20,8 @@ char	*ft_strlimit(char *s, ssize_t width)
 	i = 0;
 	if (s != NULL && width != 0)
 	{
-		if (!(ptr = malloc(width + 1)))
+		ptr = malloc(width + 1);
+		if (ptr == NULL)
 			return (NULL);
 		while (s[i] != '\0' && width > i)
 		{
