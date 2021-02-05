@@ -67,11 +67,12 @@ ssize_t	calc_u(ssize_t width, ssize_t width_specification,
 	ssize_t	size;
 
 	size = width - lensize;
+
 	if (width_specification >= 0)
 	{
 		if (width_specification - lensize > 0)
 			size -= (width_specification - lensize);
-		if (width_specification >= lensize)
+		if (lensize != 0 && width_specification >= lensize)
 			size--;
 	}
 	return (size);

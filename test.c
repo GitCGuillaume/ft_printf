@@ -33,5 +33,48 @@ int		a = -4;
 	printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X", i, j, k, l, m, n, c, c, j, j, j);
 	printf("\n");
 	ft_printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X", i, j, k, l, m, n, c, c, j, j, j);
+	
+	printf("\n---------u3---------\n");
+	printf("%*.*u8", 8, NULL, NULL);
+	printf("\n");
+	ft_printf("%*.*u8", 8, NULL, NULL);
+	printf("\n");
+	printf("---------d3---------\n");
+	printf("%*.*d8", 8, NULL, NULL);
+	printf("\n");
+	ft_printf("%*.*d8", 8, NULL, NULL);
+	printf("\n");
+	printf("--------(-)u3---------\n");
+	printf("%-*.*u8", 8, NULL, NULL);
+	printf("\n");
+	ft_printf("%-*.*u8", 8, NULL, NULL);
+	printf("\n");
+	printf("--------(-)d3---------\n");
+	printf("%-*.*d8", 8, NULL, NULL);
+	printf("\n");
+	ft_printf("%-*.*d8", 8, NULL, NULL);
+	printf("\n");
+	printf("---------u03---------\n");
+	printf("%0*.*u8", 8, NULL, NULL);
+	printf("\n");
+	ft_printf("%0*.*u8", 8, NULL, NULL);
+	printf("\n");
+	printf("---------d03---------\n");
+	printf("%0*.*d8", 8, NULL, NULL);
+	printf("\n");
+	ft_printf("%0*.*d8", 8, NULL, NULL);
+	printf("\n");
+	printf("--------(-)u03---------\n");
+	printf("%0-*.*u8", 8, NULL, NULL);
+	printf("\n");
+	ft_printf("%0-*.*u8", 8, NULL, NULL);
+	printf("\n");
+	printf("--------(-)d03---------\n");
+	printf("%0-*.*d8", 8, NULL, NULL);
+	printf("\n");
+	ft_printf("%0-*.*d8", 8, NULL, NULL);
+	printf("\n");
+	
+
 	return (0);
 }
