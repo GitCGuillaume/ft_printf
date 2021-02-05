@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 11:03:28 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/11 14:44:21 by gchopin          ###   ########.fr       */
+/*   Updated: 2021/02/05 14:00:55 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ ssize_t	check_flags_one_p(t_flags *l_flags, char *addr)
 		return (print_p_minus_point_star(l_flags, addr));
 	return (nb_print);
 }
-
+#include <stdio.h>
 ssize_t	print_hexa(va_list ap, t_flags *l_flags)
 {
 	ssize_t	nb_print;
-	char	*addr;
+	void	*addr;
 	char	*hexa;
 
 	hexa = 0;

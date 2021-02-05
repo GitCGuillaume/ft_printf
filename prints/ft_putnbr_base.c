@@ -6,7 +6,7 @@
 /*   By: gchopin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 09:03:12 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/01 10:03:43 by gchopin          ###   ########.fr       */
+/*   Updated: 2021/02/05 15:24:55 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_rev_char_tab(char *tab, int size)
 	}
 }
 
-void	ft_size_memory(ssize_t nbr, ssize_t *size)
+void	ft_size_memory(size_t nbr, ssize_t *size)
 {
 	ssize_t	i;
 
@@ -53,7 +53,7 @@ void	ft_size_memory(ssize_t nbr, ssize_t *size)
 	}
 }
 
-size_t	ft_memstr(ssize_t nbr, char *ptr, char *base)
+size_t	ft_memstr(size_t nbr, char *ptr, char *base)
 {
 	ssize_t	i;
 
@@ -69,14 +69,14 @@ size_t	ft_memstr(ssize_t nbr, char *ptr, char *base)
 
 char	*ft_putnbr_base(void *nbr, char *base)
 {
-	size_t	i;
-	ssize_t	size;
-	ssize_t	convert_nbr;
 	char	*ptr;
+	ssize_t	size;
+	size_t	i;
+	size_t	convert_nbr;
 
 	size = 0;
 	i = 0;
-	convert_nbr = (ssize_t)nbr;
+	convert_nbr = (size_t)nbr;
 	ft_size_memory(convert_nbr, &size);
 	ptr = malloc(size + 1);
 	if (ptr == NULL)

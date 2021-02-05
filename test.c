@@ -74,7 +74,14 @@ int		a = -4;
 	printf("\n");
 	ft_printf("%0-*.*d8", 8, NULL, NULL);
 	printf("\n");
-	
-
+	ft_printf("null=%p\n", (void *)0);
+	printf("null=%p\n", (void *)0);
+	ft_printf("envoyé=%*p%-135.109d" ,-15,(void*)15603137398285451084lu,1482420587);
+	printf("\n");
+	printf("expecté=%*p%-135.109d" ,-15,(void*)15603137398285451084lu,1482420587);
+	printf("\n");
+	ft_printf("%*pp", -15, (void *)15603137);
+	printf("\n");
+	printf("%*pp", -15, (void *)15603137);
 	return (0);
 }
