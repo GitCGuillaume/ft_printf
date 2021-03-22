@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 11:15:25 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/18 14:21:24 by gchopin          ###   ########.fr       */
+/*   Updated: 2021/02/12 17:13:58 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ ssize_t	print_u_zero(t_flags *l_flags, unsigned int value)
 		width_copy--;
 	if (width > 0)
 		nb_print += print_width_u(width_copy, value, '0');
-	ft_putnbr_fd(value, &nb_print, 1);
+	ft_putnbr_fd_u(value, &nb_print, 1);
 	if (0 > width)
 	{
 		nb_print += print_width_u(width_copy, value, ' ');
@@ -44,7 +44,7 @@ ssize_t	print_u_rl(t_flags *l_flags, unsigned int value)
 	width = ft_atoi(l_flags->width);
 	if (0 > width)
 		width = -width;
-	ft_putnbr_fd(value, &nb_print, 1);
+	ft_putnbr_fd_u(value, &nb_print, 1);
 	nb_print += print_w_spec(width, nb_print, ' ');
 	return (nb_print);
 }
@@ -61,7 +61,7 @@ ssize_t	print_u_lr(t_flags *l_flags, unsigned int value)
 	if (value == 0)
 		width--;
 	nb_print += print_width_u(width, value, ' ');
-	ft_putnbr_fd(value, &nb_print, 1);
+	ft_putnbr_fd_u(value, &nb_print, 1);
 	return (nb_print);
 }
 
@@ -86,7 +86,7 @@ ssize_t	print_u_stars(t_flags *l_flags, unsigned int value)
 			ft_lensize(value)), nb_print, ' ');
 	nb_print += print_w_spec(w_spec - ft_lensize(value), 0, '0');
 	if (value != 0)
-		ft_putnbr_fd(value, &nb_print, 1);
+		ft_putnbr_fd_u(value, &nb_print, 1);
 	return (nb_print);
 }
 
@@ -105,7 +105,7 @@ ssize_t	print_u_stars_minus(t_flags *l_flags, unsigned int value)
 	if (w_spec > 0)
 		nb_print += print_w_spec(w_spec - ft_lensize(value), 0, '0');
 	if (value != 0)
-		ft_putnbr_fd(value, &nb_print, 1);
+		ft_putnbr_fd_u(value, &nb_print, 1);
 	if (width > w_spec)
 		nb_print += print_w_spec(width, nb_print, ' ');
 	return (nb_print);

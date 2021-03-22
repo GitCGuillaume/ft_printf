@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 10:54:49 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/02 10:54:56 by gchopin          ###   ########.fr       */
+/*   Updated: 2021/02/12 21:32:21 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,21 @@ void	ft_putstr_limit_fd(char *s, size_t limit, ssize_t *nb_print, int fd)
 	size_t i;
 
 	i = 0;
-	if (!s)
-		return ;
-	if (limit == 0)
-		limit = ft_strlen(s);
-	while (s[i] && limit > i)
+	if (s == NULL)
 	{
-		write(fd, &s[i], 1);
-		(*nb_print)++;
-		i++;
+		*nb_print = -1;
+		return ;
+	}
+	if (s)
+	{
+		if (limit == 0)
+			limit = ft_strlen(s);
+		while (s[i] && limit > i)
+		{
+			write(fd, &s[i], 1);
+			(*nb_print)++;
+			i++;
+		}
 	}
 }
 
@@ -68,6 +74,8 @@ ssize_t	print_s_zero(t_flags *l_flags, char *value)
 	nb_print = 0;
 	width = ft_atoi(l_flags->width);
 	padding = '0';
+	if (value == NULL)
+		return (-1);
 	if (0 > width)
 		padding = ' ';
 	if (l_flags->minus == 0 && width > 0)
@@ -78,7 +86,8 @@ ssize_t	print_s_zero(t_flags *l_flags, char *value)
 	{
 		if (0 > width)
 			width = -width;
-		nb_print += astrsk_s_rl(width, value, ' ');
+		if (value)
+			nb_print += astrsk_s_rl(width, value, ' ');
 	}
 	return (nb_print);
 }

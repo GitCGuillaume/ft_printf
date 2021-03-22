@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 11:04:10 by gchopin           #+#    #+#             */
-/*   Updated: 2021/02/05 12:02:34 by gchopin          ###   ########.fr       */
+/*   Updated: 2021/02/05 16:13:32 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,18 +62,15 @@ int		check_min_max_value_all(t_flags *l_flags)
 }
 
 ssize_t	calc_u(ssize_t width, ssize_t width_specification,
-	ssize_t lensize)
+		ssize_t lensize)
 {
 	ssize_t	size;
 
 	size = width - lensize;
-
 	if (width_specification >= 0)
 	{
 		if (width_specification - lensize > 0)
 			size -= (width_specification - lensize);
-		//if (lensize != 0 && width_specification >= lensize)
-		//	size--;
 	}
 	return (size);
 }

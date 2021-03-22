@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/16 18:48:06 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/18 14:15:45 by gchopin          ###   ########.fr       */
+/*   Updated: 2021/02/13 18:45:49 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@
 
 typedef struct	s_flags
 {
+	char	*width;
+	char	*width_specification;
 	int		minus;
 	int		zero;
 	int		point;
 	int		asterisk;
-	char	*width;
-	char	*width_specification;
 	int		space;
 }				t_flags;
 
@@ -34,20 +34,20 @@ void			init_list_flags(t_flags *lst_flags);
 int				find_indicators(const char *fmt, size_t *i, t_flags *l_flags);
 int				is_indicator(char const *fmt, size_t *i, t_flags *l_flags);
 int				find_convertor(char const *fmt, t_flags *l_flags,
-	va_list ap, size_t *i);
+		va_list ap, size_t *i);
 int				is_convertor(char c);
 int				is_digit(t_flags *l_flags, size_t *i, char const *fmt);
-int				is_specification(t_flags *l_flags,
-	va_list ap, char const *fmt, size_t *i);
-ssize_t			print_d(t_flags *l_flags, va_list ap);
+void			is_specification(t_flags *l_flags,
+		va_list ap, char const *fmt, size_t *i);
 int				check_min_max_value(t_flags *l_flags);
+ssize_t			print_d(t_flags *l_flags, va_list ap);
 ssize_t			print_d_stars_minus(ssize_t width, ssize_t w_spec, int value);
 ssize_t			print_d_stars(t_flags *l_flags, ssize_t width,
-	ssize_t w_spec, int value);
+		ssize_t w_spec, int value);
 ssize_t			check_flags_spec_d(t_flags *l_flags, int d);
 ssize_t			print_width_d(ssize_t width, int d, char c);
 ssize_t			calc(ssize_t width, ssize_t width_specification,
-	ssize_t lensize, int d);
+		ssize_t lensize, int d);
 void			negative_d(ssize_t *nb_print, int *d);
 void			handle_sizes(ssize_t *width);
 ssize_t			print_zero_d(ssize_t *width, int value);
@@ -60,19 +60,19 @@ ssize_t			print_s(t_flags *l_flags, va_list ap);
 int				check_min_max_value_s(t_flags *l_flags);
 ssize_t			print_s_zero(t_flags *l_flags, char *value);
 void			result_s(t_flags *l_flags, ssize_t *result, char *value);
-ssize_t		check_flags_one_s(t_flags *l_flags, char *value);
-ssize_t		check_flags_two_s(t_flags *l_flags, char *value);
-ssize_t		check_flags_three_s(t_flags *l_flags, char *value);
+ssize_t			check_flags_one_s(t_flags *l_flags, char *value);
+ssize_t			check_flags_two_s(t_flags *l_flags, char *value);
+ssize_t			check_flags_three_s(t_flags *l_flags, char *value);
 char			*ft_strlimit(char *s, ssize_t width);
 void			ft_putstr_limit_fd(char *s, size_t limit,
-	ssize_t *nb_print, int fd);
+		ssize_t *nb_print, int fd);
 ssize_t			astrsk_s_rl(int d, char *s, char padding);
 ssize_t			astrsk_s_lr(int d, char *s, char padding);
 ssize_t			print_basic_value_s(ssize_t *width, char *s, char c);
 ssize_t			calc_s(ssize_t width,
-	ssize_t width_specification, ssize_t lensize);
+		ssize_t width_specification, ssize_t lensize);
 void			ft_putstr_limit_fd(char *s,
-	size_t limit, ssize_t *nb_print, int fd);
+		size_t limit, ssize_t *nb_print, int fd);
 ssize_t			print_width_s(ssize_t width, char *s, char c);
 char			*ft_strlimit(char *s, ssize_t width);
 ssize_t			spec_minus_no_ast_s(t_flags *l_flags, char *s);
@@ -88,8 +88,7 @@ ssize_t			print_zero_p(size_t atoi, char *p);
 char			*ft_putnbr_base(void *nbr, char *base);
 ssize_t			ft_lensize(ssize_t n);
 char			*width_string(char const *fmt, size_t *i);
-void			swap(char *a, char *b);
-void			ft_rev_char_tab(char *tab, int size);
+void			ft_rev_char_tab(char *tab, size_t size);
 ssize_t			print_p_lr(t_flags *l_flags, char *addr);
 ssize_t			print_p_rl(t_flags *l_flags, char *addr);
 ssize_t			print_p_zero(t_flags *l_flags, char *addr);

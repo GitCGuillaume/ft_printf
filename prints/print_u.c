@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 10:55:56 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/11 14:44:14 by gchopin          ###   ########.fr       */
+/*   Updated: 2021/02/12 17:06:51 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ ssize_t	print_u(t_flags *l_flags, va_list ap)
 		get_one_star(l_flags, ap);
 	else if (l_flags->asterisk == 2)
 		get_two_stars(l_flags, ap);
-	value = va_arg(ap, int);
+	value = va_arg(ap, unsigned int);
 	result = check_min_max_value_all(l_flags);
 	if (result == 0)
 	{

@@ -6,13 +6,13 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 10:57:58 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/02 17:25:16 by gchopin          ###   ########.fr       */
+/*   Updated: 2021/02/13 17:51:21 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	ft_size_memory_x(unsigned int nbr, ssize_t *size)
+void	ft_size_memory_x(unsigned int nbr, size_t *size)
 {
 	size_t	i;
 
@@ -26,14 +26,17 @@ void	ft_size_memory_x(unsigned int nbr, ssize_t *size)
 
 size_t	ft_memstr_x(unsigned int nbr, char *ptr, char *base)
 {
-	ssize_t	i;
+	size_t	i;
 
 	i = 0;
-	while (nbr != 0)
+	if (ptr)
 	{
-		ptr[i] = base[nbr % 16];
-		nbr = nbr / 16;
-		i++;
+		while (nbr != 0)
+		{
+			ptr[i] = base[nbr % 16];
+			nbr = nbr / 16;
+			i++;
+		}
 	}
 	return (i);
 }
@@ -41,7 +44,7 @@ size_t	ft_memstr_x(unsigned int nbr, char *ptr, char *base)
 char	*ft_putnbr_base_x(unsigned int nbr, char *base)
 {
 	size_t			i;
-	ssize_t			size;
+	size_t			size;
 	unsigned int	convert_nbr;
 	char			*ptr;
 
@@ -52,7 +55,7 @@ char	*ft_putnbr_base_x(unsigned int nbr, char *base)
 	ptr = malloc(size + 1);
 	if (ptr == NULL)
 		return (NULL);
-	if (nbr)
+	if (nbr && base)
 	{
 		i = ft_memstr_x(convert_nbr, ptr, base);
 		ft_rev_char_tab(ptr, i);

@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 10:54:31 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/02 10:54:32 by gchopin          ###   ########.fr       */
+/*   Updated: 2021/02/12 21:08:27 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,24 @@ char	*ft_strlimit(char *s, ssize_t width)
 	char	*ptr;
 
 	i = 0;
-	if (s != NULL && width != 0)
+	ptr = NULL;
+	if (s)
 	{
-		ptr = malloc(width + 1);
-		if (ptr == NULL)
-			return (NULL);
-		while (s[i] != '\0' && width > i)
+		if (s != NULL)
 		{
-			ptr[i] = s[i];
-			i++;
+			ptr = malloc(width + 1);
+			if (ptr == NULL)
+				return (NULL);
+			while (s[i] != '\0' && width > i)
+			{
+				ptr[i] = s[i];
+				i++;
+			}
+			ptr[i] = '\0';
 		}
-		ptr[i] = '\0';
+		else
+			ptr = NULL;
 	}
-	else
-		ptr = NULL;
 	return (ptr);
 }
 
@@ -41,7 +45,8 @@ ssize_t	print_basic_value_s(ssize_t *width, char *s, char c)
 
 	nb_print = 0;
 	nb_print += print_width_s(*width, s, c);
-	ft_putstr_pr_fd(s, &nb_print, 1);
+	if (s)
+		ft_putstr_pr_fd(s, &nb_print, 1);
 	return (nb_print);
 }
 
@@ -52,8 +57,11 @@ ssize_t	astrsk_s_rl(int d, char *s, char padding)
 	nb_print = 0;
 	if (0 > d)
 		d = -d;
-	ft_putstr_limit_fd(s, 0, &nb_print, 1);
-	nb_print += print_width_s(d, s, padding);
+	if (s)
+	{
+		ft_putstr_limit_fd(s, 0, &nb_print, 1);
+		nb_print += print_width_s(d, s, padding);
+	}
 	return (nb_print);
 }
 
@@ -62,8 +70,11 @@ ssize_t	astrsk_s_lr(int d, char *s, char padding)
 	ssize_t	nb_print;
 
 	nb_print = 0;
-	nb_print += print_width_s(d, s, padding);
-	ft_putstr_limit_fd(s, 0, &nb_print, 1);
+	if (s)
+	{
+		nb_print += print_width_s(d, s, padding);
+		ft_putstr_limit_fd(s, 0, &nb_print, 1);
+	}
 	return (nb_print);
 }
 
@@ -80,14 +91,17 @@ ssize_t	astrsk_s(t_flags *l_flags, char *value)
 		return (-1);
 	if (l_flags->zero == 1)
 		padding = '0';
-	if (l_flags->minus == 0)
+	if (value)
 	{
-		if (width >= 0)
-			nb_print += astrsk_s_lr(width, value, padding);
+		if (l_flags->minus == 0)
+		{
+			if (width >= 0)
+				nb_print += astrsk_s_lr(width, value, padding);
+			else
+				nb_print += astrsk_s_rl(width, value, padding);
+		}
 		else
 			nb_print += astrsk_s_rl(width, value, padding);
 	}
-	else
-		nb_print += astrsk_s_rl(width, value, padding);
 	return (nb_print);
 }

@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 11:03:28 by gchopin           #+#    #+#             */
-/*   Updated: 2021/02/05 14:00:55 by gchopin          ###   ########.fr       */
+/*   Updated: 2021/02/13 17:54:33 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,22 @@ ssize_t	check_flags_one_p(t_flags *l_flags, char *addr)
 	ssize_t	nb_print;
 
 	nb_print = 0;
-	if (l_flags->zero == 1 && l_flags->minus == 0 && l_flags->point == 0)
-		return (nb_print += print_p_zero(l_flags, addr));
-	if (l_flags->minus == 1 && l_flags->point == 0)
-		return (nb_print += print_p_rl(l_flags, addr));
-	if (l_flags->minus == 0 && l_flags->point == 0)
-		return (nb_print += print_p_lr(l_flags, addr));
-	if (l_flags->point == 1 && l_flags->minus == 0)
-		return (print_p_point_star(l_flags, addr));
-	if (l_flags->point == 1 && l_flags->minus == 1)
-		return (print_p_minus_point_star(l_flags, addr));
+	if (addr)
+	{
+		if (l_flags->zero == 1 && l_flags->minus == 0 && l_flags->point == 0)
+			return (nb_print += print_p_zero(l_flags, addr));
+		if (l_flags->minus == 1 && l_flags->point == 0)
+			return (nb_print += print_p_rl(l_flags, addr));
+		if (l_flags->minus == 0 && l_flags->point == 0)
+			return (nb_print += print_p_lr(l_flags, addr));
+		if (l_flags->point == 1 && l_flags->minus == 0)
+			return (print_p_point_star(l_flags, addr));
+		if (l_flags->point == 1 && l_flags->minus == 1)
+			return (print_p_minus_point_star(l_flags, addr));
+	}
 	return (nb_print);
 }
-#include <stdio.h>
+
 ssize_t	print_hexa(va_list ap, t_flags *l_flags)
 {
 	ssize_t	nb_print;

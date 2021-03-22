@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 11:09:57 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/03 13:42:00 by gchopin          ###   ########.fr       */
+/*   Updated: 2021/02/12 16:16:13 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@ ssize_t	print_p_rl(t_flags *l_flags, char *addr)
 	ft_putstr_fd("0x", 1);
 	if (addr != NULL)
 		nb_print += 2;
-	ft_putstr_limit_fd(addr, 0, &nb_print, 1);
-	nb_print += print_width_s(width, addr, ' ');
+	if (addr)
+		ft_putstr_limit_fd(addr, 0, &nb_print, 1);
+	if (addr)
+		nb_print += print_width_s(width, addr, ' ');
 	return (nb_print);
 }
 
@@ -44,9 +46,11 @@ ssize_t	print_p_lr(t_flags *l_flags, char *addr)
 		width = width - 2;
 	if (addr != NULL)
 		nb_print += 2;
-	nb_print += print_width_s(width, addr, ' ');
+	if (addr)
+		nb_print += print_width_s(width, addr, ' ');
 	ft_putstr_fd("0x", 1);
-	ft_putstr_limit_fd(addr, 0, &nb_print, 1);
+	if (addr)
+		ft_putstr_limit_fd(addr, 0, &nb_print, 1);
 	return (nb_print);
 }
 
@@ -62,8 +66,10 @@ ssize_t	print_p_zero(t_flags *l_flags, char *addr)
 	ft_putstr_fd("0x", 1);
 	if (addr != NULL)
 		nb_print += 2;
-	nb_print += print_width_s(width, addr, '0');
-	ft_putstr_limit_fd(addr, 0, &nb_print, 1);
+	if (addr)
+		nb_print += print_width_s(width, addr, '0');
+	if (addr)
+		ft_putstr_limit_fd(addr, 0, &nb_print, 1);
 	if (0 > width)
 	{
 		width = -width;

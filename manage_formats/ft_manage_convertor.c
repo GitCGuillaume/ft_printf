@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/01 09:58:14 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/01 09:58:18 by gchopin          ###   ########.fr       */
+/*   Updated: 2021/02/12 15:49:00 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,23 +40,26 @@ int	find_convertor(char const *fmt, t_flags *l_flags, va_list ap, size_t *i)
 	size_t	result;
 
 	result = 0;
-	if (fmt[*i] == 'd')
-		result = print_d(l_flags, ap);
-	else if (fmt[*i] == 'i')
-		result = print_d(l_flags, ap);
-	else if (fmt[*i] == 'u')
-		result = print_u(l_flags, ap);
-	else if (fmt[*i] == 's')
-		result = print_s(l_flags, ap);
-	else if (fmt[*i] == 'p')
-		result = print_p(l_flags, ap);
-	else if (fmt[*i] == 'c')
-		result = print_c(l_flags, ap);
-	else if (fmt[*i] == 'x')
-		result = print_x(l_flags, ap, "0123456789abcdef");
-	else if (fmt[*i] == 'X')
-		result = print_x(l_flags, ap, "0123456789ABCDEF");
-	else if (fmt[*i] == '%')
-		result = print_pct(l_flags, ap);
+	if (fmt)
+	{
+		if (fmt[*i] == 'd')
+			result = print_d(l_flags, ap);
+		else if (fmt[*i] == 'i')
+			result = print_d(l_flags, ap);
+		else if (fmt[*i] == 'u')
+			result = print_u(l_flags, ap);
+		else if (fmt[*i] == 's')
+			result = print_s(l_flags, ap);
+		else if (fmt[*i] == 'p')
+			result = print_p(l_flags, ap);
+		else if (fmt[*i] == 'c')
+			result = print_c(l_flags, ap);
+		else if (fmt[*i] == 'x')
+			result = print_x(l_flags, ap, "0123456789abcdef");
+		else if (fmt[*i] == 'X')
+			result = print_x(l_flags, ap, "0123456789ABCDEF");
+		else if (fmt[*i] == '%')
+			result = print_pct(l_flags, ap);
+	}
 	return (result);
 }

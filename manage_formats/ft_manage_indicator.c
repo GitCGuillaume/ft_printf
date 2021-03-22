@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/01 09:59:07 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/01 09:59:09 by gchopin          ###   ########.fr       */
+/*   Updated: 2021/02/12 15:51:02 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,16 @@ int		check_value_indicator_one(t_flags *l_flags, char c)
 
 int		check_value_indicator_two(t_flags *l_flags, size_t *i, char const *fmt)
 {
-	if (fmt[*i] == '*')
+	if (fmt)
 	{
-		if (l_flags->asterisk >= 1)
-			l_flags->asterisk = 2;
-		else
-			l_flags->asterisk = 1;
-		return (1);
+		if (fmt[*i] == '*')
+		{
+			if (l_flags->asterisk >= 1)
+				l_flags->asterisk = 2;
+			else
+				l_flags->asterisk = 1;
+			return (1);
+		}
 	}
 	return (0);
 }
@@ -59,19 +62,22 @@ int		check_value_indicator_two(t_flags *l_flags, size_t *i, char const *fmt)
 int		find_indicators(const char *fmt, size_t *i, t_flags *l_flags)
 {
 	*i = *i + 1;
-	while (fmt[*i])
+	if (fmt)
 	{
-		if (fmt[*i] == '-')
-			check_value_indicator_one(l_flags, fmt[*i]);
-		else if (fmt[*i] == '0')
-			check_value_indicator_one(l_flags, fmt[*i]);
-		else if (fmt[*i] == '*')
-			check_value_indicator_two(l_flags, i, fmt);
-		else if (fmt[*i] == ' ')
-			check_value_indicator_one(l_flags, fmt[*i]);
-		else
-			return (1);
-		*i = *i + 1;
+		while (fmt[*i])
+		{
+			if (fmt[*i] == '-')
+				check_value_indicator_one(l_flags, fmt[*i]);
+			else if (fmt[*i] == '0')
+				check_value_indicator_one(l_flags, fmt[*i]);
+			else if (fmt[*i] == '*')
+				check_value_indicator_two(l_flags, i, fmt);
+			else if (fmt[*i] == ' ')
+				check_value_indicator_one(l_flags, fmt[*i]);
+			else
+				return (1);
+			*i = *i + 1;
+		}
 	}
 	return (0);
 }
@@ -81,13 +87,16 @@ int		is_indicator(char const *fmt, size_t *i, t_flags *l_flags)
 	int	result;
 
 	result = 0;
-	if (fmt[*i] == '-')
-		result = check_value_indicator_one(l_flags, fmt[*i]);
-	else if (fmt[*i] == '0')
-		result = check_value_indicator_one(l_flags, fmt[*i]);
-	else if (fmt[*i] == '*')
-		result = check_value_indicator_two(l_flags, i, fmt);
-	else if (fmt[*i] == ' ')
-		check_value_indicator_one(l_flags, fmt[*i]);
+	if (fmt)
+	{
+		if (fmt[*i] == '-')
+			result = check_value_indicator_one(l_flags, fmt[*i]);
+		else if (fmt[*i] == '0')
+			result = check_value_indicator_one(l_flags, fmt[*i]);
+		else if (fmt[*i] == '*')
+			result = check_value_indicator_two(l_flags, i, fmt);
+		else if (fmt[*i] == ' ')
+			check_value_indicator_one(l_flags, fmt[*i]);
+	}
 	return (result);
 }

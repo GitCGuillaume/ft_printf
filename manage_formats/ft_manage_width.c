@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/01 10:00:30 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/01 10:00:31 by gchopin          ###   ########.fr       */
+/*   Updated: 2021/02/12 16:04:12 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,17 @@ char	*width_string(char const *fmt, size_t *i)
 
 	min = *i;
 	width = 0;
-	while (fmt[*i] >= '0' && fmt[*i] <= '9')
-		*i = *i + 1;
-	if ((fmt[min] >= '0' && fmt[min] <= '9')
-			&& (fmt[*i - 1] >= '0' && fmt[*i - 1] <= '9'))
+	if (fmt)
 	{
-		width = ft_substr(fmt, min, *i - min);
-		if (width == NULL)
-			return (NULL);
+		while (fmt[*i] >= '0' && fmt[*i] <= '9')
+			*i = *i + 1;
+		if ((fmt[min] >= '0' && fmt[min] <= '9')
+				&& (fmt[*i - 1] >= '0' && fmt[*i - 1] <= '9'))
+		{
+			width = ft_substr(fmt, min, *i - min);
+			if (width == NULL)
+				return (NULL);
+		}
 	}
 	return (width);
 }
@@ -51,11 +54,14 @@ ssize_t	ft_lensize(ssize_t n)
 
 int		is_digit(t_flags *l_flags, size_t *i, char const *fmt)
 {
-	if (fmt[*i] >= '1' && fmt[*i] <= '9')
+	if (fmt)
 	{
-		if (l_flags->width == 0)
-			l_flags->width = width_string(fmt, i);
-		return (1);
+		if (fmt[*i] >= '1' && fmt[*i] <= '9')
+		{
+			if (l_flags->width == 0)
+				l_flags->width = width_string(fmt, i);
+			return (1);
+		}
 	}
 	return (0);
 }
