@@ -6,11 +6,16 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/01 10:00:30 by gchopin           #+#    #+#             */
-/*   Updated: 2021/02/12 16:04:12 by gchopin          ###   ########.fr       */
+/*   Updated: 2021/04/12 10:38:29 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
+
+/*
+ ** min take the start of the string,
+ ** and loop string until the end of the digits
+*/
 
 char	*width_string(char const *fmt, size_t *i)
 {

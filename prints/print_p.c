@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 11:03:28 by gchopin           #+#    #+#             */
-/*   Updated: 2021/02/13 17:54:33 by gchopin          ###   ########.fr       */
+/*   Updated: 2021/03/23 14:40:59 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,12 @@ ssize_t	print_hexa(va_list ap, t_flags *l_flags)
 	nb_print = 0;
 	hexa = ft_putnbr_base(addr, "0123456789abcdef");
 	if (hexa == NULL)
-	{
 		return (-1);
-	}
 	if (hexa[0] == '\0')
 	{
 		free(hexa);
-		if (!(hexa = ft_strdup("0")))
+		hexa = ft_strdup("0");
+		if (hexa == NULL)
 			return (-1);
 	}
 	if (hexa)
@@ -68,8 +67,6 @@ ssize_t	print_p(t_flags *l_flags, va_list ap)
 	minus = -1;
 	if (l_flags->asterisk == 1)
 		get_one_star(l_flags, ap);
-	else if (l_flags->asterisk == 2)
-		get_two_stars(l_flags, ap);
 	result = check_min_max_value_all(l_flags);
 	if (result != minus)
 	{

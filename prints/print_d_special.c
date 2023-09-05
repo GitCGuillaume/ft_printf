@@ -6,11 +6,15 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 11:07:56 by gchopin           #+#    #+#             */
-/*   Updated: 2021/02/13 16:38:20 by gchopin          ###   ########.fr       */
+/*   Updated: 2021/04/14 12:21:35 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
+
+/*
+ ** Will reverse width
+*/
 
 void	handle_sizes(ssize_t *width)
 {
@@ -19,6 +23,10 @@ void	handle_sizes(ssize_t *width)
 		*width = -(*width);
 	}
 }
+
+/*
+ ** number right width left
+*/
 
 ssize_t	astrsk_d_lr(t_flags *l_flags, int value)
 {
@@ -35,6 +43,10 @@ ssize_t	astrsk_d_lr(t_flags *l_flags, int value)
 	nb_print += print_basic_value_d(&width, value, ' ');
 	return (nb_print);
 }
+
+/*
+ ** number left width right
+*/
 
 ssize_t	astrsk_d_rl(t_flags *l_flags, int value)
 {
@@ -90,7 +102,7 @@ ssize_t	print_d_stars(t_flags *l_flags, ssize_t width,
 		w_spec = 1;
 	if (width > w_spec)
 		nb_print += print_w_spec(calc(width, w_spec, ft_lensize(value), value),
-		nb_print, ' ');
+				nb_print, ' ');
 	if (0 > value_copy)
 		negative_d(&nb_print, &value);
 	if (value == -2147483648 && w_spec > 0)

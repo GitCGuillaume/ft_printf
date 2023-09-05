@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/01 09:59:07 by gchopin           #+#    #+#             */
-/*   Updated: 2021/02/12 15:51:02 by gchopin          ###   ########.fr       */
+/*   Updated: 2021/04/12 11:33:51 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ void	init_list_flags(t_flags *lst_flags)
 	lst_flags->point = 0;
 	lst_flags->asterisk = 0;
 	lst_flags->width = NULL;
-	lst_flags->width_specification = NULL;
-	lst_flags->space = 0;
+	lst_flags->width_precision = NULL;
 }
 
 int		check_value_indicator_one(t_flags *l_flags, char c)
@@ -33,11 +32,6 @@ int		check_value_indicator_one(t_flags *l_flags, char c)
 	else if (c == '0')
 	{
 		l_flags->zero = 1;
-		return (1);
-	}
-	else if (c == ' ')
-	{
-		l_flags->space = 1;
 		return (1);
 	}
 	return (0);
@@ -72,8 +66,6 @@ int		find_indicators(const char *fmt, size_t *i, t_flags *l_flags)
 				check_value_indicator_one(l_flags, fmt[*i]);
 			else if (fmt[*i] == '*')
 				check_value_indicator_two(l_flags, i, fmt);
-			else if (fmt[*i] == ' ')
-				check_value_indicator_one(l_flags, fmt[*i]);
 			else
 				return (1);
 			*i = *i + 1;
@@ -95,8 +87,6 @@ int		is_indicator(char const *fmt, size_t *i, t_flags *l_flags)
 			result = check_value_indicator_one(l_flags, fmt[*i]);
 		else if (fmt[*i] == '*')
 			result = check_value_indicator_two(l_flags, i, fmt);
-		else if (fmt[*i] == ' ')
-			check_value_indicator_one(l_flags, fmt[*i]);
 	}
 	return (result);
 }

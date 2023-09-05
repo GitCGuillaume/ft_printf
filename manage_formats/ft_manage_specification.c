@@ -6,37 +6,36 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 11:43:27 by gchopin           #+#    #+#             */
-/*   Updated: 2021/02/12 16:01:48 by gchopin          ###   ########.fr       */
+/*   Updated: 2021/04/12 11:47:55 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	asterisk_precision_specification_wd(t_flags *l_flags, va_list ap)
+void	asterisk_precision_wd(t_flags *l_flags, va_list ap)
 {
-	va_list	ap2;
-	size_t	d_copy;
+	int	d_copy;
 
-	va_copy(ap2, ap);
-	d_copy = va_arg(ap2, int);
-	l_flags->width_specification = ft_itoa(d_copy);
+	d_copy = va_arg(ap, int);
+	l_flags->width_precision = ft_itoa(d_copy);
 	if (l_flags->asterisk == 0)
 		l_flags->asterisk = 1;
 	else
 		l_flags->asterisk = 2;
-	va_end(ap2);
 }
 
-void	asterisk_precision_specification_w(t_flags *l_flags, va_list ap)
+void	asterisk_width(t_flags *l_flags, va_list ap)
 {
-	va_list	ap2;
-	size_t	d_copy;
+	int	d_copy;
 
-	va_copy(ap2, ap);
-	d_copy = va_arg(ap2, int);
+	d_copy = va_arg(ap, int);
 	l_flags->width = ft_itoa(d_copy);
-	va_end(ap2);
 }
+
+/*
+ ** Check width and width precision
+ ** get width from string or from asterisk
+*/
 
 void	is_specification(t_flags *l_flags, va_list ap,
 		char const *fmt, size_t *i)
@@ -46,7 +45,7 @@ void	is_specification(t_flags *l_flags, va_list ap,
 		if (fmt[*i] == '.')
 		{
 			if (fmt[*i - 1] == '*')
-				asterisk_precision_specification_w(l_flags, ap);
+				asterisk_width(l_flags, ap);
 			if (l_flags->point >= 1)
 				l_flags->point = 2;
 			else
@@ -54,14 +53,14 @@ void	is_specification(t_flags *l_flags, va_list ap,
 				*i = *i + 1;
 				l_flags->point = 1;
 				if (fmt[*i] >= '0' && fmt[*i] <= '9')
-					l_flags->width_specification = width_string(fmt, i);
-				else if (fmt[*i] == '*' && l_flags->width_specification == 0)
+					l_flags->width_precision = width_string(fmt, i);
+				else if (fmt[*i] == '*' && l_flags->width_precision == 0)
 				{
-					asterisk_precision_specification_wd(l_flags, ap);
+					asterisk_precision_wd(l_flags, ap);
 					*i = *i + 1;
 				}
 				else
-					l_flags->width_specification = 0;
+					l_flags->width_precision = 0;
 			}
 		}
 	}

@@ -6,13 +6,13 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 18:39:51 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/02 11:07:14 by gchopin          ###   ########.fr       */
+/*   Updated: 2021/04/12 14:54:52 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-ssize_t	print_w_spec(ssize_t width, ssize_t sum, char c)
+ssize_t	print_w_spec(int width, ssize_t sum, char c)
 {
 	ssize_t	nb_value;
 
@@ -29,7 +29,7 @@ ssize_t	print_w_spec(ssize_t width, ssize_t sum, char c)
 	return (nb_value);
 }
 
-ssize_t	print_width_d(ssize_t width, int d, char c)
+ssize_t	print_width_d(int width, int d, char c)
 {
 	ssize_t	i;
 	ssize_t	nb_value;
@@ -49,7 +49,7 @@ ssize_t	print_width_d(ssize_t width, int d, char c)
 	return (nb_value);
 }
 
-ssize_t	print_width_u(ssize_t width, unsigned int d, char c)
+ssize_t	print_width_u(int width, unsigned int d, char c)
 {
 	ssize_t	i;
 	ssize_t	nb_value;
@@ -69,7 +69,7 @@ ssize_t	print_width_u(ssize_t width, unsigned int d, char c)
 	return (nb_value);
 }
 
-ssize_t	print_width_s(ssize_t width, char *s, char c)
+ssize_t	print_width_s(int width, char *s, char c)
 {
 	ssize_t	i;
 	ssize_t	nb_value;
@@ -89,7 +89,7 @@ ssize_t	print_width_s(ssize_t width, char *s, char c)
 	return (nb_value);
 }
 
-ssize_t	print_width_c(ssize_t width, unsigned char c)
+ssize_t	print_width_c(int width, unsigned char c)
 {
 	ssize_t	i;
 	ssize_t	nb_value;

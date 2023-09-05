@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 10:58:38 by gchopin           #+#    #+#             */
-/*   Updated: 2020/09/11 14:43:51 by gchopin          ###   ########.fr       */
+/*   Updated: 2021/04/12 17:26:03 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ ssize_t		check_flags_one_d(t_flags *l_flags, int d)
 	ssize_t	w_spec;
 
 	width = ft_atoi(l_flags->width);
-	w_spec = ft_atoi(l_flags->width_specification);
+	w_spec = ft_atoi(l_flags->width_precision);
 	nb_print = 0;
 	if (l_flags->zero == 1 && l_flags->minus == 0 && l_flags->point == 0)
 		return (nb_print += print_zero_d(&width, d));
@@ -67,10 +67,8 @@ ssize_t		print_d(t_flags *l_flags, va_list ap)
 	result = 0;
 	if (l_flags->asterisk == 1)
 		get_one_star(l_flags, ap);
-	else if (l_flags->asterisk == 2)
-		get_two_stars(l_flags, ap);
 	value = va_arg(ap, int);
-	result = check_min_max_value(l_flags);
+	result = check_min_max_value_all(l_flags);
 	if (result == 0)
 	{
 		result += check_flags_one_d(l_flags, value);

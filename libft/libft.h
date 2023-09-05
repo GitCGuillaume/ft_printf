@@ -6,7 +6,7 @@
 /*   By: gchopin <gchopin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/02 16:54:47 by gchopin           #+#    #+#             */
-/*   Updated: 2020/08/14 19:28:22 by gchopin          ###   ########.fr       */
+/*   Updated: 2021/04/12 22:36:52 by gchopin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void			ft_putstr_fd(char *s, int fd);
 void			ft_putstr_pr_fd(char *s, ssize_t *nb_print, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(ssize_t n, ssize_t *nb_print, int fd);
+void			ft_putnbr_fd_u(size_t n, ssize_t *nb_print, int fd);
 t_list			*ft_lstnew(void *content);
 void			ft_lstadd_front(t_list **alst, t_list *new);
 int				ft_lstsize(t_list *lst);
