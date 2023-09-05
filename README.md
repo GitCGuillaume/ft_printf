@@ -5,6 +5,7 @@
 
 Ce projet permet de réécrire la fonction printf avec différents drapeaux de formatage,
 incluant largeur et précision
+
 Liste de conversion possible : 
 * c
 * s
