@@ -1,6 +1,7 @@
 # Projet printf
 
-(https://github.com/GitCGuillaume/ft_printf/tree/master/picture/screen.jpg)
+![screen](https://github.com/GitCGuillaume/ft_printf/assets/34135668/f5de00ac-2cd3-4806-b434-cadf43074b4c)
+
 
 Ce projet permet de réecrire la fonction printf avec différents drapeau de formattage,
 incluant largeur et précision
