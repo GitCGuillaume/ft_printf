@@ -15,4 +15,5 @@ Liste de conversion possible :
 * x
 * X
 * %
+
 En combinant avec rembourrage 0, .(précision) et largeur.
